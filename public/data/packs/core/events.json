@@ -1,0 +1,3410 @@
+[
+ {
+  "id": "vila_mural",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "bioma": [
+    "vila"
+   ]
+  },
+  "texto": "{$local.nome} acorda aos poucos. No mural da praça, cartazes velhos prometem recompensas que ninguém reclama.",
+  "opcoes": [
+   {
+    "rotulo": "Ler os cartazes com atenção",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Entre os avisos, uma dica sobre onde caravanas costumam perder carga. Vale ouro.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você anota o que consegue entender. Pouco, mas algo.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você perde tempo decifrando rabiscos e volta com dor de cabeça.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você deixa o mural para quem tem mais paciência.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "vila_mendigo",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "vila"
+   ]
+  },
+  "texto": "Um velho de olhos leitosos estende a mão. “Uma moeda por um conselho, {$heroi.nome}?” Ele sabe seu nome.",
+  "opcoes": [
+   {
+    "rotulo": "Dar uma moeda",
+    "resultado": {
+     "texto": "“Cuidado com o que se afoga e ainda toca”, diz ele, e ri sozinho. Algo lhe diz que isso importa.",
+     "efeitos": [
+      {
+       "ouro": -1
+      },
+      {
+       "xp": 2
+      },
+      {
+       "flag": "conselho_do_velho"
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 1
+    }
+   },
+   {
+    "rotulo": "Convencê-lo a falar de graça",
+    "teste": "presenca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Ele suspira e conta um segredo antigo sobre um tesouro em ruínas.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "flag": "conselho_do_velho"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ele murmura algo sem sentido e vira o rosto.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ele cospe no chão. A vizinhança olha torto para você.",
+     "efeitos": [
+      {
+       "xp": 0
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você finge não ouvir e atravessa a praça.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "vila_forja",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "vila"
+   ]
+  },
+  "texto": "O ferreiro da vila martela sem descanso. Num canto, uma caixa de sucata promete algo útil.",
+  "opcoes": [
+   {
+    "rotulo": "Revirar a sucata",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Debaixo de ferro velho, algo ainda bom.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "item": {
+        "slot": "arma"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Só alguns trocados em pregos e dobradiças.",
+     "efeitos": [
+      {
+       "ouro": "1d4"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você corta a mão numa lâmina enferrujada.",
+     "efeitos": [
+      {
+       "dano": "1d3"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Pedir um serviço ao ferreiro",
+    "resultado": {
+     "texto": "Ele afia suas armas por uma moeda e resmunga algo sobre rapazes e garotas de hoje.",
+     "efeitos": [
+      {
+       "ouro": -1
+      },
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 1
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "estrada_carroca",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "estrada"
+   ]
+  },
+  "texto": "Uma carroça tombada bloqueia parte do caminho. {estranho_na_estrada}",
+  "opcoes": [
+   {
+    "rotulo": "Vasculhar a carga",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Debaixo de sacos rasgados, algo de valor ficou para trás.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "item": {}
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Quase tudo foi levado. Sobram algumas moedas.",
+     "efeitos": [
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Uma tábua solta cai sobre sua mão.",
+     "efeitos": [
+      {
+       "dano": "1d4"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Forçar o baú com o pé de cabra",
+    "resultado": {
+     "texto": "A tranca cede com um estalo. Dentro, o saque de alguém menos sortudo.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {
+        "slot": "consumivel"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "pe_de_cabra"
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "estrada_viajante_ferido",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "estrada"
+   ]
+  },
+  "texto": "Um viajante coxeia à beira da estrada, pálido de fome. Ele evita o seu olhar.",
+  "opcoes": [
+   {
+    "rotulo": "Dividir uma ração",
+    "resultado": {
+     "texto": "Ele come devagar e, em troca, indica um atalho e lhe entrega alguns trocados.",
+     "efeitos": [
+      {
+       "perder_item_tag": "racao"
+      },
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "racao"
+    }
+   },
+   {
+    "rotulo": "Pedir notícias, sem dar nada",
+    "teste": "presenca",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Ele conta o que sabe sobre a estrada: bandidos ao norte, lobos à noite.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ele diz pouco e vira de costas.",
+     "efeitos": [
+      {
+       "xp": 0
+      }
+     ]
+    },
+    "falha": {
+     "texto": "“Vá embora”, rosna ele, e te empurra.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "estrada_bandidos",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "estrada"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Dois vultos saem do mato. “A bolsa ou a vida, {$heroi.nome}.”",
+  "opcoes": [
+   {
+    "rotulo": "Sacar a arma e lutar",
+    "resultado": {
+     "texto": "Você enfrenta o primeiro.",
+     "efeitos": [
+      {
+       "combate": "bandido"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Blefar e intimidar",
+    "teste": "presenca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Os dois recuam, resmungando. Você ganha a estrada, e algo que um deles deixou cair.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Eles aceitam um pedágio e somem.",
+     "efeitos": [
+      {
+       "ouro": -3
+      },
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O blefe falha. O primeiro ataca.",
+     "efeitos": [
+      {
+       "combate": "bandido"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Correr para o mato",
+    "resultado": {
+     "texto": "Você corre. Galhos arranham, mas ninguém o segue por muito tempo.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "estrada_marco",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "bioma": [
+    "estrada"
+   ]
+  },
+  "texto": "Um marco de pedra, meio coberto de musgo, marca uma légua. Alguém riscou nele o desenho de um olho.",
+  "opcoes": [
+   {
+    "rotulo": "Examinar o desenho",
+    "resultado": {
+     "texto": "Gravado de leve, o olho parece observar de volta. Você sente um arrepio, e uma intuição.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "diario": "Vi um olho riscado num marco da estrada."
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você passa direto, mas o olho parece acompanhá-lo.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "estrada_estalagem_abandonada",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "estrada"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Uma estalagem sem telhado, sem dono, sem fumaça. A porta bate ao vento.",
+  "opcoes": [
+   {
+    "rotulo": "Entrar com cuidado",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "No porão, um barril lacrado e uma bolsa esquecida.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d4"
+      },
+      {
+       "item": {
+        "base": "racao"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Só há poeira e uma moeda perdida.",
+     "efeitos": [
+      {
+       "ouro": "1d3"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O piso podre cede sob seu peso.",
+     "efeitos": [
+      {
+       "dano": "1d4"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Acender uma tocha e vasculhar o andar de cima",
+    "resultado": {
+     "texto": "Com a luz, você vê o que o escuro escondia: um cofre improvisado sob uma tábua.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d6"
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "tocha"
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "estrada_pegadas_uivo",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "estrada"
+   ],
+   "sem_fio": "lobo_alfa",
+   "sem_flag": "lobo_visto",
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Uivos distantes rasgam o fim da tarde. Na lama da estrada, marcas largas demais para um lobo comum.",
+  "opcoes": [
+   {
+    "rotulo": "Seguir as marcas por um trecho",
+    "resultado": {
+     "texto": "Elas desaparecem na direção da floresta. Você sente que está sendo medido.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "fio": "lobo_alfa"
+      },
+      {
+       "flag": "lobo_visto"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Melhor não despertar o que dorme.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_ponte_podre",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta",
+    "pantano"
+   ]
+  },
+  "texto": "Um riacho corta o caminho. A única ponte é um tronco podre. {som_floresta}",
+  "opcoes": [
+   {
+    "rotulo": "Atravessar com cuidado",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você chega ao outro lado sem um arranhão.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Uma tábua cede; você se agarra e perde o fôlego.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O tronco desaba sob seus pés.",
+     "efeitos": [
+      {
+       "dano": "1d6"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Amarrar a corda e atravessar",
+    "resultado": {
+     "texto": "Lento, mas seguro.",
+     "efeitos": [
+      {
+       "tempo": 1
+      },
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "corda"
+    }
+   },
+   {
+    "rotulo": "Voltar e contornar",
+    "resultado": {
+     "texto": "Horas perdidas no mato.",
+     "efeitos": [
+      {
+       "tempo": 1
+      },
+      {
+       "energia": -1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_cogumelos",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta"
+   ]
+  },
+  "texto": "Um círculo de cogumelos pálidos brilha no pé de uma árvore velha.",
+  "opcoes": [
+   {
+    "rotulo": "Colher com cuidado",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você reconhece as espécies certas e guarda ervas valiosas.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "item": {
+        "base": "erva"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você colhe pouco, só o que tem certeza que é seguro.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Um dos cogumelos solta esporos amargos. Sua cabeça gira.",
+     "efeitos": [
+      {
+       "energia": -1
+      },
+      {
+       "dano": "1d3"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_caçador",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta"
+   ]
+  },
+  "texto": "Uma caçadora de olhar cansado limpa uma lebre junto a uma fogueira baixa. “Procurando algo, forasteiro?”",
+  "opcoes": [
+   {
+    "rotulo": "Sentar e trocar histórias",
+    "resultado": {
+     "texto": "Ela divide o que tem e conta de armadilhas que evitar. Você parte com os ouvidos cheios.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "1d4"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Barganhar um item",
+    "teste": "presenca",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Ela troca uma peça do saco por duas moedas e um sorriso.",
+     "efeitos": [
+      {
+       "ouro": -2
+      },
+      {
+       "item": {
+        "slot": "arma"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ela recusa, mas acena com respeito.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ela fecha a cara e pede que você vá embora.",
+     "efeitos": [
+      {
+       "xp": 0
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 2
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você agradece e continua, o cheiro de assado ficando para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_aranha",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta"
+   ]
+  },
+  "texto": "Fios brancos cobrem os galhos. Algo grande se mexe lá em cima.",
+  "opcoes": [
+   {
+    "rotulo": "Recuar devagar",
+    "resultado": {
+     "texto": "Você dá a volta, o coração batendo alto.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Cortar a teia e passar",
+    "teste": "forca",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você abre caminho antes que a criatura reaja.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "A teia prende seu braço; você se solta, ofegante.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "A aranha desce. Não há mais como fugir.",
+     "efeitos": [
+      {
+       "combate": "aranha_gigante"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Queimar a teia com a tocha",
+    "resultado": {
+     "texto": "As chamas devoram os fios. A aranha foge, chiando, e você ganha caminho.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "tocha"
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_pegadas_enormes",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta"
+   ],
+   "sem_fio": "lobo_alfa",
+   "sem_flag": "lobo_visto"
+  },
+  "texto": "Na clareira, a terra está revolvida e marcada por pegadas enormes. Há pelos grossos presos numa casca.",
+  "opcoes": [
+   {
+    "rotulo": "Estudar as marcas",
+    "resultado": {
+     "texto": "Um lobo, e um grande. Você ouve um uivo curto ao longe. Ele sabe que você está aqui.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "fio": "lobo_alfa"
+      },
+      {
+       "flag": "lobo_visto"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Melhor deixar quieto o que quer que tenha passado aqui.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_arvore_oca",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta"
+   ]
+  },
+  "texto": "Uma árvore morta, oca por dentro, guarda um escudo de couro, um pote e pouca coisa mais. Alguém escondeu isto aqui.",
+  "opcoes": [
+   {
+    "rotulo": "Alcançar o fundo do oco",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Seu braço encontra uma bolsa de moedas e um objeto bem embrulhado.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {}
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você tira só o pote, com algumas moedas dentro.",
+     "efeitos": [
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Algo morde seu dedo no escuro. Você puxa o braço, xingando.",
+     "efeitos": [
+      {
+       "dano": "1d3"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "floresta_javali",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "floresta"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Um grunhido grave. Um javali gigante, de presas sujas, cava a terra e o encara.",
+  "opcoes": [
+   {
+    "rotulo": "Enfrentar a fera",
+    "resultado": {
+     "texto": "Ele investe.",
+     "efeitos": [
+      {
+       "combate": "javali"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Subir numa árvore",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você escala a tempo. O javali bufa e perde o interesse.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você sobe, mas ele arranha sua perna antes.",
+     "efeitos": [
+      {
+       "dano": "1d3"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você escorrega. O javali não perdoa.",
+     "efeitos": [
+      {
+       "combate": "javali"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Recuar sem fazer barulho",
+    "resultado": {
+     "texto": "Passo a passo, você se afasta. A fera apenas observa.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "pantano_corpo_bote",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "pantano"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Um bote meio afundado, preso entre raízes. {cheiro_pantano}",
+  "opcoes": [
+   {
+    "rotulo": "Vasculhar o bote",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Sob a lama, uma caixa lacrada e uma bolsa molhada.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {}
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Só uma bota velha e uma moeda.",
+     "efeitos": [
+      {
+       "ouro": "1d4"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "A água se agita. Algo agarra seu tornozelo.",
+     "efeitos": [
+      {
+       "dano": "1d4"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "pantano_sanguessugas",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo"
+  ],
+  "requer": {
+   "bioma": [
+    "pantano"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "O caminho é só água escura até a canela. Algo se mexe sob a superfície.",
+  "opcoes": [
+   {
+    "rotulo": "Atravessar rápido",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você sai da água antes que algo reaja.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você sai com as pernas ardendo.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Uma sanguessuga colossal se desprende da lama.",
+     "efeitos": [
+      {
+       "combate": "sanguessuga"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Procurar um desvio por terra firme",
+    "resultado": {
+     "texto": "Mais longo, mais seco, mais seguro.",
+     "efeitos": [
+      {
+       "tempo": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Fazer um caminho com a corda e troncos",
+    "resultado": {
+     "texto": "Você improvisa uma passagem e cruza sem tocar na água.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "corda"
+    }
+   }
+  ]
+ },
+ {
+  "id": "pantano_sino",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "pantano"
+   ],
+   "sem_fio": "sino_afogado",
+   "sem_flag": "sino_ouvido",
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Um som grave sobe da água: um sino. Mas não há torre, nem vila, só lama e névoa.",
+  "opcoes": [
+   {
+    "rotulo": "Ouvir com atenção",
+    "resultado": {
+     "texto": "Ele toca de novo, de baixo da superfície, e algo dentro de você responde. Você sabe que terá de voltar.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "fio": "sino_afogado"
+      },
+      {
+       "flag": "sino_ouvido"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você se afasta, mas o som o acompanha por um longo tempo.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "pantano_afogado",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "pantano"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Uma silhueta se levanta da água, escorrendo, de olhos opacos. Ela caminha na sua direção.",
+  "opcoes": [
+   {
+    "rotulo": "Preparar-se para lutar",
+    "resultado": {
+     "texto": "Ele avança, arrastando os pés.",
+     "efeitos": [
+      {
+       "combate": "morto_afogado"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Recuar e usar o terreno",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você o atrai para um trecho de lama funda. Ele afunda e desaparece.",
+     "efeitos": [
+      {
+       "xp": 3
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você ganha distância, mas ele o segue por um tempo.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você tropeça. A mão fria do morto se fecha no seu braço.",
+     "efeitos": [
+      {
+       "combate": "morto_afogado"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "pantano_ervas",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "pantano"
+   ]
+  },
+  "texto": "Entre os juncos, folhas de um verde-escuro crescem em tufos. Os pescadores dizem que fecham feridas.",
+  "opcoes": [
+   {
+    "rotulo": "Colher",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você reconhece a erva certa e leva um punhado.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "item": {
+        "base": "erva"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você colhe e não sabe se é a certa.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "As folhas queimam sua pele. Era a erva errada.",
+     "efeitos": [
+      {
+       "dano": "1d3"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "pantano_aldeia_pescador",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "pantano"
+   ],
+   "local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Entre as palafitas, um pescador remenda redes e canta baixo. “Peixe seco por moeda, ou história por peixe.”",
+  "opcoes": [
+   {
+    "rotulo": "Comprar peixe seco",
+    "resultado": {
+     "texto": "Seu estômago agradece. O gosto é horrível, mas ajuda.",
+     "efeitos": [
+      {
+       "ouro": -2
+      },
+      {
+       "item": {
+        "base": "racao"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 2
+    }
+   },
+   {
+    "rotulo": "Contar uma história em troca",
+    "resultado": {
+     "texto": "Ele ri nos lugares certos e lhe dá uma ração de peixe seco.",
+     "efeitos": [
+      {
+       "item": {
+        "base": "racao"
+       }
+      },
+      {
+       "xp": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "montanha_desabamento",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo"
+  ],
+  "requer": {
+   "bioma": [
+    "montanha"
+   ]
+  },
+  "texto": "O vento arranca pedrinhas das encostas. Um estrondo ao longe anuncia que a montanha também está acordada.",
+  "opcoes": [
+   {
+    "rotulo": "Correr para o abrigo mais próximo",
+    "teste": "agilidade",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você alcança uma fenda a tempo. A avalanche passa rugindo.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Uma pedra raspa seu ombro; você se esconde ofegante.",
+     "efeitos": [
+      {
+       "dano": "1d3"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você é pego pela avalanche de cascalho.",
+     "efeitos": [
+      {
+       "dano": "1d8"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Se proteger sob uma saliência e esperar",
+    "resultado": {
+     "texto": "Cerrar os dentes e esperar. Passa, mas custa suor.",
+     "efeitos": [
+      {
+       "energia": -1
+      },
+      {
+       "tempo": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "montanha_ninho",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "montanha"
+   ]
+  },
+  "texto": "Um ninho de águia vazio num penhasco brilha com algo metálico.",
+  "opcoes": [
+   {
+    "rotulo": "Escalar até o ninho",
+    "teste": "agilidade",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Entre as penas, um anel esquecido e ouro caído de uma caravana antiga.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {
+        "slot": "amuleto"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você alcança o ninho e pega só um punhado de moedas.",
+     "efeitos": [
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O apoio cede. Você despenca alguns metros.",
+     "efeitos": [
+      {
+       "dano": "1d6"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Subir com a corda",
+    "resultado": {
+     "texto": "Com a corda presa, a escalada é segura e o butim é todo seu.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {
+        "slot": "amuleto"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "corda"
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "montanha_troll",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "montanha"
+   ],
+   "sem_local_tags": [
+    "caverna"
+   ]
+  },
+  "texto": "Uma pedra se levanta, grande demais, e abre dois olhos amarelos. O chão treme com seus passos.",
+  "opcoes": [
+   {
+    "rotulo": "Enfrentar o monstro",
+    "resultado": {
+     "texto": "Ele ruge, e a luta começa.",
+     "efeitos": [
+      {
+       "combate": "troll_das_pedras"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Fugir pelas pedras soltas",
+    "teste": "agilidade",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você escapa por uma fresta que ele não cabe.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você corre até perder o fôlego, mas o ouve ficando para trás.",
+     "efeitos": [
+      {
+       "energia": -2
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você tropeça e ele o alcança.",
+     "efeitos": [
+      {
+       "combate": "troll_das_pedras"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "montanha_eremita",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "montanha"
+   ]
+  },
+  "texto": "Um eremita barbudo aquece as mãos sobre uma fogueira de gravetos. “Frio o bastante para quebrar ossos hoje, não acha?”",
+  "opcoes": [
+   {
+    "rotulo": "Aceitar o calor da fogueira",
+    "resultado": {
+     "texto": "Você se aquece. Ele não diz mais nada, mas deixa uma moeda de ferro no seu bolso.",
+     "efeitos": [
+      {
+       "energia": 1
+      },
+      {
+       "xp": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Pedir um conselho",
+    "teste": "presenca",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Ele aponta o melhor caminho e revela um perigo adiante.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ele resmunga uma profecia confusa.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ele se levanta, irritado: “Fora daqui!”",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "montanha_cabra",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "bioma": [
+    "montanha"
+   ]
+  },
+  "texto": "Uma cabra montesa o observa de um penedo, imóvel. {vento_montanha}",
+  "opcoes": [
+   {
+    "rotulo": "Descansar um instante olhando as cumeadas",
+    "resultado": {
+     "texto": "Você respira fundo. O mundo é grande e frio, mas também bonito.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "diario": "Vi o mundo de cima, no alto da montanha."
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "ruinas_porta_selada",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "ruinas"
+   ]
+  },
+  "texto": "Uma porta de pedra com runas desbotadas, selada. {eco_ruina}",
+  "opcoes": [
+   {
+    "rotulo": "Decifrar as runas",
+    "teste": "mente",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "As runas se encaixam. A porta cede e revela uma câmara.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "item": {
+        "slot": "amuleto"
+       }
+      },
+      {
+       "ouro": "2d6"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você decifra metade. Uma fresta se abre, com pouca coisa dentro.",
+     "efeitos": [
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "A pedra emite um choque.",
+     "efeitos": [
+      {
+       "dano": "1d6"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Abrir à força com o pé de cabra",
+    "resultado": {
+     "texto": "A pedra racha, e a câmara se mostra.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {
+        "slot": "arma"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "pe_de_cabra"
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você deixa o selo como o encontrou.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "ruinas_esqueleto",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "ruinas"
+   ]
+  },
+  "texto": "Ossos antigos se mexem num canto, e um crânio sorri sem lábios.",
+  "opcoes": [
+   {
+    "rotulo": "Enfrentar o morto",
+    "resultado": {
+     "texto": "Ele pega uma espada enferrujada e avança.",
+     "efeitos": [
+      {
+       "combate": "esqueleto"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Passar sem acordar o resto",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você contorna as sombras sem fazer barulho.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Um osso estala sob sua bota. O morto se vira.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Os ossos se erguem num rangido.",
+     "efeitos": [
+      {
+       "combate": "esqueleto"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "ruinas_cultistas",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "ruinas"
+   ]
+  },
+  "texto": "Figuras encapuzadas entoam um canto baixo diante de um altar rachado. Uma delas se vira.",
+  "opcoes": [
+   {
+    "rotulo": "Atacar antes que terminem o ritual",
+    "resultado": {
+     "texto": "O encapuzado saca uma faca curva.",
+     "efeitos": [
+      {
+       "combate": "cultista"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Observar escondido",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você descobre o que cultuam e onde guardam as oferendas.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você ouve o bastante e se afasta devagar.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Eles notam você. Um deles avança.",
+     "efeitos": [
+      {
+       "combate": "cultista"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Sair sem ser notado",
+    "resultado": {
+     "texto": "O canto continua enquanto você se afasta.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "ruinas_biblioteca",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "ruinas"
+   ]
+  },
+  "texto": "O que resta de uma biblioteca: estantes tombadas, páginas ainda legíveis sob o pó.",
+  "opcoes": [
+   {
+    "rotulo": "Procurar um volume intacto",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Um grimório com anotações de um mago esquecido. Valioso e perigoso.",
+     "efeitos": [
+      {
+       "xp": 2
+      },
+      {
+       "item": {
+        "base": "grimorio"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Algumas páginas soltas ainda ensinam algo.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "falha": {
+     "texto": "As páginas se desfazem em pó, e você tosse até chorar.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "ruinas_herdeiro_pedra",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "ruinas"
+   ],
+   "sem_fio": "herdeiro_perdido",
+   "sem_flag": "herdeiro_conhecido"
+  },
+  "texto": "Gravado numa parede, o brasão de uma casa extinta. A seu pé, um cavaleiro morto segura uma carta selada, endereçada a um filho.",
+  "opcoes": [
+   {
+    "rotulo": "Pegar a carta e prometer cumpri-la",
+    "resultado": {
+     "texto": "Há um nome e um lugar. Você promete, em voz baixa, encontrar o herdeiro.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "fio": "herdeiro_perdido"
+      },
+      {
+       "flag": "herdeiro_conhecido"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você deixa o morto em paz.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "costa_naufragio",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "descoberta"
+  ],
+  "requer": {
+   "bioma": [
+    "costa"
+   ]
+  },
+  "texto": "A maré baixa expõe o casco de um navio encalhado. {gaivota_som}",
+  "opcoes": [
+   {
+    "rotulo": "Entrar no casco",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Em um camarote alagado, você encontra um baú inchado.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {}
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Quase tudo foi levado. Sobram moedas.",
+     "efeitos": [
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Madeira velha cede. Você corta a perna.",
+     "efeitos": [
+      {
+       "dano": "1d4"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Usar o pé de cabra no baú trancado",
+    "resultado": {
+     "texto": "A tranca estala, e o baú cede.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "2d6"
+      },
+      {
+       "item": {
+        "slot": "armadura"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "pe_de_cabra"
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "costa_caranguejo",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "perigo",
+   "combate"
+  ],
+  "requer": {
+   "bioma": [
+    "costa"
+   ],
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Nas pedras molhadas, uma pinça do tamanho de um escudo se abre e fecha.",
+  "opcoes": [
+   {
+    "rotulo": "Enfrentar o caranguejo",
+    "resultado": {
+     "texto": "Ele corre de lado, mais rápido do que parece.",
+     "efeitos": [
+      {
+       "combate": "caranguejo_gigante"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Passar por cima das rochas",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você pula de rocha em rocha e deixa a pinça no vazio.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "A pinça raspa suas botas, mas você passa.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "A pinça se fecha no seu pé.",
+     "efeitos": [
+      {
+       "combate": "caranguejo_gigante"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "costa_contrabandistas",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "costa"
+   ],
+   "sem_fio": "divida_contrabandista",
+   "sem_flag": "devedor",
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Numa enseada escondida, homens descarregam caixas sem marca. Um deles ergue a mão. “Você aí. Quer ganhar umas moedas?”",
+  "opcoes": [
+   {
+    "rotulo": "Aceitar o serviço (e o risco)",
+    "resultado": {
+     "texto": "Você carrega caixas. Ao final, ele lhe dá moedas e um aviso: “Agora você me deve uma.”",
+     "efeitos": [
+      {
+       "ouro": "2d6"
+      },
+      {
+       "xp": 1
+      },
+      {
+       "fio": "divida_contrabandista"
+      },
+      {
+       "flag": "devedor"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Recusar com firmeza",
+    "teste": "presenca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Ele ri e deixa você ir, não sem antes anotar o seu rosto.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ele cospe no chão e volta ao trabalho.",
+     "efeitos": [
+      {
+       "xp": 0
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ele faz um sinal. Os homens se aproximam.",
+     "efeitos": [
+      {
+       "combate": "contrabandista"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "costa_maré_garrafa",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "bioma": [
+    "costa"
+   ]
+  },
+  "texto": "Uma garrafa de vidro verde rola na espuma. Dentro, um pergaminho molhado.",
+  "opcoes": [
+   {
+    "rotulo": "Abrir e ler",
+    "resultado": {
+     "texto": "Metade das palavras borradas. A outra metade fala de um farol e de luzes que não deveriam existir.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "diario": "Li uma carta numa garrafa sobre o farol."
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você devolve a garrafa ao mar.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "costa_porto_mercado",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {
+   "bioma": [
+    "costa"
+   ],
+   "local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "No cais, vendedores gritam preços. Uma mulher de olhar astuto oferece algo debaixo do balcão.",
+  "opcoes": [
+   {
+    "rotulo": "Comprar um item suspeito",
+    "resultado": {
+     "texto": "Ela entrega um embrulho, sem dizer de onde veio.",
+     "efeitos": [
+      {
+       "ouro": -6
+      },
+      {
+       "item": {
+        "slot": "amuleto"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 6
+    }
+   },
+   {
+    "rotulo": "Barganhar fundo",
+    "teste": "presenca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você arranca uma pechincha e ainda um conselho.",
+     "efeitos": [
+      {
+       "ouro": -3
+      },
+      {
+       "item": {
+        "slot": "arma"
+       }
+      },
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ela ri e dá um desconto simbólico.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ela te manda embora a gritos.",
+     "efeitos": [
+      {
+       "xp": 0
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 3
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "generico_cansaco",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "O corpo cobra o que a estrada deu. Você olha em volta, procurando um canto onde respirar.",
+  "opcoes": [
+   {
+    "rotulo": "Parar e descansar um pouco",
+    "resultado": {
+     "texto": "Você respira fundo e recupera algo da força.",
+     "efeitos": [
+      {
+       "energia": 1
+      },
+      {
+       "tempo": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você aperta o passo, teimoso, ignorando as pernas.",
+     "efeitos": [
+      {
+       "exaustao": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "generico_corvo",
+  "tipo": "exploracao",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "sem_local_tags": [
+    "seguro"
+   ]
+  },
+  "texto": "Um corvo pousa perto e inclina a cabeça, como quem espera algo.",
+  "opcoes": [
+   {
+    "rotulo": "Jogar-lhe um farelo de ração",
+    "resultado": {
+     "texto": "O corvo pega, grasna e voa. Você jura que ele sorriu.",
+     "efeitos": [
+      {
+       "perder_item_tag": "racao"
+      },
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "racao"
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "O corvo grasna e o segue por um tempo, depois desiste.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "generico_sonho",
+  "tipo": "exploracao",
+  "peso": 1,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "sem_local_tags": [
+    "seguro"
+   ],
+   "periodo": [
+    "noite",
+    "madrugada"
+   ]
+  },
+  "texto": "A noite pesa. Entre um passo e outro você vê, por um instante, uma figura que acompanha seus passos.",
+  "opcoes": [
+   {
+    "rotulo": "Encarar a figura",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Ela se desfaz em névoa. Você sente que passou num teste que não entendeu.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ela some. Você hesita, mas segue.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você a encara tempo demais. Algo em você muda.",
+     "efeitos": [
+      {
+       "traco": "assombrado"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_chuva",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "clima": [
+    "chuva"
+   ]
+  },
+  "texto": "A chuva engrossa. A trilha vira lama e cada passo custa o dobro.",
+  "opcoes": [
+   {
+    "rotulo": "Seguir apesar da chuva",
+    "teste": "forca",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você chega encharcado, mas inteiro.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você escorrega e perde o ritmo.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você cai de mau jeito.",
+     "efeitos": [
+      {
+       "dano": "1d3"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Esperar a chuva diminuir",
+    "resultado": {
+     "texto": "Você se abriga sob um beiral e perde tempo.",
+     "efeitos": [
+      {
+       "tempo": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_nevoa",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "clima": [
+    "nevoa"
+   ]
+  },
+  "texto": "A névoa engole o caminho. Você anda guiado só pelo som dos próprios passos.",
+  "opcoes": [
+   {
+    "rotulo": "Seguir pelo instinto",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você sente o caminho e emerge no ponto certo.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você erra uma bifurcação e perde tempo.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você anda em círculo e sai exausto.",
+     "efeitos": [
+      {
+       "energia": -1
+      },
+      {
+       "exaustao": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Aguardar a névoa abrir",
+    "resultado": {
+     "texto": "Você espera, sentindo olhos invisíveis.",
+     "efeitos": [
+      {
+       "tempo": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_carroceiro",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {},
+  "texto": "Um carroceiro sonolento oferece carona por um trecho. “Só não faça perguntas sobre a carga.”",
+  "opcoes": [
+   {
+    "rotulo": "Aceitar a carona",
+    "resultado": {
+     "texto": "Você viaja sentado, o corpo agradece. A carga se mexe sob a lona, e você decide não perguntar.",
+     "efeitos": [
+      {
+       "energia": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Recusar e seguir a pé",
+    "resultado": {
+     "texto": "Ele dá de ombros e chicoteia os bois.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_ladrao_noite",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "perigo"
+  ],
+  "requer": {
+   "periodo": [
+    "noite",
+    "madrugada"
+   ]
+  },
+  "texto": "No escuro, uma mão tenta alcançar sua bolsa.",
+  "opcoes": [
+   {
+    "rotulo": "Reagir rápido",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você agarra o punho do ladrão. Ele solta um palavrão e foge.",
+     "efeitos": [
+      {
+       "xp": 2
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ele escapa com algumas moedas.",
+     "efeitos": [
+      {
+       "ouro": -2
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ele foge com uma bolsa mais leve e você, com um corte.",
+     "efeitos": [
+      {
+       "ouro": -4
+      },
+      {
+       "dano": "1d3"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Soltar a bolsa e deixar passar",
+    "resultado": {
+     "texto": "Você perde algo, mas ele logo vai embora.",
+     "efeitos": [
+      {
+       "ouro": -1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_rastro_sangue",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {},
+  "texto": "Um rastro de sangue seco atravessa o caminho. Alguém, ou algo, foi arrastado.",
+  "opcoes": [
+   {
+    "rotulo": "Seguir o rastro",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "No fim, os restos de um viajante e a bolsa dele.",
+     "efeitos": [
+      {
+       "xp": 1
+      },
+      {
+       "ouro": "1d6"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "O rastro some numa poça escura. Você volta.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O que arrastou o corpo ainda está por perto.",
+     "efeitos": [
+      {
+       "dano": "1d4"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você contorna o rastro, olhando para trás de vez em quando.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_ponte_estreita",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "perigo"
+  ],
+  "requer": {},
+  "texto": "Uma passarela estreita sobre um barranco. Lá embaixo, a água corre rápido.",
+  "opcoes": [
+   {
+    "rotulo": "Atravessar em equilíbrio",
+    "teste": "agilidade",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "Você chega ao outro lado, o coração disparado.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você passa, mas treme.",
+     "efeitos": [
+      {
+       "energia": -1
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Você escorrega e despenca na margem.",
+     "efeitos": [
+      {
+       "dano": "1d6"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Prender a corda e atravessar seguro",
+    "resultado": {
+     "texto": "A corda trabalha por você.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "corda"
+    }
+   },
+   {
+    "rotulo": "Procurar outro caminho",
+    "resultado": {
+     "texto": "Mais um dia perdido.",
+     "efeitos": [
+      {
+       "tempo": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_sombra_ceu",
+  "tipo": "viagem",
+  "peso": 2,
+  "tags": [
+   "atmosfera"
+  ],
+  "requer": {
+   "periodo": [
+    "tarde",
+    "noite"
+   ]
+  },
+  "texto": "Uma sombra enorme cruza o céu e some entre as nuvens. Nada que você consiga nomear.",
+  "opcoes": [
+   {
+    "rotulo": "Observar até sumir",
+    "resultado": {
+     "texto": "Nada mais acontece. Seu estômago, porém, continua em nó.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Seguir adiante",
+    "resultado": {
+     "texto": "Você segue seu caminho, sem olhar para trás.",
+     "efeitos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "viagem_peregrinos",
+  "tipo": "viagem",
+  "peso": 1,
+  "tags": [
+   "encontro"
+  ],
+  "requer": {},
+  "texto": "Um grupo de peregrinos canta uma toada triste. Eles abrem espaço, e uma idosa lhe oferece um gole de água.",
+  "opcoes": [
+   {
+    "rotulo": "Aceitar a bênção e caminhar com eles",
+    "resultado": {
+     "texto": "A caminhada com os peregrinos alivia o espírito, e você sente que algo o acompanha com boa vontade.",
+     "efeitos": [
+      {
+       "traco": "abencoado"
+      },
+      {
+       "xp": 1
+      }
+     ]
+    },
+    "requer": {
+     "sem_traco": "abencoado"
+    }
+   },
+   {
+    "rotulo": "Agradecer e seguir",
+    "resultado": {
+     "texto": "Eles acenam. Você segue, com a boca doce.",
+     "efeitos": [
+      {
+       "xp": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "lobo_alfa_confronto",
+  "tipo": "fio",
+  "peso": 1,
+  "tags": [
+   "fio"
+  ],
+  "requer": {},
+  "texto": "O uivo vem de todos os lados. Das sombras surge o lobo alfa, grande como um cavalo, de olhos como brasas. Os outros recuam. Esta luta é sua.",
+  "opcoes": [
+   {
+    "rotulo": "Enfrentar o alfa de frente",
+    "teste": "forca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você o derruba com um golpe certeiro. O alfa rosna uma última vez e recua para o escuro, derrotado. Na toca, algo brilha.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "xp": 6
+      },
+      {
+       "item": {
+        "slot": "arma",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "O alfa recua, ferido, mas você também. Na toca, resta um presente do bando.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "dano": "1d4"
+      },
+      {
+       "xp": 4
+      },
+      {
+       "item": {
+        "slot": "armadura",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O alfa derruba você e crava as presas. Você luta para sobreviver.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "dano": "1d6"
+      },
+      {
+       "xp": 3
+      },
+      {
+       "combate": "lobo_alfa"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Oferecer comida e acalmar a matilha",
+    "teste": "presenca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você estende a ração. O alfa fareja e inclina a cabeça. A matilha se afasta. Entre as folhas, algo valioso.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "perder_item_tag": "racao"
+      },
+      {
+       "xp": 6
+      },
+      {
+       "item": {
+        "slot": "amuleto",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "O alfa aceita a ração e some. Você respira.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "perder_item_tag": "racao"
+      },
+      {
+       "xp": 4
+      }
+     ]
+    },
+    "falha": {
+     "texto": "O alfa vê fraqueza. Ele ataca.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "xp": 2
+      },
+      {
+       "combate": "lobo_alfa"
+      }
+     ]
+    },
+    "requer": {
+     "item_tag": "racao"
+    }
+   },
+   {
+    "rotulo": "Fugir",
+    "resultado": {
+     "texto": "Você corre e escapa por pouco. O uivo não o segue, mas as histórias do povo da vila mudarão sobre você.",
+     "efeitos": [
+      {
+       "resolver_fio": "lobo_alfa"
+      },
+      {
+       "exaustao": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "divida_confronto",
+  "tipo": "fio",
+  "peso": 1,
+  "tags": [
+   "fio"
+  ],
+  "requer": {},
+  "texto": "Um homem encapuzado o espera, encostado num barril. “Chegou a hora de acertarmos as contas, {$heroi.nome}.”",
+  "opcoes": [
+   {
+    "rotulo": "Pagar a dívida em ouro",
+    "resultado": {
+     "texto": "Ele conta as moedas, assente e lhe entrega algo como gorjeta. “Foi um prazer.”",
+     "efeitos": [
+      {
+       "resolver_fio": "divida_contrabandista"
+      },
+      {
+       "ouro": -8
+      },
+      {
+       "xp": 4
+      },
+      {
+       "item": {
+        "slot": "amuleto",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "requer": {
+     "ouro_min": 8
+    }
+   },
+   {
+    "rotulo": "Negociar outro tipo de pagamento",
+    "teste": "presenca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você o convence a trocar a dívida por um favor. Ele o dispensa com um aperto de mão.",
+     "efeitos": [
+      {
+       "resolver_fio": "divida_contrabandista"
+      },
+      {
+       "xp": 6
+      },
+      {
+       "item": {
+        "slot": "arma",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Ele aceita, mas leva parte de suas moedas.",
+     "efeitos": [
+      {
+       "resolver_fio": "divida_contrabandista"
+      },
+      {
+       "ouro": -4
+      },
+      {
+       "xp": 4
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Ele perde a paciência. “Então vamos acertar de outro modo.”",
+     "efeitos": [
+      {
+       "resolver_fio": "divida_contrabandista"
+      },
+      {
+       "xp": 2
+      },
+      {
+       "combate": "contrabandista"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Sacar a arma e encerrar o assunto",
+    "resultado": {
+     "texto": "A conversa acabou. Ele puxa uma faca.",
+     "efeitos": [
+      {
+       "resolver_fio": "divida_contrabandista"
+      },
+      {
+       "xp": 3
+      },
+      {
+       "combate": "contrabandista"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "sino_afogado_final",
+  "tipo": "fio",
+  "peso": 1,
+  "tags": [
+   "fio"
+  ],
+  "requer": {},
+  "texto": "Hoje o sino toca perto, muito perto. Entre os juncos, uma torre de pedra emerge da água, sineira e muda. Debaixo dela, uma coisa dorme.",
+  "opcoes": [
+   {
+    "rotulo": "Mergulhar até a torre e silenciar o sino",
+    "teste": "forca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você corta a corda do sino. O som cessa. Na lama, entre os restos de um altar, algo valioso espera.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "xp": 7
+      },
+      {
+       "item": {
+        "slot": "amuleto",
+        "raridade": "raro"
+       }
+      },
+      {
+       "traco": "abencoado"
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você cumpre o ritual, mas a água quase o leva consigo.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "dano": "1d6"
+      },
+      {
+       "xp": 5
+      },
+      {
+       "item": {
+        "slot": "armadura",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "falha": {
+     "texto": "A água o puxa. Algo o envolve, e a luta é inevitável.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "dano": "1d6"
+      },
+      {
+       "xp": 3
+      },
+      {
+       "combate": "morto_afogado"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Recitar uma prece que o velho da vila ensinou",
+    "teste": "mente",
+    "dificuldade": 0,
+    "sucesso": {
+     "texto": "A água recua. O sino se cala, e o silêncio é um presente. Você encontra um tesouro de oferendas.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "xp": 6
+      },
+      {
+       "ouro": "3d6"
+      },
+      {
+       "item": {
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "A prece funciona pela metade. O sino cala por ora.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "xp": 4
+      }
+     ]
+    },
+    "falha": {
+     "texto": "A prece soa vazia. Mãos molhadas o agarram.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "xp": 2
+      },
+      {
+       "combate": "morto_afogado"
+      }
+     ]
+    },
+    "requer": {
+     "flag": "conselho_do_velho"
+    }
+   },
+   {
+    "rotulo": "Tapar os ouvidos e se afastar",
+    "resultado": {
+     "texto": "O sino toca por mais um tempo e, enfim, se cala. Você nunca saberá o que dormia lá embaixo.",
+     "efeitos": [
+      {
+       "resolver_fio": "sino_afogado"
+      },
+      {
+       "exaustao": 1
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "herdeiro_final",
+  "tipo": "fio",
+  "peso": 1,
+  "tags": [
+   "fio"
+  ],
+  "requer": {},
+  "texto": "Numa sala lateral há uma criança de olhos arregalados, vestida com um manto que um dia foi nobre. Ela segura um brasão idêntico ao da carta. Dois cultistas guardam a porta.",
+  "opcoes": [
+   {
+    "rotulo": "Enfrentar os cultistas",
+    "teste": "forca",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Você os derruba e conduz a criança até um lugar seguro. A casa retoma seu nome, e a gratidão tem peso em ouro.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "xp": 7
+      },
+      {
+       "ouro": "3d6"
+      },
+      {
+       "item": {
+        "slot": "arma",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Você vence, mas ferido. A criança agradece com um beijo no rosto.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "dano": "1d6"
+      },
+      {
+       "xp": 5
+      },
+      {
+       "item": {
+        "slot": "armadura",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Os cultistas são muitos. A luta é inevitável.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "dano": "1d4"
+      },
+      {
+       "xp": 3
+      },
+      {
+       "combate": "cultista"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Distrair os guardas e fugir com a criança",
+    "teste": "agilidade",
+    "dificuldade": 1,
+    "sucesso": {
+     "texto": "Um pedaço de pedra jogado longe, uma corrida silenciosa. Vocês escapam. O brasão agora é seu penhor de confiança.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "xp": 7
+      },
+      {
+       "item": {
+        "slot": "amuleto",
+        "raridade": "raro"
+       }
+      }
+     ]
+    },
+    "parcial": {
+     "texto": "Vocês escapam, mas um dos guardas acerta uma faca em você.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "dano": "1d4"
+      },
+      {
+       "xp": 5
+      }
+     ]
+    },
+    "falha": {
+     "texto": "Eles os notam. A fuga vira luta.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "xp": 3
+      },
+      {
+       "combate": "cultista"
+      }
+     ]
+    }
+   },
+   {
+    "rotulo": "Entregar o brasão aos cultistas em troca da criança",
+    "resultado": {
+     "texto": "Eles aceitam, sorrindo. A criança está a salvo, mas o preço do brasão pesa.",
+     "efeitos": [
+      {
+       "resolver_fio": "herdeiro_perdido"
+      },
+      {
+       "xp": 3
+      },
+      {
+       "traco": "marcado"
+      }
+     ]
+    }
+   }
+  ]
+ }
+]

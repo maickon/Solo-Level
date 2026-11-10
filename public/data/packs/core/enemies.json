@@ -1,0 +1,300 @@
+[
+ {
+  "id": "lobo",
+  "nome": "lobo",
+  "genero": "m",
+  "hp": 6,
+  "dano": "1d4",
+  "defesa": 0,
+  "tier": 1,
+  "xp": 2,
+  "ouro": "0",
+  "tags": [
+   "fera"
+  ],
+  "saque": 0.1
+ },
+ {
+  "id": "javali",
+  "nome": "javali",
+  "genero": "m",
+  "hp": 8,
+  "dano": "1d4",
+  "defesa": 1,
+  "tier": 1,
+  "xp": 2,
+  "ouro": "0",
+  "tags": [
+   "fera"
+  ],
+  "saque": 0.1
+ },
+ {
+  "id": "bandido",
+  "nome": "bandido",
+  "genero": "m",
+  "hp": 8,
+  "dano": "1d6",
+  "defesa": 0,
+  "tier": 1,
+  "xp": 3,
+  "ouro": "1d6",
+  "tags": [
+   "humano",
+   "inteligente"
+  ],
+  "saque": 0.3
+ },
+ {
+  "id": "sapo_gigante",
+  "nome": "sapo gigante",
+  "genero": "m",
+  "hp": 7,
+  "dano": "1d4",
+  "defesa": 0,
+  "tier": 1,
+  "xp": 2,
+  "ouro": "0",
+  "tags": [
+   "pantano",
+   "fera"
+  ],
+  "saque": 0.1
+ },
+ {
+  "id": "caranguejo_gigante",
+  "nome": "caranguejo gigante",
+  "genero": "m",
+  "hp": 8,
+  "dano": "1d4",
+  "defesa": 2,
+  "tier": 1,
+  "xp": 3,
+  "ouro": "0",
+  "tags": [
+   "costa",
+   "fera"
+  ],
+  "saque": 0.1
+ },
+ {
+  "id": "morcego_gigante",
+  "nome": "morcego gigante",
+  "genero": "m",
+  "hp": 6,
+  "dano": "1d4",
+  "defesa": 0,
+  "tier": 1,
+  "xp": 2,
+  "ouro": "0",
+  "tags": [
+   "fera",
+   "voador"
+  ],
+  "saque": 0.05
+ },
+ {
+  "id": "esqueleto",
+  "nome": "esqueleto",
+  "genero": "m",
+  "hp": 9,
+  "dano": "1d6",
+  "defesa": 1,
+  "tier": 2,
+  "xp": 4,
+  "ouro": "1d4",
+  "tags": [
+   "morto"
+  ],
+  "saque": 0.25
+ },
+ {
+  "id": "aranha_gigante",
+  "nome": "aranha gigante",
+  "genero": "f",
+  "hp": 10,
+  "dano": "1d6",
+  "defesa": 0,
+  "tier": 2,
+  "xp": 5,
+  "ouro": "0",
+  "tags": [
+   "fera",
+   "veneno"
+  ],
+  "saque": 0.15
+ },
+ {
+  "id": "urso",
+  "nome": "urso",
+  "genero": "m",
+  "hp": 14,
+  "dano": "1d8",
+  "defesa": 1,
+  "tier": 2,
+  "xp": 6,
+  "ouro": "0",
+  "tags": [
+   "fera"
+  ],
+  "saque": 0.1
+ },
+ {
+  "id": "salteador",
+  "nome": "salteador",
+  "genero": "m",
+  "hp": 12,
+  "dano": "1d6+1",
+  "defesa": 1,
+  "tier": 2,
+  "xp": 6,
+  "ouro": "2d6",
+  "tags": [
+   "humano",
+   "inteligente"
+  ],
+  "saque": 0.35
+ },
+ {
+  "id": "contrabandista",
+  "nome": "contrabandista",
+  "genero": "m",
+  "hp": 11,
+  "dano": "1d6",
+  "defesa": 1,
+  "tier": 2,
+  "xp": 5,
+  "ouro": "2d6",
+  "tags": [
+   "humano",
+   "inteligente"
+  ],
+  "saque": 0.4
+ },
+ {
+  "id": "sanguessuga",
+  "nome": "sanguessuga colossal",
+  "genero": "f",
+  "hp": 9,
+  "dano": "1d4+1",
+  "defesa": 0,
+  "tier": 2,
+  "xp": 4,
+  "ouro": "0",
+  "tags": [
+   "pantano",
+   "fera"
+  ],
+  "saque": 0.05
+ },
+ {
+  "id": "jacare",
+  "nome": "jacaré",
+  "genero": "m",
+  "hp": 14,
+  "dano": "1d8",
+  "defesa": 2,
+  "tier": 2,
+  "xp": 6,
+  "ouro": "0",
+  "tags": [
+   "pantano",
+   "fera"
+  ],
+  "saque": 0.1
+ },
+ {
+  "id": "morto_afogado",
+  "nome": "morto afogado",
+  "genero": "m",
+  "hp": 12,
+  "dano": "1d6",
+  "defesa": 1,
+  "tier": 2,
+  "xp": 6,
+  "ouro": "1d6",
+  "tags": [
+   "morto",
+   "pantano"
+  ],
+  "saque": 0.3
+ },
+ {
+  "id": "cultista",
+  "nome": "cultista",
+  "genero": "m",
+  "hp": 10,
+  "dano": "1d6",
+  "defesa": 0,
+  "tier": 2,
+  "xp": 5,
+  "ouro": "1d6",
+  "tags": [
+   "humano",
+   "inteligente"
+  ],
+  "saque": 0.35
+ },
+ {
+  "id": "espectro",
+  "nome": "espectro",
+  "genero": "m",
+  "hp": 13,
+  "dano": "1d6+1",
+  "defesa": 1,
+  "tier": 3,
+  "xp": 8,
+  "ouro": "0",
+  "tags": [
+   "morto",
+   "incorporeo"
+  ],
+  "saque": 0.3
+ },
+ {
+  "id": "guardiao_de_pedra",
+  "nome": "guardião de pedra",
+  "genero": "m",
+  "hp": 20,
+  "dano": "1d8+1",
+  "defesa": 3,
+  "tier": 3,
+  "xp": 10,
+  "ouro": "0",
+  "tags": [
+   "constructo"
+  ],
+  "saque": 0.4
+ },
+ {
+  "id": "troll_das_pedras",
+  "nome": "troll das pedras",
+  "genero": "m",
+  "hp": 22,
+  "dano": "1d10",
+  "defesa": 2,
+  "tier": 3,
+  "xp": 10,
+  "ouro": "0",
+  "tags": [
+   "monstro"
+  ],
+  "saque": 0.4
+ },
+ {
+  "id": "lobo_alfa",
+  "nome": "lobo alfa",
+  "genero": "m",
+  "hp": 18,
+  "dano": "1d8",
+  "defesa": 1,
+  "tier": 3,
+  "xp": 12,
+  "ouro": "0",
+  "tags": [
+   "fera",
+   "chefe"
+  ],
+  "saque": 0.5
+ }
+]

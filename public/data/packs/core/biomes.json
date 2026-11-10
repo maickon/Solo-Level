@@ -1,0 +1,143 @@
+[
+ {
+  "id": "vila",
+  "nome": "Vila",
+  "perigo": 0,
+  "tags": [
+   "civilizacao"
+  ],
+  "audio": "vila",
+  "clima": {
+   "limpo": 4,
+   "chuva": 2,
+   "nevoa": 1
+  },
+  "inimigos": []
+ },
+ {
+  "id": "estrada",
+  "nome": "Estrada",
+  "perigo": 1,
+  "tags": [
+   "caminho"
+  ],
+  "audio": "estrada",
+  "clima": {
+   "limpo": 4,
+   "chuva": 2,
+   "vento": 2,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "lobo",
+   "bandido",
+   "javali"
+  ]
+ },
+ {
+  "id": "floresta",
+  "nome": "Floresta",
+  "perigo": 2,
+  "tags": [
+   "natureza"
+  ],
+  "audio": "floresta",
+  "clima": {
+   "limpo": 3,
+   "chuva": 2,
+   "nevoa": 3
+  },
+  "inimigos": [
+   "lobo",
+   "javali",
+   "bandido",
+   "aranha_gigante",
+   "urso"
+  ]
+ },
+ {
+  "id": "pantano",
+  "nome": "Pântano",
+  "perigo": 3,
+  "tags": [
+   "natureza",
+   "umido"
+  ],
+  "audio": "pantano",
+  "clima": {
+   "nevoa": 4,
+   "chuva": 3,
+   "limpo": 1
+  },
+  "inimigos": [
+   "sapo_gigante",
+   "sanguessuga",
+   "jacare",
+   "morto_afogado"
+  ]
+ },
+ {
+  "id": "montanha",
+  "nome": "Montanha",
+  "perigo": 4,
+  "tags": [
+   "natureza",
+   "altitude"
+  ],
+  "audio": "montanha",
+  "clima": {
+   "vento": 4,
+   "limpo": 2,
+   "neve": 3,
+   "nevoa": 2
+  },
+  "inimigos": [
+   "morcego_gigante",
+   "urso",
+   "troll_das_pedras",
+   "salteador"
+  ]
+ },
+ {
+  "id": "ruinas",
+  "nome": "Ruínas",
+  "perigo": 3,
+  "tags": [
+   "antigo"
+  ],
+  "audio": "ruinas",
+  "clima": {
+   "nevoa": 3,
+   "limpo": 2,
+   "vento": 2,
+   "chuva": 1
+  },
+  "inimigos": [
+   "esqueleto",
+   "espectro",
+   "guardiao_de_pedra",
+   "cultista"
+  ]
+ },
+ {
+  "id": "costa",
+  "nome": "Costa",
+  "perigo": 1,
+  "tags": [
+   "mar"
+  ],
+  "audio": "mar",
+  "clima": {
+   "limpo": 3,
+   "vento": 3,
+   "chuva": 2,
+   "nevoa": 2
+  },
+  "inimigos": [
+   "caranguejo_gigante",
+   "contrabandista",
+   "morto_afogado",
+   "salteador"
+  ]
+ }
+]

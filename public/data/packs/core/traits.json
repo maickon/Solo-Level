@@ -1,0 +1,82 @@
+[
+ {
+  "id": "veterano",
+  "nome": "Veterano",
+  "descricao": "+1 em testes de força.",
+  "mods": {
+   "forca": 1
+  }
+ },
+ {
+  "id": "olho_de_aguia",
+  "nome": "Olho de Águia",
+  "descricao": "+1 em testes de agilidade.",
+  "mods": {
+   "agilidade": 1
+  }
+ },
+ {
+  "id": "mente_afiada",
+  "nome": "Mente Afiada",
+  "descricao": "+1 em testes de mente.",
+  "mods": {
+   "mente": 1
+  }
+ },
+ {
+  "id": "lingua_de_prata",
+  "nome": "Língua de Prata",
+  "descricao": "+1 em testes de presença.",
+  "mods": {
+   "presenca": 1
+  }
+ },
+ {
+  "id": "cicatriz",
+  "nome": "Cicatriz",
+  "descricao": "Uma marca feia que repuxa ao correr. -1 em agilidade.",
+  "mods": {
+   "agilidade": -1
+  }
+ },
+ {
+  "id": "abencoado",
+  "nome": "Abençoado",
+  "descricao": "Uma bênção silenciosa. +2 de vida máxima.",
+  "mods": {
+   "hpMax": 2
+  }
+ },
+ {
+  "id": "marcado",
+  "nome": "Marcado",
+  "descricao": "Algo o observa. -1 em presença.",
+  "mods": {
+   "presenca": -1
+  }
+ },
+ {
+  "id": "resistente",
+  "nome": "Resistente",
+  "descricao": "A dor ensinou. +1 de defesa.",
+  "mods": {
+   "defesa": 1
+  }
+ },
+ {
+  "id": "assombrado",
+  "nome": "Assombrado",
+  "descricao": "Vozes à noite. -1 em mente.",
+  "mods": {
+   "mente": -1
+  }
+ },
+ {
+  "id": "pe_leve",
+  "nome": "Pé Leve",
+  "descricao": "+1 de energia máxima.",
+  "mods": {
+   "energiaMax": 1
+  }
+ }
+]

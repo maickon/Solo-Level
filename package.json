@@ -1,0 +1,14 @@
+{
+  "name": "sololevel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Engine web de RPG solo procedural — sem IA, sem servidor.",
+  "scripts": {
+    "dev": "npx --yes http-server@14.1.1 public -p 5173 -c-1",
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node tools/validate.mjs",
+    "check": "node tools/validate.mjs && node --test tests/*.test.mjs",
+    "deploy": "firebase deploy --only hosting"
+  }
+}

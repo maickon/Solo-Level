@@ -1,0 +1,126 @@
+[
+ {
+  "id": "guerreiro",
+  "nome": {
+   "m": "Guerreiro",
+   "f": "Guerreira"
+  },
+  "descricao": "Aço, cicatrizes e teimosia.",
+  "atributos": {
+   "forca": 2,
+   "agilidade": 1,
+   "mente": 0,
+   "presenca": 0
+  },
+  "hp": 14,
+  "energia": 6,
+  "inicial": [
+   {
+    "base": "espada"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "pocao_menor"
+   }
+  ],
+  "tracos": [
+   "veterano"
+  ]
+ },
+ {
+  "id": "batedor",
+  "nome": {
+   "m": "Batedor",
+   "f": "Batedora"
+  },
+  "descricao": "Passos leves e olhos que não perdem nada.",
+  "atributos": {
+   "forca": 0,
+   "agilidade": 2,
+   "mente": 1,
+   "presenca": 0
+  },
+  "hp": 11,
+  "energia": 7,
+  "inicial": [
+   {
+    "base": "arco"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "corda"
+   }
+  ],
+  "tracos": [
+   "olho_de_aguia"
+  ]
+ },
+ {
+  "id": "erudito",
+  "nome": {
+   "m": "Erudito",
+   "f": "Erudita"
+  },
+  "descricao": "Livros demais, estrada de menos, e uma curiosidade perigosa.",
+  "atributos": {
+   "forca": -1,
+   "agilidade": 1,
+   "mente": 3,
+   "presenca": 0
+  },
+  "hp": 10,
+  "energia": 5,
+  "inicial": [
+   {
+    "base": "cajado"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "tonico"
+   }
+  ],
+  "tracos": [
+   "mente_afiada"
+  ]
+ },
+ {
+  "id": "andarilho",
+  "nome": {
+   "m": "Andarilho",
+   "f": "Andarilha"
+  },
+  "descricao": "Uma canção, um sorriso e muitas portas abertas pelo caminho.",
+  "atributos": {
+   "forca": 0,
+   "agilidade": 1,
+   "mente": 0,
+   "presenca": 2
+  },
+  "hp": 12,
+  "energia": 6,
+  "inicial": [
+   {
+    "base": "bordao"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "mapa"
+   }
+  ],
+  "tracos": [
+   "lingua_de_prata"
+  ]
+ }
+]

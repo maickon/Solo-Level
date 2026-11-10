@@ -1,0 +1,675 @@
+{
+ "raridades": [
+  {
+   "id": "comum",
+   "nome": "Comum",
+   "peso": 60,
+   "afixos": 0,
+   "mult": 1
+  },
+  {
+   "id": "incomum",
+   "nome": "Incomum",
+   "peso": 28,
+   "afixos": 1,
+   "mult": 2
+  },
+  {
+   "id": "raro",
+   "nome": "Raro",
+   "peso": 10,
+   "afixos": 2,
+   "mult": 4
+  },
+  {
+   "id": "lendario",
+   "nome": "Lendário",
+   "peso": 2,
+   "afixos": 3,
+   "mult": 10
+  }
+ ],
+ "bases": [
+  {
+   "id": "espada",
+   "nome": "espada",
+   "genero": "f",
+   "slot": "arma",
+   "tier": 1,
+   "atributo": "forca",
+   "dano": "1d6",
+   "valor": 10,
+   "tags": [
+    "lamina"
+   ]
+  },
+  {
+   "id": "maca",
+   "nome": "maça",
+   "genero": "f",
+   "slot": "arma",
+   "tier": 1,
+   "atributo": "forca",
+   "dano": "1d6",
+   "valor": 9,
+   "tags": [
+    "contusao"
+   ]
+  },
+  {
+   "id": "machado",
+   "nome": "machado",
+   "genero": "m",
+   "slot": "arma",
+   "tier": 2,
+   "atributo": "forca",
+   "dano": "1d8",
+   "valor": 16,
+   "tags": [
+    "lamina"
+   ]
+  },
+  {
+   "id": "adaga",
+   "nome": "adaga",
+   "genero": "f",
+   "slot": "arma",
+   "tier": 1,
+   "atributo": "agilidade",
+   "dano": "1d4",
+   "valor": 7,
+   "tags": [
+    "lamina"
+   ]
+  },
+  {
+   "id": "arco",
+   "nome": "arco curto",
+   "genero": "m",
+   "slot": "arma",
+   "tier": 1,
+   "atributo": "agilidade",
+   "dano": "1d6",
+   "valor": 12,
+   "tags": [
+    "distancia"
+   ]
+  },
+  {
+   "id": "cajado",
+   "nome": "cajado",
+   "genero": "m",
+   "slot": "arma",
+   "tier": 1,
+   "atributo": "mente",
+   "dano": "1d4",
+   "valor": 8,
+   "tags": [
+    "arcano"
+   ]
+  },
+  {
+   "id": "grimorio",
+   "nome": "grimório",
+   "genero": "m",
+   "slot": "arma",
+   "tier": 2,
+   "atributo": "mente",
+   "dano": "1d6",
+   "valor": 18,
+   "tags": [
+    "arcano"
+   ]
+  },
+  {
+   "id": "bordao",
+   "nome": "bordão ferrado",
+   "genero": "m",
+   "slot": "arma",
+   "tier": 1,
+   "atributo": "agilidade",
+   "dano": "1d4",
+   "valor": 6,
+   "tags": [
+    "contusao"
+   ]
+  },
+  {
+   "id": "gibao",
+   "nome": "gibão de couro",
+   "genero": "m",
+   "slot": "armadura",
+   "tier": 1,
+   "defesa": 1,
+   "valor": 8
+  },
+  {
+   "id": "manto",
+   "nome": "manto de viajante",
+   "genero": "m",
+   "slot": "armadura",
+   "tier": 1,
+   "defesa": 1,
+   "valor": 6
+  },
+  {
+   "id": "cota",
+   "nome": "cota de malha",
+   "genero": "f",
+   "slot": "armadura",
+   "tier": 2,
+   "defesa": 2,
+   "valor": 22
+  },
+  {
+   "id": "couraca",
+   "nome": "couraça de placas",
+   "genero": "f",
+   "slot": "armadura",
+   "tier": 3,
+   "defesa": 3,
+   "valor": 40
+  },
+  {
+   "id": "amuleto_osso",
+   "nome": "amuleto de osso",
+   "genero": "m",
+   "slot": "amuleto",
+   "tier": 1,
+   "valor": 10
+  },
+  {
+   "id": "talisma",
+   "nome": "talismã de prata",
+   "genero": "m",
+   "slot": "amuleto",
+   "tier": 2,
+   "valor": 18
+  },
+  {
+   "id": "anel_cobre",
+   "nome": "anel de cobre",
+   "genero": "m",
+   "slot": "amuleto",
+   "tier": 1,
+   "valor": 8
+  },
+  {
+   "id": "medalhao",
+   "nome": "medalhão antigo",
+   "genero": "m",
+   "slot": "amuleto",
+   "tier": 3,
+   "valor": 24
+  },
+  {
+   "id": "pocao",
+   "nome": "poção de cura",
+   "genero": "f",
+   "slot": "consumivel",
+   "tier": 1,
+   "efeitos": [
+    {
+     "cura": "2d4+2"
+    }
+   ],
+   "valor": 8
+  },
+  {
+   "id": "pocao_menor",
+   "nome": "poção menor",
+   "genero": "f",
+   "slot": "consumivel",
+   "tier": 1,
+   "efeitos": [
+    {
+     "cura": "1d4+1"
+    }
+   ],
+   "valor": 4
+  },
+  {
+   "id": "racao",
+   "nome": "ração de viagem",
+   "genero": "f",
+   "slot": "consumivel",
+   "tier": 1,
+   "efeitos": [
+    {
+     "energia": 1
+    }
+   ],
+   "valor": 2,
+   "tags": [
+    "racao"
+   ]
+  },
+  {
+   "id": "tonico",
+   "nome": "tônico revigorante",
+   "genero": "m",
+   "slot": "consumivel",
+   "tier": 1,
+   "efeitos": [
+    {
+     "energia": 2
+    }
+   ],
+   "valor": 6
+  },
+  {
+   "id": "erva",
+   "nome": "erva medicinal",
+   "genero": "f",
+   "slot": "consumivel",
+   "tier": 1,
+   "efeitos": [
+    {
+     "cura": "1d3"
+    }
+   ],
+   "valor": 3
+  },
+  {
+   "id": "corda",
+   "nome": "corda",
+   "genero": "f",
+   "slot": "ferramenta",
+   "tier": 1,
+   "valor": 3,
+   "tags": [
+    "corda"
+   ]
+  },
+  {
+   "id": "tocha",
+   "nome": "tocha",
+   "genero": "f",
+   "slot": "ferramenta",
+   "tier": 1,
+   "valor": 2,
+   "tags": [
+    "tocha"
+   ]
+  },
+  {
+   "id": "pe_de_cabra",
+   "nome": "pé de cabra",
+   "genero": "m",
+   "slot": "ferramenta",
+   "tier": 1,
+   "valor": 5,
+   "tags": [
+    "pe_de_cabra"
+   ]
+  },
+  {
+   "id": "gazua",
+   "nome": "gazua",
+   "genero": "f",
+   "slot": "ferramenta",
+   "tier": 1,
+   "valor": 6,
+   "tags": [
+    "gazua"
+   ]
+  },
+  {
+   "id": "mapa",
+   "nome": "mapa rabiscado",
+   "genero": "m",
+   "slot": "ferramenta",
+   "tier": 1,
+   "valor": 8,
+   "tags": [
+    "mapa"
+   ]
+  }
+ ],
+ "qualidades": [
+  {
+   "m": "enferrujado",
+   "f": "enferrujada",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "dano": -1
+   },
+   "peso": 3
+  },
+  {
+   "m": "surrado",
+   "f": "surrada",
+   "slots": [
+    "armadura"
+   ],
+   "mods": {
+    "defesa": -1
+   },
+   "peso": 3
+  },
+  {
+   "m": "rachado",
+   "f": "rachada",
+   "slots": [
+    "amuleto"
+   ],
+   "mods": {
+    "presenca": -1
+   },
+   "peso": 3
+  },
+  {
+   "m": "afiado",
+   "f": "afiada",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "dano": 1
+   },
+   "peso": 3
+  },
+  {
+   "m": "balanceado",
+   "f": "balanceada",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "agilidade": 1
+   },
+   "peso": 2
+  },
+  {
+   "m": "robusto",
+   "f": "robusta",
+   "slots": [
+    "arma",
+    "armadura"
+   ],
+   "mods": {
+    "defesa": 1
+   },
+   "peso": 2,
+   "tier": 2
+  },
+  {
+   "m": "pesado",
+   "f": "pesada",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "dano": 1,
+    "agilidade": -1
+   },
+   "peso": 2,
+   "tier": 2
+  },
+  {
+   "m": "leve",
+   "f": "leve",
+   "slots": [
+    "arma",
+    "armadura"
+   ],
+   "mods": {
+    "agilidade": 1
+   },
+   "peso": 2
+  },
+  {
+   "m": "polido",
+   "f": "polida",
+   "slots": [
+    "amuleto",
+    "armadura"
+   ],
+   "mods": {
+    "presenca": 1
+   },
+   "peso": 2
+  },
+  {
+   "m": "antigo",
+   "f": "antiga",
+   "slots": [
+    "arma",
+    "armadura",
+    "amuleto"
+   ],
+   "mods": {
+    "mente": 1
+   },
+   "peso": 2,
+   "tier": 2
+  },
+  {
+   "m": "reforçado",
+   "f": "reforçada",
+   "slots": [
+    "armadura"
+   ],
+   "mods": {
+    "defesa": 1,
+    "agilidade": -1
+   },
+   "peso": 2,
+   "tier": 2
+  },
+  {
+   "m": "consagrado",
+   "f": "consagrada",
+   "slots": [
+    "arma",
+    "amuleto"
+   ],
+   "mods": {
+    "hpMax": 2
+   },
+   "peso": 1,
+   "tier": 3
+  },
+  {
+   "m": "amaldiçoado",
+   "f": "amaldiçoada",
+   "slots": [
+    "arma",
+    "armadura",
+    "amuleto"
+   ],
+   "mods": {
+    "forca": 1,
+    "hpMax": -2
+   },
+   "peso": 1,
+   "tier": 3
+  }
+ ],
+ "afixos": [
+  {
+   "texto": "do Lobo",
+   "slots": [
+    "arma",
+    "amuleto"
+   ],
+   "mods": {
+    "agilidade": 1
+   },
+   "peso": 3
+  },
+  {
+   "texto": "da Maré",
+   "slots": [
+    "amuleto",
+    "armadura"
+   ],
+   "mods": {
+    "energiaMax": 1
+   },
+   "peso": 2
+  },
+  {
+   "texto": "dos Reis Mortos",
+   "slots": [
+    "arma",
+    "amuleto",
+    "armadura"
+   ],
+   "mods": {
+    "presenca": 1,
+    "mente": 1
+   },
+   "peso": 1,
+   "tier": 3
+  },
+  {
+   "texto": "da Aurora",
+   "slots": [
+    "amuleto",
+    "armadura"
+   ],
+   "mods": {
+    "hpMax": 3
+   },
+   "peso": 2,
+   "tier": 2
+  },
+  {
+   "texto": "do Corvo",
+   "slots": [
+    "amuleto",
+    "arma"
+   ],
+   "mods": {
+    "mente": 1
+   },
+   "peso": 3
+  },
+  {
+   "texto": "do Urso",
+   "slots": [
+    "arma",
+    "armadura",
+    "amuleto"
+   ],
+   "mods": {
+    "forca": 1
+   },
+   "peso": 3
+  },
+  {
+   "texto": "da Raposa",
+   "slots": [
+    "amuleto",
+    "arma"
+   ],
+   "mods": {
+    "presenca": 1
+   },
+   "peso": 3
+  },
+  {
+   "texto": "da Névoa",
+   "slots": [
+    "armadura",
+    "amuleto"
+   ],
+   "mods": {
+    "agilidade": 1
+   },
+   "peso": 2
+  },
+  {
+   "texto": "do Vigia",
+   "slots": [
+    "armadura",
+    "amuleto"
+   ],
+   "mods": {
+    "defesa": 1
+   },
+   "peso": 2
+  },
+  {
+   "texto": "do Trovão",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "dano": 1
+   },
+   "peso": 2,
+   "tier": 2
+  },
+  {
+   "texto": "da Brasa",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "dano": 1
+   },
+   "peso": 3
+  },
+  {
+   "texto": "do Caminhante",
+   "slots": [
+    "amuleto",
+    "armadura"
+   ],
+   "mods": {
+    "energiaMax": 1
+   },
+   "peso": 2
+  },
+  {
+   "texto": "da Coruja",
+   "slots": [
+    "amuleto",
+    "arma"
+   ],
+   "mods": {
+    "mente": 1
+   },
+   "peso": 2
+  },
+  {
+   "texto": "do Eremita",
+   "slots": [
+    "amuleto",
+    "armadura"
+   ],
+   "mods": {
+    "hpMax": 2
+   },
+   "peso": 2
+  },
+  {
+   "texto": "da Lua Cega",
+   "slots": [
+    "amuleto",
+    "arma"
+   ],
+   "mods": {
+    "presenca": 1,
+    "agilidade": 1
+   },
+   "peso": 1,
+   "tier": 2
+  },
+  {
+   "texto": "da Tempestade",
+   "slots": [
+    "arma"
+   ],
+   "mods": {
+    "dano": 2
+   },
+   "peso": 1,
+   "tier": 3
+  }
+ ]
+}
