@@ -55,6 +55,24 @@ passa, a chance de emergir é pressão × 10% (máx. 80%). O evento `tipo: "fio"
 - **Mapa**: coordenadas `x,y` dos locais. A UI desenha visitados, vizinhos sob névoa e alvos de missão,
   e permite viajar clicando num vizinho.
 
+## Som, voz e experiência (v0.3)
+- **Contrato motor → som**: o motor não toca nada; ele só marca classes nos blocos da cena
+  (`rolagem` com o resultado; notas `golpe`, `golpe critico`, `dano vida`, `cura vida`, `xp nivel`, `vitoria`,
+  `ouro`, `item r-<raridade>`, `fio`). `audio/cues.js` (puro, testado) compara a cena anterior com a nova
+  e devolve a sequência de sons; a UI toca e aplica lampejos na tela.
+- **Mesa** (`audio/engine.js`): barramentos ambiente, música e efeitos com volume próprio, compressor final
+  e abafamento automático enquanto a narração fala.
+- **Ambiente** (`audio/ambience.js`): perfil por lugar (`bioma.audio`, ou `caverna` se o local tem tag
+  `subterraneo`/`caverna`): leito de ruído + vozes esparsas (pássaros, grilos, gotas, ondas, sinos, trovão na chuva)
+  + música modal com notas soltas. Muda com período, clima, multidão no mercado e tag `sagrado`.
+  Em combate entra percussão e ostinato. Tudo sintetizado: sem arquivos de áudio.
+- **Narração** (`voice.js`): Web Speech API, prefere vozes neurais PT-BR (Edge: Francisca/Antonio Online;
+  Chrome: Google). Fala em frases curtas (o Chrome corta falas longas). Piper/WASM ficou de fora por ora:
+  o modelo pesa dezenas de MB e as vozes neurais do navegador já cobrem o caso grátis.
+- **UX**: atalhos 1–9 (opções), L (ouvir), F/I/M/J/D (abas), Esc; revelação escalonada do texto; janela
+  de ajustes (preferências em `sololevel.prefs`); tutorial na primeira partida; comparação de equipamento
+  (`compararEquip` em `hero.js`) na mochila e no mercado.
+
 ## Roadmap sugerido
 1. Painel admin (editor de pacotes com validação ao vivo, usando `validate()`).
 2. Firestore: autoria de pacotes pelo admin → botão "Publicar" exporta JSON para o Hosting;

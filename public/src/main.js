@@ -4,23 +4,32 @@ import { newState, Game } from './engine/game.js';
 import { markovName } from './engine/names.js';
 import { Rng } from './engine/rng.js';
 import { describeMods } from './engine/items.js';
-import { ATRIBUTOS, SLOTS_EQUIP } from './engine/hero.js';
+import { ATRIBUTOS, SLOTS_EQUIP, compararEquip } from './engine/hero.js';
 import { PERIODO_NOME, MAX_EXAUSTAO, xpParaNivel } from './engine/rules.js';
 import { conexoes } from './engine/world.js';
 import { npcVar, rotuloDisposicao } from './engine/npcs.js';
 import { contratante } from './engine/quests.js';
-import { Ambience } from './audio/ambience.js';
+import { AudioEngine } from './audio/engine.js';
+import { cuesFrom } from './audio/cues.js';
+import { Narrador } from './voice.js';
 import * as store from './storage.js';
 
 const app = document.getElementById('app');
-const audio = new Ambience();
+let P = store.prefs();
+const audio = new AudioEngine();
+audio.setVolumes(P.vol);
+const narr = new Narrador();
+narr.cfg = { ...P.voz };
+narr.onEstado = (v) => { audio.abafar(v); document.querySelectorAll('[data-act="ler"]').forEach((b) => (b.textContent = v ? '■ parar' : '▶ ouvir')); };
+narr.onVozes = () => { if (modal === 'ajustes') abrirAjustes(); };
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const ATTR_NOME = { forca: 'Força', agilidade: 'Agilidade', mente: 'Mente', presenca: 'Presença' };
 const CLIMA_NOME = { limpo: 'Céu limpo', chuva: 'Chuva', nevoa: 'Névoa', vento: 'Vento', neve: 'Neve' };
 const SLOT_NOME = { arma: 'Arma', armadura: 'Armadura', amuleto: 'Amuleto', consumivel: 'Consumível', ferramenta: 'Ferramenta' };
 const nameRng = new Rng(String(Date.now()));
 
-let content, game, history = [], tab = 'ficha';
+let content, game, history = [], tab = 'ficha', modal = null;
+const salvarPrefs = (p) => { P = { ...P, ...p }; store.setPrefs(p); };
 
 // ---------- Boot ----------
 (async function boot() {
@@ -30,6 +39,7 @@ let content, game, history = [], tab = 'ficha';
     app.innerHTML = `<p class="loading">Falha ao carregar conteúdo (${esc(e.message)}).<br>Rode com um servidor local: <code>npm run dev</code></p>`;
     return;
   }
+  document.addEventListener('keydown', teclado);
   titleScreen();
 })();
 
@@ -38,12 +48,12 @@ function audioBtn() {
 }
 function toggleAudio() {
   if (audio.on) audio.stop(); else audio.start();
-  store.setPrefs({ audio: audio.on });
+  salvarPrefs({ audio: audio.on });
   document.querySelectorAll('[data-act="audio"]').forEach((b) => (b.outerHTML = audioBtn()));
   bindAudio();
 }
 function bindAudio() { document.querySelectorAll('[data-act="audio"]').forEach((b) => (b.onclick = toggleAudio)); }
-function maybeStartAudio() { if (store.prefs().audio && !audio.on) audio.start(); }
+function maybeStartAudio() { if (P.audio && !audio.on) audio.start(); }
 
 // ---------- Título ----------
 function titleScreen() {
@@ -56,7 +66,7 @@ function titleScreen() {
       <div class="stack">
         ${save ? `<button class="btn primary" data-act="continue">Continuar: ${esc(save.heroi.nome)}, dia ${save.dia}</button>` : ''}
         <button class="btn ${save ? '' : 'primary'}" data-act="new">Nova jornada</button>
-        ${audioBtn()}
+        <div class="row" style="justify-content:center;margin:0">${audioBtn()}<button class="icon-btn" data-act="ajustes">ajustes</button><button class="icon-btn" data-act="tutorial">como jogar</button></div>
       </div>
       ${mem.length ? `<div class="stack" style="margin-top:40px;text-align:left">
         <div class="sec">Memorial dos caídos</div>
@@ -66,7 +76,7 @@ function titleScreen() {
   app.querySelector('[data-act="new"]').onclick = () => { maybeStartAudio(); creationScreen(); };
   const c = app.querySelector('[data-act="continue"]');
   if (c) c.onclick = () => { maybeStartAudio(); startGame(save); };
-  bindAudio();
+  bindAudio(); bindModais();
 }
 
 // ---------- Criação de personagem (sem digitar nada) ----------
@@ -117,15 +127,49 @@ function startGame(state) {
   game = new Game(content, state);
   history = [];
   tab = 'ficha';
-  renderGame();
+  renderGame(true);
+  if (!P.tutorial) { salvarPrefs({ tutorial: true }); abrirTutorial(); }
 }
 
 function act(fn, newScene = true) {
-  const prev = game.s.cena;
+  const prev = game.s.cena, antes = { blocos: prev?.blocos || [], modo: prev?.modo, local: game.s.local };
   fn();
-  if (newScene && prev && prev !== game.s.cena && !game.s.morto) history = [...history, prev].slice(-2);
+  const cur = game.s.cena, mudou = prev !== cur;
+  if (newScene && prev && mudou && !game.s.morto) history = [...history, prev].slice(-2);
   persist();
-  renderGame();
+  const cues = cuesFrom(antes, { blocos: cur.blocos, modo: cur.modo, local: game.s.local });
+  audio.play(newScene ? ['clique', ...cues] : cues);
+  renderGame(newScene && mudou);
+  efeitoVisual(cues);
+  if (mudou && narr.cfg.on && narr.cfg.auto) lerCena(antes.blocos);
+}
+
+/** Lampejo na tela para golpes recebidos, críticos e nível. */
+function efeitoVisual(cues) {
+  const cls = cues.includes('ferido') || cues.includes('desastre') ? 'fx-dano'
+    : cues.includes('golpe_critico') || cues.includes('critico') ? 'fx-crit' : cues.includes('nivel') ? 'fx-nivel' : null;
+  const el = app.querySelector('.game');
+  if (!cls || !el || !P.animar) return;
+  el.classList.add(cls);
+  setTimeout(() => el.classList.remove(cls), 650);
+}
+
+/** Lê a cena atual em voz alta (só os blocos novos, se `ignorar` for informado). */
+function lerCena(ignorar = []) {
+  if (!narr.disponivel || !game) return;
+  if (narr.falando && !ignorar.length) return narr.parar();
+  const vistos = new Set(ignorar), cena = game.s.cena;
+  let txt = cena.blocos.filter((b) => b.tipo === 'texto' && !vistos.has(b)).map((b) => b.texto).join(' ');
+  if (narr.cfg.opcoes && cena.opcoes.length) {
+    txt += ' Opções: ' + cena.opcoes.map((o, i) => (o.desativada ? '' : `${i + 1}: ${o.rotulo}.`)).filter(Boolean).join(' ');
+  }
+  narr.falar(txt);
+}
+
+function moodAtual() {
+  const s = game.s, loc = content.location(s), bioma = content.biome(s), tags = loc.tags || [];
+  return { audio: tags.includes('subterraneo') || tags.includes('caverna') ? 'caverna' : bioma.audio,
+    periodo: s.periodo, clima: s.clima, modo: s.cena.modo, seguro: tags.includes('seguro'), sagrado: tags.includes('sagrado') };
 }
 
 function persist() {
@@ -141,26 +185,28 @@ function persist() {
   } else store.saveGame(s);
 }
 
-function renderGame() {
+function renderGame(fresh = false) {
   const s = game.s, loc = content.location(s), bioma = content.biome(s);
-  audio.set({ audio: bioma.audio, periodo: s.periodo, clima: s.clima, modo: s.cena.modo });
+  audio.set(moodAtual());
   app.innerHTML = `
-    <div class="game">
+    <div class="game ${P.animar ? 'anim' : ''}">
       <div class="main">
         <div class="topbar">
           <div><div class="where">${esc(loc.nome)}</div>
             <div class="when">Dia ${s.dia} · ${PERIODO_NOME[s.periodo]} · ${CLIMA_NOME[s.clima] || s.clima} · ${esc(bioma.nome)}</div></div>
-          <div class="row" style="margin:0">${audioBtn()}<button class="icon-btn" data-act="menu">menu</button></div>
+          <div class="row" style="margin:0">${narr.disponivel ? `<button class="icon-btn" data-act="ler" title="Ler a cena (L)">${narr.falando ? '■ parar' : '▶ ouvir'}</button>` : ''}${audioBtn()}<button class="icon-btn" data-act="ajustes">ajustes</button><button class="icon-btn" data-act="menu">menu</button></div>
         </div>
         <div class="story">
           ${history.map((c) => sceneHtml(c, true)).join('')}
-          ${sceneHtml(s.cena, false)}
+          ${sceneHtml(s.cena, false, fresh)}
         </div>
       </div>
       <aside class="side">${sideHtml()}</aside>
     </div>`;
-  bindAudio();
-  app.querySelector('[data-act="menu"]').onclick = titleScreen;
+  bindAudio(); bindModais();
+  app.querySelector('[data-act="menu"]').onclick = () => { narr.parar(); titleScreen(); };
+  const ler = app.querySelector('[data-act="ler"]');
+  if (ler) ler.onclick = () => lerCena();
   app.querySelectorAll('[data-opt]').forEach((b) => (b.onclick = () => act(() => game.choose(+b.dataset.opt))));
   app.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { tab = b.dataset.tab; renderGame(); }));
   app.querySelectorAll('[data-use]').forEach((b) => (b.onclick = () => act(() => game.usarItem(+b.dataset.use), false)));
@@ -171,14 +217,15 @@ function renderGame() {
   const nova = app.querySelector('[data-act="again"]');
   if (nova) nova.onclick = creationScreen;
   const cur = app.querySelector('.scene:not(.old)');
-  if (cur && history.length) cur.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  if (cur && history.length && fresh) cur.scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
 
-function sceneHtml(cena, old) {
-  const blocos = cena.blocos.map((b) =>
-    b.tipo === 'texto' ? `<p class="txt">${esc(b.texto)}</p>`
-    : b.tipo === 'rolagem' ? `<span class="rollb ${b.classe}">${esc(b.texto)}</span>`
-    : `<span class="note ${b.classe}">${esc(b.texto)}</span>`).join('');
+function sceneHtml(cena, old, fresh = false) {
+  const d = (i) => `style="--i:${Math.min(i, 8)}"`;
+  const blocos = cena.blocos.map((b, i) =>
+    b.tipo === 'texto' ? `<p class="txt" ${d(i)}>${esc(b.texto)}</p>`
+    : b.tipo === 'rolagem' ? `<span class="rollb ${b.classe}" ${d(i)}>${esc(b.texto)}</span>`
+    : `<span class="note ${b.classe}" ${d(i)}>${esc(b.texto)}</span>`).join('');
   if (old) return `<div class="scene old">${blocos}</div>`;
   let extra = '';
   if (cena.modo === 'combate' && game.s.combate) {
@@ -193,10 +240,11 @@ function sceneHtml(cena, old) {
   }
   const ops = cena.opcoes.map((o, i) => `
     <button class="btn ${cena.modo === 'combate' ? 'combate' : ''} ${o.destaque ? 'destaque' : ''}" data-opt="${i}" ${o.desativada ? 'disabled' : ''}>
-      <span>${esc(o.rotulo)}${o.item ? ` <small class="dica">${esc(describeMods(o.item))}</small>` : ''}</span>
+      <span>${i < 9 ? `<kbd>${i + 1}</kbd>` : ''}${esc(o.rotulo)}${o.item ? ` <small class="dica">${esc(describeMods(o.item))}</small>${compHtml(o.item)}` : ''}</span>
       ${o.dica ? `<span class="dica">${esc(o.dica)}</span>` : ''}
     </button>`).join('');
-  return `<div class="scene">${blocos}${extra}<div class="options">${ops}</div></div>`;
+  const n = Math.min(cena.blocos.length, 9);
+  return `<div class="scene ${fresh ? 'fresh' : ''}">${blocos}${extra}<div class="options" style="--i:${n}">${ops}</div></div>`;
 }
 
 function bar(lbl, v, max, color, cls = '') {
@@ -246,6 +294,7 @@ function itemHtml(it, eq) {
   return `<div class="item r-${it.raridade} ${eq ? 'eq' : ''}">
     <div class="n">${esc(it.nome)}</div>
     <div class="m">${SLOT_NOME[it.slot]}${it.raridade !== 'comum' ? ' · ' + it.raridade : ''}${describeMods(it) ? ' · ' + esc(describeMods(it)) : ''} · ${it.valor} ouro</div>
+    ${eq ? '' : compHtml(it)}
     <div class="acts">${acts}</div></div>`;
 }
 
@@ -330,4 +379,125 @@ function mapaHtml() {
 function diarioHtml() {
   return [...game.s.diario].reverse().map((e) =>
     `<div class="entry">${esc(e.texto)}<small>Dia ${e.dia} · ${PERIODO_NOME[e.periodo]}</small></div>`).join('') || '<p class="empty">Páginas em branco.</p>';
+}
+
+// ---------- Comparação de equipamento ----------
+const CMP_NOME = { ...ATTR_NOME, defesa: 'Defesa', hpMax: 'Vida máx.', energiaMax: 'Energia máx.', dano: 'Dano médio' };
+function compHtml(it) {
+  const r = compararEquip(game.s.heroi, content, it);
+  if (!r) return '';
+  const vs = r.atual ? `vs. ${esc(r.atual.nome)}` : 'vs. nada equipado';
+  const sinal = (n) => (n >= 0 ? '+' : '') + n;
+  const atk = r.ataque ? `<b class="${r.ataque.depois.valor >= r.ataque.antes.valor ? 'up' : 'down'}">ataca com ${ATTR_NOME[r.ataque.depois.atributo]} ${sinal(r.ataque.depois.valor)}
+    (era ${ATTR_NOME[r.ataque.antes.atributo]} ${sinal(r.ataque.antes.valor)})</b>` : '';
+  if (!r.deltas.length && !atk) return `<span class="cmp">${vs}: sem diferença</span>`;
+  return `<span class="cmp">${vs}: ${atk}${r.deltas.map((d) =>
+    `<b class="${d.delta > 0 ? 'up' : 'down'}">${sinal(d.delta)} ${CMP_NOME[d.chave] || d.chave}</b>`).join(' ')}</span>`;
+}
+
+// ---------- Teclado ----------
+const ABAS = { f: 'ficha', i: 'mochila', m: 'mapa', j: 'jornada', d: 'diario' };
+function teclado(e) {
+  if (e.ctrlKey || e.metaKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+  if (modal) { if (e.key === 'Escape') fecharModal(); return; }
+  if (!game || !app.querySelector('.game')) return;
+  const k = e.key.toLowerCase();
+  if (/^[1-9]$/.test(k)) {
+    const b = app.querySelector(`.scene:not(.old) [data-opt="${+k - 1}"]`);
+    if (b && !b.disabled) { e.preventDefault(); b.click(); }
+  } else if (k === 'l') lerCena();
+  else if (ABAS[k]) { tab = ABAS[k]; renderGame(); }
+}
+
+// ---------- Janelas: ajustes e tutorial ----------
+function bindModais() {
+  document.querySelectorAll('[data-act="ajustes"]').forEach((b) => (b.onclick = abrirAjustes));
+  document.querySelectorAll('[data-act="tutorial"]').forEach((b) => (b.onclick = abrirTutorial));
+}
+function abrirModal(nome, titulo, corpo) {
+  fecharModal(false);
+  modal = nome;
+  const el = document.createElement('div');
+  el.className = 'modal-bg';
+  el.innerHTML = `<div class="modal" role="dialog" aria-modal="true" aria-label="${esc(titulo)}">
+    <div class="modal-h"><h2>${esc(titulo)}</h2><button class="icon-btn" data-close>fechar (Esc)</button></div>${corpo}</div>`;
+  el.onclick = (e) => { if (e.target === el || e.target.closest('[data-close]')) fecharModal(); };
+  document.body.appendChild(el);
+  el.querySelector('[data-close]').focus();
+  return el;
+}
+function fecharModal(limpar = true) {
+  document.querySelector('.modal-bg')?.remove();
+  if (limpar) modal = null;
+}
+
+function abrirTutorial() {
+  abrirModal('tutorial', 'Como jogar', `
+    <ul class="tut">
+      <li><b>Você só escolhe.</b> Muitas opções pedem um teste: <b>2d6 + atributo</b>. 10+ é sucesso,
+        7–9 é sucesso com custo, 6 ou menos é falha. Dois 6 são <b>crítico</b>; dois 1, <b>desastre</b>.</li>
+      <li><b>A vida é o que mais importa.</b> Cura é rara: descanse, acampe com rações ou pague a estalagem.
+        A morte é permanente.</li>
+      <li><b>Energia</b> se gasta explorando e viajando. <b>Exaustão</b> acumulada pesa em todos os testes.</li>
+      <li>Pontas soltas voltam mais tarde. Em locais seguros, <b>procure trabalho</b>. O <b>mapa</b> mostra o que você já conhece.</li>
+      <li><b>Atalhos:</b> <kbd>1</kbd>–<kbd>9</kbd> escolhem opções · <kbd>L</kbd> lê a cena em voz alta ·
+        <kbd>F</kbd> <kbd>I</kbd> <kbd>M</kbd> <kbd>J</kbd> <kbd>D</kbd> trocam as abas · <kbd>Esc</kbd> fecha janelas.</li>
+    </ul>
+    <div class="row" style="justify-content:flex-end;margin:0"><button class="btn primary" data-close>Entendi</button></div>`);
+}
+
+function abrirAjustes() {
+  const v = P.vol, z = narr.cfg;
+  const faixa = (id, rot, val, min = 0, max = 100) =>
+    `<label class="rng"><span>${rot}</span><input type="range" min="${min}" max="${max}" value="${val}" data-k="${id}"><output>${val}</output></label>`;
+  const check = (id, rot, val) => `<label class="chk"><input type="checkbox" data-k="${id}" ${val ? 'checked' : ''}> ${rot}</label>`;
+  const vozes = narr.listar();
+  const vozSel = narr.voz()?.name;
+  const narracao = !narr.disponivel ? '<p class="empty">Este navegador não oferece narração.</p>' : `
+    ${check('voz.on', 'Narração ligada', z.on)}
+    ${check('voz.auto', 'Ler cada cena nova automaticamente', z.auto)}
+    ${check('voz.opcoes', 'Ler também as opções', z.opcoes)}
+    <label class="rng"><span>Voz</span><select data-k="voz.voz">${vozes.length ? vozes.map((x) =>
+      `<option value="${esc(x.name)}" ${x.name === vozSel ? 'selected' : ''}>${narr.ehNeural(x) ? '★ ' : ''}${esc(x.name)} (${esc(x.lang)})</option>`).join('')
+      : '<option value="">Nenhuma voz em português encontrada</option>'}</select></label>
+    ${faixa('voz.taxa', 'Velocidade', Math.round(z.taxa * 100), 70, 140)}
+    <p class="empty">★ = voz neural (mais natural). As melhores em PT-BR estão no Microsoft Edge (Francisca, Antonio) e no Chrome (Google).</p>
+    <button class="btn" data-acao="testar-voz">Testar voz</button>`;
+  const el = abrirModal('ajustes', 'Ajustes', `
+    <div class="sec" style="margin-top:0">Som</div>
+    ${check('audio', 'Som ligado', audio.on)}
+    ${faixa('vol.master', 'Volume geral', Math.round(v.master * 100))}
+    ${faixa('vol.ambiente', 'Ambiente', Math.round(v.ambiente * 100))}
+    ${faixa('vol.musica', 'Música', Math.round(v.musica * 100))}
+    ${faixa('vol.efeitos', 'Efeitos', Math.round(v.efeitos * 100))}
+    <button class="btn" data-acao="testar-som">Testar efeitos</button>
+    <div class="sec">Narração</div>${narracao}
+    <div class="sec">Texto</div>
+    ${check('animar', 'Animar texto e efeitos na tela', P.animar)}
+    <div class="row" style="justify-content:space-between;margin:16px 0 0">
+      <button class="btn" data-acao="tutorial">Como jogar</button><button class="btn primary" data-close>Pronto</button></div>`);
+
+  el.querySelectorAll('[data-k]').forEach((inp) => {
+    const ev = inp.type === 'range' ? 'input' : 'change';
+    inp.addEventListener(ev, () => {
+      const [grupo, chave] = inp.dataset.k.split('.');
+      const val = inp.type === 'checkbox' ? inp.checked : inp.type === 'range' ? +inp.value : inp.value;
+      if (inp.type === 'range') inp.nextElementSibling.textContent = val;
+      if (grupo === 'audio') { if (val !== audio.on) toggleAudio(); return; }
+      if (grupo === 'animar') { salvarPrefs({ animar: val }); if (game && app.querySelector('.game')) renderGame(); return; }
+      if (grupo === 'vol') { const vol = { ...P.vol, [chave]: val / 100 }; salvarPrefs({ vol }); audio.setVolumes(vol); return; }
+      if (grupo === 'voz') {
+        narr.cfg = { ...narr.cfg, [chave]: chave === 'taxa' ? val / 100 : val };
+        if (chave === 'on' && !val) narr.parar();
+        salvarPrefs({ voz: narr.cfg });
+      }
+    });
+  });
+  el.querySelector('[data-acao="testar-som"]').onclick = () => {
+    if (!audio.on) toggleAudio();
+    audio.play(['dado', 'critico', 'golpe_critico', 'ouro']);
+  };
+  el.querySelector('[data-acao="tutorial"]').onclick = abrirTutorial;
+  const tv = el.querySelector('[data-acao="testar-voz"]');
+  if (tv) tv.onclick = () => narr.falar('A névoa se abre por um instante. Ao longe, um sino toca três vezes.');
 }

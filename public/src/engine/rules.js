@@ -40,14 +40,14 @@ export function dano(g, n, { reduzir = false } = {}) {
   const h = g.s.heroi;
   if (reduzir) n = Math.max(1, n - stats(h, g.c).defesa);
   h.hp = Math.max(0, h.hp - n);
-  g.note(`−${n} vida`, 'dano');
+  g.note(`−${n} vida`, 'dano vida');
   if (h.hp <= 0) morrer(g);
   return n;
 }
 export function cura(g, n) {
   const h = g.s.heroi, antes = h.hp;
   h.hp = Math.min(h.hpMax, h.hp + n);
-  if (h.hp > antes) g.note(`+${h.hp - antes} vida`, 'cura');
+  if (h.hp > antes) g.note(`+${h.hp - antes} vida`, 'cura vida');
 }
 export function energia(g, n) {
   const h = g.s.heroi, antes = h.energia;
@@ -82,7 +82,7 @@ export function ganharXp(g, n) {
     syncMax(h, g.c);
     h.hp = Math.min(h.hpMax, h.hp + 3);
     g.say('{subir_nivel}');
-    g.note(`Nível ${h.nivel}!`, 'xp');
+    g.note(`Nível ${h.nivel}!`, 'xp nivel');
     g.diary(`Alcancei o nível ${h.nivel}.`);
   }
 }
@@ -225,6 +225,7 @@ export function rodadaCombate(g, acao) {
   if (g.s.combate.hp <= 0) {
     g.ultimoVencido = e.id;
     g.say('{vitoria}');
+    g.note('Vitória', 'vitoria');
     g.s.combate = null;
     ganharXp(g, e.xp || 1);
     EFFECTS.ouro(g, e.ouro || 0);

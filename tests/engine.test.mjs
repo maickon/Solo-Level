@@ -8,7 +8,8 @@ import { markovName } from '../public/src/engine/names.js';
 import { buildContent, validate, REQUIRED_TABLES } from '../public/src/engine/content.js';
 import { generateItem } from '../public/src/engine/items.js';
 import { newState, Game } from '../public/src/engine/game.js';
-import { stats } from '../public/src/engine/hero.js';
+import { stats, compararEquip, mediaDado } from '../public/src/engine/hero.js';
+import { cuesFrom } from '../public/src/audio/cues.js';
 import * as R from '../public/src/engine/rules.js';
 import { loadNodeContent, PACKS_DIR } from '../tools/node-content.mjs';
 import { simulate } from '../tools/simulate.mjs';
@@ -255,6 +256,45 @@ test('missões: aceitar, cumprir (vencer) e entregar; entrega por chegada', () =
 });
 
 // ---------- Pacote real ----------
+test('comparação de equipamento mostra só diferenças', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'cmp' });
+  assert.equal(mediaDado('1d6'), 3.5); assert.equal(mediaDado('2d4+1'), 6); assert.equal(mediaDado('3'), 3);
+  const h = s.heroi, arma = h.inventario.find((i) => i.uid === h.equipado.arma);
+  assert.equal(compararEquip(h, c, arma), null); // já equipada
+  const nova = generateItem(c, new Rng(3), s, { base: 'espada', raridade: 'comum' });
+  const r = compararEquip(h, c, nova);
+  assert.equal(r.atual.uid, arma.uid);
+  assert.ok(r.deltas.every((d) => d.delta !== 0));
+  const pot = generateItem(c, new Rng(3), s, { base: 'pocao' });
+  assert.equal(compararEquip(h, c, pot), null); // consumível não compara
+  const arco = { ...nova, uid: 9999, atributo: 'agilidade' };
+  assert.deepEqual(compararEquip(h, c, arco).ataque?.depois.atributo, 'agilidade'); // troca o atributo de ataque
+  assert.equal(h.equipado.arma, arma.uid); // não altera o herói
+});
+
+test('deixas sonoras: rolagem, golpes, vida, nível, viagem, combate e morte', () => {
+  const velho = { tipo: 'texto', texto: 'a' };
+  const prev = { blocos: [velho], modo: 'evento', local: 'v' };
+  const B = (tipo, classe) => ({ tipo, texto: 'x', classe });
+  const cur = { blocos: [velho, B('rolagem', 'critico'), B('nota', 'golpe critico'), B('nota', 'dano vida'),
+    B('nota', 'xp'), B('nota', 'xp nivel'), B('nota', 'item r-raro'), B('nota', 'dano')], modo: 'evento', local: 'v' };
+  assert.deepEqual(cuesFrom(prev, cur), ['dado', 'critico', 'golpe_critico', 'ferido', 'nivel', 'item_raro']);
+  assert.deepEqual(cuesFrom(prev, { blocos: [velho], modo: 'combate', local: 'v' }), ['alerta']);
+  assert.deepEqual(cuesFrom(prev, { blocos: [], modo: 'morte', local: 'v' }), ['morte']);
+  assert.deepEqual(cuesFrom(prev, { blocos: [], modo: 'local', local: 'w' }), ['viagem']);
+  assert.deepEqual(cuesFrom(null, cur), []);
+});
+
+test('motor marca notas de vida, nível e vitória para o áudio', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'notas' });
+  const g = new Game(c, s);
+  g.begin(); R.dano(g, 1); R.cura(g, 1); R.ganharXp(g, 50);
+  const cls = g.out.filter((b) => b.tipo === 'nota').map((b) => b.classe);
+  assert.ok(cls.includes('dano vida') && cls.includes('cura vida') && cls.includes('xp nivel'));
+});
+
 const hasPack = existsSync(join(PACKS_DIR, 'index.json'));
 test('pacote core: válido e jogável por simulação', { skip: !hasPack && 'pacote ausente' }, async () => {
   const c = await loadNodeContent();

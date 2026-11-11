@@ -64,3 +64,35 @@ export function equip(heroi, uid, content) {
   syncMax(heroi, content);
   return true;
 }
+
+/** Média de uma expressão de dado simples ("1d6+1" → 4.5). */
+export function mediaDado(expr) {
+  const m = /^(\d*)d(\d+)([+-]\d+)?$/.exec(String(expr || '1d3').replace(/\s/g, ''));
+  if (!m) return Number(expr) || 0;
+  return (+m[1] || 1) * (+m[2] + 1) / 2 + (+m[3] || 0);
+}
+
+/**
+ * Diferença de ficha se `item` fosse equipado no lugar do atual do mesmo slot.
+ * Retorna { atual, deltas: [{ chave, delta }] (só valores ≠ 0), ataque: {antes, depois} | null } ou null.
+ * `ataque` aparece quando a arma muda o atributo usado para atacar.
+ */
+export function compararEquip(heroi, content, item) {
+  if (!SLOTS_EQUIP.includes(item?.slot)) return null;
+  const atualUid = heroi.equipado[item.slot];
+  const atual = heroi.inventario.find((i) => i.uid === atualUid) || null;
+  if (atual?.uid === item.uid) return null;
+  const resumo = (h) => {
+    const s = stats(h, content), atk = s.arma?.atributo || 'forca';
+    return { ...s.attrs, defesa: s.defesa, hpMax: s.hpMax, energiaMax: s.energiaMax,
+      dano: mediaDado(s.arma?.dano || '1d3') + s.danoBonus, _atk: atk, _atkVal: s.attrs[atk] };
+  };
+  const antes = resumo(heroi);
+  const inv = heroi.inventario.some((i) => i.uid === item.uid) ? heroi.inventario : [...heroi.inventario, item];
+  const depois = resumo({ ...heroi, inventario: inv, equipado: { ...heroi.equipado, [item.slot]: item.uid } });
+  const ataque = antes._atk !== depois._atk
+    ? { antes: { atributo: antes._atk, valor: antes._atkVal }, depois: { atributo: depois._atk, valor: depois._atkVal } } : null;
+  const deltas = Object.keys(antes).filter((k) => !k.startsWith('_')).map((k) => ({ chave: k, delta: Math.round((depois[k] - antes[k]) * 10) / 10 }))
+    .filter((d) => d.delta !== 0);
+  return { atual, deltas, ataque };
+}

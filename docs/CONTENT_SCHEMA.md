@@ -72,6 +72,8 @@ Atributos: `forca`, `agilidade`, `mente`, `presenca` (valores de -1 a 3).
 ```
 - `perigo` 0–5: escala chance de emboscada e tier dos itens.
 - `audio`: `vila` | `floresta` | `mar` | `caverna` | `pantano` | `montanha` | `estrada` | `ruinas`.
+  Locais (ou POIs) com tag `subterraneo`/`caverna` soam como `caverna`; tag `seguro` traz multidão no mercado;
+  tag `sagrado` acrescenta carrilhões.
 - `inimigos`: ids usados em emboscadas.
 
 ## locations.json

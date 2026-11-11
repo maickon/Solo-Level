@@ -15,5 +15,16 @@ export const clearSave = () => { try { localStorage.removeItem(KEY); } catch { /
 export const memorial = () => read(MEMORIAL, []);
 export function addMemorial(entry) { write(MEMORIAL, [entry, ...memorial()].slice(0, 30)); }
 
-export const prefs = () => read(PREFS, { audio: false });
+// Preferências do jogador (som, narração, texto). Objetos aninhados são mesclados com o padrão.
+export const PREFS_PADRAO = {
+  audio: false,
+  vol: { master: 0.8, ambiente: 0.7, musica: 0.55, efeitos: 0.8 },
+  voz: { on: false, auto: true, opcoes: false, voz: '', taxa: 1 },
+  animar: true,
+  tutorial: false,
+};
+export function prefs() {
+  const p = read(PREFS, {});
+  return { ...PREFS_PADRAO, ...p, vol: { ...PREFS_PADRAO.vol, ...p.vol }, voz: { ...PREFS_PADRAO.voz, ...p.voz } };
+}
 export const setPrefs = (p) => write(PREFS, { ...prefs(), ...p });
