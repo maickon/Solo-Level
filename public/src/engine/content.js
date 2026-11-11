@@ -1,6 +1,6 @@
 // Carrega, mescla e valida pacotes de conteúdo. Independente de ambiente:
 // recebe `readJson(path)` (fetch no navegador, fs no Node).
-import { tableRefs } from './grammar.js';
+import { tableRefs, lintTemplate } from './grammar.js';
 import { CONDITION_KEYS } from './conditions.js';
 import { EFFECT_KEYS } from './rules.js';
 
@@ -10,7 +10,7 @@ export const REQUIRED_TABLES = ['local_desc', 'local_retorno', 'chegada', 'viage
   'ataque_parcial', 'ataque_falha', 'vitoria', 'fuga_sucesso', 'fuga_falha', 'negociar_sucesso',
   'negociar_falha', 'epitafio', 'subir_nivel', 'item_encontrado', 'novo_dia', 'ataque_critico',
   'ataque_desastre', 'poi_descoberta', 'trabalho_intro', 'missao_entregue', 'missao_investigar_sucesso',
-  'missao_investigar_parcial', 'missao_investigar_falha'];
+  'missao_investigar_parcial', 'missao_investigar_falha', 'mercado_intro', 'trabalho_vazio'];
 const ARRAY_FILES = ['classes', 'traits', 'biomes', 'locations', 'enemies', 'events', 'threads', 'pois', 'quests'];
 export const EVENT_TYPES = ['exploracao', 'viagem', 'fio', 'cadeia'];
 
@@ -82,13 +82,17 @@ export function validate(c) {
   const err = (m) => errors.push(m), warn = (m) => warnings.push(m);
   const refsIn = (tpl, where) => {
     for (const r of tableRefs(tpl)) if (!c.grammar[r]) err(`${where}: tabela {${r}} não existe`);
+    for (const a of lintTemplate(tpl)) warn(`${where}: ${a}`);
   };
 
   for (const t of REQUIRED_TABLES) if (!c.grammar[t]?.length) err(`grammar: tabela obrigatória "${t}" ausente`);
   for (const [k, entries] of Object.entries(c.grammar)) {
     entries.forEach((e, i) => {
       const texts = typeof e === 'string' ? [e] : [e.t, e.m, e.f].filter(Boolean);
-      if (!texts.length) err(`grammar.${k}[${i}]: entrada vazia`);
+      if (!texts.length && e !== '' && e.t !== '') err(`grammar.${k}[${i}]: entrada vazia`);
+      for (const campo of ['diz', 'nao', 'tags']) {
+        if (e[campo] != null && (!Array.isArray(e[campo]) || e[campo].some((x) => typeof x !== 'string'))) err(`grammar.${k}[${i}]: "${campo}" deve ser lista de textos`);
+      }
       texts.forEach((t) => refsIn(t, `grammar.${k}[${i}]`));
     });
   }
@@ -109,6 +113,9 @@ export function validate(c) {
   }
   const baseIds = new Set(c.items.bases.map((b) => b.id));
   const oficioIds = new Set(c.npcs.oficios.map((o) => o.id));
+  for (const o of c.npcs.oficios) {
+    if (o.m === o.f && /o$/.test(o.m)) warn(`npcs: ofício "${o.id}" sem forma feminina ("${o.f}")`);
+  }
   const cenasAlvo = new Set();
   for (const cl of c.classes) {
     for (const it of cl.inicial || []) if (!baseIds.has(it.base)) err(`classe ${cl.id}: base "${it.base}" não existe`);

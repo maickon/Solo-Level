@@ -141,12 +141,12 @@ const EFFECTS = {
     const t = g.c.threads[v];
     g.s.fios.push({ id: v, pressao: t.pressao ?? 1, desde: g.s.dia });
     g.note('Novo fio solto', 'fio');
-    g.diary(g.text(t.texto));
+    g.diary(g.label(t.texto));
   },
   resolver_fio: (g, v) => {
     const n = g.s.fios.length;
     g.s.fios = g.s.fios.filter((f) => f.id !== v);
-    if (g.s.fios.length < n) { g.note('Fio resolvido', 'fio'); g.diary(`Fechei uma ponta solta: ${g.text(g.c.threads[v].texto)}`); }
+    if (g.s.fios.length < n) { g.note('Fio resolvido', 'fio'); g.diary(`Fechei uma ponta solta: ${g.label(g.c.threads[v].texto)}`); }
   },
   tempo: (g, v) => avancarTempo(g, g.rng.roll(v)),
   flag: (g, v) => { g.s.flags[v] = true; },
@@ -159,7 +159,7 @@ const EFFECTS = {
     g.note(`Traço: ${g.c.traits[v]?.nome || v}`, 'fio');
     g.diary(`Ganhei o traço ${g.c.traits[v]?.nome || v}.`);
   },
-  diario: (g, v) => g.diary(g.text(v)),
+  diario: (g, v) => g.diary(g.label(v)),
   cena: (g, v) => { g.pendingScene = v; },
   disposicao: (g, v) => mudarDisposicao(g, g.s.npcs?.[g.s.evento?.npc], g.rng.roll(v)),
 };

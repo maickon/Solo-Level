@@ -55,6 +55,19 @@ passa, a chance de emergir é pressão × 10% (máx. 80%). O evento `tipo: "fio"
 - **Mapa**: coordenadas `x,y` dos locais. A UI desenha visitados, vizinhos sob névoa e alvos de missão,
   e permite viajar clicando num vizinho.
 
+## Gramática 2.0 (v0.4)
+Texto procedural coerente, não só variado. Contexto por cena (`novaCena()`, zerado em `Game.begin`):
+- **Fatos** (`diz`/`nao` nas entradas): o que uma parte afirma vale até o fim da cena, filtra contradições e
+  libera entradas com tag nas partes seguintes.
+- **Referência**: `{$x.Ref}` nomeia na 1ª menção e usa pronome depois, salvo ambiguidade de gênero.
+  Variáveis trazem artigos e contrações prontos (`o_nome`, `do_nome`, `no_nome`, `ao_nome`).
+- **Seleção** em `pickEntry`: coerência (nao) → especificidade (tags) → novidade entre cenas
+  (memória ~60% da tabela, salva em `state.memoria`) → palavras ainda não usadas na cena → peso.
+- **Acabamento** `polir()`: espaços, pontuação e maiúsculas após partes opcionais vazias.
+- `label()` gera rótulos/títulos sem contaminar o contexto da cena.
+- **Nomes** com gênero (`nomePessoa`), **lint** de templates no validador e **estilo/variedade** medidos
+  na simulação (`tools/estilo.mjs`).
+
 ## Som, voz e experiência (v0.3)
 - **Contrato motor → som**: o motor não toca nada; ele só marca classes nos blocos da cena
   (`rolagem` com o resultado; notas `golpe`, `golpe critico`, `dano vida`, `cura vida`, `xp nivel`, `vitoria`,

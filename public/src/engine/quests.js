@@ -58,7 +58,7 @@ export function varsMissao(g, m) {
   const npc = m.npcId ? g.s.npcs[m.npcId] : m.npc;
   if (npc) g.vars.npc = npcVar(g, npc);
   const d = loc(g, m.destino);
-  if (d) g.vars.destino = gvar(d.nome, d.genero);
+  if (d) g.vars.destino = gvar(d.nome, d.genero, { art: d.artigo ?? true, plural: !!d.plural });
   if (m.alvo) { const e = g.c.enemies[m.alvo]; g.vars.alvo = gvar(e.nome, e.genero); }
 }
 
@@ -67,7 +67,7 @@ export function textoMissao(g, m, campo) {
   varsMissao(g, m);
   const npc = contratante(g, m);
   g.npcCtx = npc ? { npc, novo: !(npc.encontros > 1) } : null;
-  const t = g.text(tpl?.[campo] || '').trim();
+  const t = campo === 'titulo' ? g.label(tpl?.[campo] || '') : g.text(tpl?.[campo] || '').trim();
   g.npcCtx = null;
   return t;
 }

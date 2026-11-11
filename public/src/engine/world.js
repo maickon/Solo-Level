@@ -51,7 +51,7 @@ export function descobrirPoi(g) {
   }
   const id = `poi_${(s.uid = (s.uid || 0) + 1)}`;
   const novo = {
-    id, nome: cap(g.text(tpl.nome).trim()), genero: tpl.genero || 'm', bioma: atual.bioma,
+    id, nome: cap(g.label(tpl.nome)), genero: tpl.genero || 'm', bioma: atual.bioma,
     tags: [...(tpl.tags || []), 'poi'], conexoes: [{ para: atual.id, tempo: 1 }],
     x: melhor.x, y: melhor.y,
     gerado: true, pai: atual.id, modelo: tpl.id,

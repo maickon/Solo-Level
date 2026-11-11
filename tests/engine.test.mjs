@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { Rng } from '../public/src/engine/rng.js';
-import { expand, gvar } from '../public/src/engine/grammar.js';
-import { markovName } from '../public/src/engine/names.js';
+import { expand, gvar, novaCena, polir, lintTemplate } from '../public/src/engine/grammar.js';
+import { markovName, nomePessoa } from '../public/src/engine/names.js';
 import { buildContent, validate, REQUIRED_TABLES } from '../public/src/engine/content.js';
 import { generateItem } from '../public/src/engine/items.js';
 import { newState, Game } from '../public/src/engine/game.js';
@@ -295,6 +295,57 @@ test('motor marca notas de vida, nível e vitória para o áudio', () => {
   assert.ok(cls.includes('dano vida') && cls.includes('cura vida') && cls.includes('xp nivel'));
 });
 
+test('gramática 2.0: fatos ditos (diz/nao) evitam contradição na mesma cena', () => {
+  const tables = {
+    chegada: [{ t: 'Você chega.', diz: ['chegou'] }],
+    desc: [{ t: 'Parece diferente de longe.', nao: ['chegou'], peso: 100 }, { t: 'De perto, tudo range.' }],
+  };
+  for (let i = 0; i < 20; i++) {
+    const ctx = { rng: new Rng(i), tables, vars: {}, cena: novaCena() };
+    assert.equal(expand('{chegada} {desc}', ctx), 'Você chega. De perto, tudo range.');
+  }
+  // Fatos ditos também liberam entradas com tag.
+  const t2 = { a: [{ t: 'Chove.', diz: ['chuva'] }], b: [{ t: 'Seco.' }, { t: 'Molhado.', tags: ['chuva'] }] };
+  assert.equal(expand('{a} {b}', { rng: new Rng(1), tables: t2, vars: {}, cena: novaCena() }), 'Chove. Molhado.');
+});
+
+test('gramática 2.0: referência, artigos automáticos e pronome sem ambiguidade', () => {
+  const vars = { inimigo: gvar('lobo', 'm'), npc: gvar('Nesna', 'f', { art: false }), local: gvar('Vila de Bruma', 'f') };
+  const ctx = () => ({ rng: new Rng(1), tables: {}, vars, cena: novaCena() });
+  assert.equal(expand('{$inimigo.Ref} rosna. {$inimigo.Ref} avança.', ctx()), 'O lobo rosna. Ele avança.');
+  assert.equal(expand('{$npc.Ref} observa. {$npc.Ref} sorri.', ctx()), 'Nesna observa. Ela sorri.');
+  // Duas entidades femininas: o pronome vira nome para não confundir.
+  assert.equal(expand('{$npc.Ref} aponta {$local.o_nome}. {$npc.Ref} se cala.', ctx()), 'Nesna aponta a Vila de Bruma. Nesna se cala.');
+  assert.equal(expand('Volta {$local.ao_nome}, {$local.no_nome}, saindo {$local.do_nome}.', ctx()),
+    'Volta à Vila de Bruma, na Vila de Bruma, saindo da Vila de Bruma.');
+  assert.equal(expand('{$npc.do_nome}', ctx()), 'de Nesna');
+});
+
+test('gramática 2.0: evita repetir palavra na cena e memória percorre a tabela', () => {
+  const tables = { t: [{ t: 'olhos cansados', peso: 50 }, { t: 'olhos atentos' }] };
+  const vars = { npc: gvar('Bren', 'm', { art: false, temperamento: 'cansado' }) };
+  for (let i = 0; i < 10; i++) {
+    assert.equal(expand('{$npc.temperamento}, {t}', { rng: new Rng(i), tables, vars, cena: novaCena() }), 'cansado, olhos atentos');
+  }
+  const big = { t: Array.from({ length: 10 }, (_, i) => `e${i}`) };
+  const memory = {}, vistos = new Set();
+  for (let i = 0; i < 6; i++) vistos.add(expand('{t}', { rng: new Rng(i), tables: big, vars: {}, memory, cena: novaCena() }));
+  assert.equal(vistos.size, 6); // 6 sorteios seguidos sem repetir numa tabela de 10
+});
+
+test('gramática 2.0: polimento, lint de lugar sem artigo e nomes com gênero', () => {
+  assert.equal(polir('  você chega .  a porta range ,. '), 'Você chega. A porta range.');
+  assert.equal(lintTemplate('Volta a {$local.nome}.').length, 1);
+  assert.equal(lintTemplate('Volta {$local.ao} {$local.nome}.').length, 0);
+  assert.equal(lintTemplate('{$npc.Nome} fala.').length, 0);
+  const names = { pessoas: ['Mara', 'Kaela', 'Ivara', 'Gorvin', 'Sorim', 'Dalek', 'Nesna', 'Brenor', 'Lysa', 'Toren'] };
+  const r = new Rng(4);
+  for (let i = 0; i < 15; i++) {
+    assert.match(nomePessoa(r, names, 'f'), /a$|e$|is$|ys$|ine$/);
+    assert.doesNotMatch(nomePessoa(r, names, 'm'), /a$/);
+  }
+});
+
 const hasPack = existsSync(join(PACKS_DIR, 'index.json'));
 test('pacote core: válido e jogável por simulação', { skip: !hasPack && 'pacote ausente' }, async () => {
   const c = await loadNodeContent();
@@ -302,4 +353,21 @@ test('pacote core: válido e jogável por simulação', { skip: !hasPack && 'pac
   assert.deepEqual(errors, []);
   const sim = simulate(c, { runs: 12, maxTurns: 250 });
   assert.deepEqual([...new Set(sim.problems)], []);
+});
+
+test('gramática 2.0: nomes no plural e lint de pronome do herói', () => {
+  const r = gvar('Ruínas Antigas', 'f', { plural: true });
+  assert.equal(r.ao_nome, 'às Ruínas Antigas'); assert.equal(r.do_nome, 'das Ruínas Antigas');
+  assert.equal(r.no_nome, 'nas Ruínas Antigas'); assert.equal(r.ele, 'elas');
+  assert.equal(gvar('Passos', 'm', { plural: true }).ao_nome, 'aos Passos');
+  assert.equal(lintTemplate('Uma gaivota o encara.').length, 1);
+  assert.equal(lintTemplate('Uma gaivota {$heroi.lo} encara.').length, 0);
+  assert.equal(lintTemplate('Você o examina e segue.').length, 0); // objeto de "você" não é o herói
+});
+
+test('gramática 2.0: concordância de número com lugar no plural', () => {
+  const ctx = (v) => ({ rng: new Rng(1), tables: {}, vars: { local: v }, cena: novaCena() });
+  const tpl = '{$local.O_nome} se {#mostra/mostram@local}, {=ignorado/ignorada@local}.';
+  assert.equal(expand(tpl, ctx(gvar('Ruínas Antigas', 'f', { plural: true }))), 'As Ruínas Antigas se mostram, ignoradas.');
+  assert.equal(expand(tpl, ctx(gvar('Vila de Bruma', 'f'))), 'A Vila de Bruma se mostra, ignorada.');
 });

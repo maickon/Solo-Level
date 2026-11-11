@@ -50,7 +50,7 @@
  {
   "id": "marcado",
   "nome": "Marcado",
-  "descricao": "Algo o observa. -1 em presença.",
+  "descricao": "Algo observa você. -1 em presença.",
   "mods": {
    "presenca": -1
   }

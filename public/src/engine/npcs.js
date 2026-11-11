@@ -1,14 +1,15 @@
 // NPCs recorrentes: gerados, moram num local, lembram do herói (disposição −5..5).
 import { gvar } from './grammar.js';
-import { markovName } from './names.js';
+import { nomePessoa } from './names.js';
 
 export const CHANCE_REENCONTRO = 0.7;
 
 /** Gera dados de um NPC sem registrá-lo no estado. */
 export function rolarNpc(g, oficioId, local = g.s.local) {
   const temp = g.rng.pick(g.c.npcs.temperamentos);
+  const genero = g.rng.chance(0.5) ? 'f' : 'm';
   return {
-    nome: markovName(g.rng, g.c.names.pessoas), genero: g.rng.chance(0.5) ? 'f' : 'm',
+    nome: nomePessoa(g.rng, g.c.names, genero), genero,
     oficio: oficioId, temperamento: temp?.id || null, local, disposicao: 0, encontros: 0, desde: g.s.dia,
   };
 }
@@ -37,7 +38,7 @@ export function npcVar(g, npc) {
   const f = npc.genero === 'f';
   const of = g.c.npcs.oficios.find((o) => o.id === npc.oficio);
   const t = g.c.npcs.temperamentos.find((x) => x.id === npc.temperamento);
-  return gvar(npc.nome, npc.genero, { oficio: of ? (f ? of.f : of.m) : '', temperamento: t ? (f ? t.f : t.m) : '' });
+  return gvar(npc.nome, npc.genero, { art: false, oficio: of ? (f ? of.f : of.m) : '', temperamento: t ? (f ? t.f : t.m) : '' });
 }
 
 export function mudarDisposicao(g, npc, n) {

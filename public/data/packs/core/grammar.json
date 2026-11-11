@@ -1,1010 +1,5797 @@
 {
- "local_desc": [
-  {
-   "t": "Telhados de palha, fumaça de chaminé e cães latindo à toa. {$local.nome} segue seu ritmo preguiçoso.",
-   "tags": [
-    "vila"
-   ]
-  },
-  {
-   "t": "Crianças correm descalças pela praça de {$local.nome}. O cheiro de pão sai da padaria.",
-   "tags": [
-    "vila",
-    "manha"
-   ]
-  },
-  {
-   "t": "Janelas acesas, risadas na taverna e um bardo desafinado. {$local.nome} se acalma à noite.",
-   "tags": [
-    "vila",
-    "noite"
-   ]
-  },
-  {
-   "t": "Gotas escorrem dos beirais de {$local.nome}. As ruas viraram lama, mas o fogo da estalagem é convidativo.",
-   "tags": [
-    "vila",
-    "chuva"
-   ]
-  },
-  {
-   "t": "Vizinhos se cumprimentam sem pressa. Aqui, você pode respirar.",
-   "tags": [
-    "vila"
-   ]
-  },
-  {
-   "t": "Uma névoa leve abraça os telhados. {$local.nome} parece guardar segredos.",
-   "tags": [
-    "vila",
-    "nevoa"
-   ]
-  },
-  {
-   "t": "A estrada se estica entre campos e valas. Rodas antigas marcaram sulcos fundos no chão.",
-   "tags": [
-    "estrada"
-   ]
-  },
-  {
-   "t": "Poeira no ar e silêncio no horizonte. A estrada não promete nada, mas também não mente.",
-   "tags": [
-    "estrada",
-    "tarde"
-   ]
-  },
-  {
-   "t": "Pedras soltas, um poste torto, um corvo observando. A estrada parece vazia, mas não está.",
-   "tags": [
-    "estrada"
-   ]
-  },
-  {
-   "t": "A chuva transformou a estrada em lama. Cada passo é uma pequena batalha.",
-   "tags": [
-    "estrada",
-    "chuva"
-   ]
-  },
-  {
-   "t": "O vento levanta poeira e faz a capa estalar. A estrada é longa e não perdoa pressa.",
-   "tags": [
-    "estrada",
-    "vento"
-   ]
-  },
-  {
-   "t": "Na penumbra, a estrada vira uma fita pálida entre sombras. Algo se move nas valas.",
-   "tags": [
-    "estrada",
-    "noite"
-   ]
-  },
-  {
-   "t": "Troncos grossos, folhas úmidas e luz coada. {$local.nome} cheira a terra e musgo.",
-   "tags": [
-    "floresta"
-   ]
-  },
-  {
-   "t": "Galhos retorcidos formam um teto baixo. Algo pequeno corre pelas folhas e some.",
-   "tags": [
-    "floresta"
-   ]
-  },
-  {
-   "t": "Sombras compridas se espalham entre as árvores. Pássaros calam de repente.",
-   "tags": [
-    "floresta",
-    "tarde"
-   ]
-  },
-  {
-   "t": "A névoa se prende aos galhos. Cada tronco parece uma figura parada.",
-   "tags": [
-    "floresta",
-    "nevoa"
-   ]
-  },
-  {
-   "t": "Gotas caem das folhas e batem no seu capuz. O chão cede, macio e traiçoeiro.",
-   "tags": [
-    "floresta",
-    "chuva"
-   ]
-  },
-  {
-   "t": "Na escuridão da floresta, olhos brilham entre os troncos e somem quando você os encara.",
-   "tags": [
-    "floresta",
-    "noite"
-   ]
-  },
-  {
-   "t": "Água parada, juncos altos e o zumbido incessante de insetos. {$local.nome} fede a coisa velha.",
-   "tags": [
-    "pantano"
-   ]
-  },
-  {
-   "t": "Bolhas sobem da lama e estouram em silêncio. O chão não é de confiança.",
-   "tags": [
-    "pantano"
-   ]
-  },
-  {
-   "t": "Árvores mortas se erguem da água como dedos. {$local.nome} parece observar.",
-   "tags": [
-    "pantano",
-    "nevoa"
-   ]
-  },
-  {
-   "t": "A chuva forma círculos na água escura. Cada um parece um olho abrindo.",
-   "tags": [
-    "pantano",
-    "chuva"
-   ]
-  },
-  {
-   "t": "Pirilampos pálidos dançam sobre a lama. Quem os segue raramente volta.",
-   "tags": [
-    "pantano",
-    "noite"
-   ]
-  },
-  {
-   "t": "Vapor quente sobe da lama e se mistura ao cheiro de podridão. Seu corpo pesa a cada passo.",
-   "tags": [
-    "pantano",
-    "manha"
-   ]
-  },
-  {
-   "t": "Rochas nuas, neve em manchas e um vento que corta. {$local.nome} parece pertencer a outro mundo.",
-   "tags": [
-    "montanha"
-   ]
-  },
-  {
-   "t": "A trilha é estreita e o precipício, generoso. Cada passo pede atenção.",
-   "tags": [
-    "montanha"
-   ]
-  },
-  {
-   "t": "Flocos de neve giram no ar. O silêncio da montanha é pesado e vasto.",
-   "tags": [
-    "montanha",
-    "neve"
-   ]
-  },
-  {
-   "t": "O vento assobia entre as pedras como um coro triste. Você aperta a capa ao corpo.",
-   "tags": [
-    "montanha",
-    "vento"
-   ]
-  },
-  {
-   "t": "Pedras úmidas e sombras profundas. Gotas ecoam em algum lugar lá dentro.",
-   "tags": [
-    "montanha",
-    "caverna"
-   ]
-  },
-  {
-   "t": "A névoa cobre os picos e some com o caminho. Você anda com a mão na rocha.",
-   "tags": [
-    "montanha",
-    "nevoa"
-   ]
-  },
-  {
-   "t": "Colunas quebradas e pisos rachados. {$local.nome} guarda a memória de algo que já foi grande.",
-   "tags": [
-    "ruinas"
-   ]
-  },
-  {
-   "t": "Musgo cobre estátuas sem rosto. O silêncio aqui parece vigiar.",
-   "tags": [
-    "ruinas"
-   ]
-  },
-  {
-   "t": "Raios de luz atravessam arcos sem teto. O pó dança, e a pedra lembra.",
-   "tags": [
-    "ruinas",
-    "manha"
-   ]
-  },
-  {
-   "t": "Na penumbra, as ruínas ganham formas. Algo arranha pedra, longe demais para ser sorte.",
-   "tags": [
-    "ruinas",
-    "noite"
-   ]
-  },
-  {
-   "t": "A névoa percorre os corredores partidos como um velho que não sabe aonde ir.",
-   "tags": [
-    "ruinas",
-    "nevoa"
-   ]
-  },
-  {
-   "t": "A chuva escorre por entalhes antigos, desenhando rostos que não estavam lá antes.",
-   "tags": [
-    "ruinas",
-    "chuva"
-   ]
-  },
-  {
-   "t": "Maresia, gaivotas e o rumor eterno das ondas. {$local.nome} tem sabor de sal.",
-   "tags": [
-    "costa"
-   ]
-  },
-  {
-   "t": "Pedras negras e espuma branca. O mar vai e vem como se pensasse.",
-   "tags": [
-    "costa"
-   ]
-  },
-  {
-   "t": "Barcos balançam presos às estacas. Cordas rangem, e a vida do porto segue.",
-   "tags": [
-    "costa",
-    "seguro"
-   ]
-  },
-  {
-   "t": "O céu cinza e o mar também. O vento traz gotas salgadas ao seu rosto.",
-   "tags": [
-    "costa",
-    "vento"
-   ]
-  },
-  {
-   "t": "Sob o luar, a água é prata quebrada. Uma luz distante pisca onde não deveria.",
-   "tags": [
-    "costa",
-    "noite"
-   ]
-  },
-  {
-   "t": "A névoa engole a linha do mar. Um sino de boia soa em algum lugar.",
-   "tags": [
-    "costa",
-    "nevoa"
-   ]
-  },
-  "Você olha ao redor, sentindo que cada lugar tem suas regras. {$local.nome} tem as suas.",
-  "O mundo segue indiferente. {$local.nome} espera por suas escolhas.",
-  "Um lugar como outro, até você decidir o contrário.",
-  "Há algo neste lugar que pede atenção, e algo que pede cautela."
- ],
- "local_retorno": [
-  "Você volta {$local.ao} {$local.nome}. Os passos já são conhecidos.",
-  "De volta {$local.ao} {$local.nome}. Pouca coisa mudou, e você, talvez, sim.",
-  "Você reconhece cada pedra de {$local.nome}. Voltar tem sabor de alívio e de teimosia.",
-  "O caminho de volta {$local.ao} {$local.nome} parece mais curto do que na ida.",
-  {
-   "t": "De volta {$local.ao} {$local.nome}, com a noite caindo e o corpo pedindo descanso.",
-   "tags": [
-    "noite"
-   ]
-  },
-  {
-   "t": "Você retorna {$local.ao} {$local.nome} sob a chuva, e a pressa é de abrigo.",
-   "tags": [
-    "chuva"
-   ]
-  }
- ],
- "chegada": [
-  "Você chega {$destino.ao} {$destino.nome}.",
-  "Depois da jornada, {$destino.o} {$destino.nome} se mostra à sua frente.",
-  "Seus pés pisam enfim em {$destino.nome}. {$destino.O} {$destino.nome} parece diferente de longe.",
-  "{$destino.O} {$destino.nome} surge no horizonte e, aos poucos, toma forma.",
-  {
-   "t": "Você chega {$destino.ao} {$destino.nome} {=cansado/cansada@heroi}, mas {=inteiro/inteira@heroi}.",
-   "tags": [
-    "exausto"
-   ]
-  },
-  {
-   "t": "Você chega {$destino.ao} {$destino.nome} {=ferido/ferida@heroi} e com pressa de um lugar quente.",
-   "tags": [
-    "ferido"
-   ]
-  }
- ],
- "viagem_sem_evento": [
-  "O caminho é longo, mas calmo. Nada além de vento, passos e pensamentos.",
-  "Você anda por horas. A paisagem muda devagar, e nada o importuna.",
-  "Uma jornada sem sobressaltos. Você aproveita para respirar.",
-  "Passos, silêncio e, de vez em quando, um pássaro. Nada mais.",
-  {
-   "t": "A chuva o acompanha o caminho todo. Não há nada além de molhado e frio.",
-   "tags": [
-    "chuva"
-   ]
-  },
-  {
-   "t": "O vento o empurra ora de frente, ora de lado. Você chega sem fôlego.",
-   "tags": [
-    "vento"
-   ]
-  },
-  {
-   "t": "A noite cai sobre o caminho, e você segue guiado só pelas estrelas.",
-   "tags": [
-    "noite"
-   ]
-  }
- ],
- "descanso_curto": [
-  "Você se senta, respira fundo e deixa o corpo soltar a tensão.",
-  "Um gole d'água, um minuto de silêncio. O mundo espera.",
-  "Você fecha os olhos por um momento e escuta o mundo.",
-  "Um breve descanso. Os músculos agradecem, mas a estrada lembra.",
-  {
-   "t": "Você mal se aguenta de {=cansado/cansada@heroi}. O descanso é curto, mas faz diferença.",
-   "tags": [
-    "exausto"
-   ]
-  },
-  {
-   "t": "A dor nas feridas pulsa. Você aperta um pano contra elas e espera passar.",
-   "tags": [
-    "ferido"
-   ]
-  }
- ],
- "acampamento": [
-  "Você acende uma fogueira pequena. As chamas dançam, e a noite parece menos vasta.",
-  "Uma capa no chão, uma pedra de travesseiro. É o que o mundo oferece, e basta.",
-  "Você monta o acampamento com cuidado. Cada ruído da noite parece perto demais.",
-  "O fogo estala. Você mastiga devagar, vigiando a escuridão com um olho só.",
-  {
-   "t": "A chuva martela a capa que você estica como teto. O sono vem aos pedaços.",
-   "tags": [
-    "chuva"
-   ]
-  },
-  {
-   "t": "A névoa se arrasta ao redor da fogueira. Você dorme, mas não fundo.",
-   "tags": [
-    "nevoa"
-   ]
-  }
- ],
- "estalagem": [
-  "A cama é dura e a sopa é rala, mas é um teto. Você dorme como poucas vezes.",
-  "O estalajadeiro lhe estende uma chave enferrujada. O quarto cheira a lavanda velha e a casa.",
-  "Você paga, sobe a escada rangente e desaba num colchão de palha. O mundo desaparece.",
-  "Risadas na taverna embaixo embalam seu sono. Alguém toca uma flauta desafinada.",
-  {
-   "t": "A chuva bate no telhado, e o quarto parece um navio seguro. Você dorme profundamente.",
-   "tags": [
-    "chuva"
-   ]
-  },
-  {
-   "t": "Você acorda {=descansado/descansada@heroi}, com a luz da manhã sobre o rosto.",
-   "tags": [
-    "manha"
-   ]
-  }
- ],
- "emboscada": [
-  "{$inimigo.O} {$inimigo.nome} surge do nada, bloqueando o caminho!",
-  "Um som atrás de você. Ao se virar, {$inimigo.um} {$inimigo.nome} já avança.",
-  "Antes que reaja, {$inimigo.um} {$inimigo.nome} salta das sombras.",
-  "Você sente o perigo um segundo tarde: {$inimigo.um} {$inimigo.nome} está sobre você!",
-  {
-   "t": "Na escuridão, {$inimigo.um} {$inimigo.nome} se revela quando já é tarde.",
-   "tags": [
-    "noite"
-   ]
-  },
-  {
-   "t": "A névoa esconde o perigo até o último instante. {$inimigo.O} {$inimigo.nome} aparece.",
-   "tags": [
-    "nevoa"
-   ]
-  }
- ],
- "combate_inicio": [
-  "Você firma os pés. {$inimigo.O} {$inimigo.nome} encara você.",
-  "Sem mais palavras. {$inimigo.O} {$inimigo.nome} avança, e você levanta a guarda.",
-  "O mundo se estreita a você e {$inimigo.um} {$inimigo.nome}.",
-  "O coração bate forte. É hora de lutar.",
-  {
-   "t": "A dor lateja, mas {$inimigo.o} {$inimigo.nome} não vai esperar.",
-   "tags": [
-    "ferido"
-   ]
-  },
-  {
-   "t": "Com o corpo pedindo trégua, você ergue a arma contra {$inimigo.o} {$inimigo.nome}.",
-   "tags": [
-    "exausto"
-   ]
-  }
- ],
- "ataque_acerto": [
-  "Seu golpe acerta em cheio. {$inimigo.O} {$inimigo.nome} cambaleia.",
-  "Você abre uma brecha na guarda {$inimigo.do} {$inimigo.nome}. O golpe entra fundo.",
-  "Um golpe limpo. {$inimigo.O} {$inimigo.nome} recua, surpreso e ferido.",
-  "Você aproveita o momento e acerta com força.",
-  {
-   "t": "Mesmo {=ferido/ferida@heroi}, você acerta o golpe com raiva.",
-   "tags": [
-    "ferido"
-   ]
-  },
-  {
-   "t": "Seu golpe vem do fundo do cansaço, e acerta.",
-   "tags": [
-    "exausto"
-   ]
-  }
- ],
- "ataque_parcial": [
-  "Você raspa {$inimigo.o} {$inimigo.nome}, mas sem profundidade.",
-  "O golpe pega de raspão. É algo, mas não o bastante.",
-  "Você acerta, mas {$inimigo.o} {$inimigo.nome} desvia parte da força.",
-  "Um corte superficial. {$inimigo.O} {$inimigo.nome} ri, ou rosna."
- ],
- "ataque_falha": [
-  "Seu golpe corta o ar. {$inimigo.O} {$inimigo.nome} contra-ataca.",
-  "Você erra por pouco, e paga o preço.",
-  "{$inimigo.O} {$inimigo.nome} se esquiva e lhe acerta em troca.",
-  "O golpe vai longe. A guarda abre, e você se arrepende.",
-  {
-   "t": "Sua visão turva. O golpe falha por um palmo.",
-   "tags": [
-    "ferido"
-   ]
-  },
-  {
-   "t": "Os braços pesam. O golpe sai lento e inofensivo.",
-   "tags": [
-    "exausto"
-   ]
-  }
- ],
- "vitoria": [
-  "{$inimigo.O} {$inimigo.nome} cai. O silêncio volta, e você respira.",
-  "Acabou. {$inimigo.O} {$inimigo.nome} não se levantará.",
-  "Você abaixa a arma, o corpo tremendo. Venceu.",
-  "Com um último golpe, {$inimigo.o} {$inimigo.nome} tomba. O peso da luta cai sobre seus ombros.",
-  {
-   "t": "Você vence, mas o preço aparece nas feridas.",
-   "tags": [
-    "ferido"
-   ]
-  }
- ],
- "fuga_sucesso": [
-  "Você dispara pelo mato e deixa {$inimigo.o} {$inimigo.nome} para trás.",
-  "Um desvio, uma corrida, e o perigo some atrás de você.",
-  "Você escapa por um triz, o coração martelando nos ouvidos.",
-  "{$inimigo.O} {$inimigo.nome} perde seu rastro. Você ganha um respiro."
- ],
- "fuga_falha": [
-  "Você tenta fugir, mas {$inimigo.o} {$inimigo.nome} é mais rápido.",
-  "Seus pés escorregam. A fuga fracassa e o perigo continua.",
-  "Você corre, mas {$inimigo.o} {$inimigo.nome} já está em seus calcanhares.",
-  "Não há para onde ir. {$inimigo.O} {$inimigo.nome} corta sua saída."
- ],
- "negociar_sucesso": [
-  "{$inimigo.O} {$inimigo.nome} hesita, baixa a guarda e aceita o acordo.",
-  "Suas palavras pesam mais do que o aço. {$inimigo.O} {$inimigo.nome} recua.",
-  "Com um aceno relutante, {$inimigo.o} {$inimigo.nome} abre caminho.",
-  "Um acordo é um acordo. O perigo se desfaz com um aperto de mão ou um resmungo."
- ],
- "negociar_falha": [
-  "{$inimigo.O} {$inimigo.nome} ri na sua cara e ergue a arma.",
-  "As palavras não bastam. {$inimigo.O} {$inimigo.nome} perde a paciência.",
-  "Nenhum acordo. {$inimigo.O} {$inimigo.nome} avança.",
-  "“Falou demais”, rosna {$inimigo.o} {$inimigo.nome}."
- ],
- "epitafio": [
-  "Aqui jaz {$heroi.nome}. A estrada continuou sem {=ele/ela@heroi}, indiferente.",
-  "{$heroi.nome}. Quis ver o mundo, e o mundo viu de volta.",
-  "Aqui descansa {$heroi.nome}. Não foi o fim que sonhava, mas foi o seu.",
-  "{$heroi.nome} caiu longe de casa, e foi lembrad{=o/a@heroi} por poucos.",
-  "Nome: {$heroi.nome}. Lembrança: breve. Coragem: não."
- ],
- "subir_nivel": [
-  "Algo se assenta dentro de você. Você está mais forte.",
-  "A experiência cobra seu preço e paga em dobro. Você sobe de nível.",
-  "Você sente os músculos mais firmes e o olhar mais atento. Subiu de nível.",
-  "O que não o matou, ensinou. Você evolui."
- ],
- "item_encontrado": [
-  "Entre os restos, {$item.um} {$item.nome} chama sua atenção.",
-  "Você encontra {$item.um} {$item.nome} e o guarda com cuidado.",
-  "Algo brilha. É {$item.um} {$item.nome}.",
-  "Num canto esquecido, {$item.um} {$item.nome}. Sorte sua.",
-  "Sua mão se fecha sobre {$item.um} {$item.nome}."
- ],
- "novo_dia": [
-  "Um novo dia nasce, e o mundo continua.",
-  "A luz da manhã chega, tímida e dourada.",
-  "Mais um dia. O corpo reclama, mas aceita.",
-  "O galo canta, ou algo que parece um. Começa outro dia.",
-  {
-   "t": "A chuva persiste. O dia amanhece cinza.",
-   "tags": [
-    "chuva"
-   ]
-  },
-  {
-   "t": "A névoa da madrugada não vai embora com a luz do dia.",
-   "tags": [
-    "nevoa"
-   ]
-  }
- ],
- "estranho_na_estrada": [
-  "Há marcas de rodas e pegadas, mas nenhum dono à vista.",
-  "Um cheiro estranho de fumaça paira no ar, apesar de não haver fogueira.",
-  "Um cavalo selado pasta ali perto, sem cavaleiro.",
-  "A lona rasgada balança ao vento, como se algo tivesse acabado de sair."
- ],
- "som_floresta": [
-  "Um galho estala em algum lugar atrás de você.",
-  "Pássaros calam de repente.",
-  "O vento move as folhas num sussurro quase humano.",
-  "Algo pequeno corre entre as raízes e some."
- ],
- "cheiro_pantano": [
-  "O cheiro de podridão é grosso como uma parede.",
-  "Bolhas de gás estouram à sua volta.",
-  "A lama suga suas botas com um som obsceno.",
-  "Uma névoa baixa esconde o chão."
- ],
- "vento_montanha": [
-  "O vento uiva entre as pedras.",
-  "Uma rajada gelada o faz fechar os olhos.",
-  "O frio morde os dedos através das luvas.",
-  "Ao longe, um som que pode ser avalanche ou trovão."
- ],
- "eco_ruina": [
-  "O eco dos seus passos demora a morrer.",
-  "Há um sussurro entre as colunas, que cala quando você para.",
-  "A pedra está fria, como se nunca tivesse conhecido sol.",
-  "Fragmentos de afrescos mostram rostos que o observam."
- ],
- "gaivota_som": [
-  "Gaivotas gritam acima, brigando por restos.",
-  "As ondas batem no casco com um ritmo preguiçoso.",
-  "O cheiro de sal e algas toma tudo.",
-  "Uma gaivota o encara, esperando que você erre."
- ],
- "ataque_critico": [
-  "Tudo se alinha num instante: seu golpe atravessa a guarda {$inimigo.do} {$inimigo.nome} e o derruba de joelhos.",
-  "Um golpe perfeito. {$inimigo.O} {$inimigo.nome} nem vê de onde veio a dor.",
-  "O mundo desacelera. Você acerta onde dói mais, com tudo o que tem.",
-  "Um estalo seco ecoa. {$inimigo.O} {$inimigo.nome} é {=arremessado/arremessada@inimigo} para trás.",
-  "Você sente o golpe certo antes de dá-lo. Ele pega {$inimigo.o} {$inimigo.nome} em cheio, sem defesa.",
-  {
-   "t": "No limite das forças, você encontra a brecha perfeita. O golpe é seu melhor.",
-   "tags": [
-    "ferido"
-   ]
-  }
- ],
- "ataque_desastre": [
-  "Seu pé escorrega e o golpe corta o ar. {$inimigo.O} {$inimigo.nome} aproveita sem piedade.",
-  "A arma gira na mão suada. Você se expõe por inteiro.",
-  "Um tropeço desastrado. Quando ergue os olhos, {$inimigo.o} {$inimigo.nome} já está sobre você.",
-  "Tudo dá errado de uma vez: a postura, o golpe, o fôlego.",
-  {
-   "t": "No escuro, você erra o alvo por um palmo e paga caro.",
-   "tags": [
-    "noite"
-   ]
-  },
-  {
-   "t": "A chuva escorre pelo cabo da arma. O golpe escapa e a guarda se abre.",
-   "tags": [
-    "chuva"
-   ]
-  },
-  "Você golpeia com pressa demais. A resposta {$inimigo.do} {$inimigo.nome} vem rápida, e o cansaço pesa nos braços."
- ],
- "poi_descoberta": [
-  {
-   "t": "Entre os troncos, a mata se abre: {$poi.o} {$poi.nome} esperava por quem tivesse olhos para vê-{=lo/la@poi}.",
-   "tags": [
-    "floresta"
-   ]
-  },
-  {
-   "t": "Uma fenda na rocha revela {$poi.o} {$poi.nome}, antes escondid{=o/a@poi} pela neve e pela sombra.",
-   "tags": [
-    "montanha"
-   ]
-  },
-  {
-   "t": "A névoa recua por um instante e deixa ver {$poi.o} {$poi.nome}, parad{=o/a@poi} sobre a água escura.",
-   "tags": [
-    "pantano"
-   ]
-  },
-  {
-   "t": "Atrás de um muro caído, {$poi.o} {$poi.nome} aparece, esquecid{=o/a@poi} até pelos mapas.",
-   "tags": [
-    "ruinas"
-   ]
-  },
-  {
-   "t": "A maré recua e mostra {$poi.o} {$poi.nome}, que o mar guardava havia muito tempo.",
-   "tags": [
-    "costa"
-   ]
-  },
-  {
-   "t": "Um desvio quase apagado, coberto de mato, leva até {$poi.o} {$poi.nome}.",
-   "tags": [
-    "estrada"
-   ]
-  },
-  "Você nota {$poi.o} {$poi.nome} onde antes não via nada. Algo mudou, ou foi você quem aprendeu a olhar.",
-  "Um detalhe fora do lugar o guia até {$poi.o} {$poi.nome}.",
-  "Seguindo um rastro tênue, você dá de cara com {$poi.o} {$poi.nome}."
- ],
- "trabalho_intro": [
-  "Você passeia entre balcões e mesas, perguntando quem precisa de braços e de coragem.",
-  "Num quadro de avisos sebento, pedidos de ajuda disputam espaço com contas atrasadas.",
-  "Basta dizer que procura trabalho para que cabeças se virem. Alguns precisam, outros só testam você.",
-  "Você deixa o nome correr de boca em boca. Quem tem um problema grande demais costuma aparecer.",
-  {
-   "t": "Entre redes, caixas e cordas, a conversa gira em torno de quem aceita um serviço arriscado.",
-   "tags": [
-    "costa"
-   ]
-  },
-  {
-   "t": "Sobre as palafitas, os moradores trocam olhares. Há sempre algo que o pântano levou e que alguém quer de volta.",
-   "tags": [
-    "pantano"
-   ]
-  },
-  {
-   "t": "Na praça, entre o cheiro de pão e de fumaça, você pergunta por trabalho e recebe três respostas diferentes.",
-   "tags": [
-    "vila"
-   ]
-  }
- ],
- "missao_entregue": [
-  "Moedas trocam de mãos e um aperto seco sela o assunto.",
-  "O pagamento vem sem conversa fiada. Em lugares como este, isso é elogio.",
-  "Você guarda a recompensa e sente o peso de um trabalho bem-feito.",
-  "Um aceno de cabeça, uma bolsa, e a história acaba aqui. Para você, pelo menos.",
-  {
-   "t": "Entre amigos, o pagamento vem acompanhado de um sorriso e de um copo servido.",
-   "tags": [
-    "npc_amigo"
-   ]
-  },
-  {
-   "t": "A confiança já vale quase tanto quanto as moedas, e as moedas também estão ali.",
-   "tags": [
-    "npc_amigo"
-   ]
-  },
-  {
-   "t": "O pagamento vem com um olhar demorado, como quem avalia se ainda confiará em você.",
-   "tags": [
-    "npc_hostil"
-   ]
-  }
- ],
- "missao_investigar_sucesso": [
-  "Você percorre {$destino.o} {$destino.nome} com calma e entende o que precisava entender. Nada escapa ao seu olhar.",
-  "Peça por peça, {$destino.o} {$destino.nome} se deixa ler. Você anota tudo o que importa.",
-  "A resposta estava {$destino.no} {$destino.nome} o tempo todo, esperando alguém paciente.",
-  "Com método e sorte, você confirma o que lhe pediram. O trabalho está feito, falta só contá-lo.",
-  "Um padrão aparece onde antes havia só ruído. {$destino.O} {$destino.nome} não guarda mais segredos de você."
- ],
- "missao_investigar_parcial": [
-  "Você descobre parte da verdade {$destino.no} {$destino.nome}, o bastante para convencer, não o bastante para dormir tranquilo.",
-  "O que você viu {$destino.no} {$destino.nome} serve, mas com lacunas que preferia não ter.",
-  "Metade das respostas apareceu. A outra metade fica por conta da imaginação do contratante.",
-  "Cansaço e pressa deixam o relatório incompleto, mas defensável.",
-  "Você registra o que pôde. {$destino.O} {$destino.nome} ainda guarda algo, e talvez prefira guardá-lo."
- ],
- "missao_investigar_falha": [
-  "Você tropeça em tudo o que {$destino.o} {$destino.nome} tem de pior. A tentativa custa sangue e orgulho.",
-  "Algo dá errado {$destino.no} {$destino.nome}, e a lição chega em forma de dor.",
-  "O lugar não se deixa entender. Você sai machucad{=o/a@heroi} e sem respostas, mas ainda pode tentar de novo.",
-  "Um passo em falso, um estalo, e {$destino.o} {$destino.nome} cobra seu preço.",
-  "Você insiste além da conta. {$destino.O} {$destino.nome} responde com pedras, lama ou algo pior."
- ],
- "npc_atitude": [
-  {
-   "t": "Vocês nunca trocaram uma palavra, e {$npc.nome} o examina sem pressa.",
-   "tags": [
-    "npc_novo"
-   ]
-  },
-  {
-   "t": "{$npc.Nome} nunca viu você por ali, e a curiosidade vence a cautela.",
-   "tags": [
-    "npc_novo"
-   ]
-  },
-  {
-   "t": "Um rosto novo. {$npc.Nome} o mede de alto a baixo antes de falar.",
-   "tags": [
-    "npc_novo"
-   ]
-  },
-  {
-   "t": "“Ah, é você de novo”, diz {$npc.nome}, reconhecendo seus passos antes do rosto.",
-   "tags": [
-    "npc_conhecido"
-   ]
-  },
-  {
-   "t": "{$npc.Nome} se lembra de você. A memória aparece nos olhos, e nem sempre é boa.",
-   "tags": [
-    "npc_conhecido"
-   ]
-  },
-  {
-   "t": "{$npc.Nome} abre um sorriso largo ao vê-lo. “Um amigo é sempre bem-vindo.”",
-   "tags": [
-    "npc_amigo"
-   ]
-  },
-  {
-   "t": "Assim que o reconhece, {$npc.nome} abaixa a guarda e faz um gesto para que se aproxime.",
-   "tags": [
-    "npc_amigo"
-   ]
-  },
-  {
-   "t": "{$npc.Nome} fecha a cara. Há contas mal resolvidas entre vocês, e ele não esqueceu.",
-   "tags": [
-    "npc_hostil"
-   ]
-  },
-  {
-   "t": "Quando {$npc.nome} vê quem chegou, a conversa morre. O ressentimento ficou guardado.",
-   "tags": [
-    "npc_hostil"
-   ]
-  }
- ],
- "npc_despedida": [
-  {
-   "t": "{$npc.Nome} acena com a cabeça, e você sente que, por ora, estão quites.",
-   "tags": [
-    "npc_novo"
-   ]
-  },
-  {
-   "t": "{$npc.Nome} promete lembrar de você. Em lugares como este, isso pesa.",
-   "tags": [
-    "npc_conhecido"
-   ]
-  },
-  {
-   "t": "“Volte sempre”, diz {$npc.nome}. Desta vez, parece sincero.",
-   "tags": [
-    "npc_amigo"
-   ]
-  },
-  {
-   "t": "{$npc.Nome} vira as costas sem se despedir.",
-   "tags": [
-    "npc_hostil"
-   ]
-  },
-  "Cada um segue o seu rumo."
- ],
- "poi_nome_caverna": [
-  "caverna do Uivo Surdo",
-  "gruta das Sete Goteiras",
-  "toca da Rainha Cega",
-  "caverna Sussurrante",
-  "furna do Eremita Mudo"
- ],
- "poi_nome_santuario": [
-  "santuário do Último Sino",
-  "santuário das Mãos Postas",
-  "santuário de Pedra Musgosa",
-  "santuário do Peregrino Cego",
-  "santuário da Chama Esquecida"
- ],
- "poi_nome_acampamento_bandido": [
-  "acampamento da Mão Negra",
-  "acampamento dos Corvos Rotos",
-  "acampamento do Dente Quebrado",
-  "acampamento do Lobo Cinzento"
- ],
- "poi_nome_torre": [
-  "torre do Vigia Sem Olhos",
-  "torre Partida",
-  "torre da Cinza Branca",
-  "torre dos Ventos Mortos",
-  "torre da Viúva"
- ],
- "poi_nome_cripta": [
-  "cripta dos Sem-Nome",
-  "cripta da Rainha Pálida",
-  "cripta Afundada",
-  "cripta dos Sete Juramentos",
-  "cripta do Barão Azedo"
- ],
- "poi_nome_naufragio": [
-  "naufrágio da Ventura Perdida",
-  "naufrágio do Corvo do Mar",
-  "naufrágio do Bom Pagador",
-  "naufrágio da Sereia Rubra",
-  "naufrágio da Dama Verde"
- ],
- "poi_nome_mina": [
-  "mina da Veia Seca",
-  "mina dos Anões Mudos",
-  "mina do Eco Preto",
-  "mina da Lanterna Apagada",
-  "mina de Ferro Frio"
- ],
- "poi_nome_clareira_antiga": [
-  "clareira dos Menires Tortos",
-  "clareira da Lua Parada",
-  "clareira do Círculo Seco",
-  "clareira dos Cervos de Pedra",
-  "clareira das Raízes Falantes"
- ],
- "poi_nome_ninho": [
-  "ninho da Grande Garra",
-  "ninho do Rei Alado",
-  "ninho das Penas Negras",
-  "ninho do Trovão",
-  "ninho Vazio de Kru"
- ],
- "poi_nome_altar_afogado": [
-  "altar dos Afogados",
-  "altar da Maré Alta",
-  "altar do Deus Molhado",
-  "altar das Mil Velas Cegas",
-  "altar do Sino Verde"
- ],
- "missao_cacar_pedido": [
-  "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, não rodeia: {$alvo.o} {$alvo.nome} {$destino.no} {$destino.nome} precisa ser {=abatido/abatida@alvo}. Paga em moedas, e paga bem.",
-  "“Ninguém mais quer ir até {$destino.o} {$destino.nome}”, resmunga {$npc.nome}. “{$alvo.O} {$alvo.nome} já levou gente demais. Resolva, e a bolsa é sua.”",
-  "Há um rastro fresco {$destino.no} {$destino.nome}. {$npc.Nome} quer a cabeça {$alvo.do} {$alvo.nome} e promete pagar na entrega.",
-  {
-   "t": "{$npc.Nome} o reconhece de longe. “Logo você! Tenho um serviço sob medida: {$alvo.um} {$alvo.nome} {$destino.no} {$destino.nome}.”",
-   "tags": [
-    "npc_conhecido"
-   ]
-  }
- ],
- "missao_cacar_fim": [
-  "{$npc.Nome} confere o trabalho, assente em silêncio e conta as moedas sobre a mesa.",
-  "“Então era verdade”, murmura {$npc.nome}. “Um perigo a menos. Aqui está o que combinamos.”",
-  "{$npc.Nome} sorri pela primeira vez em dias. O pagamento vem com um copo cheio."
- ],
- "missao_expulsar_pedido": [
-  "{$npc.Nome}, {$npc.o} {$npc.oficio}, torce as mãos: {$alvo.o} {$alvo.nome} tomou {$destino.o} {$destino.nome}, e os negócios pararam. “Livre-nos disso, por favor.”",
-  "“Já tentei de tudo”, diz {$npc.nome}. “{$alvo.O} {$alvo.nome} ronda {$destino.o} {$destino.nome} e ninguém passa. Quero que vá embora, de um jeito ou de outro.”",
-  "As rotas {$destino.do} {$destino.nome} estão fechadas por causa {$alvo.do} {$alvo.nome}. {$npc.Nome} oferece boa paga a quem as reabrir.",
-  {
-   "t": "{$npc.Nome} lembra do que você já fez por aqui. “Só você me ocorre para esse problema {$destino.no} {$destino.nome}.”",
-   "tags": [
-    "npc_conhecido"
-   ]
-  }
- ],
- "missao_expulsar_fim": [
-  "{$npc.Nome} suspira de alívio. “As rotas voltam a abrir. Você merece muito mais do que isto.”",
-  "“Os carregadores já falam de você”, conta {$npc.nome}, entregando a bolsa. “Isso vale tanto quanto o ouro.”",
-  "{$npc.Nome} aperta seu braço com as duas mãos e paga sem regatear."
- ],
- "missao_vinganca_pedido": [
-  "{$npc.Nome} fala baixo, olhando para o chão: {$alvo.o} {$alvo.nome} {$destino.no} {$destino.nome} levou alguém que não devia. “Quero que pague.”",
-  "Há luto na voz de {$npc.nome}. “{$alvo.O} {$alvo.nome} {$destino.no} {$destino.nome} tirou um dos meus. Não peço justiça, peço fim.”",
-  "“Ninguém chora por esse tipo de morte”, diz {$npc.nome}, “mas eu choro. Dê um fim {$alvo.ao} {$alvo.nome} {$destino.no} {$destino.nome}.”"
- ],
- "missao_vinganca_fim": [
-  "{$npc.Nome} escuta em silêncio e deixa uma lágrima cair. “Obrigado. O pagamento é pouco diante disso.”",
-  "“Está feito”, murmura {$npc.nome}, e algo no rosto se desfaz. Paga sem contar.",
-  "Sem palavras, {$npc.nome} entrega a recompensa e acende uma vela por quem se foi."
- ],
- "missao_mapear_pedido": [
-  "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, estende um pergaminho em branco. “Preciso saber o que existe {$destino.no} {$destino.nome}. Veja com seus olhos e conte.”",
-  "“Mapas antigos mentem”, diz {$npc.nome}. “Vá até {$destino.o} {$destino.nome}, olhe bem e volte para me dizer o que sobrou.”",
-  "Há uma lacuna num mapa na parede, bem onde fica {$destino.o} {$destino.nome}. {$npc.Nome} quer vê-la preenchida.",
-  {
-   "t": "{$npc.Nome} já confia em seus olhos. “Desta vez é {$destino.o} {$destino.nome}. Cuidado com onde pisa.”",
-   "tags": [
-    "npc_conhecido"
-   ]
-  }
- ],
- "missao_mapear_fim": [
-  "{$npc.Nome} ouve o relato, traça linhas com pressa e sorri. “Isso é exatamente o que eu temia, e o que eu precisava.”",
-  "O pergaminho de {$npc.nome} se enche aos poucos. No fim, vem o pagamento prometido.",
-  "“Assim sim”, diz {$npc.nome}, satisfeit{=o/a@npc} com cada detalhe. “Um bom relato vale ouro. E aqui está ele.”"
- ],
- "missao_ervas_pedido": [
-  "{$npc.Nome}, {$npc.o} {$npc.oficio}, descreve com cuidado uma folha de bordas roxas. “Só cresce {$destino.no} {$destino.nome}, e só serve fresca. Pode trazer?”",
-  "“Meu estoque acabou”, confessa {$npc.nome}. “As melhores ervas nascem {$destino.no} {$destino.nome}, entre as pedras. Procure com os olhos, não com a pressa.”",
-  "Para curar o que aflige a vila, {$npc.nome} precisa de ervas raras {$destino.do} {$destino.nome}. A paga é justa."
- ],
- "missao_ervas_fim": [
-  "{$npc.Nome} cheira as folhas, fecha os olhos e agradece. “Estas vão salvar alguém.”",
-  "O pagamento vem junto com um chá quente. {$npc.Nome} nem pergunta como foi a viagem; vê nas suas botas.",
-  "“Perfeitas”, diz {$npc.nome}, guardando as ervas como se fossem joias."
- ],
- "missao_rumor_pedido": [
-  "{$npc.Nome} baixa a voz: dizem que algo estranho acontece {$destino.no} {$destino.nome}. “Vá ver. Se for mentira, quero saber. Se for verdade, quero saber ainda mais.”",
-  "“Todo mundo conta uma versão”, diz {$npc.nome}. “Ninguém foi até {$destino.o} {$destino.nome} para conferir. Você me parece capaz.”",
-  "Um rumor corre de boca em boca sobre {$destino.o} {$destino.nome}. {$npc.Nome} paga para saber o que há de verdade nele.",
-  {
-   "t": "{$npc.Nome} tira você de lado. “Lembra do que prometi? Há um rumor novo sobre {$destino.o} {$destino.nome}. Confira para mim.”",
-   "tags": [
-    "npc_conhecido"
-   ]
-  }
- ],
- "missao_rumor_fim": [
-  "{$npc.Nome} ouve cada palavra com avidez. “Então é isso. Pensei que fosse pior, ou melhor.” A paga vem em seguida.",
-  "“Verdade ou mentira, agora eu sei”, diz {$npc.nome}. “Isso vale mais do que o ouro, mas o ouro também está aqui.”",
-  "{$npc.Nome} suspira e passa a recompensa. “Um mistério a menos. Já é alguma coisa.”"
- ],
- "missao_pacote_pedido": [
-  "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, entrega um pacote bem amarrado. “Leve até {$destino.o} {$destino.nome}. Sem abrir, sem perguntas, sem atrasos.”",
-  "“É importante”, diz {$npc.nome}, empurrando o embrulho nas suas mãos. “Quem espera em {$destino.o} {$destino.nome} não tem paciência.”",
-  "Um embrulho de pano encerado e um endereço: {$destino.o} {$destino.nome}. {$npc.Nome} paga metade agora, o resto na chegada.",
-  {
-   "t": "{$npc.Nome} confia em você, e isso se vê no tamanho do pacote. “É {$destino.o} {$destino.nome} outra vez. Você já conhece o caminho.”",
-   "tags": [
-    "npc_conhecido"
-   ]
-  }
- ],
- "missao_pacote_fim": [
-  "Quem recebe o pacote o aperta contra o peito e paga o que foi combinado.",
-  "O destinatário confere o selo, assente e entrega a recompensa sem uma palavra a mais.",
-  "A entrega é recebida com alívio. Alguém, em algum lugar, esperava por isso fazia dias."
- ],
- "missao_remedio_pedido": [
-  "{$npc.Nome} aperta um frasco de vidro escuro nas suas mãos. “Quem precisa dele está {$destino.no} {$destino.nome} e não aguenta mais um dia. Corra, mas sem derrubar.”",
-  "“Tem de chegar a {$destino.o} {$destino.nome} antes de a febre piorar”, diz {$npc.nome}. “Aqui está o remédio, e a paga é sua se for rápido.”",
-  "O remédio é pequeno, e a pressa é grande. {$npc.Nome} aponta o caminho até {$destino.o} {$destino.nome}."
- ],
- "missao_remedio_fim": [
-  "Os moradores o recebem com lágrimas contidas. O remédio chegou a tempo, e o pagamento vem com bênçãos.",
-  "Quem o aguardava toma o frasco com as duas mãos. Uma bolsa de moedas aparece, sem discussão.",
-  "Não há festa, só o alívio de um corpo que finalmente descansa. A paga é discreta e honesta."
- ],
- "missao_encomenda_pedido": [
-  "{$npc.Nome} olha para os lados antes de entregar uma caixa selada. “Para {$destino.o} {$destino.nome}. Nada de perguntas, e menos ainda de olhares.”",
-  "“Não é contrabando”, diz {$npc.nome}, e a pausa seguinte diz o contrário. “Leve até {$destino.o} {$destino.nome} e receba bem.”",
-  "Uma encomenda sem selo oficial, uma moeda a mais para o silêncio, e um destino: {$destino.o} {$destino.nome}.",
-  {
-   "t": "{$npc.Nome} sorri de lado. “Você sabe guardar segredo, e é por isso que o procurei. {$destino.O} {$destino.nome}, como sempre.”",
-   "tags": [
-    "npc_conhecido"
-   ]
-  }
- ],
- "missao_encomenda_fim": [
-  "O destinatário abre uma fresta da caixa, assente e paga em moedas contadas, sem testemunhas.",
-  "A entrega termina em silêncio e em ouro. Ninguém pergunta o que havia lá dentro.",
-  "Quem recebe a encomenda sorri sem mostrar os dentes. A recompensa chega logo, com um aviso para não falar nisso."
- ]
+  "local_desc": [
+    {
+      "t": "Telhados de palha, fumaça de chaminé e cães latindo à toa. {$local.O_nome} {#segue/seguem@local} seu ritmo preguiçoso.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Crianças correm descalças pela praça {$local.do_nome}. O cheiro de pão sai da padaria.",
+      "tags": [
+        "vila",
+        "manha"
+      ]
+    },
+    {
+      "t": "Janelas acesas, risadas na taverna e um bardo desafinado. {$local.O_nome} se {#acalma/acalmam@local} à noite.",
+      "tags": [
+        "vila",
+        "noite"
+      ]
+    },
+    {
+      "t": "Gotas escorrem dos beirais {$local.do_nome}. As ruas viraram lama, mas o fogo da estalagem é convidativo.",
+      "tags": [
+        "vila",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Vizinhos se cumprimentam sem pressa. Aqui, você pode respirar.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Uma névoa leve abraça os telhados. {$local.O_nome} {#parece/parecem@local} guardar segredos.",
+      "tags": [
+        "vila",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A estrada se estica entre campos e valas. Rodas antigas marcaram sulcos fundos no chão.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "Poeira no ar e silêncio no horizonte. A estrada não promete nada, mas também não mente.",
+      "tags": [
+        "estrada",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Pedras soltas, um poste torto, um corvo observando. A estrada parece vazia, mas não está.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "A chuva transformou a estrada em lama. Cada passo é uma pequena batalha.",
+      "tags": [
+        "estrada",
+        "chuva"
+      ]
+    },
+    {
+      "t": "O vento levanta poeira e faz a capa estalar. A estrada é longa e não perdoa pressa.",
+      "tags": [
+        "estrada",
+        "vento"
+      ]
+    },
+    {
+      "t": "Na penumbra, a estrada vira uma fita pálida entre sombras. Algo se move nas valas.",
+      "tags": [
+        "estrada",
+        "noite"
+      ]
+    },
+    {
+      "t": "Troncos grossos, folhas úmidas e luz coada. {$local.O_nome} {#cheira/cheiram@local} a terra e musgo.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Galhos retorcidos formam um teto baixo. Algo pequeno corre pelas folhas e some.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Sombras compridas se espalham entre as árvores. Pássaros calam de repente.",
+      "tags": [
+        "floresta",
+        "tarde"
+      ]
+    },
+    {
+      "t": "A névoa se prende aos galhos. Cada tronco parece uma figura parada.",
+      "tags": [
+        "floresta",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Gotas caem das folhas e batem no seu capuz. O chão cede, macio e traiçoeiro.",
+      "tags": [
+        "floresta",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Na escuridão da floresta, olhos brilham entre os troncos e somem quando você os encara.",
+      "tags": [
+        "floresta",
+        "noite"
+      ]
+    },
+    {
+      "t": "Água parada, juncos altos e o zumbido incessante de insetos. {$local.O_nome} {#fede/fedem@local} a coisa velha.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Bolhas sobem da lama e estouram em silêncio. O chão não é de confiança.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Árvores mortas se erguem da água como dedos. {$local.O_nome} {#parece/parecem@local} observar.",
+      "tags": [
+        "pantano",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A chuva forma círculos na água escura. Cada um parece um olho abrindo.",
+      "tags": [
+        "pantano",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Pirilampos pálidos dançam sobre a lama. Quem os segue raramente volta.",
+      "tags": [
+        "pantano",
+        "noite"
+      ]
+    },
+    {
+      "t": "Vapor quente sobe da lama e se mistura ao cheiro de podridão. Seu corpo pesa a cada passo.",
+      "tags": [
+        "pantano",
+        "manha"
+      ]
+    },
+    {
+      "t": "Rochas nuas, neve em manchas e um vento que corta. {$local.O_nome} {#parece/parecem@local} pertencer a outro mundo.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "A trilha é estreita e o precipício, generoso. Cada passo pede atenção.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Flocos de neve giram no ar. O silêncio da montanha é pesado e vasto.",
+      "tags": [
+        "montanha",
+        "neve"
+      ]
+    },
+    {
+      "t": "O vento assobia entre as pedras como um coro triste. Você aperta a capa ao corpo.",
+      "tags": [
+        "montanha",
+        "vento"
+      ]
+    },
+    {
+      "t": "Pedras úmidas e sombras profundas. Gotas ecoam em algum lugar lá dentro.",
+      "tags": [
+        "montanha",
+        "caverna"
+      ]
+    },
+    {
+      "t": "A névoa cobre os picos e some com o caminho. Você anda com a mão na rocha.",
+      "tags": [
+        "montanha",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Colunas quebradas e pisos rachados. {$local.O_nome} {#guarda/guardam@local} a memória de algo que já foi grande.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Musgo cobre estátuas sem rosto. O silêncio aqui parece vigiar.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Raios de luz atravessam arcos sem teto. O pó dança, e a pedra lembra.",
+      "tags": [
+        "ruinas",
+        "manha"
+      ]
+    },
+    {
+      "t": "Na penumbra, as ruínas ganham formas. Algo arranha pedra, longe demais para ser sorte.",
+      "tags": [
+        "ruinas",
+        "noite"
+      ]
+    },
+    {
+      "t": "A névoa percorre os corredores partidos como um velho que não sabe aonde ir.",
+      "tags": [
+        "ruinas",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A chuva escorre por entalhes antigos, desenhando rostos que não estavam lá antes.",
+      "tags": [
+        "ruinas",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Maresia, gaivotas e o rumor eterno das ondas. {$local.O_nome} {#tem/têm@local} sabor de sal.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Pedras negras e espuma branca. O mar vai e vem como se pensasse.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Barcos balançam presos às estacas. Cordas rangem, e a vida do porto segue.",
+      "tags": [
+        "costa",
+        "seguro"
+      ]
+    },
+    {
+      "t": "O céu cinza e o mar também. O vento traz gotas salgadas ao seu rosto.",
+      "tags": [
+        "costa",
+        "vento"
+      ]
+    },
+    {
+      "t": "Sob o luar, a água é prata quebrada. Uma luz distante pisca onde não deveria.",
+      "tags": [
+        "costa",
+        "noite"
+      ]
+    },
+    {
+      "t": "A névoa engole a linha do mar. Um sino de boia soa em algum lugar.",
+      "tags": [
+        "costa",
+        "nevoa"
+      ]
+    },
+    "Você olha ao redor, sentindo que cada lugar tem suas regras. {$local.O_nome} {#tem/têm@local} as suas.",
+    "O mundo segue indiferente. {$local.O_nome} {#espera/esperam@local} por suas escolhas.",
+    "Um lugar como outro, até você decidir o contrário.",
+    "Há algo neste lugar que pede atenção, e algo que pede cautela.",
+    {
+      "t": "Carroças cruzam a rua principal, e cada janela tem um rosto curioso. {$local.O_nome} {#observa/observam@local} quem chega.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Fumaça sobe de dez chaminés ao mesmo tempo, e o cheiro de lenha e sopa abraça tudo.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Um cão magro cochila no meio da rua, e ninguém ousa acordá-lo.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Roupas penduradas, vozes de lavadeiras e um sino distante. {$local.O_nome} {#vive/vivem@local} devagar.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "A estrada corta o campo como uma cicatriz antiga. {$local.O_nome} já {#viu/viram@local} passar muita gente.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "Uma árvore solitária marca a curva, e alguém deixou nela uma fita desbotada.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "Rodas, cascos, botas e o tempo marcaram o chão até ele virar leito de rio seco.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "Cercas caídas e valas cheias de capim. A estrada segue sem pedir licença.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "As copas fecham o céu, e o chão só conhece penumbra. {$local.O_nome} {#guarda/guardam@local} seu próprio silêncio.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Cogumelos pálidos crescem em círculo ao pé de um carvalho morto.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Raízes rasgam a trilha, e cada uma parece pronta para derrubar alguém.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Um fio de água corre entre as pedras, e o som dele é o único que se ouve.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "O ar espesso gruda na pele. {$local.O_nome} {#respira/respiram@local}, devagar e sem pressa.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Troncos podres boiam, e algo grande afunda sem barulho.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Placas de lodo verde se rompem com um estalo mole.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Libélulas rasgam o ar quente, e o fedor de coisa velha fica.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "O ar é fino e cortante. {$local.O_nome} {#lembra/lembram@local} que o homem é pequeno.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Pedras soltas descem a encosta sem aviso, saltando entre as rochas.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Um abutre desenha círculos lentos no alto, sem pressa nenhuma.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Cada curva da trilha revela um vale mais fundo e mais distante.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Degraus levam a lugar nenhum, e portas sem parede emolduram o vazio.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Letras quase apagadas contam uma história que ninguém lê mais.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Ervas teimosas racham o piso de mosaicos, e os mosaicos cedem.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Cada pedra tem um dono morto, e este silêncio é a conversa deles.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Ondas lambem as rochas e recuam, sem pressa. {$local.O_nome} {#tem/têm@local} a respiração do mar.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Algas secas se enroscam nas pedras, e caranguejos fogem aos lados.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Redes estendidas, barcos virados, e o cheiro de sal em tudo.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Gaivotas disputam um peixe, e a disputa é o único drama aqui.",
+      "tags": [
+        "costa"
+      ]
+    }
+  ],
+  "local_retorno": [
+    "{ret_abre} {ret_fim}",
+    "{ret_abre}",
+    "{ret_abre} {periodo_nota} {ret_fim}",
+    "{ret_fim} {ret_abre}"
+  ],
+  "chegada": [
+    "{chegada_passo} {chegada_fim}",
+    "{chegada_passo}",
+    "{chegada_passo} {periodo_nota} {chegada_fim}",
+    "{chegada_passo} {periodo_nota}"
+  ],
+  "viagem_sem_evento": [
+    "{viagem_ritmo} {viagem_nota} {viagem_fecho}",
+    "{viagem_ritmo} {viagem_fecho}",
+    "{viagem_terreno} {viagem_nota} {viagem_fecho}",
+    "{viagem_ritmo} {periodo_nota} {viagem_fecho}",
+    "{viagem_terreno} {viagem_ritmo} {viagem_fecho}",
+    "{viagem_nota} {viagem_ritmo}"
+  ],
+  "descanso_curto": [
+    "{desc_acao} {desc_efeito}",
+    "{desc_acao} {desc_efeito} {periodo_nota}",
+    "{desc_acao} {periodo_nota} {desc_efeito}",
+    "{periodo_nota} {desc_acao} {desc_efeito}"
+  ],
+  "acampamento": [
+    "{camp_fogo} {camp_noite} {camp_sono}",
+    "{camp_fogo} {camp_sono}",
+    "{camp_fogo} {periodo_nota} {camp_sono}",
+    "{camp_noite} {camp_fogo} {camp_sono}"
+  ],
+  "estalagem": [
+    "{est_cama} {est_ruido} {est_manha}",
+    "{est_cama} {est_manha}",
+    "{est_ruido} {est_cama} {est_manha}",
+    "{est_cama} {est_ruido}"
+  ],
+  "emboscada": [
+    "{emb_aviso} {emb_surge}",
+    "{emb_surge}",
+    "{emb_aviso} {emb_surge} {emb_reacao}",
+    "{emb_surge} {emb_reacao}"
+  ],
+  "combate_inicio": [
+    "{ci_cena} {ci_estado}",
+    "{ci_cena}",
+    "{ci_estado} {ci_cena}",
+    "{ci_cena} {periodo_nota} {ci_estado}"
+  ],
+  "ataque_acerto": [
+    "{ac_golpe} {ac_efeito}",
+    "{ac_golpe}",
+    "{ac_golpe} {ac_efeito} {ac_fecho}",
+    "{ac_golpe} {ac_fecho}"
+  ],
+  "ataque_parcial": [
+    "{pa_golpe} {pa_efeito}",
+    "{pa_golpe} {pa_fecho}",
+    "{pa_golpe} {pa_efeito} {pa_fecho}",
+    "{pa_golpe}"
+  ],
+  "ataque_falha": [
+    "{fa_golpe} {fa_efeito}",
+    "{fa_golpe}",
+    "{fa_golpe} {fa_efeito} {fa_fecho}"
+  ],
+  "vitoria": [
+    "{vi_fim} {vi_estado}",
+    "{vi_fim}",
+    "{vi_estado} {vi_fim}",
+    "{vi_fim} {vi_fecho}",
+    "{vi_fim} {vi_estado} {vi_fecho}"
+  ],
+  "fuga_sucesso": [
+    "{fs_a} {fs_b}",
+    "{fs_a} {fs_c}",
+    "{fs_a} {fs_b} {fs_c}",
+    "{fs_a}"
+  ],
+  "fuga_falha": [
+    "{ff_a} {ff_b}",
+    "{ff_a} {ff_c}",
+    "{ff_a} {ff_b} {ff_c}",
+    "{ff_a}"
+  ],
+  "negociar_sucesso": [
+    "{ns_a} {ns_b}",
+    "{ns_a} {ns_c}",
+    "{ns_a} {ns_b} {ns_c}",
+    "{ns_a}"
+  ],
+  "negociar_falha": [
+    "{nf_a} {nf_b}",
+    "{nf_a} {nf_c}",
+    "{nf_a} {nf_b} {nf_c}",
+    "{nf_a}"
+  ],
+  "epitafio": [
+    "Aqui jaz {$heroi.nome}. A estrada continuou sem {=ele/ela@heroi}, indiferente.",
+    "{$heroi.nome}. Quis ver o mundo, e o mundo viu de volta.",
+    "Aqui descansa {$heroi.nome}. Não foi o fim que sonhava, mas foi o seu.",
+    "{$heroi.nome} caiu longe de casa, e foi lembrad{=o/a@heroi} por poucos.",
+    "Nome: {$heroi.nome}. Lembrança: breve. Coragem: não."
+  ],
+  "subir_nivel": [
+    "{nv_a} {nv_b}",
+    "{nv_a} {nv_c}",
+    "{nv_a} {nv_b} {nv_c}",
+    "{nv_a}"
+  ],
+  "item_encontrado": [
+    "{it_abre} {it_fecho}",
+    "{it_abre} {it_meio} {it_fecho}",
+    "{it_abre} {it_meio}",
+    "{it_abre}"
+  ],
+  "novo_dia": [
+    "{dia_luz} {dia_corpo} {dia_gancho}",
+    "{dia_luz} {dia_gancho}",
+    "{dia_corpo} {dia_luz} {dia_gancho}",
+    "{dia_luz} {dia_corpo}"
+  ],
+  "estranho_na_estrada": [
+    "Há marcas de rodas e pegadas, mas nenhum dono à vista.",
+    "Um cheiro estranho de fumaça paira no ar, apesar de não haver fogueira.",
+    "Um cavalo selado pasta ali perto, sem cavaleiro.",
+    "A lona rasgada balança ao vento, como se algo tivesse acabado de sair."
+  ],
+  "som_floresta": [
+    "Um galho estala em algum lugar atrás de você.",
+    "Pássaros calam de repente.",
+    "O vento move as folhas num sussurro quase humano.",
+    "Algo pequeno corre entre as raízes e some."
+  ],
+  "cheiro_pantano": [
+    "O cheiro de podridão é grosso como uma parede.",
+    "Bolhas de gás estouram à sua volta.",
+    "A lama suga suas botas com um som obsceno.",
+    "Uma névoa baixa esconde o chão."
+  ],
+  "vento_montanha": [
+    "O vento uiva entre as pedras.",
+    "Uma rajada gelada o faz fechar os olhos.",
+    "O frio morde os dedos através das luvas.",
+    "Ao longe, um som que pode ser avalanche ou trovão."
+  ],
+  "eco_ruina": [
+    "O eco dos seus passos demora a morrer.",
+    "Há um sussurro entre as colunas, que cala quando você para.",
+    "A pedra está fria, como se nunca tivesse conhecido sol.",
+    "Fragmentos de afrescos mostram rostos que {$heroi.lo} observam."
+  ],
+  "gaivota_som": [
+    "Gaivotas gritam acima, brigando por restos.",
+    "As ondas batem no casco com um ritmo preguiçoso.",
+    "O cheiro de sal e algas toma tudo.",
+    "Uma gaivota {$heroi.lo} encara, esperando que você erre."
+  ],
+  "ataque_critico": [
+    "{cr_golpe} {cr_efeito}",
+    "{cr_golpe} {cr_fecho}",
+    "{cr_golpe} {cr_efeito} {cr_fecho}",
+    "{cr_golpe}"
+  ],
+  "ataque_desastre": [
+    "{ds_golpe} {ds_efeito}",
+    "{ds_golpe} {ds_fecho}",
+    "{ds_golpe} {ds_efeito} {ds_fecho}",
+    "{ds_golpe}"
+  ],
+  "poi_descoberta": [
+    {
+      "t": "Entre os troncos, a mata se abre: {$poi.o_nome} {#esperava/esperavam@poi} por quem tivesse olhos para vê-{=lo/la@poi}.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Uma fenda na rocha revela {$poi.o_nome}, antes escondid{=o/a@poi} pela neve e pela sombra.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "A névoa recua por um instante e deixa ver {$poi.o_nome}, parad{=o/a@poi} sobre a água escura.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Atrás de um muro caído, {$poi.o_nome} {#aparece/aparecem@poi}, ignorad{=o/a@poi} até pelos mapas.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "A maré recua e mostra {$poi.o_nome}, que o mar guardava havia muito tempo.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Um desvio quase apagado, coberto de mato, leva até {$poi.o_nome}.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    "Você nota {$poi.o_nome} onde antes não via nada. Algo mudou, ou foi você quem aprendeu a olhar.",
+    "Um detalhe fora do lugar {$heroi.lo} guia até {$poi.o_nome}.",
+    "Seguindo um rastro tênue, você dá de cara com {$poi.o_nome}."
+  ],
+  "trabalho_intro": [
+    "{tr_cena} {tr_fecho}",
+    "{tr_cena}",
+    "{tr_fecho} {tr_cena}"
+  ],
+  "missao_entregue": [
+    "Moedas trocam de mãos e um aperto seco sela o assunto.",
+    "O pagamento vem sem conversa fiada. Em lugares como este, isso é elogio.",
+    "Você guarda a recompensa e sente o peso de um trabalho bem-feito.",
+    "Um aceno de cabeça, uma bolsa, e a história acaba aqui. Para você, pelo menos.",
+    {
+      "t": "Entre amigos, o pagamento vem acompanhado de um sorriso e de um copo servido.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "A confiança já vale quase tanto quanto as moedas, e as moedas também estão ali.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "O pagamento vem com um olhar demorado, como quem avalia se ainda confiará em você.",
+      "tags": [
+        "npc_hostil"
+      ]
+    }
+  ],
+  "missao_investigar_sucesso": [
+    "Você percorre {$destino.o_nome} com calma e entende o que precisava entender. Nada escapa ao seu olhar.",
+    "Peça por peça, {$destino.o_nome} se {#deixa/deixam@destino} ler. Você anota tudo o que importa.",
+    "A resposta estava {$destino.no_nome} o tempo todo, esperando alguém paciente.",
+    "Com método e sorte, você confirma o que lhe pediram. O trabalho está feito, falta só contá-lo.",
+    "Um padrão aparece onde antes havia só ruído. {$destino.O_nome} não {#guarda/guardam@destino} mais segredos de você."
+  ],
+  "missao_investigar_parcial": [
+    "Você descobre parte da verdade {$destino.no_nome}, o bastante para convencer, não o bastante para dormir tranquilo.",
+    "O que você viu {$destino.no_nome} serve, mas com lacunas que preferia não ter.",
+    "Metade das respostas apareceu. A outra metade fica por conta da imaginação do contratante.",
+    "Cansaço e pressa deixam o relatório incompleto, mas defensável.",
+    "Você registra o que pôde. {$destino.O_nome} ainda {#guarda/guardam@destino} algo, e talvez prefira escondê-lo."
+  ],
+  "missao_investigar_falha": [
+    "Você tropeça em tudo o que {$destino.o_nome} {#tem/têm@destino} de pior. A tentativa custa sangue e orgulho.",
+    "Algo dá errado {$destino.no_nome}, e a lição chega em forma de dor.",
+    "O lugar não se deixa entender. Você sai machucad{=o/a@heroi} e sem respostas, mas ainda pode tentar de novo.",
+    "Um passo em falso, um estalo, e {$destino.o_nome} {#cobra/cobram@destino} seu preço.",
+    "Você insiste além da conta. {$destino.O_nome} {#responde/respondem@destino} com pedras, lama ou algo pior."
+  ],
+  "npc_atitude": [
+    "{npc_abre} {npc_gesto}",
+    "{npc_abre} {npc_oficio_gesto}",
+    "{npc_abre} {npc_gesto} {npc_oficio_gesto}",
+    "{npc_abre}"
+  ],
+  "npc_despedida": [
+    "{desp_a}",
+    "{desp_a} {desp_b}",
+    "{desp_a}",
+    "{desp_b}"
+  ],
+  "poi_nome_caverna": [
+    "caverna do Uivo Surdo",
+    "gruta das Sete Goteiras",
+    "toca da Rainha Cega",
+    "caverna Sussurrante",
+    "furna do Eremita Mudo"
+  ],
+  "poi_nome_santuario": [
+    "santuário do Último Sino",
+    "santuário das Mãos Postas",
+    "santuário de Pedra Musgosa",
+    "santuário do Peregrino Cego",
+    "santuário da Chama Esquecida"
+  ],
+  "poi_nome_acampamento_bandido": [
+    "acampamento da Mão Negra",
+    "acampamento dos Corvos Rotos",
+    "acampamento do Dente Quebrado",
+    "acampamento do Lobo Cinzento"
+  ],
+  "poi_nome_torre": [
+    "torre do Vigia Sem Olhos",
+    "torre Partida",
+    "torre da Cinza Branca",
+    "torre dos Ventos Mortos",
+    "torre da Viúva"
+  ],
+  "poi_nome_cripta": [
+    "cripta dos Sem-Nome",
+    "cripta da Rainha Pálida",
+    "cripta Afundada",
+    "cripta dos Sete Juramentos",
+    "cripta do Barão Azedo"
+  ],
+  "poi_nome_naufragio": [
+    "naufrágio da Ventura Perdida",
+    "naufrágio do Corvo do Mar",
+    "naufrágio do Bom Pagador",
+    "naufrágio da Sereia Rubra",
+    "naufrágio da Dama Verde"
+  ],
+  "poi_nome_mina": [
+    "mina da Veia Seca",
+    "mina dos Anões Mudos",
+    "mina do Eco Preto",
+    "mina da Lanterna Apagada",
+    "mina de Ferro Frio"
+  ],
+  "poi_nome_clareira_antiga": [
+    "clareira dos Menires Tortos",
+    "clareira da Lua Parada",
+    "clareira do Círculo Seco",
+    "clareira dos Cervos de Pedra",
+    "clareira das Raízes Falantes"
+  ],
+  "poi_nome_ninho": [
+    "ninho da Grande Garra",
+    "ninho do Rei Alado",
+    "ninho das Penas Negras",
+    "ninho do Trovão",
+    "ninho Vazio de Kru"
+  ],
+  "poi_nome_altar_afogado": [
+    "altar dos Afogados",
+    "altar da Maré Alta",
+    "altar do Deus Molhado",
+    "altar das Mil Velas Cegas",
+    "altar do Sino Verde"
+  ],
+  "missao_cacar_pedido": [
+    "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, não rodeia: {$alvo.o_nome} {$destino.no_nome} precisa ser {=abatido/abatida@alvo}. Paga em moedas, e paga bem.",
+    "“Ninguém mais quer ir até {$destino.o_nome}”, resmunga {$npc.nome}. “{$alvo.O_nome} já levou gente demais. Resolva, e a bolsa é sua.”",
+    "Há um rastro fresco {$destino.no_nome}. {$npc.Nome} quer a cabeça {$alvo.do_nome} e promete pagar na entrega.",
+    {
+      "t": "{$npc.Nome} {$heroi.lo} reconhece de longe. “Logo você! Tenho um serviço sob medida: {$alvo.um_nome} {$destino.no_nome}.”",
+      "tags": [
+        "npc_conhecido"
+      ]
+    }
+  ],
+  "missao_cacar_fim": [
+    "{$npc.Nome} confere o trabalho, assente em silêncio e conta as moedas sobre a mesa.",
+    "“Então era verdade”, murmura {$npc.nome}. “Um perigo a menos. Aqui está o que combinamos.”",
+    "{$npc.Nome} sorri pela primeira vez em dias. O pagamento vem com um copo cheio."
+  ],
+  "missao_expulsar_pedido": [
+    "{$npc.Nome}, {$npc.o} {$npc.oficio}, torce as mãos: {$alvo.o_nome} tomou {$destino.o_nome}, e os negócios pararam. “Livre-nos disso, por favor.”",
+    "“Já tentei de tudo”, diz {$npc.nome}. “{$alvo.O_nome} ronda {$destino.o_nome} e ninguém passa. Quero que vá embora, de um jeito ou de outro.”",
+    "As rotas {$destino.do_nome} estão fechadas por causa {$alvo.do_nome}. {$npc.Nome} oferece boa paga a quem as reabrir.",
+    {
+      "t": "{$npc.Nome} lembra do que você já fez por aqui. “Só você me ocorre para esse problema {$destino.no_nome}.”",
+      "tags": [
+        "npc_conhecido"
+      ]
+    }
+  ],
+  "missao_expulsar_fim": [
+    "{$npc.Nome} suspira de alívio. “As rotas voltam a abrir. Você merece muito mais do que isto.”",
+    "“Os carregadores já falam de você”, conta {$npc.nome}, entregando a bolsa. “Isso vale tanto quanto o ouro.”",
+    "{$npc.Nome} aperta seu braço com as duas mãos e paga sem regatear."
+  ],
+  "missao_vinganca_pedido": [
+    "{$npc.Nome} fala baixo, olhando para o chão: {$alvo.o_nome} {$destino.no_nome} levou alguém que não devia. “Quero que pague.”",
+    "Há luto na voz de {$npc.nome}. “{$alvo.O_nome} {$destino.no_nome} tirou um dos meus. Não peço justiça, peço fim.”",
+    "“Ninguém chora por esse tipo de morte”, diz {$npc.nome}, “mas eu carrego o luto. Dê um fim {$alvo.ao_nome} {$destino.no_nome}.”"
+  ],
+  "missao_vinganca_fim": [
+    "{$npc.Nome} escuta em silêncio e deixa uma lágrima cair. “Obrigado. O pagamento é pouco diante disso.”",
+    "“Está feito”, murmura {$npc.nome}, e algo no rosto se desfaz. Paga sem contar.",
+    "Sem palavras, {$npc.nome} entrega a recompensa e acende uma vela por quem se foi."
+  ],
+  "missao_mapear_pedido": [
+    "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, estende um pergaminho em branco. “Preciso saber o que existe {$destino.no_nome}. Veja com seus olhos e conte.”",
+    "“Mapas antigos mentem”, diz {$npc.nome}. “Vá até {$destino.o_nome}, olhe bem e volte para me dizer o que sobrou.”",
+    "Há uma lacuna num mapa na parede, bem onde fica {$destino.o_nome}. {$npc.Nome} quer vê-la preenchida.",
+    {
+      "t": "{$npc.Nome} já confia em seus olhos. “Desta vez é {$destino.o_nome}. Cuidado com onde pisa.”",
+      "tags": [
+        "npc_conhecido"
+      ]
+    }
+  ],
+  "missao_mapear_fim": [
+    "{$npc.Nome} ouve o relato, traça linhas com pressa e sorri. “Isso é exatamente o que eu temia, e o que eu precisava.”",
+    "O pergaminho de {$npc.nome} se enche aos poucos. No fim, vem o pagamento prometido.",
+    "“Assim sim”, diz {$npc.nome}, satisfeit{=o/a@npc} com cada detalhe. “Um bom relato vale ouro. E aqui está ele.”"
+  ],
+  "missao_ervas_pedido": [
+    "{$npc.Nome}, {$npc.o} {$npc.oficio}, descreve com cuidado uma folha de bordas roxas. “Só cresce {$destino.no_nome}, e só serve fresca. Pode trazer?”",
+    "“Meu estoque acabou”, confessa {$npc.nome}. “As melhores ervas nascem {$destino.no_nome}, entre as pedras. Procure com os olhos, não com a pressa.”",
+    "Para curar o que aflige a vila, {$npc.nome} precisa de ervas raras {$destino.do_nome}. A paga é justa."
+  ],
+  "missao_ervas_fim": [
+    "{$npc.Nome} cheira as folhas, fecha os olhos e agradece. “Estas vão salvar alguém.”",
+    "O pagamento vem junto com um chá quente. {$npc.Nome} nem pergunta como foi a viagem; vê nas suas botas.",
+    "“Perfeitas”, diz {$npc.nome}, guardando as ervas como se fossem joias."
+  ],
+  "missao_rumor_pedido": [
+    "{$npc.Nome} baixa a voz: dizem que algo estranho acontece {$destino.no_nome}. “Vá ver. Se for mentira, quero saber. Se for verdade, quero saber ainda mais.”",
+    "“Todo mundo conta uma versão”, diz {$npc.nome}. “Ninguém foi até {$destino.o_nome} para conferir. Você me parece capaz.”",
+    "Um rumor corre de boca em boca sobre {$destino.o_nome}. {$npc.Nome} paga para saber o que há de verdade nele.",
+    {
+      "t": "{$npc.Nome} tira você de lado. “Lembra do que prometi? Há um rumor novo sobre {$destino.o_nome}. Confira para mim.”",
+      "tags": [
+        "npc_conhecido"
+      ]
+    }
+  ],
+  "missao_rumor_fim": [
+    "{$npc.Nome} ouve cada palavra com avidez. “Então é isso. Pensei que fosse pior, ou melhor.” A paga vem em seguida.",
+    "“Verdade ou mentira, agora eu sei”, diz {$npc.nome}. “Isso vale mais do que o ouro, mas o ouro também está aqui.”",
+    "{$npc.Nome} suspira e passa a recompensa. “Um mistério a menos. Já é alguma coisa.”"
+  ],
+  "missao_pacote_pedido": [
+    "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, entrega um pacote bem amarrado. “Leve até {$destino.o_nome}. Sem abrir, sem perguntas, sem atrasos.”",
+    "“É importante”, diz {$npc.nome}, empurrando o embrulho nas suas mãos. “Quem espera {$destino.no_nome} não tem paciência.”",
+    "Um embrulho de pano encerado e um endereço: {$destino.o_nome}. {$npc.Nome} paga metade agora, o resto na chegada.",
+    {
+      "t": "{$npc.Nome} confia em você, e isso se vê no tamanho do pacote. “É {$destino.o_nome} outra vez. Você já conhece o caminho.”",
+      "tags": [
+        "npc_conhecido"
+      ]
+    }
+  ],
+  "missao_pacote_fim": [
+    "Quem recebe o pacote o aperta contra o peito e paga o que foi combinado.",
+    "O destinatário confere o selo, assente e entrega a recompensa sem uma palavra a mais.",
+    "A entrega é recebida com alívio. Alguém, em algum lugar, esperava por isso fazia dias."
+  ],
+  "missao_remedio_pedido": [
+    "{$npc.Nome} aperta um frasco de vidro escuro nas suas mãos. “Quem precisa dele está {$destino.no_nome} e não aguenta mais um dia. Corra, mas sem derrubar.”",
+    "“Tem de chegar {$destino.ao_nome} antes que a febre piore”, diz {$npc.nome}. “Aqui está o remédio, e a paga é sua se for rápido.”",
+    "O remédio é pequeno, e a pressa é grande. {$npc.Nome} aponta o caminho até {$destino.o_nome}."
+  ],
+  "missao_remedio_fim": [
+    "Os moradores {$heroi.lo} recebem com lágrimas contidas. O remédio chegou a tempo, e o pagamento vem com bênçãos.",
+    "Quem o aguardava toma o frasco com as duas mãos. Uma bolsa de moedas aparece, sem discussão.",
+    "Não há festa, só o alívio de um corpo que finalmente descansa. A paga é discreta e honesta."
+  ],
+  "missao_encomenda_pedido": [
+    "{$npc.Nome} olha para os lados antes de entregar uma caixa selada. “Para {$destino.o_nome}. Nada de perguntas, e menos ainda de olhares.”",
+    "“Não é contrabando”, diz {$npc.nome}, e a pausa seguinte diz o contrário. “Leve até {$destino.o_nome} e receba bem.”",
+    "Uma encomenda sem selo oficial, uma moeda a mais para o silêncio, e um destino: {$destino.o_nome}.",
+    {
+      "t": "{$npc.Nome} sorri de lado. “Você sabe guardar segredo, e é por isso que o procurei. {$destino.O_nome}, como sempre.”",
+      "tags": [
+        "npc_conhecido"
+      ]
+    }
+  ],
+  "missao_encomenda_fim": [
+    "O destinatário abre uma fresta da caixa, assente e paga em moedas contadas, sem testemunhas.",
+    "A entrega termina em silêncio e em ouro. Ninguém pergunta o que havia lá dentro.",
+    "Quem recebe a encomenda sorri sem mostrar os dentes. A recompensa chega logo, com um aviso para não falar nisso."
+  ],
+  "mercado_intro": [
+    "{mercado_cena} {mercado_detalhe}",
+    "{mercado_detalhe} {mercado_cena}",
+    "{mercado_cena}"
+  ],
+  "trabalho_vazio": [
+    "{vazio_a} {vazio_b} {vazio_c}",
+    "{vazio_a} {vazio_c}",
+    "{vazio_b} {vazio_c}",
+    "{vazio_a} {vazio_b}"
+  ],
+  "periodo_nota": [
+    {
+      "t": "O ar da manhã ainda guarda o frio da noite.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Em algum lugar, um pássaro anuncia o dia.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A manhã cheira a terra e a fumaça distante.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A manhã é nova, e o mundo parece ter esquecido as pressas.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O sol ainda baixo estende sombras compridas pelo chão.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "O orvalho molha as botas e a barra da capa.",
+      "nao": [
+        "chuva",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "Uma luz mansa e dourada pinta tudo o que toca.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "A tarde se arrasta, preguiçosa.",
+      "tags": [
+        "tarde"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "As horas do meio do dia deixam o corpo lento.",
+      "tags": [
+        "tarde"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O sol da tarde pesa sobre os ombros.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "O calor da tarde tira o ânimo de tudo.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "vento",
+        "caverna"
+      ],
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "A luz da tarde vira âmbar e amolece o mundo.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "Um zumbido preguiçoso de insetos enche a tarde.",
+      "nao": [
+        "chuva",
+        "neve",
+        "vento",
+        "caverna"
+      ],
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "As sombras começam a se esticar, devagar.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "A noite é escura e cheia de pequenos ruídos.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O frio da noite sobe do chão.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Longe, algo uiva e se cala.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Estrelas furam o escuro, frias e distantes.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A lua mal aparece, e o mundo vira silhueta.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Grilos e corujas dividem a escuridão.",
+      "nao": [
+        "chuva",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A escuridão engole as formas, e a imaginação preenche o resto.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A madrugada é fria e quase muda.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O escuro vai ralear, mas ainda não.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Um frio fino rasteja pelo chão antes do amanhecer.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Tudo parece prender a respiração, esperando o dia.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Até os grilos descansam a esta hora.",
+      "nao": [
+        "chuva",
+        "neve",
+        "caverna"
+      ],
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "A hora entre a noite e a manhã não pertence a ninguém.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O mundo dorme, e você, por pouco, também.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A chuva não dá trégua.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Pingos grossos tamborilam em tudo.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A água escorre pela gola e pelo cabelo.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Poças crescem a cada minuto.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O cheiro de chuva e terra sobe forte.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O barulho da água cobre qualquer outro som.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A névoa borra tudo além de alguns passos.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A bruma abafa os sons e engana os olhos.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Gotas frias se prendem aos cílios.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Formas imprecisas surgem e se desfazem na névoa.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A umidade da névoa gruda na pele.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Nada tem contorno firme sob essa névoa.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O vento sopra em rajadas e bagunça tudo.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A capa estala como uma bandeira.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Folhas e poeira rodopiam à sua volta.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O vento assobia e disfarça os outros sons.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Uma rajada mais forte quase arranca a capa dos ombros.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O vento não para, e o ouvido cansa dele.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Flocos caem devagar e abafam o mundo.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A neve estala sob as botas.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O frio morde o rosto e os dedos.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Tudo é branco, silencioso e vasto.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O hálito vira fumaça diante do rosto.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Os dedos formigam sob a luva, e depois doem.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Gotas pingam em algum ponto do escuro, sem pressa.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O ar parado e frio cheira a pedra molhada.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Cada ruído volta aumentado pelas paredes.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Aqui não há dia nem noite, só a pedra.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Uma corrente de ar morno vem de algum lugar mais fundo.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O escuro é tão inteiro que você ouve o próprio sangue.",
+      "tags": [
+        "caverna"
+      ]
+    }
+  ],
+  "dia_luz": [
+    "Um novo dia nasce, e o mundo continua.",
+    "O galo canta, ou algo que parece um.",
+    "O dia chega sem pressa, como quem sabe que vai durar.",
+    "A madrugada vai embora devagar, levando o frio da noite.",
+    "Um fio de luz entra por onde pode e acorda você.",
+    "Mais um dia começa. O mundo não pediu licença.",
+    "O dia desperta aos bocejos, e você junto.",
+    "Outra manhã chega, igual e diferente das outras.",
+    {
+      "t": "A luz da manhã chega, tímida e dourada.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ]
+    },
+    {
+      "t": "O sol sobe devagar e esquenta as costas.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ]
+    },
+    {
+      "t": "O orvalho brilha em tudo o que a luz toca.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ]
+    },
+    {
+      "t": "O céu clareia aos poucos, do cinza ao rosa.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ]
+    },
+    {
+      "t": "Passarinhos testam a voz, um de cada vez.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ]
+    },
+    {
+      "t": "O céu limpo promete um dia comprido.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ]
+    },
+    {
+      "t": "A chuva persiste. O dia amanhece cinza.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O céu amanhece de chumbo, e a água não para.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Gotas grossas acordam você antes do sol.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Poças se espalham por todo lado, espelhando um céu baixo.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A chuva fina molha tudo e adia a manhã.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Trovões distantes rolam atrás das nuvens baixas.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O dia nasce molhado, e o barulho da água cobre o resto.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Não há luz de verdade, só um cinza úmido que clareia devagar.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A névoa da madrugada não vai embora com a luz do dia.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "O mundo acorda dentro de um leite espesso.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você mal enxerga a própria mão sob a névoa.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A bruma engole o sol antes que ele suba.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Tudo é contorno e sussurro, e a névoa abafa os sons.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Gotas frias pendem de tudo o que a névoa tocou.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A luz chega difusa, sem sombra e sem direção.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A névoa se abre em fiapos e volta a se fechar.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "O vento acorda antes de você e já assobia por tudo.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "Um vento teimoso sopra desde cedo, sacudindo a capa.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "A manhã vem varrida por rajadas secas.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "Nuvens correm pelo céu, empurradas por um vento sem dono.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "O vento puxa a coberta como se quisesse levá-la.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "Poeira e folhas rodopiam no ar do amanhecer.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "Neve nova cobre o chão e abafa tudo.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "O dia nasce branco, e o silêncio pesa.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "Flocos finos dançam sob uma luz de leite.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "O frio chega primeiro, e a luz vem depois, pálida.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "A neve estala sob cada movimento da manhã.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "Cristais de gelo enfeitam a capa e as botas.",
+      "tags": [
+        "neve"
+      ]
+    }
+  ],
+  "dia_corpo": [
+    "O corpo reclama, mas aceita.",
+    "Você se espreguiça e sente cada osso estalar.",
+    "Você acorda {=disposto/disposta@heroi}, para sua própria surpresa.",
+    "O corpo pesa um pouco menos que ontem.",
+    "Um bocejo, um gole d'água, e o dia começa para valer.",
+    "Você junta suas coisas devagar, sem pressa.",
+    "Antes de tudo, você confere a bolsa e as armas.",
+    "O estômago reclama, e você o ignora com elegância.",
+    "Você sacode a capa e prende o cinto, como todas as manhãs.",
+    "Os músculos esquentam aos poucos e passam a obedecer.",
+    {
+      "t": "",
+      "peso": 2
+    },
+    {
+      "t": "As feridas latejam como um lembrete de ontem.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Cada movimento puxa um curativo, e você faz uma careta.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você troca a atadura com cuidado, e o corte ainda está feio.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor ficou de vigília enquanto você dormia.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Levantar custa mais do que devia.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os machucados respondem ao frio com pontadas.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você acorda mais {=cansado/cansada@heroi} do que se deitou.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O sono não pagou a dívida do cansaço.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Há chumbo nas pernas e areia nos olhos.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você levanta por teimosia, não por vigor.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Os ombros pesam como se carregassem a noite inteira.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Dormir foi só fechar os olhos. Descansar, nem tanto.",
+      "tags": [
+        "exausto"
+      ]
+    }
+  ],
+  "dia_gancho": [
+    "A estrada espera, paciente como sempre.",
+    "Há trabalho a fazer e caminhos a escolher.",
+    "Hoje alguma coisa vai mudar, você sente.",
+    "Resta decidir para onde os passos vão.",
+    "Ninguém virá decidir por você.",
+    "O mundo não espera, mas também não corre.",
+    "Que o dia seja menos cruel que o anterior.",
+    "Você respira fundo e olha em volta.",
+    "Os mapas na sua cabeça se reorganizam.",
+    "Cada escolha de hoje vai pesar amanhã.",
+    {
+      "t": "",
+      "peso": 4
+    }
+  ],
+  "desc_acao": [
+    "Você se senta, respira fundo e deixa o corpo soltar a tensão.",
+    "Um gole d'água, um minuto de silêncio.",
+    "Você fecha os olhos por um momento e escuta o mundo.",
+    "Você apoia as costas em algo firme e estica as pernas.",
+    "Você afrouxa as correias da bolsa e solta um suspiro.",
+    "Você desata as botas, massageia os pés e as calça de novo.",
+    "Você mastiga um pedaço de pão duro, devagar.",
+    "Você alonga os ombros até estalarem.",
+    "Você senta numa pedra e deixa a cabeça esvaziar.",
+    "Você afrouxa o cinto e deixa os braços penderem.",
+    {
+      "t": "A dor nas feridas pulsa. Você aperta um pano contra elas e espera passar.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você troca uma atadura com dedos cuidadosos.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você lava um corte com um pouco d'água e morde o lábio.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você respira em ritmo curto, esperando a dor ceder.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você estanca o que ainda sangra e confere se o resto aguenta.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você ajeita o corpo numa posição menos cruel para o que está machucado.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você mal se aguenta de {=cansado/cansada@heroi}.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "As pernas tremem quando você finalmente para.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você desaba no primeiro lugar plano que encontra.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O mundo gira um pouco antes de assentar.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você pisca devagar, lutando contra o sono.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Um bocejo enorme quase {$heroi.lo} derruba.",
+      "tags": [
+        "exausto"
+      ]
+    }
+  ],
+  "desc_efeito": [
+    "O descanso é curto, mas faz diferença.",
+    "Os músculos agradecem, mas a estrada lembra.",
+    "O fôlego volta aos poucos.",
+    "É pouco, mas é o que há.",
+    "O coração desacelera e a cabeça clareia.",
+    "Parece nada, e pesa menos nos ombros.",
+    "Quando você levanta, o corpo obedece melhor.",
+    "O mundo espera, e você aproveita a trégua.",
+    "Dez minutos valem mais do que parecem.",
+    "A tensão escorre dos ombros, uma gota por vez."
+  ],
+  "camp_fogo": [
+    "Você acende uma fogueira pequena. As chamas dançam, e a noite parece menos vasta.",
+    "Uma capa no chão, uma pedra de travesseiro. É o que o mundo oferece, e basta.",
+    "Você monta o acampamento com cuidado e junta lenha para a noite toda.",
+    "O fogo estala. Você mastiga devagar, vigiando a escuridão com um olho só.",
+    "Você risca o sílex até a primeira fagulha pegar e sopra o fogo para a vida.",
+    "Três pedras formam um círculo, e dentro dele nasce uma chama teimosa.",
+    "Você arruma a bolsa como travesseiro e puxa a capa até o queixo.",
+    "Um caldo ralo ferve numa panelinha, e o cheiro faz o estômago agradecer.",
+    "Você escolhe um canto abrigado e arma o pouso com a calma de quem já fez isso muitas vezes.",
+    "Brasas baixas, capa dobrada, arma ao alcance. A rotina conforta."
+  ],
+  "camp_noite": [
+    {
+      "t": "Cada ruído da noite parece perto demais.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Você deixa a arma à mão e a respiração em ordem.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Sombras dançam na borda da luz e se desmancham.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Você conta as estrelas que o fogo deixa ver, até perder a conta.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Uma coruja pergunta alguma coisa ao escuro, e ninguém responde.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Você vigia o escuro por um tempo, só por hábito.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "O fogo baixa, e você o alimenta com mais um galho.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Você escuta o mundo respirar em volta e se acostuma.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "Fumaça sobe reta no ar parado e some entre as estrelas.",
+      "nao": [
+        "chuva",
+        "neve"
+      ]
+    },
+    {
+      "t": "A chuva martela a capa que você estica como teto.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Gotas furam o fogo e fazem a lenha chiar de raiva.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Você cava uma vala pequena para a água passar longe da cama.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O chão vira lama, e o fogo vira teimosia.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A água cai sem pressa e sem fim, e você aprende a ignorá-la.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Cada pingo no pano esticado soa como um dedo batendo.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A névoa se arrasta ao redor da fogueira.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "O fogo vira uma mancha laranja, sem borda, dentro do branco.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A umidade faz a madeira crepitar e fumegar.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Do outro lado da névoa, ruídos sem dono vêm e vão.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você mal vê além do próprio fogo.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A névoa devora a luz das chamas a poucos passos.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A neve abafa o mundo, e o fogo é a única coisa viva.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "Você derrete um punhado de neve e bebe devagar.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "O frio morde por baixo da capa, não importa quanto você a ajeite.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "Flocos morrem nas brasas com um chiado miúdo.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "Você enterra os pés perto do fogo e conta as horas até o sol.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "O silêncio da neve só é quebrado pelo estalo da lenha.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "A luz do fogo dança nas paredes e inventa formas.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O teto de pedra devolve cada estalo da lenha.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "A fumaça sobe e some em alguma fenda que você não vê.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "O escuro além do fogo é inteiro e atento.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Gotas marcam a hora, longe, no fundo.",
+      "tags": [
+        "caverna"
+      ]
+    },
+    {
+      "t": "Você escolhe o chão menos úmido e se encolhe junto às brasas.",
+      "tags": [
+        "caverna"
+      ]
+    }
+  ],
+  "camp_sono": [
+    "Você dorme, mas não fundo.",
+    "O sono vem em lascas, e cada uma custa.",
+    "Alguma hora você cai no sono sem notar.",
+    "Dormir é um acordo frágil com a noite.",
+    "Você cochila e acorda, cochila e acorda, até a luz voltar.",
+    "Quando enfim apaga, o sono é curto e pesado.",
+    "O sono chega tarde, mas chega inteiro.",
+    "Você dorme vigiando e vigia dormindo.",
+    {
+      "t": "As feridas acordam você a cada virada de corpo.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor vigia mais que você e dorme menos ainda.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Dormir de lado é a única posição que o corpo aceita.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os curativos grudam, e o sono é pura teimosia.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você cai no sono pela dor, e acorda pela mesma razão.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A febre rasa de ferida mal fechada embaralha os sonhos.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "O cansaço faz o trabalho do sono antes mesmo de você deitar.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você desaba como pedra e não sonha.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O corpo pede mais do que a noite pode dar.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Cai num sono fundo, quase uma pequena morte.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O cansaço {$heroi.lo} derruba antes que a fogueira acabe de crescer.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você dorme com a roupa, a bota e a preocupação.",
+      "tags": [
+        "exausto"
+      ]
+    }
+  ],
+  "est_cama": [
+    "A cama é dura e a sopa é rala, mas é um teto. Você dorme como poucas vezes.",
+    "O estalajadeiro lhe estende uma chave enferrujada. O quarto cheira a lavanda velha e a casa.",
+    "Você paga, sobe a escada rangente e desaba num colchão de palha. O mundo desaparece.",
+    "O quarto é pequeno e tem uma janela que não fecha direito, mas a manta é grossa.",
+    "Uma bacia d'água morna, um pedaço de sabão e um travesseiro de penas contadas. É luxo.",
+    "Lençóis remendados, uma vela curta e uma porta com trinco. Mais do que você esperava.",
+    "Você divide o quarto com mais dois viajantes, mas o catre é só seu.",
+    "A lareira do salão ainda guarda brasas, e o calor sobe pelo assoalho até o quarto.",
+    "O dono pesa suas moedas, assente, e {$heroi.lo} leva a um quarto de teto baixo e colchão macio demais para desconfiança.",
+    "A chave gira com um clique, e pela primeira vez em dias você solta a respiração."
+  ],
+  "est_ruido": [
+    "Risadas na taverna, embaixo, embalam seu sono.",
+    "Alguém toca uma flauta desafinada, e a canção vira nana.",
+    "Passos e vozes sobem do salão, abafados pelo assoalho.",
+    "Uma discussão de bêbados sobe e desce e some.",
+    "Um gato anda pelo telhado e acerta todas as telhas soltas.",
+    "Uma tábua do corredor geme a cada passo e cala quando o passo se vai.",
+    {
+      "t": "A chuva bate no telhado, e o quarto parece um navio seguro.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Goteiras marcam um compasso lento num balde esquecido.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O vento joga a água contra a janela, e você sorri para dentro.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Trovões longe, cama quente perto. Uma boa troca.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O barulho da água no telhado costura o sono.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A chuva lava a janela e o dia.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O salão esvazia aos poucos, e o silêncio chega em camadas.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A última vela do corredor se apaga, e o prédio ronca baixinho.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Lá fora, o vigia canta as horas, e você perde a conta no segundo sino.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A noite lá fora é grande, mas aqui dentro é só madeira e calor.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Alguém fecha a taverna com um bocejo e um barulho de ferrolho.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Uma coruja pia no beiral, e o quarto parece seguro demais para dar atenção.",
+      "tags": [
+        "noite"
+      ]
+    }
+  ],
+  "est_manha": [
+    "Você acorda {=descansado/descansada@heroi}, com a luz sobre o rosto.",
+    "Quando o sono acaba, o corpo está inteiro e o ânimo também.",
+    "Você levanta com o corpo mais leve do que se deitou.",
+    "Um cheiro de pão quente chama você de volta ao mundo.",
+    "Por uma noite, o mundo ficou do lado de fora.",
+    "Você acorda sem sobressaltos, coisa rara.",
+    {
+      "t": "Dormir sob teto ajudou, mas as feridas ainda cobram.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "As ataduras estão secas, e a dor é só um eco.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "O corpo agradece o colchão, ainda que as feridas reclamem.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A cicatrização é lenta, mas hoje você sente que o corpo coopera.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você troca os curativos à luz da janela e respira melhor.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor diminuiu por uma noite. É só o que se pode pedir.",
+      "tags": [
+        "ferido"
+      ]
+    }
+  ],
+  "mercado_cena": [
+    {
+      "t": "Mercadores anunciam suas mercadorias sob toldos remendados.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Bancas de madeira se espremem ao redor do poço da praça.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Uma barraca de tecidos disputa espaço com uma de queijos.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Um velho vende facas, ervas e histórias, nessa ordem.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Carroças descarregam sacos de grão ao lado de gaiolas de galinhas.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Gritos de preço atravessam a praça de uma banca a outra.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Um ferreiro exibe lâminas em um pano grosso e jura que são dele.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Cestos de maçãs, potes de mel e um tapete de agulhas: tudo tem dono e preço.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Peixeiras gritam o preço do dia sobre bancas de gelo e sal.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Redes, âncoras e caixotes tomam o cais, e cada um tem seu comprador.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Marinheiros trocam especiarias por moedas, com os olhos nos barcos.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Cheiro de peixe seco e alcatrão gruda em tudo o que se vende aqui.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Cordas, velas remendadas e lanternas de navio se empilham sobre estrados.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Um capitão sem navio vende a própria bússola e jura que ainda funciona.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Bancas de bugigangas do mar, de conchas a dentes de tubarão, aguardam freguês.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "A maré traz barcos, e os barcos trazem mercadoria.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Entre as palafitas, canoas viram bancas flutuantes de peixe, ervas e fumaça.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Tábuas rangem sob compradores e vendedores, e a lama espia embaixo.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Raízes secas, peles de sapo e redes dividem espaço num trapiche.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Quem vende aqui sabe ler o pântano, e cobra por isso.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Potes de barro com mel escuro e ervas fedidas passam de mão em mão.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Uma velha vende lanternas contra os pirilampos que traem.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Bancas sobre estacas balançam a cada passo de freguês.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Cheiro de peixe defumado e lama quente sobe do trapiche.",
+      "tags": [
+        "pantano"
+      ]
+    }
+  ],
+  "mercado_detalhe": [
+    {
+      "t": "As bancas acabaram de abrir, e a pressa é de quem quer o melhor primeiro.",
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve"
+      ],
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "Aventais ainda limpos e bocejos nos balcões.",
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "Os primeiros fregueses regateiam como se o dia fosse curto.",
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "Alguém varre a porta da banca e levanta poeira.",
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "O preço sobe junto com o sol.",
+      "tags": [
+        "manha"
+      ]
+    },
+    {
+      "t": "O movimento está no auge, e o preço também.",
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "Vendedores gritam mais alto para vencer o calor.",
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "A multidão se aperta, e carteiras vigiadas valem ouro.",
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "Crianças correm entre as bancas, e um cão rouba um osso.",
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "A feira chega ao fim de tarde, e os preços caem junto.",
+      "tags": [
+        "tarde"
+      ]
+    },
+    {
+      "t": "Tochas iluminam os últimos negócios.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Poucos fregueses restam, e os preços são mais honestos que de dia.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Vendedores contam moedas e recolhem as lonas.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Lanternas penduradas pintam rostos de amarelo.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A pressa de fechar rouba o espaço do regateio.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Só as bancas de quem madruga estão abertas, e seus donos sabem disso.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "Poucos olhos e muitas sombras: negócio de hora estranha.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "Tudo aqui é vendido baixinho, como se o dia pudesse ouvir.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "Uma lanterna sozinha ilumina uma banca ainda mais sozinha.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "O mercado mal abriu, e já há quem cheire a vinho.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "A chuva faz fregueses e vendedores se apertarem sob as lonas.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Lonas pesadas de água despencam aos baldes sobre quem passa.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O chão vira lama, e o regateio vira troca de mau humor.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Mercadoria é coberta às pressas, e quem precisa da peça paga mais.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Gotas grossas fazem o mercado cantar em tambor.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A névoa transforma as bancas em manchas e os fregueses em fantasmas.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Vozes surgem do nada e silenciam no nada.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Quem vende aqui jura que a névoa melhora o produto.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Lanternas acesas em pleno dia são a regra.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "É preciso chegar perto para ver o que se compra.",
+      "tags": [
+        "nevoa"
+      ]
+    }
+  ],
+  "tr_cena": [
+    "Você passeia entre balcões e mesas, perguntando quem precisa de braços e de coragem.",
+    "Num quadro de avisos sebento, pedidos de ajuda disputam espaço com contas atrasadas.",
+    "Basta dizer que procura trabalho para que cabeças se virem. Alguns precisam, outros só testam você.",
+    "Você deixa o nome correr de boca em boca.",
+    "Você pergunta por serviço em voz alta, e as conversas à volta mudam de tom.",
+    "Um papel preso com prego promete pagamento para quem não tem medo de nada.",
+    {
+      "t": "Entre redes, caixas e cordas, a conversa gira em torno de quem aceita um serviço arriscado.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "No cais, comandantes sem tripulação e tripulantes sem comando trocam olhares de negócio.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Na taverna do porto, o dono aponta o canto onde se fecham os acordos duvidosos.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Um estivador cuspindo para o lado diz que há sempre trabalho para quem não pergunta.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Marujos de olhos cansados do mar perguntam se você sabe lidar com problemas de terra.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Gaivotas gritam, e alguém no cais grita mais alto: precisam de alguém de confiança.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Sobre as palafitas, os moradores trocam olhares. Há sempre algo que o pântano levou e que alguém quer de volta.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Uma velha de cachimbo aponta com o queixo uma cabana torta: lá precisam de alguém.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Redes e varas rangem enquanto os homens discutem quem iria ao brejo, e ninguém vai.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "O pântano devora o que quer, e quem perdeu algo costuma oferecer boa paga.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Entre lampiões de peixe, alguém murmura que há serviço para quem não se importa com a lama.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Uma menina descalça aponta um pescador e diz que ele procura alguém sem medo de lodo.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Na praça, entre o cheiro de pão e de fumaça, você pergunta por trabalho e recebe três respostas diferentes.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "No balcão da taverna, o dono lembra de três pedidos e esquece dois.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "O sino da vila bate, e um arauto diz quem precisa de quê.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Um velho no banco da praça sabe quem anda aflito e quanto estaria disposto a pagar.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Cartazes na porta da igreja cobrem uns aos outros. Todos pedem ajuda.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Um ferreiro suado sussurra que há uma tarefa para quem não for exigente.",
+      "tags": [
+        "vila"
+      ]
+    }
+  ],
+  "tr_fecho": [
+    "Quem tem um problema grande demais costuma aparecer.",
+    "Alguns pedidos são honestos. Outros têm cheiro de armadilha.",
+    "A paga é sempre o que se quer ouvir primeiro.",
+    "Boas ofertas não ficam muito tempo no mural.",
+    "Nem todo mundo aqui fala a verdade, mas todos têm pressa.",
+    "Em pouco tempo, alguém sai do canto e se aproxima.",
+    "A questão é qual dos favores vale as moedas.",
+    "Cada resposta tem um preço escondido atrás."
+  ],
+  "vazio_a": [
+    "Ninguém precisa de ajuda hoje.",
+    "Os murais estão limpos, e as mesas, quietas.",
+    "Você pergunta e ouve só ombros que se encolhem.",
+    "Os pedidos de ontem já foram atendidos por outros.",
+    "Hoje o lugar anda em paz, e paz é mau negócio para aventureiros.",
+    "Nenhum rosto aflito cruza o seu olhar.",
+    "Há conversa demais e problemas de menos.",
+    "O mural tem só cartazes velhos, amarelados e sem pagamento."
+  ],
+  "vazio_b": [
+    "Quem sabe amanhã.",
+    "Volte mais tarde, ou outro dia.",
+    "O mundo anda quieto, por enquanto.",
+    "Você guarda a pergunta para outra hora.",
+    "Os problemas costumam voltar, e logo.",
+    "Pelo menos o lugar parece tranquilo.",
+    "A paciência também rende.",
+    "Talvez o acaso traga algo pela estrada."
+  ],
+  "viagem_ritmo": [
+    "O caminho é longo, mas calmo.",
+    "Você anda por horas.",
+    "Uma jornada sem sobressaltos.",
+    "Passos, silêncio e, de vez em quando, um pássaro.",
+    "Você segue sem pressa, medindo o chão com os pés.",
+    "A trilha se desenrola à sua frente, sem surpresas.",
+    "Você marca o ritmo pelo som das botas.",
+    "Os pés conhecem o trabalho e continuam sozinhos.",
+    "Pouca coisa se mexe no caminho além de você.",
+    "O horizonte avança tão devagar quanto você."
+  ],
+  "viagem_terreno": [
+    {
+      "t": "Cercas, hortas e telhados vão ficando para trás, uma casa de cada vez.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Cães latem de quintais distantes, e a estrada vai levando você.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Carros de boi e crianças curiosas dividem a rua com você.",
+      "tags": [
+        "vila"
+      ]
+    },
+    {
+      "t": "Sulcos de roda guiam seus passos, e ninguém aparece para atrapalhar.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "Marcos de pedra contam as léguas, uma a uma.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "A estrada serpenteia entre campos, e nada nela se move além de você.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "As árvores fecham a trilha dos dois lados, e a luz chega em listras.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Folhas secas estalam sob as botas e denunciam cada passo.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "A floresta respira em volta de você, e nada pede atenção.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Você pula de raiz em raiz, e a lama quase não pega.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "O pântano borbulha ao longe, mas deixa você passar.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Cada passo é um teste, e hoje o chão passa.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "A trilha sobe em curvas, e o ar rarefeito mede cada passo.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Pedras rolam soltas ao longe, mas nenhuma é para você.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "O caminho de pedra é duro, mas honesto.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "A areia fofa cobra mais esforço do que parece.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "As ondas marcam o tempo, e você anda no compasso delas.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "A trilha costeira é bonita e cansa do mesmo jeito.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Você contorna pedras caídas e passa por arcos sem teto.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "O caminho entre as ruínas é de cascalho e silêncio.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Estátuas quebradas observam você passar sem rosto.",
+      "tags": [
+        "ruinas"
+      ]
+    }
+  ],
+  "viagem_nota": [
+    {
+      "t": "Nuvens passam devagar e dão sombra por instantes.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Uma lebre cruza a trilha e some no mato.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você encontra um riacho e enche o cantil.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Um bando de pássaros cruza o céu em formação torta.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você troca o peso da bolsa de um ombro para o outro.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Um inseto teimoso acompanha você por meia légua.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você assobia baixo, para quebrar o silêncio, e se arrepende.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você divide o cantil em goles contados e segue.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "chuva",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A chuva {$heroi.lo} acompanha o caminho todo. Não há nada além de molhado e frio.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Lama gruda nas botas e dobra o peso de cada passo.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Você cobre a cabeça com o capuz, e o capuz cobre pouco.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Gotas escorrem pelo nariz, e você já nem as nota.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O vento {$heroi.lo} empurra ora de frente, ora de lado.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "A capa estala e quer ir embora, mas fica.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "Rajadas fortes fazem você andar curvado.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "Pó e folhas giram nos tornozelos.",
+      "tags": [
+        "vento"
+      ]
+    },
+    {
+      "t": "A noite cai sobre o caminho, e você segue guiado só pelas estrelas.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A escuridão engole a trilha, e você a adivinha com os pés.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Cada ruído noturno soa maior do que é.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Sombras longas cobrem o caminho inteiro.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A névoa esconde o caminho adiante, e você anda por palpite.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Formas sem nome passam pelos cantos dos olhos.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "O mundo encolhe a poucos passos de você.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Gotas de névoa se juntam na barba, nos cílios, no cabelo.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A neve cobre a trilha, e você segue as pegadas de ninguém.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "Cada passo afunda um pouco e custa um pouco mais.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "O branco cansa os olhos mais que a estrada.",
+      "tags": [
+        "neve"
+      ]
+    },
+    {
+      "t": "O vento joga cristais no rosto, e você aperta o capuz.",
+      "tags": [
+        "neve"
+      ]
+    }
+  ],
+  "viagem_fecho": [
+    "Nada {$heroi.lo} importuna.",
+    "Você aproveita para respirar.",
+    "Os pensamentos têm espaço para ir e vir.",
+    "Nada mais acontece. Às vezes é o melhor que se pode pedir.",
+    "O caminho passa, e você com ele.",
+    "Você chega ao fim do trecho com os pés doloridos e a cabeça leve.",
+    "Quando o trecho acaba, você mal nota que andou tanto.",
+    "A estrada cobra só cansaço, e hoje é só isso.",
+    {
+      "t": "",
+      "peso": 2
+    }
+  ],
+  "ret_abre": [
+    "Você volta {$local.ao_nome}. Os passos já são conhecidos.",
+    "De volta {$local.ao_nome}.",
+    "Você retorna {$local.ao_nome}, e o lugar parece lembrar de você.",
+    "O caminho de volta {$local.ao_nome} parece mais curto do que na ida.",
+    "{$local.O_nome} {#reaparece/reaparecem@local} à sua frente, familiar.",
+    "Você reconhece cada pedra {$local.do_nome}.",
+    "Os pés levam você {$local.ao_nome} quase sozinhos.",
+    "Você cruza de novo os limites {$local.do_nome}.",
+    "Voltar {$local.ao_nome} tem sabor de teimosia.",
+    "Você pisa outra vez {$local.no_nome}, e o chão já sabe seu peso.",
+    {
+      "t": "De volta {$local.ao_nome}, com a noite caindo e o corpo pedindo descanso.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Você retorna {$local.ao_nome} no escuro, guiado pela memória do caminho.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A noite acompanha você de volta {$local.ao_nome}.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Já é tarde quando você reconhece {$local.o_nome} no escuro.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Você retorna {$local.ao_nome} sob a chuva, e a pressa é de abrigo.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, encharcado até os ossos.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A chuva lava o trecho final de volta {$local.ao_nome}.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Pingando, você entra outra vez {$local.no_nome}.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Você reencontra {$local.o_nome} no meio da névoa, mais pelo faro do que pela vista.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, depois de uma caminhada às cegas.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A névoa devolve {$local.o_nome} a você aos pedaços.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Os contornos familiares {$local.do_nome} surgem da bruma, e você respira {=aliviado/aliviada@heroi}.",
+      "tags": [
+        "nevoa"
+      ]
+    }
+  ],
+  "ret_fim": [
+    "Pouca coisa mudou, e você, talvez, sim.",
+    "Voltar tem sabor de alívio e de teimosia.",
+    "Algumas caras são as mesmas. Outras, não.",
+    "O que você deixou aqui ainda espera.",
+    "É estranho ver como um lugar pode virar seu.",
+    "Nada {$heroi.lo} recebe de braços abertos, mas nada {$heroi.lo} expulsa.",
+    "Tudo parece menor do que na primeira vez.",
+    "O que era estranho agora é só costume.",
+    {
+      "t": "Voltar machucado muda o modo de olhar cada esquina.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você procura com os olhos um canto onde se sentar.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Cada passo lembra a luta, e o caminho parece mais longo do que é.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "As feridas pedem trégua, e o lugar parece oferecê-la.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "O cansaço pesa mais do que a bagagem.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você só quer um teto, uma cama e o silêncio.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "As pernas recusam mais um passo além do necessário.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você chega mais por teimosia do que por vontade.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Aqui, por um instante, o corpo desconfia menos.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Há um conforto cego em saber onde ficam o fogo e a cama.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O lugar tem cheiro de fogão aceso e de gente conhecida.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Aqui você pode, por um tempo, baixar a guarda.",
+      "tags": [
+        "seguro"
+      ]
+    }
+  ],
+  "chegada_passo": [
+    {
+      "t": "Você chega {$destino.ao_nome}.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Depois da jornada, {$destino.o_nome} se {#mostra/mostram@destino} à sua frente.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Seus pés pisam enfim {$destino.no_nome}.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você atinge {$destino.o_nome}, e o trajeto termina.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "O trecho final leva você {$destino.ao_nome}.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você entra {$destino.no_nome}, e o caminho fica para trás.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "O caminho acaba {$destino.no_nome}, e você com ele.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Passo a passo, você atravessa os limites {$destino.do_nome}.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você chega {$destino.ao_nome} {=cansado/cansada@heroi}, mas {=inteiro/inteira@heroi}.",
+      "tags": [
+        "exausto"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você atinge {$destino.o_nome} sem fôlego, arrastando os pés.",
+      "tags": [
+        "exausto"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "O trecho final até {$destino.o_nome} sai do fundo do cansaço.",
+      "tags": [
+        "exausto"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você chega {$destino.ao_nome} {=exausto/exausta@heroi}, mas chega.",
+      "tags": [
+        "exausto"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você chega {$destino.ao_nome} {=ferido/ferida@heroi} e com pressa de um lugar quente.",
+      "tags": [
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você atinge {$destino.o_nome} mancando, com as feridas ardendo.",
+      "tags": [
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "O trecho final até {$destino.o_nome} custa sangue e teimosia.",
+      "tags": [
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você entra {$destino.no_nome} com a dor como companhia.",
+      "tags": [
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    }
+  ],
+  "chegada_fim": [
+    "Os pés doem, mas o caminho valeu.",
+    "A viagem deixa poeira nas botas e perguntas na cabeça.",
+    "Você respira fundo e olha em volta.",
+    "É diferente de perto.",
+    "Você encosta a bolsa no chão e reconhece o terreno.",
+    "Um primeiro olhar, e você já sabe o que procura.",
+    "Os ouvidos se acostumam aos sons do lugar.",
+    "Resta decidir o que fazer agora que chegou.",
+    "Você sacode a poeira da capa e se endireita.",
+    "Pelo menos o chão aqui é firme.",
+    {
+      "t": "A escuridão torna tudo maior e mais estranho.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Há luz em algumas janelas, e só nelas.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A noite deixa pouco a ver, e muito a imaginar.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Você procura com os olhos onde o escuro é menos denso.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Água escorre por todo canto, e você escorre junto.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O chão é uma sopa de lama, e você a pisa sem escolha.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A chuva aperta, e a pressa é de um teto.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Você sacode a água do capuz, sem muito resultado.",
+      "tags": [
+        "chuva"
+      ]
+    }
+  ],
+  "emb_aviso": [
+    {
+      "t": "Um som atrás de você.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "O silêncio chega rápido demais.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Um arrepio sobe pela nuca.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Um galho estala onde não devia.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Os pássaros se calam de repente.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Uma sombra cruza o canto do olho.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "O vento muda e traz um cheiro estranho.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "O instinto dá o alarme um segundo tarde.",
+      "nao": [
+        "noite",
+        "madrugada",
+        "nevoa",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Na escuridão, nada avisa, e tudo se move.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Um brilho de olhos some assim que você os encara.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "O escuro respira ao seu lado.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Algo arrasta o chão, sem pressa, atrás de você.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Os grilos param todos de uma vez.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Na hora mais escura, algo se mexe entre as sombras.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "O frio da madrugada esconde o som dos passos.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "Você pisca devagar, e quando abre os olhos o mundo mudou.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "Algo respira perto demais para ser vento.",
+      "tags": [
+        "madrugada"
+      ]
+    },
+    {
+      "t": "A névoa esconde o perigo até o último instante.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Passos abafados cercam você, e a névoa guarda o resto.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Formas se movem dentro do branco, e uma delas se aproxima.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Um vulto se desenha na névoa, grande demais para ser sombra.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A chuva engole o som dos passos que se aproximam.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Entre dois trovões, um ruído que não é água.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A lama guarda uma pegada fresca que a chuva ainda não lavou.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Gotas escorrem no capuz e disfarçam o perigo.",
+      "tags": [
+        "chuva"
+      ]
+    }
+  ],
+  "emb_surge": [
+    "{$inimigo.Ref} surge do nada, bloqueando o caminho!",
+    "Ao se virar, você dá de cara com {$inimigo.o_nome}, que já avança.",
+    "Antes que reaja, {$inimigo.o_nome} salta das sombras.",
+    "Você sente o perigo um segundo tarde: {$inimigo.o_nome} está sobre você!",
+    "{$inimigo.O_nome} sai de trás de um obstáculo e corta seu caminho.",
+    "Então {$inimigo.o_nome} aparece, e não parece disposto a conversar.",
+    "{$inimigo.Um} {$inimigo.nome} se ergue diante de você, bloqueando a passagem.",
+    "Algo se move, e {$inimigo.o_nome} deixa de se esconder.",
+    {
+      "t": "Na escuridão, {$inimigo.o_nome} se revela quando já é tarde.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "{$inimigo.O_nome} sai do escuro como se o escuro o parisse.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Dois pontos de luz, e então {$inimigo.o_nome} inteiro.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "{$inimigo.O_nome} aparece entre os fiapos de névoa, perto demais.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "A névoa se abre, e é {$inimigo.o_nome} que a rasga.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Da brancura surge {$inimigo.o_nome}, direto na sua direção.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "{$inimigo.O_nome} cruza a cortina de chuva, sem pressa e sem dúvida.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A água escorre {$inimigo.do_nome} enquanto {$inimigo.ele} bloqueia a trilha.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Num relâmpago, você vê {$inimigo.o_nome}, e só então o ouve.",
+      "tags": [
+        "chuva"
+      ]
+    }
+  ],
+  "emb_reacao": [
+    "Sua mão corre para a arma.",
+    "Não há tempo para pensar.",
+    "Você não tem para onde recuar.",
+    "O coração dispara.",
+    "Os músculos reagem antes da cabeça.",
+    "Sobra um instante, e você tem de escolher o que fazer com ele.",
+    {
+      "t": "A dor reacende, mas o corpo responde.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "As feridas gritam, e você ignora.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você aperta o curativo e levanta a guarda.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "O corpo pede trégua, e o perigo não oferece.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Os braços pesam, mas obedecem.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O cansaço vira desespero, que também serve de força.",
+      "tags": [
+        "exausto"
+      ]
+    }
+  ],
+  "ci_cena": [
+    "Você firma os pés. {$inimigo.Ref} encara você.",
+    "Sem mais palavras, {$inimigo.o_nome} avança, e você levanta a guarda.",
+    "O mundo se estreita a você e {$inimigo.um_nome}.",
+    "{$inimigo.O_nome} mede você de cima a baixo e escolhe o primeiro golpe.",
+    "Vocês se encaram em silêncio, e o primeiro que se mexer decide.",
+    "Você empunha a arma, e {$inimigo.o_nome} responde com um passo à frente.",
+    "A distância entre você e {$inimigo.o_nome} encolhe a cada respiração.",
+    "Você abre a guarda, e {$inimigo.o_nome} aceita o convite.",
+    "{$inimigo.O_nome} gira ao seu redor, procurando uma brecha.",
+    "O primeiro movimento é de {$inimigo.do_nome}, e você mal tem tempo de reagir."
+  ],
+  "ci_estado": [
+    "O coração bate forte. É hora de lutar.",
+    "Você respira fundo e deixa o medo virar atenção.",
+    "Os dedos se fecham no cabo da arma.",
+    "Tudo o que importa agora cabe em três passos de chão.",
+    "Não há nada a dizer, só a fazer.",
+    "Você já esteve em pior, ou assim finge.",
+    {
+      "t": "A dor lateja, mas o perigo não vai esperar.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "As feridas lembram que pouco resta para gastar.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você luta com um olho no inimigo e outro nas próprias forças.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Cada respiração pesa por causa dos machucados.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Com o corpo pedindo trégua, você ergue a arma.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O cansaço faz tudo parecer lento, menos o perigo.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Os braços já pesam antes mesmo do primeiro golpe.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você luta com o que resta, que é pouco.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A lama sob os pés pede cuidado em cada passo.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A chuva escorre pelos olhos e atrapalha a pontaria.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O chão escorregadio vale tanto quanto uma arma.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "No escuro, você luta mais pelo som do que pela vista.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Sombras demais, luz de menos.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A escuridão borra os contornos, e o primeiro erro pode ser o último.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A névoa devora a distância e as formas.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você mal distingue onde o inimigo termina e a bruma começa.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "No branco da névoa, cada golpe é um palpite.",
+      "tags": [
+        "nevoa"
+      ]
+    }
+  ],
+  "ac_golpe": [
+    "Seu golpe acerta em cheio.",
+    "Você abre uma brecha na guarda {$inimigo.do_nome}, e o golpe entra fundo.",
+    "Um golpe limpo.",
+    "Você aproveita o momento e acerta com força.",
+    "Sua lâmina encontra o caminho entre as defesas.",
+    "Você finta para um lado e bate pelo outro.",
+    "O braço sabe o que fazer, e o golpe encontra o alvo.",
+    "A arma canta no ar e termina num impacto seco.",
+    {
+      "t": "Mesmo {=ferido/ferida@heroi}, você acerta o golpe com raiva.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor vira combustível, e o golpe pega fundo.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você ignora a ferida por um instante e bate com tudo.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Na hora certa, a mão firme esquece o machucado.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Seu golpe vem do fundo do cansaço, e acerta.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Num resto de fôlego, você bate e acerta.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O braço pesado ainda encontra o caminho.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Cansaço não é falta de pontaria. O golpe prova.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você acerta e a água salta do impacto.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O golpe corta a cortina de chuva e termina no alvo.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Apesar da lama, os pés seguram, e o golpe também.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "No escuro, você acerta pelo som.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Guiado por um ruído, seu golpe encontra carne no escuro.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Um golpe cego, e a sorte decide por você.",
+      "tags": [
+        "noite"
+      ]
+    }
+  ],
+  "ac_efeito": [
+    "{$inimigo.Ref} cambaleia.",
+    "{$inimigo.Ref} recua um passo, surpreso e ferido.",
+    "{$inimigo.Ref} estremece com o impacto.",
+    "{$inimigo.Ref} solta um grunhido e perde o equilíbrio por um instante.",
+    "O golpe tira {$inimigo.o_nome} do prumo.",
+    "{$inimigo.Ref} hesita, e a guarda baixa por um instante.",
+    "O impacto ecoa, e {$inimigo.ref} cai de lado.",
+    "{$inimigo.Ref} se encolhe, mas não desiste.",
+    "Algo se quebra {$inimigo.no_nome}, mas não o ânimo de lutar.",
+    "{$inimigo.Ref} veio com fúria e agora engole dor."
+  ],
+  "ac_fecho": [
+    "A luta ainda não acabou.",
+    "Você ganha terreno.",
+    "O ritmo muda a seu favor.",
+    "Não dá tempo de comemorar.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "pa_golpe": [
+    "O golpe pega de raspão.",
+    "Você raspa {$inimigo.o_nome}, mas sem profundidade.",
+    "Você acerta, mas {$inimigo.o_nome} desvia parte da força.",
+    "Um corte superficial.",
+    "A ponta toca, mas o alvo se esquiva no último instante.",
+    "O golpe encontra osso, armadura ou sorte alheia.",
+    "Metade do golpe acerta, metade se perde.",
+    {
+      "t": "Sua mão falha na hora H, e o golpe sai pela metade.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor puxa o braço para trás no pior momento.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os braços pesados cortam só uma parte da distância.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O cansaço rouba o resto do golpe.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A lama escorrega sob o pé, e o golpe só roça.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A chuva atrapalha, e o golpe só toca de leve.",
+      "tags": [
+        "chuva"
+      ]
+    }
+  ],
+  "pa_efeito": [
+    "É algo, mas não o bastante.",
+    "{$inimigo.Ref} rosna ou ri, difícil dizer.",
+    "O dano é pouco, mas real.",
+    "{$inimigo.Ref} sente, mas não recua.",
+    "Dá para continuar, mas dá para fazer melhor.",
+    "Não foi bonito. Foi o que deu.",
+    "Um resultado modesto.",
+    "Pelo menos o oponente sabe que você está ali."
+  ],
+  "fa_golpe": [
+    "Seu golpe corta o ar.",
+    "Você erra por pouco.",
+    "O golpe vai longe, e a guarda abre.",
+    "Você se lança em ataque, e o inimigo já não está lá.",
+    "A arma raspa na pedra, e o som é horrível.",
+    "Um passo mal medido põe tudo a perder.",
+    "O braço parte antes da mira.",
+    {
+      "t": "Sua visão turva. O golpe falha por um palmo.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor puxa o braço, e o golpe sai torto.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "As mãos tremem, e o golpe vai para onde não devia.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os braços pesam. O golpe sai lento e inofensivo.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O cansaço rouba a força, e o ataque morre no ar.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você levanta a arma, mas ela parece mais pesada que ontem.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A chuva embaça o olhar, e o golpe erra.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A mão escorrega no cabo molhado.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A poça fura o passo, e o golpe vai ao vazio.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "No escuro, o golpe encontra só ar.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Você bate onde achava que estava o inimigo, e ele não estava.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "As sombras enganam a pontaria.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A névoa distorce a distância, e o golpe falha.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Você bate em um contorno que era só bruma.",
+      "tags": [
+        "nevoa"
+      ]
+    },
+    {
+      "t": "No branco da névoa, a mira se perde.",
+      "tags": [
+        "nevoa"
+      ]
+    }
+  ],
+  "fa_efeito": [
+    "{$inimigo.Ref} contra-ataca.",
+    "{$inimigo.Ref} se esquiva e lhe acerta em troca.",
+    "{$inimigo.Ref} aproveita a abertura.",
+    "A resposta {$inimigo.do_nome} vem rápida.",
+    "{$inimigo.Ref} não perdoa o erro.",
+    "Sua guarda baixa, e o preço aparece.",
+    "O erro custa mais do que parece.",
+    "{$inimigo.Ref} avança, certeiro."
+  ],
+  "fa_fecho": [
+    "Você se arrepende.",
+    "Dói, e não só no corpo.",
+    "A lição vem em dor.",
+    "Você recompõe a guarda a tempo, mas o estrago está feito.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "cr_golpe": [
+    "Tudo se alinha num instante: seu golpe atravessa a guarda {$inimigo.do_nome}.",
+    "Um golpe perfeito.",
+    "O mundo desacelera. Você acerta onde dói mais, com tudo o que tem.",
+    "Você sente o golpe certo antes de dá-lo, e ele entra em cheio.",
+    "Um estalo seco ecoa quando a arma encontra a brecha exata.",
+    "Você lê o movimento do oponente como um livro aberto, e responde.",
+    "A lâmina encontra o ponto que todo guerreiro sonha encontrar.",
+    {
+      "t": "No limite das forças, você encontra a brecha perfeita. O golpe é seu melhor.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor apura o olhar, e o golpe sai exato.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Cansaço vira clareza num único golpe.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O último fio de energia vai inteiro neste golpe, e basta.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "No escuro, algo guia seu braço, e o golpe é perfeito.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Você acerta pelo som, e o som era a verdade.",
+      "tags": [
+        "noite"
+      ]
+    }
+  ],
+  "cr_efeito": [
+    "{$inimigo.Ref} cai de joelhos.",
+    "{$inimigo.Ref} nem vê de onde veio a dor.",
+    "{$inimigo.Ref} é lançado para trás, sem ar e sem postura.",
+    "O golpe pega {$inimigo.o_nome} em cheio, sem defesa.",
+    "Algo se rompe de vez {$inimigo.no_nome}.",
+    "{$inimigo.Ref} tenta reagir e descobre que o corpo não obedece.",
+    "Por um instante, o campo inteiro parece prender o fôlego.",
+    "A luta muda de lado num único golpe."
+  ],
+  "ds_golpe": [
+    "Seu pé escorrega e o golpe corta o ar.",
+    "A arma gira na mão suada.",
+    "Um tropeço desastrado.",
+    "Tudo dá errado de uma vez: a postura, o golpe, o fôlego.",
+    "Você golpeia com pressa demais, e a pressa cobra.",
+    "O cabo escapa dos dedos, e você agarra o vazio.",
+    "Um passo em falso, e o chão, que era aliado, vira traição.",
+    {
+      "t": "No escuro, você erra o alvo por um palmo e paga caro.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Você tropeça em algo invisível, e o invisível cobra.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A chuva escorre pelo cabo da arma. O golpe escapa e a guarda se abre.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "A lama puxa seu pé, e o resto vem em cascata.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "O cansaço pesa nos braços, e o golpe vira desastre.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você já não controla os músculos, e o corpo faz o que quer.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A ferida cede no pior momento, e o golpe vira queda.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor domina o braço, e a guarda desaba.",
+      "tags": [
+        "ferido"
+      ]
+    }
+  ],
+  "ds_efeito": [
+    "{$inimigo.Ref} aproveita sem piedade.",
+    "Quando você ergue os olhos, {$inimigo.o_nome} já está sobre você.",
+    "Você se expõe por inteiro.",
+    "{$inimigo.Ref} não desperdiça a oportunidade.",
+    "A resposta {$inimigo.do_nome} é rápida e dura.",
+    "O preço do erro chega na hora.",
+    "Por um segundo, você é só alvo."
+  ],
+  "vi_fim": [
+    "{$inimigo.O_nome} cai. O silêncio volta, e você respira.",
+    "Acabou. {$inimigo.O_nome} não se levantará.",
+    "Você abaixa a arma, o corpo tremendo. Venceu.",
+    "Com um último golpe, {$inimigo.o_nome} tomba.",
+    "{$inimigo.O_nome} desaba, e o chão recebe o peso final.",
+    "A luta termina como começou: de repente.",
+    "{$inimigo.Ref} dá um último suspiro e se cala.",
+    "Quando o último golpe cai, o mundo volta ao tamanho normal.",
+    "O silêncio que sobra é maior que a luta.",
+    "O perigo acaba, e o resto do mundo reaparece aos poucos."
+  ],
+  "vi_estado": [
+    "O peso da luta cai sobre seus ombros.",
+    "Você limpa a arma e conta os dedos, por via das dúvidas.",
+    "O coração leva um tempo para voltar ao ritmo.",
+    "Só agora você nota quanto tremia.",
+    "O fôlego volta em goles curtos.",
+    "Uma vitória pequena num mundo grande.",
+    {
+      "t": "Você vence, mas o preço aparece nas feridas.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Só então a dor chega inteira.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os machucados passam a cobrar o que a adrenalina adiava.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você sorri com os dentes cerrados: venceu, mas custou caro.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você vence, e o corpo cobra o que emprestou.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "As pernas cedem logo depois, e você se apoia no joelho.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A vitória pesa mais que a derrota pesaria.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você mal consegue comemorar de tão {=cansado/cansada@heroi}.",
+      "tags": [
+        "exausto"
+      ]
+    }
+  ],
+  "fs_a": [
+    "Você dispara pelo mato e deixa {$inimigo.o_nome} para trás.",
+    "Um desvio, uma corrida, e o perigo some atrás de você.",
+    "Você escapa por um triz.",
+    "{$inimigo.O_nome} perde seu rastro.",
+    "Você salta uma vala, vira uma esquina e some.",
+    "Um truque de última hora basta para quebrar a perseguição.",
+    "Você corre até os pulmões arderem, e {$inimigo.ref} desiste.",
+    "A fuga funciona, e funciona melhor do que você ousava esperar."
+  ],
+  "fs_b": [
+    "O coração martela nos ouvidos.",
+    "Você ganha um respiro.",
+    "Quando você olha para trás, só há caminho.",
+    "As pernas tremem, mas obedecem.",
+    "Você só para quando tem certeza de que está {=sozinho/sozinha@heroi}.",
+    "Fugir também é uma forma de coragem, ou quase.",
+    {
+      "t": "As feridas protestam a cada passo da fuga.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você corre sangrando e com sorte.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A fuga drena o que restava.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você cai de joelhos assim que o perigo acaba.",
+      "tags": [
+        "exausto"
+      ]
+    }
+  ],
+  "ff_a": [
+    "Você tenta fugir, mas {$inimigo.o_nome} é mais rápido.",
+    "Seus pés escorregam. A fuga fracassa e o perigo continua.",
+    "Você corre, mas {$inimigo.o_nome} já está em seus calcanhares.",
+    "Não há para onde ir. {$inimigo.O_nome} corta sua saída.",
+    "Você vira para correr, e {$inimigo.o_nome} está lá.",
+    "Dois passos de fuga, e uma mão ou garra agarra sua capa.",
+    "O caminho que parecia livre termina num beco sem saída.",
+    "Você aposta na velocidade, e perde a aposta."
+  ],
+  "ff_b": [
+    "O preço da tentativa é alto.",
+    "Agora só resta lutar.",
+    "A fuga custa caro.",
+    "O coração afunda.",
+    "Você se vira para encarar o que vem.",
+    "Pelo menos não é covardia ter tentado."
+  ],
+  "ns_a": [
+    "{$inimigo.O_nome} hesita, baixa a guarda e aceita o acordo.",
+    "Suas palavras pesam mais do que o aço, e {$inimigo.o_nome} recua.",
+    "Com um aceno relutante, {$inimigo.o_nome} abre caminho.",
+    "Um acordo é um acordo.",
+    "{$inimigo.O_nome} avalia você em silêncio e decide que a conversa vale mais que a briga.",
+    "Você fala com calma, e a calma funciona.",
+    "Um olhar demorado, uma pausa, e {$inimigo.o_nome} cede.",
+    "O tom certo no momento certo muda tudo."
+  ],
+  "ns_b": [
+    "O perigo se desfaz com um aperto de mão ou um resmungo.",
+    "Não é vitória, mas é uma saída.",
+    "Você guarda a arma sem tirar os olhos do outro lado.",
+    "Cada um segue o seu caminho, e ninguém olha para trás.",
+    "Palavras bem escolhidas valem mais que sangue.",
+    "Dessa vez, a língua foi mais afiada que a lâmina."
+  ],
+  "nf_a": [
+    "{$inimigo.O_nome} ri na sua cara e ergue a arma.",
+    "As palavras não bastam. {$inimigo.O_nome} perde a paciência.",
+    "Nenhum acordo. {$inimigo.O_nome} avança.",
+    "“Falou demais”, rosna {$inimigo.ref}.",
+    "O silêncio {$inimigo.do_nome} é pior que uma resposta.",
+    "Você estende a mão, e a resposta vem em forma de golpe.",
+    "{$inimigo.O_nome} escuta até o fim e responde com o que já queria fazer desde o início.",
+    "Suas palavras morrem no ar, e {$inimigo.o_nome} faz ouvidos moucos."
+  ],
+  "nf_b": [
+    "Resta o aço.",
+    "A conversa acabou, e começa outra linguagem.",
+    "Você firma os pés.",
+    "Não era o que você queria, mas é o que há.",
+    "Tarde demais para voltar atrás.",
+    "Agora é preciso lutar."
+  ],
+  "nv_a": [
+    "Algo se assenta dentro de você.",
+    "A experiência cobra seu preço e paga em dobro.",
+    "Você sente os músculos mais firmes e o olhar mais atento.",
+    "O que não o matou, ensinou.",
+    "Uma clareza nova toma conta da cabeça.",
+    "Os golpes de ontem viram instinto de hoje.",
+    "Você olha para trás e vê o caminho que andou, e quanto mudou.",
+    "Dentro do peito, uma peça encaixa num lugar que você nem sabia vazio."
+  ],
+  "nv_b": [
+    "Você está mais forte.",
+    "Você sobe de nível.",
+    "Subiu de nível.",
+    "Você evolui.",
+    "O mundo continua do mesmo tamanho, mas você cresceu para ele.",
+    "Nada disso evita a próxima ferida, mas ajuda a atravessá-la."
+  ],
+  "it_abre": [
+    "Entre os restos, {$item.um_nome} chama sua atenção.",
+    "Você encontra {$item.um_nome} e o guarda com cuidado.",
+    "Algo brilha. É {$item.um_nome}.",
+    "Num canto esquecido, {$item.um_nome}.",
+    "Sua mão se fecha sobre {$item.um_nome}.",
+    "Você tropeça em {$item.um_nome}, por pura sorte.",
+    "Meio coberto de pó, {$item.um_nome} espera por alguém.",
+    "Debaixo de tudo, {$item.um_nome} se revela.",
+    "Seus dedos tocam algo frio: {$item.um_nome}.",
+    "Quem deixou {$item.um_nome} para trás não voltou para buscar.",
+    {
+      "t": "Na penumbra, um reflexo denuncia {$item.um_nome}.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "Às cegas, você tateia {$item.um_nome}.",
+      "tags": [
+        "noite"
+      ]
+    },
+    {
+      "t": "A chuva lava a lama e revela {$item.um_nome}.",
+      "tags": [
+        "chuva"
+      ]
+    },
+    {
+      "t": "Entre poças, {$item.um_nome} reluz.",
+      "tags": [
+        "chuva"
+      ]
+    }
+  ],
+  "it_fecho": [
+    "Sorte sua.",
+    "Não é todo dia que o acaso é generoso.",
+    "Pode ser útil.",
+    "Você o examina, ajeita a bolsa e segue.",
+    "Alguém o perdeu, ou o abandonou. Agora é seu.",
+    "O que o mundo dá, o mundo costuma cobrar depois.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "npc_abre": [
+    {
+      "t": "Vocês nunca trocaram uma palavra, e {$npc.nome} {$heroi.lo} examina sem pressa.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "Um rosto novo. {$npc.Nome} {$heroi.lo} mede de alto a baixo antes de falar.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} nunca viu você por ali, e a curiosidade vence a cautela.",
+      "nao": [
+        "temp_desconfiado",
+        "temp_taciturno",
+        "temp_avarento",
+        "temp_curioso",
+        "temp_supersticioso"
+      ],
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} franze a testa para a figura desconhecida que se aproxima.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} não reconhece seu rosto e pergunta com os olhos o que você quer.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "Sem pressa nenhuma, {$npc.nome} espera que você fale primeiro.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} ergue o olhar e, ao ver um estranho, afasta o que tinha nas mãos.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "“Está perdid{=o/a@heroi}?”, pergunta {$npc.nome}, mais por educação do que por interesse.",
+      "nao": [
+        "temp_taciturno",
+        "temp_rabugento"
+      ],
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} nunca viu você por ali, e a desconfiança trava a língua por um instante.",
+      "tags": [
+        "npc_novo",
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "“Ah, é você de novo”, diz {$npc.nome}, reconhecendo seus passos antes do rosto.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} se lembra de você. A memória aparece nos olhos, e nem sempre é boa.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "“De novo por aqui”, comenta {$npc.nome}, sem decidir se é bom sinal.",
+      "nao": [
+        "npc_amigo",
+        "npc_hostil"
+      ],
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} acena de leve, como quem cumprimenta um rosto familiar.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "Você já não é {=estranho/estranha@heroi} ali, e {$npc.nome} faz questão de mostrar que sabe.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} assente devagar, reconhecendo você.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} levanta a mão num cumprimento tranquilo. “Voltou.”",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} abre um sorriso largo ao ver você. “Um amigo é sempre bem-vindo.”",
+      "nao": [
+        "temp_taciturno",
+        "temp_rabugento",
+        "temp_desconfiado"
+      ],
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "Assim que reconhece você, {$npc.nome} abaixa a guarda e faz um gesto para que se aproxime.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} se adianta alguns passos e aperta seu antebraço.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "“Que bom que veio”, diz {$npc.nome}, e parece sincer{=o/a@npc}.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} chama você pelo nome, num tom de quem faz isso com gosto.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "Há quem disfarce a alegria de ver um amigo. {$npc.Nome} não faz questão.",
+      "nao": [
+        "temp_taciturno",
+        "temp_desconfiado"
+      ],
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} fecha a cara. Há contas mal resolvidas entre vocês, e {$npc.ref} não esqueceu.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "Quando {$npc.nome} vê quem chegou, a conversa morre. O ressentimento ficou guardado.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} cospe para o lado e mede a distância até a porta.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "Os olhos de {$npc.nome} endurecem. Você ainda deve alguma coisa a esta mesa.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} não responde ao cumprimento. O silêncio faz o resto.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "“Você tem coragem de aparecer”, murmura {$npc.nome}.",
+      "nao": [
+        "temp_jovial"
+      ],
+      "tags": [
+        "npc_hostil"
+      ]
+    }
+  ],
+  "npc_gesto": [
+    {
+      "t": "{$npc.Ref} mantém uma mão perto do cinto, só por precaução.",
+      "tags": [
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "Os olhos correm de você para a estrada e de volta.",
+      "tags": [
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} pesa cada palavra antes de soltá-la.",
+      "tags": [
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} mantém uma distância polida, sem baixar o olhar.",
+      "tags": [
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} ri antes mesmo de ouvir a pergunta.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_jovial"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} assobia baixinho, e a conversa começa leve.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_jovial"
+      ]
+    },
+    {
+      "t": "O rosto se abre num sorriso fácil, desses que custam pouco.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_jovial"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} bate palmas de leve, como quem acaba de encontrar uma boa desculpa para parar.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_jovial"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} resmunga alguma coisa sobre gente que aparece sem avisar.",
+      "tags": [
+        "temp_rabugento"
+      ]
+    },
+    {
+      "t": "A testa franze, e a voz vem azeda.",
+      "tags": [
+        "temp_rabugento"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} cruza os braços e espera, de mau humor.",
+      "tags": [
+        "temp_rabugento"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} suspira alto, para que você ouça.",
+      "tags": [
+        "temp_rabugento"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} oferece um pedaço do que tem na mesa, sem pedir nada.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_generoso"
+      ]
+    },
+    {
+      "t": "Um gesto largo de boas-vindas faz o espaço parecer maior.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_generoso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} separa um canto do banco para você, sem perguntar.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_generoso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} procura nos bolsos algo para dar, e acha.",
+      "nao": [
+        "npc_hostil"
+      ],
+      "tags": [
+        "temp_generoso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} aperta a bolsa de moedas contra o corpo, num gesto que não disfarça.",
+      "tags": [
+        "temp_avarento"
+      ]
+    },
+    {
+      "t": "Os olhos medem sua bolsa antes do seu rosto.",
+      "tags": [
+        "temp_avarento"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} faz contas baixinho, e você desconfia que o assunto seja você.",
+      "tags": [
+        "temp_avarento"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} esfrega o polegar nos dedos, como quem pesa uma moeda invisível.",
+      "tags": [
+        "temp_avarento"
+      ]
+    },
+    {
+      "t": "Um suspiro longo antecede as primeiras palavras.",
+      "tags": [
+        "temp_melancolico"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} olha para um ponto distante, e demora a voltar.",
+      "tags": [
+        "temp_melancolico"
+      ]
+    },
+    {
+      "t": "A voz vem mansa e cansada, como se viesse de outro tempo.",
+      "tags": [
+        "temp_melancolico"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} esboça um sorriso triste, desses que não chegam aos olhos.",
+      "tags": [
+        "temp_melancolico"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} inclina a cabeça, examinando cada detalhe seu.",
+      "tags": [
+        "temp_curioso"
+      ]
+    },
+    {
+      "t": "As perguntas já estão no rosto antes de chegarem à boca.",
+      "tags": [
+        "temp_curioso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} se aproxima um passo, ávid{=o/a@npc} por saber de onde você veio.",
+      "tags": [
+        "temp_curioso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} olha sua bolsa, sua arma e suas botas, tudo ao mesmo tempo.",
+      "tags": [
+        "temp_curioso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} assente em silêncio, e o silêncio basta.",
+      "tags": [
+        "temp_taciturno"
+      ]
+    },
+    {
+      "t": "Uma sobrancelha erguida faz o papel de uma frase inteira.",
+      "tags": [
+        "temp_taciturno"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} responde com um aceno curto e deixa o resto para depois.",
+      "tags": [
+        "temp_taciturno"
+      ]
+    },
+    {
+      "t": "Poucas palavras, e todas medidas.",
+      "tags": [
+        "temp_taciturno"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} começa a falar antes de você abrir a boca, e não para.",
+      "tags": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} já despeja três assuntos antes de respirar.",
+      "tags": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "As palavras escorrem sem parar, uma atropelando a outra.",
+      "tags": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} gesticula com as duas mãos, contando algo que ninguém pediu.",
+      "tags": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} faz um sinal discreto contra mau-olhado quando você se aproxima.",
+      "tags": [
+        "temp_supersticioso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} toca um amuleto no pescoço antes de falar.",
+      "tags": [
+        "temp_supersticioso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} olha o céu, o chão e depois você, nessa ordem.",
+      "tags": [
+        "temp_supersticioso"
+      ]
+    },
+    {
+      "t": "Um grão de sal é jogado sobre o ombro, só por garantia.",
+      "tags": [
+        "temp_supersticioso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} endireita os ombros e encara você sem medo.",
+      "tags": [
+        "temp_corajoso"
+      ]
+    },
+    {
+      "t": "O queixo se ergue, e o olhar não foge.",
+      "tags": [
+        "temp_corajoso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} dá um passo à frente, como quem não conhece recuo.",
+      "tags": [
+        "temp_corajoso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} bate no peito uma vez, num gesto automático de orgulho.",
+      "tags": [
+        "temp_corajoso"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} esfrega os olhos e solta um bocejo discreto.",
+      "tags": [
+        "temp_cansado"
+      ]
+    },
+    {
+      "t": "Os ombros caídos contam um dia comprido.",
+      "tags": [
+        "temp_cansado"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} se apoia em qualquer coisa que esteja por perto.",
+      "tags": [
+        "temp_cansado"
+      ]
+    },
+    {
+      "t": "A voz sai arrastada, como se cada sílaba pesasse.",
+      "tags": [
+        "temp_cansado"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} sorri de lado, como quem já fez contas sobre você.",
+      "tags": [
+        "temp_astuto"
+      ]
+    },
+    {
+      "t": "Os olhos brilham de um cálculo que você não vê.",
+      "tags": [
+        "temp_astuto"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} pergunta uma coisa simples e observa a resposta com atenção demais.",
+      "tags": [
+        "temp_astuto"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} estuda você em silêncio, medindo o que cada gesto revela.",
+      "tags": [
+        "temp_astuto"
+      ]
+    },
+    "{$npc.Ref} observa você, esperando o primeiro movimento.",
+    "{$npc.Ref} ajeita a roupa e se prepara para ouvir.",
+    "O olhar demora um instante a mais do que o necessário.",
+    "{$npc.Ref} dá de ombros, como quem aceita o que vier.",
+    "Uma pausa curta, e a conversa começa."
+  ],
+  "npc_oficio_gesto": [
+    {
+      "t": "As mãos negras de fuligem não param de se mexer.",
+      "tags": [
+        "oficio_ferreiro"
+      ]
+    },
+    {
+      "t": "O cheiro de ferro quente gruda na roupa e na voz.",
+      "tags": [
+        "oficio_ferreiro"
+      ]
+    },
+    {
+      "t": "Os dedos fazem contas no ar, por hábito.",
+      "tags": [
+        "oficio_mercador"
+      ]
+    },
+    {
+      "t": "Um olhar rápido avalia suas botas, sua capa, sua bolsa.",
+      "tags": [
+        "oficio_mercador"
+      ]
+    },
+    {
+      "t": "A roupa cheira a couro, mato e sangue seco.",
+      "tags": [
+        "oficio_cacador"
+      ]
+    },
+    {
+      "t": "O arco, ou o que resta dele, repousa ao alcance da mão.",
+      "tags": [
+        "oficio_cacador"
+      ]
+    },
+    {
+      "t": "A mão descansa perto do cabo da arma, por dever.",
+      "tags": [
+        "oficio_guarda"
+      ]
+    },
+    {
+      "t": "Os olhos varrem a rua toda a cada três palavras.",
+      "tags": [
+        "oficio_guarda"
+      ]
+    },
+    {
+      "t": "Um cheiro suave de ervas e unguento flutua em volta.",
+      "tags": [
+        "oficio_curandeiro"
+      ]
+    },
+    {
+      "t": "Os dedos manchados de verde tremem de leve.",
+      "tags": [
+        "oficio_curandeiro"
+      ]
+    },
+    {
+      "t": "O cheiro de maré vem junto, teimoso.",
+      "tags": [
+        "oficio_pescador"
+      ]
+    },
+    {
+      "t": "As mãos calejadas lembram nós e redes.",
+      "tags": [
+        "oficio_pescador"
+      ]
+    },
+    {
+      "t": "Um fio de oração escapa entre os dentes.",
+      "tags": [
+        "oficio_sacerdote"
+      ]
+    },
+    {
+      "t": "A túnica puída ainda guarda um cheiro de incenso.",
+      "tags": [
+        "oficio_sacerdote"
+      ]
+    },
+    {
+      "t": "O olhar espia por cima do ombro, duas vezes.",
+      "tags": [
+        "oficio_contrabandista"
+      ]
+    },
+    {
+      "t": "A voz baixa só para quem importa.",
+      "tags": [
+        "oficio_contrabandista"
+      ]
+    },
+    {
+      "t": "Um livro entreaberto repousa na dobra do braço.",
+      "tags": [
+        "oficio_erudito"
+      ]
+    },
+    {
+      "t": "Há tinta nas pontas dos dedos e dúvidas nos olhos.",
+      "tags": [
+        "oficio_erudito"
+      ]
+    },
+    {
+      "t": "Um pano passa por uma caneca que já está limpa.",
+      "tags": [
+        "oficio_taberneiro"
+      ]
+    },
+    {
+      "t": "A voz vem acostumada a gritar pedidos por cima de risadas.",
+      "tags": [
+        "oficio_taberneiro"
+      ]
+    },
+    {
+      "t": "O pó de pedra marca cada ruga do rosto.",
+      "tags": [
+        "oficio_mineiro"
+      ]
+    },
+    {
+      "t": "Os ombros largos ainda carregam o peso do túnel.",
+      "tags": [
+        "oficio_mineiro"
+      ]
+    },
+    {
+      "t": "As palmas têm o calo certo de quem vive de remo.",
+      "tags": [
+        "oficio_barqueiro"
+      ]
+    },
+    {
+      "t": "O olhar mede o rio mesmo onde não há rio.",
+      "tags": [
+        "oficio_barqueiro"
+      ]
+    },
+    {
+      "t": "Um maço de folhas secas balança no cinto.",
+      "tags": [
+        "oficio_ervanario"
+      ]
+    },
+    {
+      "t": "Há terra sob as unhas e um perfume verde no ar.",
+      "tags": [
+        "oficio_ervanario"
+      ]
+    },
+    {
+      "t": "As botas ainda trazem terra fresca.",
+      "tags": [
+        "oficio_coveiro"
+      ]
+    },
+    {
+      "t": "O humor é seco como pá em chão duro.",
+      "tags": [
+        "oficio_coveiro"
+      ]
+    },
+    {
+      "t": "Os dedos dedilham uma corda solta, sem pensar.",
+      "tags": [
+        "oficio_bardo"
+      ]
+    },
+    {
+      "t": "A voz parece pronta para virar canção a qualquer momento.",
+      "tags": [
+        "oficio_bardo"
+      ]
+    },
+    {
+      "t": "A palma estendida pede sem pressa e sem esperança.",
+      "tags": [
+        "oficio_mendigo"
+      ]
+    },
+    {
+      "t": "Os olhos são mais atentos do que os trapos sugerem.",
+      "tags": [
+        "oficio_mendigo"
+      ]
+    },
+    {
+      "t": "Os braços grossos pedem espaço, e o machado também.",
+      "tags": [
+        "oficio_lenhador"
+      ]
+    },
+    {
+      "t": "Há serragem presa na barba e no cabelo.",
+      "tags": [
+        "oficio_lenhador"
+      ]
+    }
+  ],
+  "desp_a": [
+    {
+      "t": "{$npc.Nome} acena com a cabeça, e você sente que, por ora, estão quites.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} {$heroi.lo} segue com os olhos até o primeiro desvio.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "Não foi uma conversa longa, mas deixou marca.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} guarda seu rosto na memória, para o caso de voltarem a se ver.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "Um aceno rápido, e cada um volta ao que fazia.",
+      "tags": [
+        "npc_novo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} promete lembrar de você. Em lugares como este, isso pesa.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "“Cuide-se por aí”, diz {$npc.nome}, e quase soa sincer{=o/a@npc}.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} se despede com um gesto breve, de quem já se acostumou a vê-l{=o/a@heroi}.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "Pouco se diz na despedida, e muito se subentende.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "“Até a próxima”, resmunga {$npc.nome}, como quem sabe que haverá outra.",
+      "tags": [
+        "npc_conhecido"
+      ]
+    },
+    {
+      "t": "“Volte sempre”, diz {$npc.nome}. Desta vez, parece sincer{=o/a@npc}.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} aperta seu braço na despedida. “A casa é sua, quando quiser.”",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} acompanha você até a porta, e fica olhando.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "Despedir-se de um amigo sempre custa um pouco mais.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "“Se precisar, sabe onde me achar”, diz {$npc.nome}.",
+      "tags": [
+        "npc_amigo"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} vira as costas sem se despedir.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "O silêncio na saída é mais frio que o da chegada.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} cospe no chão quando você passa.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "“Não volte tão cedo”, murmura {$npc.nome}.",
+      "tags": [
+        "npc_hostil"
+      ]
+    },
+    {
+      "t": "A porta bate, e nada mais precisa ser dito.",
+      "tags": [
+        "npc_hostil"
+      ]
+    }
+  ],
+  "desp_b": [
+    {
+      "t": "Os olhos de {$npc.nome} não largam você até a esquina.",
+      "tags": [
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "Uma mão continua perto da faca, só por garantia.",
+      "tags": [
+        "temp_desconfiado"
+      ]
+    },
+    {
+      "t": "Um assobio alegre acompanha seus passos de saída.",
+      "tags": [
+        "temp_jovial"
+      ]
+    },
+    {
+      "t": "O riso de {$npc.nome} ainda ecoa quando você se afasta.",
+      "tags": [
+        "temp_jovial"
+      ]
+    },
+    {
+      "t": "Um resmungo final {$heroi.lo} acompanha como despedida.",
+      "tags": [
+        "temp_rabugento"
+      ]
+    },
+    {
+      "t": "“E feche a porta”, grita {$npc.nome}, de mau humor.",
+      "tags": [
+        "temp_rabugento"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} ainda empurra um último presente para suas mãos.",
+      "tags": [
+        "temp_generoso"
+      ]
+    },
+    {
+      "t": "Um “vá com sorte” generoso segue você pela rua.",
+      "tags": [
+        "temp_generoso"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} conta as moedas de novo antes de você sumir.",
+      "tags": [
+        "temp_avarento"
+      ]
+    },
+    {
+      "t": "Um olhar de lado confere se você não levou nada.",
+      "tags": [
+        "temp_avarento"
+      ]
+    },
+    {
+      "t": "Um suspiro longo marca o fim da conversa.",
+      "tags": [
+        "temp_melancolico"
+      ]
+    },
+    {
+      "t": "O olhar de {$npc.nome} se perde ao longe antes mesmo de você partir.",
+      "tags": [
+        "temp_melancolico"
+      ]
+    },
+    {
+      "t": "“Conte o resto depois”, pede {$npc.nome}, com os olhos brilhando.",
+      "tags": [
+        "temp_curioso"
+      ]
+    },
+    {
+      "t": "Uma pergunta final fica solta no ar.",
+      "tags": [
+        "temp_curioso"
+      ]
+    },
+    {
+      "t": "Um aceno curto, e o silêncio retorna ao seu lugar.",
+      "tags": [
+        "temp_taciturno"
+      ]
+    },
+    {
+      "t": "Poucas palavras na chegada, menos ainda na partida.",
+      "tags": [
+        "temp_taciturno"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} ainda conta uma última história enquanto você vai embora.",
+      "tags": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "Palavras seguem você até a esquina e um pouco além.",
+      "tags": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "Um sinal discreto de proteção acompanha sua partida.",
+      "tags": [
+        "temp_supersticioso"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} murmura algo rápido, para dar sorte, ou para afastá-la.",
+      "tags": [
+        "temp_supersticioso"
+      ]
+    },
+    {
+      "t": "“Que a estrada o respeite”, diz {$npc.nome}, sem nenhum medo.",
+      "tags": [
+        "temp_corajoso"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} se despede com um aceno firme e um queixo erguido.",
+      "tags": [
+        "temp_corajoso"
+      ]
+    },
+    {
+      "t": "Um bocejo discreto encerra a conversa.",
+      "tags": [
+        "temp_cansado"
+      ]
+    },
+    {
+      "t": "{$npc.Nome} se apoia na primeira parede disponível assim que você se vira.",
+      "tags": [
+        "temp_cansado"
+      ]
+    },
+    {
+      "t": "Um sorriso de lado indica que {$npc.nome} já pensa no próximo passo.",
+      "tags": [
+        "temp_astuto"
+      ]
+    },
+    {
+      "t": "“Nos vemos”, diz {$npc.nome}, como quem sabe mais do que diz.",
+      "tags": [
+        "temp_astuto"
+      ]
+    },
+    "Cada um segue o seu rumo.",
+    "Os passos se afastam, e a conversa fica para trás.",
+    "A rua engole os dois, cada um para um lado.",
+    "Nada mais a dizer, e ninguém tenta."
+  ],
+  "seguir_caminho": [
+    "{seg_a} {seg_b}",
+    "{seg_a}",
+    "{seg_a} {periodo_nota}"
+  ],
+  "seg_a": [
+    "Você segue seu caminho, sem olhar para trás.",
+    "Você dá as costas ao assunto e retoma a estrada.",
+    "Nada mais a fazer ali, e você parte.",
+    "Você ajeita a bolsa nos ombros e volta ao caminho.",
+    "Alguns encontros terminam melhor quando ninguém os prolonga.",
+    "Você deixa o lugar para trás, passo a passo.",
+    "Você decide que o assunto não é seu e continua.",
+    "A estrada espera, e você atende ao chamado dela.",
+    "Você se afasta sem pressa, mas sem hesitar.",
+    "Um último olhar de relance, e você segue em frente."
+  ],
+  "seg_b": [
+    "O que ficou para trás fica para trás.",
+    "Nem toda história pede um fim.",
+    "O mundo continua do mesmo tamanho.",
+    "Você guarda a lembrança, mas não o peso.",
+    "Cada escolha poupa uma e custa outra.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "nao_envolver": [
+    "{nev_a} {seg_b}",
+    "{nev_a}"
+  ],
+  "nev_a": [
+    "Você prefere não se envolver, e segue seu caminho.",
+    "Não é problema seu, e você faz questão de lembrar disso.",
+    "Você finge não ver e prossegue.",
+    "Alguns problemas são de outros, e você deixa que sejam.",
+    "Você aperta o passo e deixa o assunto murchar sozinho.",
+    "Manter distância é uma escolha, e você a faz."
+  ],
+  "vazio_c": [
+    "Uma mulher passa apressada e finge não ouvir a pergunta.",
+    "Um cão deitado à porta é a única companhia da conversa.",
+    "Alguém promete que talvez haja algo na semana que vem.",
+    "Um velho cochila no banco, e você o deixa em paz.",
+    "Você anota mentalmente os lugares onde perguntar de novo mais tarde.",
+    "Um gole de água e uma pausa são o que o lugar tem a oferecer.",
+    "Do outro lado da rua, alguém lhe lança um olhar interessado, mas some.",
+    "O sino marca a hora e encerra a conversa por aqui."
+  ],
+  "fs_c": [
+    "Atrás de você, o mato volta a se fechar.",
+    "Um ou dois grunhidos distantes marcam o fim da perseguição.",
+    "Você muda de rumo duas vezes, por garantia.",
+    "Só o som da própria respiração acompanha você agora.",
+    "O perigo ficou numa curva que você não pretende rever.",
+    "Dessa vez a pressa valeu a pena.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "ff_c": [
+    "O fôlego já vai pela metade.",
+    "Você sente o peso da bolsa a cada passada.",
+    "A distância encurtou em vez de aumentar.",
+    "Não haverá segunda chance de correr.",
+    "O medo ensina o corpo a ser rápido, mas não o bastante.",
+    "Resta virar o rosto e encarar o que vem.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "ns_c": [
+    "Ninguém comemora, mas ninguém sangra.",
+    "O ar volta a ser respirável.",
+    "Os ombros relaxam, e a tensão escorre aos poucos.",
+    "Um silêncio mais leve cai sobre o encontro.",
+    "Algo de dignidade sobra para os dois lados.",
+    "Você nem acredita que a conversa deu certo.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "nf_c": [
+    "O tom já não tem volta.",
+    "Você sente a boca seca e as mãos úmidas.",
+    "A confiança evapora num instante.",
+    "Palavras demais, e nenhuma serviu.",
+    "Um mau passo na conversa vale tanto quanto um mau passo na luta.",
+    "A paz acaba antes de começar.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "nv_c": [
+    "Há mais firmeza nos passos, e mais calma no olhar.",
+    "O caminho parece um pouco menos longo.",
+    "O que antes assustava agora só preocupa.",
+    "A estrada ensina a quem sobrevive a ela.",
+    "Você sente o corpo mais pronto para o que vier.",
+    "Cada cicatriz agora serve de lição.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "it_meio": [
+    "Você o vira nas mãos, avaliando o peso e o brilho.",
+    "Há marcas de uso, mas nada que o torne inútil.",
+    "Parece valer mais do que o lugar de onde veio.",
+    "Quem o fez sabia o que fazia.",
+    "Você sopra a poeira e confere cada canto.",
+    "Algum dono anterior deixou nele um traço próprio.",
+    "Um bom sinal para um dia que pedia um.",
+    "O lugar em que estava dizia pouco sobre o que valia."
+  ],
+  "pa_fecho": [
+    "A luta continua, igual e diferente.",
+    "Nenhum dos dois leva vantagem real.",
+    "Você ajusta a pegada e tenta de novo.",
+    "Um arranhão a mais para a conta.",
+    "O ritmo da luta não muda.",
+    "Dá para sentir que algo ainda vai ceder.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "cr_fecho": [
+    "Você mesmo se espanta com a precisão.",
+    "Foi o golpe que você vai lembrar depois.",
+    "A confiança sobe como maré.",
+    "O resto da luta parece mais simples agora.",
+    "Um silêncio curto, e a luta recomeça em novo ritmo.",
+    "Os dedos ainda formigam do impacto.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "ds_fecho": [
+    "Seu rosto queima de vergonha, ou de dor.",
+    "O chão parece mais próximo do que devia.",
+    "Você agradece por ainda estar de pé.",
+    "Uma lição cara, e não será a última.",
+    "O coração falha uma batida inteira.",
+    "Seria cômico, se não doesse tanto.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ],
+  "vi_fecho": [
+    "O lugar volta a ser só um lugar.",
+    "Você se permite um instante de alívio.",
+    "O mundo continua, indiferente à sua vitória.",
+    "Resta recolher o que sobrou e seguir.",
+    "Hoje o acaso e a coragem estiveram do mesmo lado.",
+    "Mais uma história que ninguém vai contar.",
+    {
+      "t": "",
+      "peso": 3
+    }
+  ]
 }

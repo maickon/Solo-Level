@@ -1,7 +1,7 @@
 // UI: telas de título, criação, jogo e morte. Só lê o estado e chama a API do Game.
 import { loadContent } from './engine/content.js';
 import { newState, Game } from './engine/game.js';
-import { markovName } from './engine/names.js';
+import { nomePessoa } from './engine/names.js';
 import { Rng } from './engine/rng.js';
 import { describeMods } from './engine/items.js';
 import { ATRIBUTOS, SLOTS_EQUIP, compararEquip } from './engine/hero.js';
@@ -81,7 +81,7 @@ function titleScreen() {
 
 // ---------- Criação de personagem (sem digitar nada) ----------
 function creationScreen() {
-  const sel = { classe: content.classes[0].id, genero: 'm', nome: markovName(nameRng, content.names.pessoas) };
+  const sel = { classe: content.classes[0].id, genero: 'm', nome: nomePessoa(nameRng, content.names, 'm') };
   const render = () => {
     app.innerHTML = `
       <div class="screen">
@@ -114,8 +114,8 @@ function creationScreen() {
         </div>
       </div>`;
     app.querySelectorAll('[data-classe]').forEach((b) => (b.onclick = () => { sel.classe = b.dataset.classe; render(); }));
-    app.querySelectorAll('[data-g]').forEach((b) => (b.onclick = () => { sel.genero = b.dataset.g; render(); }));
-    app.querySelector('[data-act="reroll"]').onclick = () => { sel.nome = markovName(nameRng, content.names.pessoas); render(); };
+    app.querySelectorAll('[data-g]').forEach((b) => (b.onclick = () => { if (sel.genero !== b.dataset.g) sel.nome = nomePessoa(nameRng, content.names, b.dataset.g); sel.genero = b.dataset.g; render(); }));
+    app.querySelector('[data-act="reroll"]').onclick = () => { sel.nome = nomePessoa(nameRng, content.names, sel.genero); render(); };
     app.querySelector('[data-act="back"]').onclick = titleScreen;
     app.querySelector('[data-act="start"]').onclick = () => startGame(newState(content, { ...sel, seed: `${sel.nome}-${Date.now()}` }));
   };
@@ -317,7 +317,7 @@ function jornadaHtml() {
       <div class="m">Contratante: ${esc(npc?.nome)}, dia ${m.aceita}</div>
       <div class="acts"><button data-abandon="${m.uid}">Abandonar</button></div></div>`;
   }).join('') || '<p class="empty">Nenhuma missão. Procure trabalho em locais seguros.</p>';
-  const fios = s.fios.map((x) => `<div class="entry">${esc(content.threads[x.id]?.texto)}<small>desde o dia ${x.desde}</small></div>`).join('')
+  const fios = s.fios.map((x) => `<div class="entry">${esc(game.label(content.threads[x.id]?.texto || ''))}<small>desde o dia ${x.desde}</small></div>`).join('')
     || '<p class="empty">Nenhuma ponta solta. Por enquanto.</p>';
   const pessoas = Object.values(s.npcs).sort((a, b) => (b.visto || 0) - (a.visto || 0)).slice(0, 12).map((n) => {
     const v = npcVar(game, n), l = game.loc(n.local);

@@ -1,52 +1,52 @@
 [
- {
-  "id": "lobo_alfa",
-  "texto": "Uivos seguem seus passos. Algo grande o rastreia.",
-  "pressao": 1,
-  "incremento": 1,
-  "requer": {
-   "bioma": [
-    "floresta"
-   ]
+  {
+    "id": "lobo_alfa",
+    "texto": "Uivos seguem seus passos. Algo grande {$heroi.lo} rastreia.",
+    "pressao": 1,
+    "incremento": 1,
+    "requer": {
+      "bioma": [
+        "floresta"
+      ]
+    },
+    "evento": "lobo_alfa_confronto"
   },
-  "evento": "lobo_alfa_confronto"
- },
- {
-  "id": "divida_contrabandista",
-  "texto": "Você deve um favor perigoso a um contrabandista do porto.",
-  "pressao": 1,
-  "incremento": 1,
-  "requer": {
-   "bioma": [
-    "costa",
-    "estrada"
-   ]
+  {
+    "id": "divida_contrabandista",
+    "texto": "Você deve um favor perigoso a um contrabandista do porto.",
+    "pressao": 1,
+    "incremento": 1,
+    "requer": {
+      "bioma": [
+        "costa",
+        "estrada"
+      ]
+    },
+    "evento": "divida_confronto"
   },
-  "evento": "divida_confronto"
- },
- {
-  "id": "sino_afogado",
-  "texto": "Um sino toca sob a água, e só você parece ouvi-lo.",
-  "pressao": 1,
-  "incremento": 1,
-  "requer": {
-   "bioma": [
-    "pantano"
-   ]
+  {
+    "id": "sino_afogado",
+    "texto": "Um sino toca sob a água, e só você parece ouvi-lo.",
+    "pressao": 1,
+    "incremento": 1,
+    "requer": {
+      "bioma": [
+        "pantano"
+      ]
+    },
+    "evento": "sino_afogado_final"
   },
-  "evento": "sino_afogado_final"
- },
- {
-  "id": "herdeiro_perdido",
-  "texto": "Você prometeu encontrar o herdeiro de uma casa esquecida.",
-  "pressao": 1,
-  "incremento": 1,
-  "requer": {
-   "bioma": [
-    "ruinas",
-    "montanha"
-   ]
-  },
-  "evento": "herdeiro_final"
- }
+  {
+    "id": "herdeiro_perdido",
+    "texto": "Você prometeu encontrar o herdeiro de uma casa esquecida.",
+    "pressao": 1,
+    "incremento": 1,
+    "requer": {
+      "bioma": [
+        "ruinas",
+        "montanha"
+      ]
+    },
+    "evento": "herdeiro_final"
+  }
 ]

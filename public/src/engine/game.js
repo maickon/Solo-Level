@@ -1,7 +1,7 @@
 // Orquestrador: estado → cena (texto + opções) → escolha → novo estado.
 // Sem DOM: a UI só lê `game.s.cena` e chama `choose(i)` / ações de inventário e missões.
 import { Rng, hashSeed } from './rng.js';
-import { expand, gvar } from './grammar.js';
+import { expand, gvar, novaCena, polir } from './grammar.js';
 import { check } from './conditions.js';
 import { generateItem } from './items.js';
 import { addItem, removeItem, equip, syncMax, SLOTS_EQUIP, stats, LIMITE_INVENTARIO } from './hero.js';
@@ -72,33 +72,44 @@ export class Game {
       t.add((this.npcCtx ? this.npcCtx.novo : s.evento.npcNovo) ? 'npc_novo' : 'npc_conhecido');
       if (npc.disposicao >= 2) t.add('npc_amigo');
       if (npc.disposicao <= -2) t.add('npc_hostil');
+      t.add(`oficio_${npc.oficio}`);
+      if (npc.temperamento) t.add(`temp_${npc.temperamento}`);
     }
     return t;
   }
   refreshVars() {
     const s = this.s, l = this.c.location(s), b = this.c.biome(s);
-    this.vars.heroi = gvar(s.heroi.nome, s.heroi.genero);
-    this.vars.local = gvar(l.nome, l.genero);
+    this.vars.heroi = gvar(s.heroi.nome, s.heroi.genero, { art: false });
+    this.vars.local = gvar(l.nome, l.genero, { art: l.artigo ?? true, plural: !!l.plural });
     this.vars.bioma = gvar(b.nome || '', b.genero);
     const npc = this.npcCtx?.npc || s.npcs[s.evento?.npc];
     if (npc) this.vars.npc = npcVar(this, npc);
   }
   text(tpl) {
     this.refreshVars();
-    return expand(tpl, { rng: this.rng, tables: this.c.grammar, vars: this.vars, tags: this.ctxTags(), memory: this.s.memoria });
+    this.cenaCtx ||= novaCena();
+    return expand(tpl, { rng: this.rng, tables: this.c.grammar, vars: this.vars, tags: this.ctxTags(), memory: this.s.memoria, cena: this.cenaCtx });
   }
-  say(tpl) { const t = this.text(tpl).trim(); if (t) this.out.push({ tipo: 'texto', texto: t }); }
+  /** Texto de rótulo/título: não conta como fala da cena (não marca fatos nem palavras usadas). */
+  label(tpl) {
+    const salvo = this.cenaCtx;
+    this.cenaCtx = novaCena();
+    const t = polir(this.text(tpl));
+    this.cenaCtx = salvo;
+    return t;
+  }
+  say(tpl) { const t = polir(this.text(tpl)); if (t) this.out.push({ tipo: 'texto', texto: t }); }
   note(texto, classe = '') { this.out.push({ tipo: 'nota', texto, classe }); }
   roll(texto, classe) { this.out.push({ tipo: 'rolagem', texto, classe }); }
   diary(texto) { this.s.diario.push({ dia: this.s.dia, periodo: this.s.periodo, texto }); }
 
-  begin() { this.out = []; this.pendingCombat = null; this.pendingScene = null; }
+  begin() { this.out = []; this.pendingCombat = null; this.pendingScene = null; this.cenaCtx = novaCena(); }
   commit(modo, opcoes) {
     if (this.s.morto) { modo = 'morte'; opcoes = []; this.say('{epitafio}'); }
     this.s.cena = { modo, blocos: this.out, opcoes };
     this.s.rng = this.rng.s;
   }
-  opt(rotulo, acao, extra = {}) { return { rotulo: this.text(rotulo), acao, ...extra }; }
+  opt(rotulo, acao, extra = {}) { return { rotulo: this.label(rotulo), acao, ...extra }; }
 
   // ---------- Cenas ----------
   hub() {
@@ -117,7 +128,7 @@ export class Game {
     for (const cx of conexoes(this, s.local)) {
       const d = this.loc(cx.para);
       if (!d) continue;
-      const v = gvar(d.nome, d.genero);
+      const v = gvar(d.nome, d.genero, { art: d.artigo ?? true, plural: !!d.plural });
       const novo = !s.visitados.includes(d.id);
       ops.push(this.opt(`Viajar para ${v.o} ${d.nome}`, { tipo: 'viajar', para: d.id }, { dica: `${cx.tempo || 1} período(s)${novo ? ' · inexplorado' : ''}` }));
     }
@@ -188,7 +199,7 @@ export class Game {
       return this.opt(`Aceitar: ${m.titulo}`, { tipo: 'aceitar', uid: m.uid },
         { dica: `${d?.nome} · ${m.ouro} ouro`, desativada: cheio || semEspaco });
     });
-    if (!ops.length) this.say('Ninguém precisa de ajuda hoje.');
+    if (!ops.length) this.say('{trabalho_vazio}');
     if (cheio) this.note(`Limite de ${MAX_ATIVAS} missões ativas.`, '');
     ops.push(this.opt('Voltar', { tipo: 'sair' }));
     this.commit('trabalho', ops);
@@ -263,7 +274,7 @@ export class Game {
     if (poi) {
       this.say('{poi_descoberta}');
       this.note(`Novo local no mapa: ${poi.nome}`, 'fio');
-      this.diary(`Descobri ${gvar(poi.nome, poi.genero).o} ${poi.nome}.`);
+      this.diary(`Descobri ${gvar(poi.nome, poi.genero).o_nome}.`);
       return this.hub();
     }
     const ev = this.emergirFio() || this.sortearEvento('exploracao');
@@ -277,7 +288,7 @@ export class Game {
     const destino = this.loc(para);
     if (!cx || !destino) return this.hub();
     const tempo = cx.tempo || 1;
-    this.vars.destino = gvar(destino.nome, destino.genero);
+    this.vars.destino = gvar(destino.nome, destino.genero, { art: destino.artigo ?? true, plural: !!destino.plural });
     this.gastarEnergia(tempo);
     R.avancarTempo(this, tempo);
     if (this.s.morto) return this.commit('morte', []);
@@ -347,7 +358,7 @@ export class Game {
   }
   act_estalagem() { R.estalagem(this); this.afterResolve(); }
 
-  act_mercado() { this.say('Mercadores anunciam suas mercadorias sob toldos remendados.'); this.marketScene(); }
+  act_mercado() { this.say('{mercado_intro}'); this.marketScene(); }
   act_comprar({ idx }) {
     const st = this.estoque(), it = st[idx], h = this.s.heroi;
     if (!it || h.ouro < precoCompra(it)) return this.marketScene();

@@ -35,3 +35,25 @@ export function markovName(rng, list, { order = 2, min = 4, max = 10 } = {}) {
   }
   return rng.pick(list);
 }
+
+// Terminações que soam femininas/masculinas em nomes de fantasia lusófonos.
+const SOA_F = /(a|ia|ie|ne|ra|is|ys|elle|ine)$/i;
+const SOA_M = /[^a]$/i;
+
+/**
+ * Nome com gênero coerente. Usa `pessoas_m`/`pessoas_f` se o pacote tiver (≥ 8 nomes);
+ * senão filtra os nomes gerados de `pessoas` pela terminação.
+ */
+export function nomePessoa(rng, names, genero = 'm') {
+  const f = genero === 'f';
+  const lista = names?.[f ? 'pessoas_f' : 'pessoas_m'];
+  if (lista?.length >= 8) return markovName(rng, lista);
+  const soa = f ? SOA_F : SOA_M;
+  let nome = '';
+  for (let i = 0; i < 25; i++) {
+    nome = markovName(rng, names?.pessoas || []);
+    if (soa.test(nome)) return nome;
+  }
+  const sementes = (names?.pessoas || []).filter((n) => soa.test(n));
+  return sementes.length ? rng.pick(sementes) : nome;
+}

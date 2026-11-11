@@ -156,7 +156,8 @@
       }
     ],
     "x": 40,
-    "y": 26
+    "y": 26,
+    "plural": true
   },
   {
     "id": "passo_montanha",

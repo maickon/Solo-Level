@@ -46,11 +46,47 @@ Entradas de tabela em `grammar.json`:
   modo (`combate`), `ferido` (HP ≤ 50%), `exausto` (exaustão ≥ 3).
 - O motor evita repetir entradas usadas recentemente.
 
+### Gramática 2.0: coerência, referência e variedade
+**Artigos prontos** (use sempre para lugares; o lint avisa `{$local.nome}` solto):
+`o_nome` ("a Vila de Bruma"), `O_nome`, `do_nome` ("da Vila…"), `no_nome` ("na Vila…"), `ao_nome` ("à Vila…"), `um_nome`.
+Pessoas (`heroi`, `npc`) não levam artigo: `{$npc.do_nome}` → "de Nesna". Um local com nome sem artigo
+("Lisboa") declara `"artigo": false`.
+
+**Pronomes**: `ele`/`Ele` (ele/ela), `dele` (dele/dela), `lo` (o/a, objeto: "Nesna {$heroi.lo} mede").
+
+**Referência** `{$var.ref}` / `{$var.Ref}`: na 1ª menção da cena, nome com artigo ("o lobo", "Nesna");
+depois, pronome ("ele"/"ela") — a menos que outra entidade do mesmo gênero tenha sido citada por último,
+caso em que repete o nome. Nunca escreva "Ele…" sem antes nomear quem é.
+
+**Fatos ditos**: uma entrada pode afirmar fatos e recusar fatos já afirmados ou presentes no contexto.
+```json
+"chegada":    [{ "t": "Seus pés pisam enfim {$destino.no_nome}.", "diz": ["chegou"] }],
+"local_desc": [{ "t": "De longe, {$local.o_nome} parece menor.", "nao": ["chegou"] }]
+```
+- `diz`: fatos que valem até o fim da cena; também funcionam como tags para as próximas partes.
+- `nao`: a entrada é descartada se qualquer um desses fatos/tags estiver ativo.
+- Tags extras de NPC no contexto: `oficio_<id>` e `temp_<id>` (ex.: `"nao": ["temp_desconfiado"]`
+  numa frase em que a curiosidade vence a cautela).
+
+**Cenas por partes**: prefira montar textos frequentes com várias tabelas pequenas em vez de frases inteiras:
+`"novo_dia": ["{dia_luz} {dia_corpo} {dia_gancho}"]`. Cada parte filtra por contexto (período, clima, bioma,
+`ferido`, `exausto`) e a variedade multiplica (8 × 8 × 6 = 384 combinações). Partes opcionais: inclua uma
+entrada vazia `""` com `peso` (o motor limpa espaços e pontuação sobrando).
+
+**Anti-repetição**: o motor percorre ~60% de cada tabela antes de repetir uma entrada (memória salva no jogo)
+e evita, na mesma cena, entradas com palavras de mesmo radical já usadas ("cansado" … "olhos cansados").
+O validador mede a variedade (% de textos distintos na simulação) e lista avisos de estilo
+(contração ausente "de o"/"em a", palavra repetida na frase, pontuação). `node tools/validate.mjs --estilo` lista todos.
+
+**Nomes**: `names.json` pode ter `pessoas_m` e `pessoas_f` (≥ 8 cada) para nomes com gênero; sem elas,
+o motor filtra `pessoas` pela terminação. Ofícios e temperamentos precisam de forma `m` e `f` distintas
+quando a palavra varia ("bardo"/"barda").
+
 Tabelas usadas pelo motor (devem existir): `local_desc`, `local_retorno`,
 `chegada`, `viagem_sem_evento`, `descanso_curto`, `acampamento`, `estalagem`,
 `emboscada`, `combate_inicio`, `ataque_acerto`, `ataque_parcial`, `ataque_falha`,
 `vitoria`, `fuga_sucesso`, `fuga_falha`, `negociar_sucesso`, `negociar_falha`,
-`epitafio`, `subir_nivel`, `item_encontrado`, `novo_dia`.
+`epitafio`, `subir_nivel`, `item_encontrado`, `novo_dia`, `mercado_intro`, `trabalho_vazio`.
 
 ## classes.json
 ```json
