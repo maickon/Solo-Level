@@ -7,7 +7,9 @@ description: Alterar mecânicas do motor do SoloLevel — sistema de testes 2d6,
 
 Mapa (`public/src/engine/`): `rules.js` (testes, efeitos `EFFECTS`, combate, descanso, tempo, XP)
 · `conditions.js` (`CHECKS`) · `game.js` (cenas e ações `act_<tipo>`) · `items.js` · `hero.js` (stats derivados)
-· `grammar.js` · `content.js` (carga e `validate`). Visão geral: `docs/ARCHITECTURE.md`.
+· `grammar.js` · `content.js` (carga e `validate`) · `world.js` (POIs, `conexoes()`, `loc()`, distâncias)
+· `npcs.js` (vincular, disposição) · `quests.js` (ofertas e geração). Visão geral: `docs/ARCHITECTURE.md`.
+Locais podem ser dinâmicos: use sempre `loc(g, id)` e `conexoes(g, id)`, nunca `content.locations[id]` direto.
 
 Invariantes:
 - Motor sem DOM; UI só chama `game.choose(i)`, `usarItem`, `equiparItem`, `descartarItem`.

@@ -1,0 +1,156 @@
+{
+ "oficios": [
+  {
+   "id": "ferreiro",
+   "m": "ferreiro",
+   "f": "ferreira"
+  },
+  {
+   "id": "mercador",
+   "m": "mercador",
+   "f": "mercadora"
+  },
+  {
+   "id": "cacador",
+   "m": "caçador",
+   "f": "caçadora"
+  },
+  {
+   "id": "guarda",
+   "m": "guarda",
+   "f": "guarda"
+  },
+  {
+   "id": "curandeiro",
+   "m": "curandeiro",
+   "f": "curandeira"
+  },
+  {
+   "id": "pescador",
+   "m": "pescador",
+   "f": "pescadora"
+  },
+  {
+   "id": "sacerdote",
+   "m": "sacerdote",
+   "f": "sacerdotisa"
+  },
+  {
+   "id": "contrabandista",
+   "m": "contrabandista",
+   "f": "contrabandista"
+  },
+  {
+   "id": "erudito",
+   "m": "erudito",
+   "f": "erudita"
+  },
+  {
+   "id": "taberneiro",
+   "m": "taberneiro",
+   "f": "taberneira"
+  },
+  {
+   "id": "mineiro",
+   "m": "mineiro",
+   "f": "mineira"
+  },
+  {
+   "id": "barqueiro",
+   "m": "barqueiro",
+   "f": "barqueira"
+  },
+  {
+   "id": "ervanario",
+   "m": "ervanário",
+   "f": "ervanária"
+  },
+  {
+   "id": "coveiro",
+   "m": "coveiro",
+   "f": "coveira"
+  },
+  {
+   "id": "bardo",
+   "m": "bardo",
+   "f": "bardo"
+  },
+  {
+   "id": "mendigo",
+   "m": "mendigo",
+   "f": "mendiga"
+  },
+  {
+   "id": "lenhador",
+   "m": "lenhador",
+   "f": "lenhadora"
+  }
+ ],
+ "temperamentos": [
+  {
+   "id": "desconfiado",
+   "m": "desconfiado",
+   "f": "desconfiada"
+  },
+  {
+   "id": "jovial",
+   "m": "jovial",
+   "f": "jovial"
+  },
+  {
+   "id": "rabugento",
+   "m": "rabugento",
+   "f": "rabugenta"
+  },
+  {
+   "id": "generoso",
+   "m": "generoso",
+   "f": "generosa"
+  },
+  {
+   "id": "avarento",
+   "m": "avarento",
+   "f": "avarenta"
+  },
+  {
+   "id": "melancolico",
+   "m": "melancólico",
+   "f": "melancólica"
+  },
+  {
+   "id": "curioso",
+   "m": "curioso",
+   "f": "curiosa"
+  },
+  {
+   "id": "taciturno",
+   "m": "taciturno",
+   "f": "taciturna"
+  },
+  {
+   "id": "falastrao",
+   "m": "falastrão",
+   "f": "falastrona"
+  },
+  {
+   "id": "supersticioso",
+   "m": "supersticioso",
+   "f": "supersticiosa"
+  },
+  {
+   "id": "corajoso",
+   "m": "corajoso",
+   "f": "corajosa"
+  },
+  {
+   "id": "cansado",
+   "m": "cansado",
+   "f": "cansada"
+  },
+  {
+   "id": "astuto",
+   "m": "astuto",
+   "f": "astuta"
+  }
+ ]
+}

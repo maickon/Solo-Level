@@ -1,0 +1,151 @@
+[
+ {
+  "id": "caverna",
+  "nome": "{poi_nome_caverna}",
+  "genero": "f",
+  "biomas": [
+   "montanha",
+   "floresta",
+   "costa"
+  ],
+  "tags": [
+   "caverna",
+   "subterraneo"
+  ],
+  "peso": 3
+ },
+ {
+  "id": "santuario",
+  "nome": "{poi_nome_santuario}",
+  "genero": "m",
+  "biomas": [
+   "floresta",
+   "ruinas",
+   "montanha",
+   "estrada"
+  ],
+  "tags": [
+   "santuario",
+   "sagrado"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "acampamento_bandido",
+  "nome": "{poi_nome_acampamento_bandido}",
+  "genero": "m",
+  "biomas": [
+   "floresta",
+   "estrada",
+   "montanha"
+  ],
+  "tags": [
+   "acampamento_bandido",
+   "perigoso"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "torre",
+  "nome": "{poi_nome_torre}",
+  "genero": "f",
+  "biomas": [
+   "ruinas",
+   "montanha",
+   "costa",
+   "estrada"
+  ],
+  "tags": [
+   "torre",
+   "antigo"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "cripta",
+  "nome": "{poi_nome_cripta}",
+  "genero": "f",
+  "biomas": [
+   "ruinas",
+   "pantano",
+   "floresta"
+  ],
+  "tags": [
+   "cripta",
+   "subterraneo",
+   "antigo"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "naufragio",
+  "nome": "{poi_nome_naufragio}",
+  "genero": "m",
+  "biomas": [
+   "costa",
+   "pantano"
+  ],
+  "tags": [
+   "naufragio"
+  ],
+  "peso": 3
+ },
+ {
+  "id": "mina",
+  "nome": "{poi_nome_mina}",
+  "genero": "f",
+  "biomas": [
+   "montanha",
+   "ruinas"
+  ],
+  "tags": [
+   "mina",
+   "subterraneo"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "clareira_antiga",
+  "nome": "{poi_nome_clareira_antiga}",
+  "genero": "f",
+  "biomas": [
+   "floresta",
+   "pantano",
+   "ruinas"
+  ],
+  "tags": [
+   "clareira_antiga",
+   "sagrado"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "ninho",
+  "nome": "{poi_nome_ninho}",
+  "genero": "m",
+  "biomas": [
+   "montanha",
+   "costa",
+   "floresta"
+  ],
+  "tags": [
+   "ninho",
+   "perigoso"
+  ],
+  "peso": 2
+ },
+ {
+  "id": "altar_afogado",
+  "nome": "{poi_nome_altar_afogado}",
+  "genero": "m",
+  "biomas": [
+   "pantano",
+   "costa"
+  ],
+  "tags": [
+   "altar_afogado",
+   "sagrado"
+  ],
+  "peso": 2
+ }
+]

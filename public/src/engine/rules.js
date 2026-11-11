@@ -3,6 +3,7 @@
 import { stats, syncMax, addItem, removeItem } from './hero.js';
 import { generateItem } from './items.js';
 import { gvar } from './grammar.js';
+import { mudarDisposicao } from './npcs.js';
 
 export const PERIODOS = ['manha', 'tarde', 'noite', 'madrugada'];
 export const PERIODO_NOME = { manha: 'Manhã', tarde: 'Tarde', noite: 'Noite', madrugada: 'Madrugada' };
@@ -18,11 +19,15 @@ export function teste(g, atributo, { dificuldade = 0, bonusTag = null } = {}) {
   let mod = (st.attrs[atributo] || 0) - st.penalidade - dificuldade;
   if (bonusTag) for (const [tag, b] of Object.entries(bonusTag)) if (h.inventario.some((i) => i.tags?.includes(tag))) mod += b;
   const total = d1 + d2 + mod;
-  const resultado = total >= 10 ? 'sucesso' : total >= 7 ? 'parcial' : 'falha';
+  // 6+6 sempre é crítico (sucesso); 1+1 sempre é desastre (falha).
+  const especial = d1 === 6 && d2 === 6 ? 'critico' : d1 === 1 && d2 === 1 ? 'desastre' : null;
+  const resultado = especial === 'critico' ? 'sucesso' : especial === 'desastre' ? 'falha'
+    : total >= 10 ? 'sucesso' : total >= 7 ? 'parcial' : 'falha';
   g.s.caos = Math.max(1, Math.min(9, g.s.caos + (resultado === 'falha' ? 1 : resultado === 'sucesso' ? -1 : 0)));
   const sinal = mod >= 0 ? '+' : '−';
-  g.roll(`${ATTR_ROTULO[atributo] || atributo} · 2d6 (${d1}+${d2}) ${sinal}${Math.abs(mod)} = ${total} → ${RESULT[resultado]}`, resultado);
-  return { d1, d2, mod, total, resultado };
+  const rot = especial === 'critico' ? 'CRÍTICO!' : especial === 'desastre' ? 'DESASTRE!' : RESULT[resultado];
+  g.roll(`${ATTR_ROTULO[atributo] || atributo} · 2d6 (${d1}+${d2}) ${sinal}${Math.abs(mod)} = ${total} → ${rot}`, especial || resultado);
+  return { d1, d2, mod, total, resultado, especial };
 }
 
 /** Oráculo interno sim/não ajustado pelo caos (1–9). */
@@ -155,6 +160,8 @@ const EFFECTS = {
     g.diary(`Ganhei o traço ${g.c.traits[v]?.nome || v}.`);
   },
   diario: (g, v) => g.diary(g.text(v)),
+  cena: (g, v) => { g.pendingScene = v; },
+  disposicao: (g, v) => mudarDisposicao(g, g.s.npcs?.[g.s.evento?.npc], g.rng.roll(v)),
 };
 export const EFFECT_KEYS = Object.keys(EFFECTS);
 
@@ -175,11 +182,11 @@ export function iniciarCombate(g, inimigoId) {
   g.say('{combate_inicio}');
 }
 
-function golpeHeroi(g, e) {
+function golpeHeroi(g, e, mult = 1) {
   const st = stats(g.s.heroi, g.c);
-  const n = Math.max(1, g.rng.roll(st.arma?.dano || '1d3') + st.danoBonus - (e.defesa || 0));
+  const n = Math.max(1, g.rng.roll(st.arma?.dano || '1d3') + st.danoBonus - (e.defesa || 0)) * mult;
   g.s.combate.hp = Math.max(0, g.s.combate.hp - n);
-  g.note(`${g.vars.inimigo.Nome} −${n}`, 'golpe');
+  g.note(`${g.vars.inimigo.Nome} −${n}${mult > 1 ? ' (crítico)' : ''}`, mult > 1 ? 'golpe critico' : 'golpe');
 }
 function golpeInimigo(g, e) { dano(g, g.rng.roll(e.dano), { reduzir: true }); }
 
@@ -189,8 +196,10 @@ export function rodadaCombate(g, acao) {
   g.vars.inimigo = gvar(e.nome, e.genero);
   if (acao === 'atacar') {
     const attr = stats(g.s.heroi, g.c).arma?.atributo || 'forca';
-    const r = teste(g, attr).resultado;
-    if (r === 'sucesso') { g.say('{ataque_acerto}'); golpeHeroi(g, e); }
+    const { resultado: r, especial } = teste(g, attr);
+    if (especial === 'critico') { g.say('{ataque_critico}'); golpeHeroi(g, e, 2); }
+    else if (especial === 'desastre') { g.say('{ataque_desastre}'); golpeInimigo(g, e); exaustao(g, 1); }
+    else if (r === 'sucesso') { g.say('{ataque_acerto}'); golpeHeroi(g, e); }
     else if (r === 'parcial') { g.say('{ataque_parcial}'); golpeHeroi(g, e); if (g.s.combate.hp > 0) golpeInimigo(g, e); }
     else { g.say('{ataque_falha}'); golpeInimigo(g, e); }
   } else if (acao === 'fugir') {
@@ -214,6 +223,7 @@ export function rodadaCombate(g, acao) {
   }
   if (g.s.morto) return 'morte';
   if (g.s.combate.hp <= 0) {
+    g.ultimoVencido = e.id;
     g.say('{vitoria}');
     g.s.combate = null;
     ganharXp(g, e.xp || 1);

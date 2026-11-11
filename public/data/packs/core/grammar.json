@@ -586,5 +586,425 @@
   "As ondas batem no casco com um ritmo preguiçoso.",
   "O cheiro de sal e algas toma tudo.",
   "Uma gaivota o encara, esperando que você erre."
+ ],
+ "ataque_critico": [
+  "Tudo se alinha num instante: seu golpe atravessa a guarda {$inimigo.do} {$inimigo.nome} e o derruba de joelhos.",
+  "Um golpe perfeito. {$inimigo.O} {$inimigo.nome} nem vê de onde veio a dor.",
+  "O mundo desacelera. Você acerta onde dói mais, com tudo o que tem.",
+  "Um estalo seco ecoa. {$inimigo.O} {$inimigo.nome} é {=arremessado/arremessada@inimigo} para trás.",
+  "Você sente o golpe certo antes de dá-lo. Ele pega {$inimigo.o} {$inimigo.nome} em cheio, sem defesa.",
+  {
+   "t": "No limite das forças, você encontra a brecha perfeita. O golpe é seu melhor.",
+   "tags": [
+    "ferido"
+   ]
+  }
+ ],
+ "ataque_desastre": [
+  "Seu pé escorrega e o golpe corta o ar. {$inimigo.O} {$inimigo.nome} aproveita sem piedade.",
+  "A arma gira na mão suada. Você se expõe por inteiro.",
+  "Um tropeço desastrado. Quando ergue os olhos, {$inimigo.o} {$inimigo.nome} já está sobre você.",
+  "Tudo dá errado de uma vez: a postura, o golpe, o fôlego.",
+  {
+   "t": "No escuro, você erra o alvo por um palmo e paga caro.",
+   "tags": [
+    "noite"
+   ]
+  },
+  {
+   "t": "A chuva escorre pelo cabo da arma. O golpe escapa e a guarda se abre.",
+   "tags": [
+    "chuva"
+   ]
+  },
+  "Você golpeia com pressa demais. A resposta {$inimigo.do} {$inimigo.nome} vem rápida, e o cansaço pesa nos braços."
+ ],
+ "poi_descoberta": [
+  {
+   "t": "Entre os troncos, a mata se abre: {$poi.o} {$poi.nome} esperava por quem tivesse olhos para vê-{=lo/la@poi}.",
+   "tags": [
+    "floresta"
+   ]
+  },
+  {
+   "t": "Uma fenda na rocha revela {$poi.o} {$poi.nome}, antes escondid{=o/a@poi} pela neve e pela sombra.",
+   "tags": [
+    "montanha"
+   ]
+  },
+  {
+   "t": "A névoa recua por um instante e deixa ver {$poi.o} {$poi.nome}, parad{=o/a@poi} sobre a água escura.",
+   "tags": [
+    "pantano"
+   ]
+  },
+  {
+   "t": "Atrás de um muro caído, {$poi.o} {$poi.nome} aparece, esquecid{=o/a@poi} até pelos mapas.",
+   "tags": [
+    "ruinas"
+   ]
+  },
+  {
+   "t": "A maré recua e mostra {$poi.o} {$poi.nome}, que o mar guardava havia muito tempo.",
+   "tags": [
+    "costa"
+   ]
+  },
+  {
+   "t": "Um desvio quase apagado, coberto de mato, leva até {$poi.o} {$poi.nome}.",
+   "tags": [
+    "estrada"
+   ]
+  },
+  "Você nota {$poi.o} {$poi.nome} onde antes não via nada. Algo mudou, ou foi você quem aprendeu a olhar.",
+  "Um detalhe fora do lugar o guia até {$poi.o} {$poi.nome}.",
+  "Seguindo um rastro tênue, você dá de cara com {$poi.o} {$poi.nome}."
+ ],
+ "trabalho_intro": [
+  "Você passeia entre balcões e mesas, perguntando quem precisa de braços e de coragem.",
+  "Num quadro de avisos sebento, pedidos de ajuda disputam espaço com contas atrasadas.",
+  "Basta dizer que procura trabalho para que cabeças se virem. Alguns precisam, outros só testam você.",
+  "Você deixa o nome correr de boca em boca. Quem tem um problema grande demais costuma aparecer.",
+  {
+   "t": "Entre redes, caixas e cordas, a conversa gira em torno de quem aceita um serviço arriscado.",
+   "tags": [
+    "costa"
+   ]
+  },
+  {
+   "t": "Sobre as palafitas, os moradores trocam olhares. Há sempre algo que o pântano levou e que alguém quer de volta.",
+   "tags": [
+    "pantano"
+   ]
+  },
+  {
+   "t": "Na praça, entre o cheiro de pão e de fumaça, você pergunta por trabalho e recebe três respostas diferentes.",
+   "tags": [
+    "vila"
+   ]
+  }
+ ],
+ "missao_entregue": [
+  "Moedas trocam de mãos e um aperto seco sela o assunto.",
+  "O pagamento vem sem conversa fiada. Em lugares como este, isso é elogio.",
+  "Você guarda a recompensa e sente o peso de um trabalho bem-feito.",
+  "Um aceno de cabeça, uma bolsa, e a história acaba aqui. Para você, pelo menos.",
+  {
+   "t": "Entre amigos, o pagamento vem acompanhado de um sorriso e de um copo servido.",
+   "tags": [
+    "npc_amigo"
+   ]
+  },
+  {
+   "t": "A confiança já vale quase tanto quanto as moedas, e as moedas também estão ali.",
+   "tags": [
+    "npc_amigo"
+   ]
+  },
+  {
+   "t": "O pagamento vem com um olhar demorado, como quem avalia se ainda confiará em você.",
+   "tags": [
+    "npc_hostil"
+   ]
+  }
+ ],
+ "missao_investigar_sucesso": [
+  "Você percorre {$destino.o} {$destino.nome} com calma e entende o que precisava entender. Nada escapa ao seu olhar.",
+  "Peça por peça, {$destino.o} {$destino.nome} se deixa ler. Você anota tudo o que importa.",
+  "A resposta estava {$destino.no} {$destino.nome} o tempo todo, esperando alguém paciente.",
+  "Com método e sorte, você confirma o que lhe pediram. O trabalho está feito, falta só contá-lo.",
+  "Um padrão aparece onde antes havia só ruído. {$destino.O} {$destino.nome} não guarda mais segredos de você."
+ ],
+ "missao_investigar_parcial": [
+  "Você descobre parte da verdade {$destino.no} {$destino.nome}, o bastante para convencer, não o bastante para dormir tranquilo.",
+  "O que você viu {$destino.no} {$destino.nome} serve, mas com lacunas que preferia não ter.",
+  "Metade das respostas apareceu. A outra metade fica por conta da imaginação do contratante.",
+  "Cansaço e pressa deixam o relatório incompleto, mas defensável.",
+  "Você registra o que pôde. {$destino.O} {$destino.nome} ainda guarda algo, e talvez prefira guardá-lo."
+ ],
+ "missao_investigar_falha": [
+  "Você tropeça em tudo o que {$destino.o} {$destino.nome} tem de pior. A tentativa custa sangue e orgulho.",
+  "Algo dá errado {$destino.no} {$destino.nome}, e a lição chega em forma de dor.",
+  "O lugar não se deixa entender. Você sai machucad{=o/a@heroi} e sem respostas, mas ainda pode tentar de novo.",
+  "Um passo em falso, um estalo, e {$destino.o} {$destino.nome} cobra seu preço.",
+  "Você insiste além da conta. {$destino.O} {$destino.nome} responde com pedras, lama ou algo pior."
+ ],
+ "npc_atitude": [
+  {
+   "t": "Vocês nunca trocaram uma palavra, e {$npc.nome} o examina sem pressa.",
+   "tags": [
+    "npc_novo"
+   ]
+  },
+  {
+   "t": "{$npc.Nome} nunca viu você por ali, e a curiosidade vence a cautela.",
+   "tags": [
+    "npc_novo"
+   ]
+  },
+  {
+   "t": "Um rosto novo. {$npc.Nome} o mede de alto a baixo antes de falar.",
+   "tags": [
+    "npc_novo"
+   ]
+  },
+  {
+   "t": "“Ah, é você de novo”, diz {$npc.nome}, reconhecendo seus passos antes do rosto.",
+   "tags": [
+    "npc_conhecido"
+   ]
+  },
+  {
+   "t": "{$npc.Nome} se lembra de você. A memória aparece nos olhos, e nem sempre é boa.",
+   "tags": [
+    "npc_conhecido"
+   ]
+  },
+  {
+   "t": "{$npc.Nome} abre um sorriso largo ao vê-lo. “Um amigo é sempre bem-vindo.”",
+   "tags": [
+    "npc_amigo"
+   ]
+  },
+  {
+   "t": "Assim que o reconhece, {$npc.nome} abaixa a guarda e faz um gesto para que se aproxime.",
+   "tags": [
+    "npc_amigo"
+   ]
+  },
+  {
+   "t": "{$npc.Nome} fecha a cara. Há contas mal resolvidas entre vocês, e ele não esqueceu.",
+   "tags": [
+    "npc_hostil"
+   ]
+  },
+  {
+   "t": "Quando {$npc.nome} vê quem chegou, a conversa morre. O ressentimento ficou guardado.",
+   "tags": [
+    "npc_hostil"
+   ]
+  }
+ ],
+ "npc_despedida": [
+  {
+   "t": "{$npc.Nome} acena com a cabeça, e você sente que, por ora, estão quites.",
+   "tags": [
+    "npc_novo"
+   ]
+  },
+  {
+   "t": "{$npc.Nome} promete lembrar de você. Em lugares como este, isso pesa.",
+   "tags": [
+    "npc_conhecido"
+   ]
+  },
+  {
+   "t": "“Volte sempre”, diz {$npc.nome}. Desta vez, parece sincero.",
+   "tags": [
+    "npc_amigo"
+   ]
+  },
+  {
+   "t": "{$npc.Nome} vira as costas sem se despedir.",
+   "tags": [
+    "npc_hostil"
+   ]
+  },
+  "Cada um segue o seu rumo."
+ ],
+ "poi_nome_caverna": [
+  "caverna do Uivo Surdo",
+  "gruta das Sete Goteiras",
+  "toca da Rainha Cega",
+  "caverna Sussurrante",
+  "furna do Eremita Mudo"
+ ],
+ "poi_nome_santuario": [
+  "santuário do Último Sino",
+  "santuário das Mãos Postas",
+  "santuário de Pedra Musgosa",
+  "santuário do Peregrino Cego",
+  "santuário da Chama Esquecida"
+ ],
+ "poi_nome_acampamento_bandido": [
+  "acampamento da Mão Negra",
+  "acampamento dos Corvos Rotos",
+  "acampamento do Dente Quebrado",
+  "acampamento do Lobo Cinzento"
+ ],
+ "poi_nome_torre": [
+  "torre do Vigia Sem Olhos",
+  "torre Partida",
+  "torre da Cinza Branca",
+  "torre dos Ventos Mortos",
+  "torre da Viúva"
+ ],
+ "poi_nome_cripta": [
+  "cripta dos Sem-Nome",
+  "cripta da Rainha Pálida",
+  "cripta Afundada",
+  "cripta dos Sete Juramentos",
+  "cripta do Barão Azedo"
+ ],
+ "poi_nome_naufragio": [
+  "naufrágio da Ventura Perdida",
+  "naufrágio do Corvo do Mar",
+  "naufrágio do Bom Pagador",
+  "naufrágio da Sereia Rubra",
+  "naufrágio da Dama Verde"
+ ],
+ "poi_nome_mina": [
+  "mina da Veia Seca",
+  "mina dos Anões Mudos",
+  "mina do Eco Preto",
+  "mina da Lanterna Apagada",
+  "mina de Ferro Frio"
+ ],
+ "poi_nome_clareira_antiga": [
+  "clareira dos Menires Tortos",
+  "clareira da Lua Parada",
+  "clareira do Círculo Seco",
+  "clareira dos Cervos de Pedra",
+  "clareira das Raízes Falantes"
+ ],
+ "poi_nome_ninho": [
+  "ninho da Grande Garra",
+  "ninho do Rei Alado",
+  "ninho das Penas Negras",
+  "ninho do Trovão",
+  "ninho Vazio de Kru"
+ ],
+ "poi_nome_altar_afogado": [
+  "altar dos Afogados",
+  "altar da Maré Alta",
+  "altar do Deus Molhado",
+  "altar das Mil Velas Cegas",
+  "altar do Sino Verde"
+ ],
+ "missao_cacar_pedido": [
+  "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, não rodeia: {$alvo.o} {$alvo.nome} {$destino.no} {$destino.nome} precisa ser {=abatido/abatida@alvo}. Paga em moedas, e paga bem.",
+  "“Ninguém mais quer ir até {$destino.o} {$destino.nome}”, resmunga {$npc.nome}. “{$alvo.O} {$alvo.nome} já levou gente demais. Resolva, e a bolsa é sua.”",
+  "Há um rastro fresco {$destino.no} {$destino.nome}. {$npc.Nome} quer a cabeça {$alvo.do} {$alvo.nome} e promete pagar na entrega.",
+  {
+   "t": "{$npc.Nome} o reconhece de longe. “Logo você! Tenho um serviço sob medida: {$alvo.um} {$alvo.nome} {$destino.no} {$destino.nome}.”",
+   "tags": [
+    "npc_conhecido"
+   ]
+  }
+ ],
+ "missao_cacar_fim": [
+  "{$npc.Nome} confere o trabalho, assente em silêncio e conta as moedas sobre a mesa.",
+  "“Então era verdade”, murmura {$npc.nome}. “Um perigo a menos. Aqui está o que combinamos.”",
+  "{$npc.Nome} sorri pela primeira vez em dias. O pagamento vem com um copo cheio."
+ ],
+ "missao_expulsar_pedido": [
+  "{$npc.Nome}, {$npc.o} {$npc.oficio}, torce as mãos: {$alvo.o} {$alvo.nome} tomou {$destino.o} {$destino.nome}, e os negócios pararam. “Livre-nos disso, por favor.”",
+  "“Já tentei de tudo”, diz {$npc.nome}. “{$alvo.O} {$alvo.nome} ronda {$destino.o} {$destino.nome} e ninguém passa. Quero que vá embora, de um jeito ou de outro.”",
+  "As rotas {$destino.do} {$destino.nome} estão fechadas por causa {$alvo.do} {$alvo.nome}. {$npc.Nome} oferece boa paga a quem as reabrir.",
+  {
+   "t": "{$npc.Nome} lembra do que você já fez por aqui. “Só você me ocorre para esse problema {$destino.no} {$destino.nome}.”",
+   "tags": [
+    "npc_conhecido"
+   ]
+  }
+ ],
+ "missao_expulsar_fim": [
+  "{$npc.Nome} suspira de alívio. “As rotas voltam a abrir. Você merece muito mais do que isto.”",
+  "“Os carregadores já falam de você”, conta {$npc.nome}, entregando a bolsa. “Isso vale tanto quanto o ouro.”",
+  "{$npc.Nome} aperta seu braço com as duas mãos e paga sem regatear."
+ ],
+ "missao_vinganca_pedido": [
+  "{$npc.Nome} fala baixo, olhando para o chão: {$alvo.o} {$alvo.nome} {$destino.no} {$destino.nome} levou alguém que não devia. “Quero que pague.”",
+  "Há luto na voz de {$npc.nome}. “{$alvo.O} {$alvo.nome} {$destino.no} {$destino.nome} tirou um dos meus. Não peço justiça, peço fim.”",
+  "“Ninguém chora por esse tipo de morte”, diz {$npc.nome}, “mas eu choro. Dê um fim {$alvo.ao} {$alvo.nome} {$destino.no} {$destino.nome}.”"
+ ],
+ "missao_vinganca_fim": [
+  "{$npc.Nome} escuta em silêncio e deixa uma lágrima cair. “Obrigado. O pagamento é pouco diante disso.”",
+  "“Está feito”, murmura {$npc.nome}, e algo no rosto se desfaz. Paga sem contar.",
+  "Sem palavras, {$npc.nome} entrega a recompensa e acende uma vela por quem se foi."
+ ],
+ "missao_mapear_pedido": [
+  "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, estende um pergaminho em branco. “Preciso saber o que existe {$destino.no} {$destino.nome}. Veja com seus olhos e conte.”",
+  "“Mapas antigos mentem”, diz {$npc.nome}. “Vá até {$destino.o} {$destino.nome}, olhe bem e volte para me dizer o que sobrou.”",
+  "Há uma lacuna num mapa na parede, bem onde fica {$destino.o} {$destino.nome}. {$npc.Nome} quer vê-la preenchida.",
+  {
+   "t": "{$npc.Nome} já confia em seus olhos. “Desta vez é {$destino.o} {$destino.nome}. Cuidado com onde pisa.”",
+   "tags": [
+    "npc_conhecido"
+   ]
+  }
+ ],
+ "missao_mapear_fim": [
+  "{$npc.Nome} ouve o relato, traça linhas com pressa e sorri. “Isso é exatamente o que eu temia, e o que eu precisava.”",
+  "O pergaminho de {$npc.nome} se enche aos poucos. No fim, vem o pagamento prometido.",
+  "“Assim sim”, diz {$npc.nome}, satisfeit{=o/a@npc} com cada detalhe. “Um bom relato vale ouro. E aqui está ele.”"
+ ],
+ "missao_ervas_pedido": [
+  "{$npc.Nome}, {$npc.o} {$npc.oficio}, descreve com cuidado uma folha de bordas roxas. “Só cresce {$destino.no} {$destino.nome}, e só serve fresca. Pode trazer?”",
+  "“Meu estoque acabou”, confessa {$npc.nome}. “As melhores ervas nascem {$destino.no} {$destino.nome}, entre as pedras. Procure com os olhos, não com a pressa.”",
+  "Para curar o que aflige a vila, {$npc.nome} precisa de ervas raras {$destino.do} {$destino.nome}. A paga é justa."
+ ],
+ "missao_ervas_fim": [
+  "{$npc.Nome} cheira as folhas, fecha os olhos e agradece. “Estas vão salvar alguém.”",
+  "O pagamento vem junto com um chá quente. {$npc.Nome} nem pergunta como foi a viagem; vê nas suas botas.",
+  "“Perfeitas”, diz {$npc.nome}, guardando as ervas como se fossem joias."
+ ],
+ "missao_rumor_pedido": [
+  "{$npc.Nome} baixa a voz: dizem que algo estranho acontece {$destino.no} {$destino.nome}. “Vá ver. Se for mentira, quero saber. Se for verdade, quero saber ainda mais.”",
+  "“Todo mundo conta uma versão”, diz {$npc.nome}. “Ninguém foi até {$destino.o} {$destino.nome} para conferir. Você me parece capaz.”",
+  "Um rumor corre de boca em boca sobre {$destino.o} {$destino.nome}. {$npc.Nome} paga para saber o que há de verdade nele.",
+  {
+   "t": "{$npc.Nome} tira você de lado. “Lembra do que prometi? Há um rumor novo sobre {$destino.o} {$destino.nome}. Confira para mim.”",
+   "tags": [
+    "npc_conhecido"
+   ]
+  }
+ ],
+ "missao_rumor_fim": [
+  "{$npc.Nome} ouve cada palavra com avidez. “Então é isso. Pensei que fosse pior, ou melhor.” A paga vem em seguida.",
+  "“Verdade ou mentira, agora eu sei”, diz {$npc.nome}. “Isso vale mais do que o ouro, mas o ouro também está aqui.”",
+  "{$npc.Nome} suspira e passa a recompensa. “Um mistério a menos. Já é alguma coisa.”"
+ ],
+ "missao_pacote_pedido": [
+  "{$npc.Nome}, {$npc.o} {$npc.oficio} {$npc.temperamento}, entrega um pacote bem amarrado. “Leve até {$destino.o} {$destino.nome}. Sem abrir, sem perguntas, sem atrasos.”",
+  "“É importante”, diz {$npc.nome}, empurrando o embrulho nas suas mãos. “Quem espera em {$destino.o} {$destino.nome} não tem paciência.”",
+  "Um embrulho de pano encerado e um endereço: {$destino.o} {$destino.nome}. {$npc.Nome} paga metade agora, o resto na chegada.",
+  {
+   "t": "{$npc.Nome} confia em você, e isso se vê no tamanho do pacote. “É {$destino.o} {$destino.nome} outra vez. Você já conhece o caminho.”",
+   "tags": [
+    "npc_conhecido"
+   ]
+  }
+ ],
+ "missao_pacote_fim": [
+  "Quem recebe o pacote o aperta contra o peito e paga o que foi combinado.",
+  "O destinatário confere o selo, assente e entrega a recompensa sem uma palavra a mais.",
+  "A entrega é recebida com alívio. Alguém, em algum lugar, esperava por isso fazia dias."
+ ],
+ "missao_remedio_pedido": [
+  "{$npc.Nome} aperta um frasco de vidro escuro nas suas mãos. “Quem precisa dele está {$destino.no} {$destino.nome} e não aguenta mais um dia. Corra, mas sem derrubar.”",
+  "“Tem de chegar a {$destino.o} {$destino.nome} antes de a febre piorar”, diz {$npc.nome}. “Aqui está o remédio, e a paga é sua se for rápido.”",
+  "O remédio é pequeno, e a pressa é grande. {$npc.Nome} aponta o caminho até {$destino.o} {$destino.nome}."
+ ],
+ "missao_remedio_fim": [
+  "Os moradores o recebem com lágrimas contidas. O remédio chegou a tempo, e o pagamento vem com bênçãos.",
+  "Quem o aguardava toma o frasco com as duas mãos. Uma bolsa de moedas aparece, sem discussão.",
+  "Não há festa, só o alívio de um corpo que finalmente descansa. A paga é discreta e honesta."
+ ],
+ "missao_encomenda_pedido": [
+  "{$npc.Nome} olha para os lados antes de entregar uma caixa selada. “Para {$destino.o} {$destino.nome}. Nada de perguntas, e menos ainda de olhares.”",
+  "“Não é contrabando”, diz {$npc.nome}, e a pausa seguinte diz o contrário. “Leve até {$destino.o} {$destino.nome} e receba bem.”",
+  "Uma encomenda sem selo oficial, uma moeda a mais para o silêncio, e um destino: {$destino.o} {$destino.nome}.",
+  {
+   "t": "{$npc.Nome} sorri de lado. “Você sabe guardar segredo, e é por isso que o procurei. {$destino.O} {$destino.nome}, como sempre.”",
+   "tags": [
+    "npc_conhecido"
+   ]
+  }
+ ],
+ "missao_encomenda_fim": [
+  "O destinatário abre uma fresta da caixa, assente e paga em moedas contadas, sem testemunhas.",
+  "A entrega termina em silêncio e em ouro. Ninguém pergunta o que havia lá dentro.",
+  "Quem recebe a encomenda sorri sem mostrar os dentes. A recompensa chega logo, com um aviso para não falar nisso."
  ]
 }

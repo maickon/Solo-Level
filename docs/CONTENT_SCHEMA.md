@@ -209,3 +209,64 @@ como itens equipados (podem ser negativos, ex.: cicatriz `{"agilidade":-1}`).
 { "pessoas": ["Aldric","Brenna", "..."], "lugares": ["Valdoria","..."], "itens": ["Gram","..."] }
 ```
 Listas-semente para o gerador de Markov (mín. 20 por lista).
+
+---
+# Sistemas de profundidade (v0.2)
+
+## Críticos e desastres
+Em testes, **6+6 = `critico`** e **1+1 = `desastre`**. Uma opção pode definir as saídas
+`critico` e `desastre`. Sem elas, o crítico usa `sucesso` (+1 XP) e o desastre usa `falha`.
+Em combate, o crítico dobra o dano e o desastre faz o inimigo acertar e dá +1 de exaustão.
+
+## Eventos encadeados
+- Efeito `{"cena": "id_evento"}`: depois da saída, a próxima cena é esse evento.
+- Eventos de continuação usam **`tipo: "cadeia"`** (nunca são sorteados).
+- Com `combate` e `cena` na mesma saída, o combate vem primeiro. A cadeia só continua
+  se o herói **vencer** (fugir ou negociar encerra a cadeia).
+- Cadeias devem ter 2–4 passos e terminar em recompensa ou consequência clara.
+
+## locations.json — coordenadas
+Cada local tem `x` e `y` (0–100) para o mapa. O norte fica em cima.
+
+## npcs.json (personagens recorrentes)
+```json
+{ "oficios": [ {"id":"ferreiro","m":"ferreiro","f":"ferreira"} ],
+  "temperamentos": [ {"id":"desconfiado","m":"desconfiado","f":"desconfiada"} ] }
+```
+Um evento com `"npc": {"oficios": ["ferreiro","mercador"]}` (lista opcional) **vincula um NPC**:
+reaproveita um NPC conhecido daquele local com ofício compatível (70%) ou gera um novo
+(nome por Markov, temperamento sorteado), que passa a morar ali.
+- Variáveis: `{$npc.nome}`, `{$npc.o}`, `{$npc.um}`, `{$npc.oficio}`, `{$npc.temperamento}` (com concordância).
+- Tags de contexto: `npc_novo` | `npc_conhecido`, `npc_amigo` (disposição ≥ 2), `npc_hostil` (≤ −2).
+- Efeito `{"disposicao": 1}` muda a disposição (−5..5) do NPC vinculado.
+- Condições: `npc_conhecido: true/false`, `npc_disposicao_min: n`, `npc_disposicao_max: n`.
+Use variantes de gramática com `tags: ["npc_conhecido"]` para o NPC "lembrar" do herói.
+
+## pois.json (pontos de interesse procedurais)
+```json
+[{ "id": "caverna", "nome": "{poi_nome_caverna}", "genero": "f",
+   "biomas": ["montanha","floresta"], "tags": ["caverna","subterraneo"], "peso": 2 }]
+```
+Ao **Explorar** um local fixo e não seguro, há 15% de chance de descobrir um POI (no máximo 3 por local).
+O POI vira um novo local no mapa, conectado ao local de origem (`tempo` 1), herdando o
+bioma e somando as tags do modelo + `poi`. `nome` é um template expandido uma única vez.
+Eventos para POIs usam `requer: {"local_tags": ["caverna"]}`.
+**Todo POI precisa de ≥ 2 eventos de exploração compatíveis** (o validador avisa).
+
+## quests.json (modelos de missão)
+```json
+[{ "id": "cacar", "objetivo": "vencer", "oficios": ["cacador","guarda"],
+   "titulo": "Caçar {$alvo.um} {$alvo.nome}",
+   "pedido": "{missao_cacar_pedido}", "conclusao": "{missao_cacar_fim}",
+   "recompensa": {"ouro": "2d6+4", "xp": 4} }]
+```
+Missões são oferecidas em locais `seguro` ("Procurar trabalho": até 3 ofertas por dia, até 3 ativas).
+O motor sorteia o NPC contratante, o destino (a 1–4 conexões de distância) e o alvo.
+- `objetivo`:
+  - `vencer`: no destino aparece a opção de cumprir → combate com `alvo` (inimigo do bioma do destino). Depois, volte ao contratante.
+  - `explorar`: no destino aparece a opção de investigar → teste de mente (falha causa dano e permite tentar de novo). Depois, volte ao contratante.
+  - `chegar`: o herói recebe um pacote; ao chegar ao destino, entrega e recebe a recompensa ali mesmo.
+- Variáveis: `$npc` (contratante), `$destino`, `$alvo` (inimigo, em `vencer`).
+- A recompensa escala com a distância. Ao entregar: +2 de disposição com o contratante.
+
+Tabelas obrigatórias novas: `poi_descoberta` (usa `$poi`), `trabalho_intro`, `missao_entregue`.

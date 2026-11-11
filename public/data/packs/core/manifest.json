@@ -12,6 +12,9 @@
   "events",
   "threads",
   "grammar",
-  "names"
+  "names",
+  "npcs",
+  "pois",
+  "quests"
  ]
 }

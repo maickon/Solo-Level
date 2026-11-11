@@ -100,3 +100,34 @@ h2 { font: 600 1.8rem var(--serif); margin: 0 0 16px; }
   .story, .topbar { padding-left: 16px; padding-right: 16px; }
   .scene p.txt { font-size: 1.18rem; }
 }
+
+/* ---------- v0.2: críticos, missões, mapa ---------- */
+.rollb.critico { color: #1b1305; background: var(--accent); border-color: var(--accent); font-weight: 700; }
+.rollb.desastre { color: #fff; background: #8a2a22; border-color: #8a2a22; font-weight: 700; }
+.note.critico { color: var(--accent); font-weight: 600; }
+.options .btn.destaque { border-color: var(--accent); background: #2a2318; }
+.options .btn.destaque .dica { color: var(--accent); }
+.quest { border: 1px solid var(--line); border-left: 3px solid var(--exh); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; background: var(--panel-2); }
+.quest.cumprida { border-left-color: var(--good); }
+.quest .n { font-weight: 600; font-size: .9rem; }
+.quest .m { color: var(--muted); font-size: .78rem; }
+.quest .acts { margin-top: 6px; }
+.quest .acts button { background: none; border: 1px solid var(--line); border-radius: 4px; font-size: .75rem; padding: 2px 8px; color: var(--muted); }
+.disp { font-size: .72rem; padding: 0 6px; border-radius: 3px; margin-left: 4px; border: 1px solid var(--line); color: var(--muted); }
+.disp.d1 { color: var(--good); border-color: #355c3b; } .disp.d-1 { color: var(--bad); border-color: #6b302a; }
+.map { width: 100%; aspect-ratio: 1; background: radial-gradient(circle at 50% 50%, #221e19, #15120f); border: 1px solid var(--line); border-radius: 10px; }
+.map .e-vis { stroke: #6a5d4c; }
+.map .e-fog { stroke: #4a4238; stroke-dasharray: 1 1; }
+.map .lbl { font-family: var(--sans); font-weight: 600; fill: var(--text); paint-order: stroke; stroke: #15120f; }
+.map .lbl.fog { fill: var(--muted); }
+.map .n-atual { fill: none; stroke: var(--accent); animation: pulse 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.map .n-alvo { fill: var(--exh); }
+.map .n-go { cursor: pointer; }
+.map .n-go:hover circle { stroke-width: 1.2; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(1.25); } }
+@media (prefers-reduced-motion: reduce) { .map .n-atual { animation: none; } }
+.maplegend { display: flex; gap: 12px; align-items: center; font-size: .78rem; color: var(--muted); margin: 8px 0; }
+.maplegend span { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: -8px; }
+.lg-cur { border: 2px solid var(--accent); } .lg-q { background: var(--exh); transform: rotate(45deg); border-radius: 1px !important; }
+.lg-fog { border: 1px dashed var(--muted); }
+.tabs button { padding: 12px 2px; font-size: .8rem; }

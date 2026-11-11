@@ -1,0 +1,162 @@
+[
+ {
+  "id": "cacar_fera",
+  "objetivo": "vencer",
+  "oficios": [
+   "cacador",
+   "guarda",
+   "lenhador"
+  ],
+  "titulo": "Caçar {$alvo.um} {$alvo.nome}",
+  "pedido": "{missao_cacar_pedido}",
+  "conclusao": "{missao_cacar_fim}",
+  "recompensa": {
+   "ouro": "2d6+4",
+   "xp": 4
+  },
+  "peso": 3
+ },
+ {
+  "id": "expulsar_ameaca",
+  "objetivo": "vencer",
+  "oficios": [
+   "mercador",
+   "barqueiro",
+   "taberneiro",
+   "mineiro"
+  ],
+  "titulo": "Expulsar {$alvo.um} {$alvo.nome} {$destino.do} {$destino.nome}",
+  "pedido": "{missao_expulsar_pedido}",
+  "conclusao": "{missao_expulsar_fim}",
+  "recompensa": {
+   "ouro": "3d6",
+   "xp": 5,
+   "item": true
+  },
+  "peso": 2
+ },
+ {
+  "id": "vinganca",
+  "objetivo": "vencer",
+  "oficios": [
+   "coveiro",
+   "sacerdote",
+   "pescador",
+   "curandeiro"
+  ],
+  "titulo": "Vingança: abater {$alvo.um} {$alvo.nome}",
+  "pedido": "{missao_vinganca_pedido}",
+  "conclusao": "{missao_vinganca_fim}",
+  "recompensa": {
+   "ouro": "2d6+6",
+   "xp": 5,
+   "item": true
+  },
+  "peso": 2
+ },
+ {
+  "id": "mapear_lugar",
+  "objetivo": "explorar",
+  "oficios": [
+   "erudito",
+   "cacador",
+   "guarda"
+  ],
+  "titulo": "Mapear {$destino.o} {$destino.nome}",
+  "pedido": "{missao_mapear_pedido}",
+  "conclusao": "{missao_mapear_fim}",
+  "recompensa": {
+   "ouro": "2d6+3",
+   "xp": 4
+  },
+  "peso": 3
+ },
+ {
+  "id": "ervas_raras",
+  "objetivo": "explorar",
+  "oficios": [
+   "ervanario",
+   "curandeiro"
+  ],
+  "titulo": "Colher ervas raras {$destino.no} {$destino.nome}",
+  "pedido": "{missao_ervas_pedido}",
+  "conclusao": "{missao_ervas_fim}",
+  "recompensa": {
+   "ouro": "2d6+2",
+   "xp": 3
+  },
+  "peso": 3
+ },
+ {
+  "id": "verificar_rumor",
+  "objetivo": "explorar",
+  "oficios": [
+   "taberneiro",
+   "bardo",
+   "sacerdote",
+   "mendigo"
+  ],
+  "titulo": "Verificar um rumor {$destino.no} {$destino.nome}",
+  "pedido": "{missao_rumor_pedido}",
+  "conclusao": "{missao_rumor_fim}",
+  "recompensa": {
+   "ouro": "2d6+4",
+   "xp": 4,
+   "item": true
+  },
+  "peso": 2
+ },
+ {
+  "id": "levar_pacote",
+  "objetivo": "chegar",
+  "oficios": [
+   "mercador",
+   "taberneiro",
+   "erudito",
+   "ferreiro"
+  ],
+  "titulo": "Levar um pacote até {$destino.o} {$destino.nome}",
+  "pedido": "{missao_pacote_pedido}",
+  "conclusao": "{missao_pacote_fim}",
+  "recompensa": {
+   "ouro": "2d6+2",
+   "xp": 3
+  },
+  "peso": 3
+ },
+ {
+  "id": "remedio_urgente",
+  "objetivo": "chegar",
+  "oficios": [
+   "curandeiro",
+   "ervanario",
+   "sacerdote"
+  ],
+  "titulo": "Levar um remédio urgente até {$destino.o} {$destino.nome}",
+  "pedido": "{missao_remedio_pedido}",
+  "conclusao": "{missao_remedio_fim}",
+  "recompensa": {
+   "ouro": "2d6+4",
+   "xp": 4
+  },
+  "peso": 2
+ },
+ {
+  "id": "encomenda_discreta",
+  "objetivo": "chegar",
+  "oficios": [
+   "contrabandista",
+   "barqueiro",
+   "mendigo"
+  ],
+  "titulo": "Levar uma encomenda discreta até {$destino.o} {$destino.nome}",
+  "pedido": "{missao_encomenda_pedido}",
+  "conclusao": "{missao_encomenda_fim}",
+  "recompensa": {
+   "ouro": "3d6",
+   "xp": 4,
+   "item": true
+  },
+  "peso": 2
+ }
+]

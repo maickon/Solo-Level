@@ -42,6 +42,19 @@ ganham nome próprio por Markov. O tier vem do perigo do bioma ou do inimigo.
 Abertos por efeito `fio`. A pressão sobe a cada explorar ou viajar; quando o `requer` do fio
 passa, a chance de emergir é pressão × 10% (máx. 80%). O evento `tipo: "fio"` o resolve.
 
+## Profundidade (v0.2)
+- **Críticos**: 6+6 e 1+1 nos testes (saídas `critico` e `desastre` opcionais; em combate, dano ×2 ou revés).
+- **Cadeias**: efeito `cena` encadeia eventos `tipo: "cadeia"`. Um combate no meio da cadeia guarda o
+  próximo passo em `state.aposCombate`, que só continua após vitória. O NPC do passo anterior é herdado.
+- **NPCs**: `state.npcs`, gerados sob demanda pelo campo `npc` dos eventos. Reencontro de 70% no mesmo local.
+  A disposição (−5..5) muda as opções e os textos (tags `npc_conhecido`, `npc_amigo`, `npc_hostil`).
+- **POIs**: `state.locais` + `state.conexoesExtra`. 15% de chance ao explorar um local fixo, no máximo 3 por local.
+  `content.location(s)` resolve primeiro os locais dinâmicos.
+- **Missões**: ofertas diárias em locais seguros (`state.ofertas`) e até 3 ativas (`state.missoes`).
+  Objetivos `vencer`, `explorar` e `chegar`. O contratante vira NPC persistente.
+- **Mapa**: coordenadas `x,y` dos locais. A UI desenha visitados, vizinhos sob névoa e alvos de missão,
+  e permite viajar clicando num vizinho.
+
 ## Roadmap sugerido
 1. Painel admin (editor de pacotes com validação ao vivo, usando `validate()`).
 2. Firestore: autoria de pacotes pelo admin → botão "Publicar" exporta JSON para o Hosting;

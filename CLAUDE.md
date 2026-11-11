@@ -12,7 +12,8 @@ servidor: ES modules puros, zero dependências, conteúdo em JSON, hospedado no 
 ## Mapa
 - `public/src/engine/`: motor puro, sem DOM. `game.js` orquestra; `rules.js` regras e efeitos;
   `items.js` gerador de itens; `grammar.js` texto procedural; `conditions.js` condições; `hero.js` ficha;
-  `content.js` carga, mescla e validação de pacotes; `rng.js` RNG com semente; `names.js` Markov.
+  `content.js` carga, mescla e validação de pacotes; `rng.js` RNG com semente; `names.js` Markov;
+  `world.js` POIs, conexões dinâmicas e distâncias; `npcs.js` NPCs recorrentes; `quests.js` gerador de missões.
 - `public/src/main.js`: UI (só lê `game.s.cena` e chama a API do `Game`). `storage.js` save local. `audio/` som procedural.
 - `public/data/packs/<id>/`: pacotes de conteúdo. **Contrato: `docs/CONTENT_SCHEMA.md`.**
 - `tools/`: validador e simulação (Node). `tests/`: `node:test`.

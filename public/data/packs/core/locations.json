@@ -1,177 +1,197 @@
 [
- {
-  "id": "vila_bruma",
-  "nome": "Vila de Bruma",
-  "bioma": "vila",
-  "genero": "f",
-  "tags": [
-   "seguro",
-   "estalagem",
-   "mercado"
-  ],
-  "conexoes": [
-   {
-    "para": "estrada_velha",
-    "tempo": 1
-   }
-  ]
- },
- {
-  "id": "estrada_velha",
-  "nome": "Estrada Velha",
-  "bioma": "estrada",
-  "genero": "f",
-  "tags": [],
-  "conexoes": [
-   {
-    "para": "vila_bruma",
-    "tempo": 1
-   },
-   {
-    "para": "floresta_cinzenta",
-    "tempo": 1
-   },
-   {
-    "para": "porto_sal",
-    "tempo": 2
-   }
-  ]
- },
- {
-  "id": "floresta_cinzenta",
-  "nome": "Floresta Cinzenta",
-  "bioma": "floresta",
-  "genero": "f",
-  "tags": [],
-  "conexoes": [
-   {
-    "para": "estrada_velha",
-    "tempo": 1
-   },
-   {
-    "para": "pantano_negro",
-    "tempo": 2
-   },
-   {
-    "para": "ruinas_antigas",
-    "tempo": 2
-   }
-  ]
- },
- {
-  "id": "porto_sal",
-  "nome": "Porto do Sal",
-  "bioma": "costa",
-  "genero": "m",
-  "tags": [
-   "seguro",
-   "estalagem",
-   "mercado"
-  ],
-  "conexoes": [
-   {
-    "para": "estrada_velha",
-    "tempo": 2
-   },
-   {
-    "para": "farol_quebrado",
-    "tempo": 1
-   }
-  ]
- },
- {
-  "id": "farol_quebrado",
-  "nome": "Farol Quebrado",
-  "bioma": "costa",
-  "genero": "m",
-  "tags": [],
-  "conexoes": [
-   {
-    "para": "porto_sal",
-    "tempo": 1
-   }
-  ]
- },
- {
-  "id": "pantano_negro",
-  "nome": "Pântano Negro",
-  "bioma": "pantano",
-  "genero": "m",
-  "tags": [],
-  "conexoes": [
-   {
-    "para": "floresta_cinzenta",
-    "tempo": 2
-   },
-   {
-    "para": "aldeia_palafitas",
-    "tempo": 1
-   }
-  ]
- },
- {
-  "id": "aldeia_palafitas",
-  "nome": "Aldeia das Palafitas",
-  "bioma": "pantano",
-  "genero": "f",
-  "tags": [
-   "seguro",
-   "mercado"
-  ],
-  "conexoes": [
-   {
-    "para": "pantano_negro",
-    "tempo": 1
-   }
-  ]
- },
- {
-  "id": "ruinas_antigas",
-  "nome": "Ruínas Antigas",
-  "bioma": "ruinas",
-  "genero": "f",
-  "tags": [],
-  "conexoes": [
-   {
-    "para": "floresta_cinzenta",
-    "tempo": 2
-   },
-   {
-    "para": "passo_montanha",
-    "tempo": 2
-   }
-  ]
- },
- {
-  "id": "passo_montanha",
-  "nome": "Passo da Montanha",
-  "bioma": "montanha",
-  "genero": "m",
-  "tags": [],
-  "conexoes": [
-   {
-    "para": "ruinas_antigas",
-    "tempo": 2
-   },
-   {
-    "para": "caverna_eco",
-    "tempo": 1
-   }
-  ]
- },
- {
-  "id": "caverna_eco",
-  "nome": "Caverna do Eco",
-  "bioma": "montanha",
-  "genero": "f",
-  "tags": [
-   "caverna"
-  ],
-  "conexoes": [
-   {
-    "para": "passo_montanha",
-    "tempo": 1
-   }
-  ]
- }
+  {
+    "id": "vila_bruma",
+    "nome": "Vila de Bruma",
+    "bioma": "vila",
+    "genero": "f",
+    "tags": [
+      "seguro",
+      "estalagem",
+      "mercado"
+    ],
+    "conexoes": [
+      {
+        "para": "estrada_velha",
+        "tempo": 1
+      }
+    ],
+    "x": 50,
+    "y": 82
+  },
+  {
+    "id": "estrada_velha",
+    "nome": "Estrada Velha",
+    "bioma": "estrada",
+    "genero": "f",
+    "tags": [],
+    "conexoes": [
+      {
+        "para": "vila_bruma",
+        "tempo": 1
+      },
+      {
+        "para": "floresta_cinzenta",
+        "tempo": 1
+      },
+      {
+        "para": "porto_sal",
+        "tempo": 2
+      }
+    ],
+    "x": 50,
+    "y": 63
+  },
+  {
+    "id": "floresta_cinzenta",
+    "nome": "Floresta Cinzenta",
+    "bioma": "floresta",
+    "genero": "f",
+    "tags": [],
+    "conexoes": [
+      {
+        "para": "estrada_velha",
+        "tempo": 1
+      },
+      {
+        "para": "pantano_negro",
+        "tempo": 2
+      },
+      {
+        "para": "ruinas_antigas",
+        "tempo": 2
+      }
+    ],
+    "x": 36,
+    "y": 46
+  },
+  {
+    "id": "porto_sal",
+    "nome": "Porto do Sal",
+    "bioma": "costa",
+    "genero": "m",
+    "tags": [
+      "seguro",
+      "estalagem",
+      "mercado"
+    ],
+    "conexoes": [
+      {
+        "para": "estrada_velha",
+        "tempo": 2
+      },
+      {
+        "para": "farol_quebrado",
+        "tempo": 1
+      }
+    ],
+    "x": 80,
+    "y": 72
+  },
+  {
+    "id": "farol_quebrado",
+    "nome": "Farol Quebrado",
+    "bioma": "costa",
+    "genero": "m",
+    "tags": [],
+    "conexoes": [
+      {
+        "para": "porto_sal",
+        "tempo": 1
+      }
+    ],
+    "x": 93,
+    "y": 56
+  },
+  {
+    "id": "pantano_negro",
+    "nome": "Pântano Negro",
+    "bioma": "pantano",
+    "genero": "m",
+    "tags": [],
+    "conexoes": [
+      {
+        "para": "floresta_cinzenta",
+        "tempo": 2
+      },
+      {
+        "para": "aldeia_palafitas",
+        "tempo": 1
+      }
+    ],
+    "x": 16,
+    "y": 58
+  },
+  {
+    "id": "aldeia_palafitas",
+    "nome": "Aldeia das Palafitas",
+    "bioma": "pantano",
+    "genero": "f",
+    "tags": [
+      "seguro",
+      "mercado"
+    ],
+    "conexoes": [
+      {
+        "para": "pantano_negro",
+        "tempo": 1
+      }
+    ],
+    "x": 7,
+    "y": 76
+  },
+  {
+    "id": "ruinas_antigas",
+    "nome": "Ruínas Antigas",
+    "bioma": "ruinas",
+    "genero": "f",
+    "tags": [],
+    "conexoes": [
+      {
+        "para": "floresta_cinzenta",
+        "tempo": 2
+      },
+      {
+        "para": "passo_montanha",
+        "tempo": 2
+      }
+    ],
+    "x": 40,
+    "y": 26
+  },
+  {
+    "id": "passo_montanha",
+    "nome": "Passo da Montanha",
+    "bioma": "montanha",
+    "genero": "m",
+    "tags": [],
+    "conexoes": [
+      {
+        "para": "ruinas_antigas",
+        "tempo": 2
+      },
+      {
+        "para": "caverna_eco",
+        "tempo": 1
+      }
+    ],
+    "x": 57,
+    "y": 13
+  },
+  {
+    "id": "caverna_eco",
+    "nome": "Caverna do Eco",
+    "bioma": "montanha",
+    "genero": "f",
+    "tags": [
+      "caverna"
+    ],
+    "conexoes": [
+      {
+        "para": "passo_montanha",
+        "tempo": 1
+      }
+    ],
+    "x": 76,
+    "y": 7
+  }
 ]

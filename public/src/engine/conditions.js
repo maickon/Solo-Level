@@ -23,6 +23,9 @@ const CHECKS = {
   nivel_min: (v, s) => s.heroi.nivel >= v,
   perigo_min: (v, s, c) => (c.biome(s).perigo ?? 0) >= v,
   perigo_max: (v, s, c) => (c.biome(s).perigo ?? 0) <= v,
+  npc_conhecido: (v, s) => !!s.evento?.npc && !s.evento.npcNovo === !!v,
+  npc_disposicao_min: (v, s) => (s.npcs?.[s.evento?.npc]?.disposicao ?? -99) >= v,
+  npc_disposicao_max: (v, s) => (s.npcs?.[s.evento?.npc]?.disposicao ?? 99) <= v,
 };
 
 export const CONDITION_KEYS = Object.keys(CHECKS);

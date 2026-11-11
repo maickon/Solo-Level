@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { Rng } from '../public/src/engine/rng.js';
 import { expand, gvar } from '../public/src/engine/grammar.js';
 import { markovName } from '../public/src/engine/names.js';
-import { buildContent, validate } from '../public/src/engine/content.js';
+import { buildContent, validate, REQUIRED_TABLES } from '../public/src/engine/content.js';
 import { generateItem } from '../public/src/engine/items.js';
 import { newState, Game } from '../public/src/engine/game.js';
 import { stats } from '../public/src/engine/hero.js';
@@ -15,23 +15,34 @@ import { simulate } from '../tools/simulate.mjs';
 
 // ---------- Fixture mínima ----------
 const T = (s) => [s];
-const grammar = Object.fromEntries(['local_desc', 'local_retorno', 'chegada', 'viagem_sem_evento', 'descanso_curto',
-  'acampamento', 'estalagem', 'emboscada', 'combate_inicio', 'ataque_acerto', 'ataque_parcial', 'ataque_falha',
-  'vitoria', 'fuga_sucesso', 'fuga_falha', 'negociar_sucesso', 'negociar_falha', 'epitafio', 'subir_nivel',
-  'item_encontrado', 'novo_dia'].map((k) => [k, T(`${k}.`)]));
+const grammar = Object.fromEntries(REQUIRED_TABLES.map((k) => [k, T(`${k}.`)]));
 const fixture = () => buildContent({
   classes: [{ id: 'g', nome: { m: 'G', f: 'G' }, atributos: { forca: 2, agilidade: 0, mente: 0, presenca: 0 },
     hp: 10, energia: 5, inicial: [{ base: 'espada' }, { base: 'racao', qtd: 2 }], tracos: ['forte'] }],
   traits: [{ id: 'forte', nome: 'Forte', mods: { forca: 1 } }],
   biomes: [{ id: 'vila', nome: 'Vila', perigo: 0, clima: { limpo: 1 }, inimigos: [] },
     { id: 'mata', nome: 'Mata', perigo: 3, clima: { chuva: 1 }, inimigos: ['lobo'] }],
-  locations: [{ id: 'vila_bruma', nome: 'Vila', genero: 'f', bioma: 'vila', tags: ['seguro', 'mercado', 'estalagem'], conexoes: [{ para: 'mata1', tempo: 1 }] },
-    { id: 'mata1', nome: 'Mata', genero: 'f', bioma: 'mata', tags: [], conexoes: [{ para: 'vila_bruma', tempo: 1 }] }],
+  locations: [{ id: 'vila_bruma', nome: 'Vila', genero: 'f', bioma: 'vila', tags: ['seguro', 'mercado', 'estalagem'], x: 50, y: 80, conexoes: [{ para: 'mata1', tempo: 1 }] },
+    { id: 'mata1', nome: 'Mata', genero: 'f', bioma: 'mata', tags: [], x: 50, y: 40, conexoes: [{ para: 'vila_bruma', tempo: 1 }, { para: 'vila2', tempo: 1 }] },
+    { id: 'vila2', nome: 'Porto', genero: 'm', bioma: 'vila', tags: ['seguro'], x: 80, y: 40, conexoes: [{ para: 'mata1', tempo: 1 }] }],
   enemies: [{ id: 'lobo', nome: 'lobo', genero: 'm', hp: 4, dano: '1d2', tier: 1, xp: 9, ouro: '1d2', saque: 1 }],
   events: [{ id: 'e1', tipo: 'exploracao', texto: 'Algo.', opcoes: [
     { rotulo: 'Testar', teste: 'forca', sucesso: { texto: 'ok', efeitos: [{ xp: 1 }] }, parcial: { texto: 'meh', efeitos: [] }, falha: { texto: 'ai', efeitos: [{ dano: '1' }] } },
     { rotulo: 'Lutar', resultado: { texto: 'Vem!', efeitos: [{ combate: 'lobo' }] } },
-    { rotulo: 'Corda', requer: { item_tag: 'corda' }, resultado: { texto: 'x', efeitos: [] } }] }],
+    { rotulo: 'Corda', requer: { item_tag: 'corda' }, resultado: { texto: 'x', efeitos: [] } },
+    { rotulo: 'Seguir', resultado: { texto: 'Você segue.', efeitos: [{ cena: 'e2' }] } }] },
+    { id: 'e2', tipo: 'cadeia', npc: { oficios: ['ferreiro'] }, texto: '{$npc.Nome}, {$npc.um} {$npc.oficio}.', opcoes: [
+      { rotulo: 'Ajudar', resultado: { texto: 'ok', efeitos: [{ disposicao: 2 }] } },
+      { rotulo: 'Lutar e seguir', resultado: { texto: 'luta', efeitos: [{ combate: 'lobo' }, { cena: 'e3' }] } }] },
+    { id: 'e3', tipo: 'cadeia', texto: 'Fim da cadeia com {$npc.nome}.', opcoes: [{ rotulo: 'Fim', resultado: { texto: 'fim', efeitos: [] } }] },
+    { id: 'p1', tipo: 'exploracao', requer: { local_tags: ['caverna'] }, texto: 'Caverna.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] },
+    { id: 'p2', tipo: 'exploracao', requer: { local_tags: ['caverna'] }, texto: 'Caverna 2.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] }],
+  npcs: { oficios: [{ id: 'ferreiro', m: 'ferreiro', f: 'ferreira' }, { id: 'guarda', m: 'guarda', f: 'guarda' }],
+    temperamentos: [{ id: 'calmo', m: 'calmo', f: 'calma' }] },
+  pois: [{ id: 'caverna', nome: 'Caverna Funda', genero: 'f', biomas: ['mata'], tags: ['caverna'] }],
+  quests: [
+    { id: 'cacar', objetivo: 'vencer', oficios: ['guarda'], titulo: 'Caçar {$alvo.nome}', pedido: '{$npc.nome} pede.', conclusao: 'Feito.', recompensa: { ouro: '5', xp: 2 } },
+    { id: 'entregar', objetivo: 'chegar', oficios: ['ferreiro'], titulo: 'Levar a {$destino.nome}', pedido: 'Leve.', conclusao: 'Entregue.', recompensa: { ouro: '3', xp: 1 } }],
   threads: [],
   items: {
     raridades: [{ id: 'comum', peso: 60, afixos: 0, mult: 1 }, { id: 'raro', peso: 10, afixos: 2, mult: 4 }, { id: 'lendario', peso: 1, afixos: 3, mult: 10 }],
@@ -98,7 +109,7 @@ test('opções com requer só aparecem quando a condição passa', () => {
   const s = newState(c, { classe: 'g', nome: 'Ana', seed: 's2' });
   const g = new Game(c, s);
   g.begin(); g.eventScene(c.eventMap.e1);
-  assert.equal(s.cena.opcoes.length, 2);
+  assert.equal(s.cena.opcoes.length, 3);
 });
 
 test('combate leva a vitória com xp, ouro e saque; morte encerra o jogo', () => {
@@ -143,6 +154,104 @@ test('exaustão penaliza testes; energia zerada gera exaustão ao explorar', () 
 test('fixture passa na validação', () => {
   const { errors } = validate(fixture());
   assert.deepEqual(errors, []);
+});
+
+test('crítico (6+6) e desastre (1+1) independem do total', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'c1' });
+  const g = new Game(c, s);
+  let crit = 0, des = 0;
+  for (let i = 0; i < 2000; i++) {
+    const t = R.teste(g, 'mente', { dificuldade: i % 2 ? 20 : -20 });
+    if (t.especial === 'critico') { crit++; assert.equal(t.resultado, 'sucesso'); }
+    if (t.especial === 'desastre') { des++; assert.equal(t.resultado, 'falha'); }
+  }
+  assert.ok(crit > 20 && des > 20);
+});
+
+test('cadeia: cena leva ao próximo evento, vincula NPC e continua após vencer combate', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'ch1' });
+  const g = new Game(c, s);
+  s.heroi.hpBase = 99; s.heroi.hp = 99; s.heroi.hpMax = 99;
+  g.begin(); g.eventScene(c.eventMap.e1);
+  g.choose(s.cena.opcoes.findIndex((o) => o.rotulo === 'Seguir'));
+  assert.equal(s.evento.id, 'e2');
+  const npc = s.npcs[s.evento.npc];
+  assert.ok(npc && npc.oficio === 'ferreiro');
+  assert.match(s.cena.blocos.at(-1).texto, /ferreir[oa]\.$/);
+  g.choose(s.cena.opcoes.findIndex((o) => o.rotulo === 'Lutar e seguir'));
+  assert.equal(s.cena.modo, 'combate');
+  for (let i = 0; i < 40 && s.cena.modo === 'combate'; i++) g.choose(0);
+  assert.equal(s.evento?.id, 'e3');
+  assert.ok(s.cena.blocos.some((b) => b.texto.includes(npc.nome)));
+});
+
+test('NPC recorrente: reencontro marca npc_conhecido e guarda disposição', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'n1' });
+  const g = new Game(c, s);
+  let reencontro = false;
+  for (let i = 0; i < 20 && !reencontro; i++) {
+    g.begin(); g.eventScene(c.eventMap.e2);
+    if (!s.evento.npcNovo) reencontro = true;
+    g.choose(0); // Ajudar: +2 disposição
+  }
+  assert.ok(reencontro);
+  assert.ok(Object.values(s.npcs).some((n) => n.disposicao >= 2 && n.encontros >= 2));
+});
+
+test('POI: explorar descobre local novo, conectado e com coordenadas', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'poi1' });
+  const g = new Game(c, s);
+  s.local = 'mata1';
+  for (let i = 0; i < 80 && !Object.keys(s.locais).length && !s.morto; i++) {
+    s.heroi.energia = 5; s.heroi.hp = s.heroi.hpMax;
+    g.begin(); g.act_explorar();
+    if (s.cena.modo !== 'local') { s.combate = null; g.begin(); g.hub(); }
+  }
+  const poi = Object.values(s.locais)[0];
+  assert.ok(poi, 'nenhum POI descoberto');
+  assert.ok(poi.tags.includes('poi') && poi.pai === 'mata1' && poi.x >= 3);
+  assert.ok(s.cena.opcoes.some((o) => o.acao.para === poi.id));
+  g.choose(s.cena.opcoes.findIndex((o) => o.acao.para === poi.id));
+  assert.equal(s.local, poi.id);
+  assert.ok(s.visitados.includes(poi.id));
+});
+
+test('missões: aceitar, cumprir (vencer) e entregar; entrega por chegada', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'q1' });
+  const g = new Game(c, s);
+  s.heroi.hpBase = 99; s.heroi.hp = 99; s.heroi.hpMax = 99;
+  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'trabalho'));
+  assert.equal(s.cena.modo, 'trabalho');
+  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'aceitar'));
+  const livre = () => s.cena.opcoes.findIndex((o) => o.acao.tipo === 'aceitar' && !o.desativada);
+  while (livre() >= 0) g.choose(livre());
+  assert.ok(s.missoes.length >= 1 && s.missoes.every((m) => s.npcs[m.npcId]));
+  const ouro0 = s.heroi.ouro;
+  const cacar = s.missoes.find((m) => m.objetivo === 'vencer');
+  const entregar = s.missoes.find((m) => m.objetivo === 'chegar');
+  assert.ok(cacar || entregar);
+  if (cacar) {
+    s.local = cacar.destino; g.begin(); g.hub();
+    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'missao_cumprir'));
+    for (let i = 0; i < 40 && s.cena.modo === 'combate'; i++) g.choose(0);
+    assert.equal(cacar.estado, 'cumprida');
+    s.local = cacar.origem; g.begin(); g.hub();
+    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'missao_entregar'));
+    assert.ok(!s.missoes.includes(cacar));
+    assert.ok(s.heroi.ouro > ouro0);
+  }
+  if (entregar) {
+    assert.ok(s.heroi.inventario.some((i) => i.missao === entregar.uid));
+    s.local = 'mata1'; g.begin(); g.hub();
+    g.choose(s.cena.opcoes.findIndex((o) => o.acao.para === entregar.destino));
+    assert.ok(!s.missoes.includes(entregar));
+    assert.ok(!s.heroi.inventario.some((i) => i.missao === entregar.uid));
+  }
 });
 
 // ---------- Pacote real ----------
