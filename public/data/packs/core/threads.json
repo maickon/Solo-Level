@@ -1,52 +1,111 @@
 [
-  {
-    "id": "lobo_alfa",
-    "texto": "Uivos seguem seus passos. Algo grande {$heroi.lo} rastreia.",
-    "pressao": 1,
-    "incremento": 1,
-    "requer": {
-      "bioma": [
-        "floresta"
-      ]
-    },
-    "evento": "lobo_alfa_confronto"
-  },
-  {
-    "id": "divida_contrabandista",
-    "texto": "Você deve um favor perigoso a um contrabandista do porto.",
-    "pressao": 1,
-    "incremento": 1,
-    "requer": {
-      "bioma": [
-        "costa",
-        "estrada"
-      ]
-    },
-    "evento": "divida_confronto"
-  },
-  {
-    "id": "sino_afogado",
-    "texto": "Um sino toca sob a água, e só você parece ouvi-lo.",
-    "pressao": 1,
-    "incremento": 1,
-    "requer": {
-      "bioma": [
-        "pantano"
-      ]
-    },
-    "evento": "sino_afogado_final"
-  },
-  {
-    "id": "herdeiro_perdido",
-    "texto": "Você prometeu encontrar o herdeiro de uma casa esquecida.",
-    "pressao": 1,
-    "incremento": 1,
-    "requer": {
-      "bioma": [
-        "ruinas",
-        "montanha"
-      ]
-    },
-    "evento": "herdeiro_final"
-  }
+          {
+                    "id": "lobo_alfa",
+                    "texto": "Uivos seguem seus passos. Algo grande {$heroi.lo} rastreia.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "floresta"
+                              ]
+                    },
+                    "evento": "lobo_alfa_confronto"
+          },
+          {
+                    "id": "divida_contrabandista",
+                    "texto": "Você deve um favor perigoso a um contrabandista do porto.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "costa",
+                                        "estrada"
+                              ]
+                    },
+                    "evento": "divida_confronto"
+          },
+          {
+                    "id": "sino_afogado",
+                    "texto": "Um sino toca sob a água, e só você parece ouvi-lo.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "pantano"
+                              ]
+                    },
+                    "evento": "sino_afogado_final"
+          },
+          {
+                    "id": "herdeiro_perdido",
+                    "texto": "Você prometeu encontrar o herdeiro de uma casa esquecida.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "ruinas",
+                                        "montanha"
+                              ]
+                    },
+                    "evento": "herdeiro_final"
+          },
+          {
+                    "id": "divida_feerica",
+                    "texto": "Você assinou uma promessa com o povo feérico. Ela ainda não foi cobrada.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "floresta",
+                                        "floresta_elfica",
+                                        "bosque_feerico",
+                                        "selva"
+                              ]
+                    },
+                    "evento": "divida_feerica_cobranca"
+          },
+          {
+                    "id": "sombra_roubada",
+                    "texto": "Sua sombra se move um pouco atrasada, como se tivesse outro dono.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "ruinas",
+                                        "cidade",
+                                        "feudo",
+                                        "terras_sombrias"
+                              ]
+                    },
+                    "evento": "sombra_roubada_retorno"
+          },
+          {
+                    "id": "pacto_brasa",
+                    "texto": "O contrato de brasa queima um pouco a cada dia, no lugar onde foi selado.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "vulcanico",
+                                        "plano_fogo",
+                                        "montanha",
+                                        "deserto"
+                              ]
+                    },
+                    "evento": "pacto_brasa_cobranca"
+          },
+          {
+                    "id": "maldicao_tumulo",
+                    "texto": "Um frio seco acompanha você desde o túmulo. Alguém espera pelo seu retorno.",
+                    "pressao": 1,
+                    "incremento": 1,
+                    "requer": {
+                              "bioma": [
+                                        "deserto",
+                                        "ruinas",
+                                        "savana"
+                              ]
+                    },
+                    "evento": "maldicao_tumulo_despertar"
+          }
 ]

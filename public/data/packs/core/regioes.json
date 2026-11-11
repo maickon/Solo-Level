@@ -1,0 +1,1753 @@
+[
+  {
+    "id": "deserto_dunas",
+    "nome": "{reg_n_deserto_dunas}",
+    "genero": "m",
+    "bioma": "deserto",
+    "de": [
+      "deserto",
+      "estrada",
+      "savana",
+      "montanha"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "deserto",
+      "seco"
+    ],
+    "descricao": "{reg_d_deserto_dunas}",
+    "locais": [
+      {
+        "nome": "{reg_l_de_trilha}",
+        "genero": "f",
+        "tags": [
+          "trilha"
+        ]
+      },
+      {
+        "nome": "{reg_l_de_mar}",
+        "genero": "m",
+        "tags": [
+          "duna"
+        ]
+      },
+      {
+        "nome": "{reg_l_de_ruina}",
+        "genero": "f",
+        "tags": [
+          "ruina",
+          "antigo"
+        ],
+        "bioma": "ruinas"
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_de_caravana}",
+        "genero": "f",
+        "tags": [
+          "caravana"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "oasis",
+    "nome": "{reg_n_oasis}",
+    "genero": "m",
+    "bioma": "savana",
+    "de": [
+      "deserto",
+      "savana"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "oasis",
+      "agua"
+    ],
+    "descricao": "{reg_d_oasis}",
+    "locais": [
+      {
+        "nome": "{reg_l_oa_lagoa}",
+        "genero": "f",
+        "tags": [
+          "lagoa"
+        ]
+      },
+      {
+        "nome": "{reg_l_oa_pouso}",
+        "genero": "m",
+        "tags": [
+          "aldeia",
+          "seguro",
+          "mercado",
+          "estalagem",
+          "caravana"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_oa_palmeiral}",
+        "genero": "m",
+        "tags": [
+          "palmeiral"
+        ],
+        "chance": 0.6
+      }
+    ]
+  },
+  {
+    "id": "savana_dourada",
+    "nome": "{reg_n_savana_dourada}",
+    "genero": "f",
+    "bioma": "savana",
+    "de": [
+      "estrada",
+      "floresta",
+      "selva",
+      "deserto",
+      "savana"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "savana"
+    ],
+    "descricao": "{reg_d_savana_dourada}",
+    "locais": [
+      {
+        "nome": "{reg_l_sv_campo}",
+        "genero": "m",
+        "tags": [
+          "campo"
+        ]
+      },
+      {
+        "nome": "{reg_l_sv_baoba}",
+        "genero": "m",
+        "tags": [
+          "arvore_antiga",
+          "sagrado"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_sv_aguada}",
+        "genero": "f",
+        "tags": [
+          "agua"
+        ],
+        "chance": 0.6
+      },
+      {
+        "nome": "{reg_l_sv_toca}",
+        "genero": "f",
+        "tags": [
+          "toca",
+          "covil_fera"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "selva_densa",
+    "nome": "{reg_n_selva_densa}",
+    "genero": "f",
+    "bioma": "selva",
+    "de": [
+      "floresta",
+      "pantano",
+      "savana",
+      "selva",
+      "ilha"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "selva"
+    ],
+    "descricao": "{reg_d_selva_densa}",
+    "locais": [
+      {
+        "nome": "{reg_l_sl_borda}",
+        "genero": "f",
+        "tags": [
+          "mata_fechada"
+        ]
+      },
+      {
+        "nome": "{reg_l_sl_rio}",
+        "genero": "m",
+        "tags": [
+          "rio",
+          "agua"
+        ]
+      },
+      {
+        "nome": "{reg_l_sl_cipoal}",
+        "genero": "m",
+        "tags": [
+          "mata_fechada",
+          "perigoso"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_sl_clareira}",
+        "genero": "f",
+        "tags": [
+          "clareira",
+          "antigo"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "templo_selva",
+    "nome": "{reg_n_templo_selva}",
+    "genero": "m",
+    "bioma": "selva",
+    "de": [
+      "selva",
+      "ruinas",
+      "pantano"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "templo_esquecido",
+      "antigo"
+    ],
+    "descricao": "{reg_d_templo_selva}",
+    "locais": [
+      {
+        "nome": "{reg_l_ts_escadaria}",
+        "genero": "f",
+        "tags": [
+          "ruinas",
+          "selvagem"
+        ],
+        "bioma": "selva"
+      },
+      {
+        "nome": "{reg_l_ts_templo}",
+        "genero": "m",
+        "tags": [
+          "templo",
+          "sagrado",
+          "ruinas"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_ts_altar}",
+        "genero": "m",
+        "tags": [
+          "altar",
+          "sagrado"
+        ],
+        "chance": 0.6
+      },
+      {
+        "nome": "{reg_l_ts_estatua}",
+        "genero": "f",
+        "tags": [
+          "estatua"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "tundra_gelada",
+    "nome": "{reg_n_tundra_gelada}",
+    "genero": "f",
+    "bioma": "tundra",
+    "de": [
+      "montanha",
+      "tundra",
+      "geleira"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "tundra",
+      "frio"
+    ],
+    "descricao": "{reg_d_tundra_gelada}",
+    "locais": [
+      {
+        "nome": "{reg_l_tu_planicie}",
+        "genero": "f",
+        "tags": [
+          "planicie"
+        ]
+      },
+      {
+        "nome": "{reg_l_tu_aldeia}",
+        "genero": "f",
+        "tags": [
+          "aldeia",
+          "seguro",
+          "mercado",
+          "estalagem"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_tu_ossos}",
+        "genero": "m",
+        "tags": [
+          "ossos",
+          "antigo"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "geleira_azul",
+    "nome": "{reg_n_geleira_azul}",
+    "genero": "f",
+    "bioma": "geleira",
+    "de": [
+      "tundra",
+      "geleira",
+      "montanha"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "geleira",
+      "frio"
+    ],
+    "descricao": "{reg_d_geleira_azul}",
+    "locais": [
+      {
+        "nome": "{reg_l_ge_lingua}",
+        "genero": "f",
+        "tags": [
+          "gelo"
+        ]
+      },
+      {
+        "nome": "{reg_l_ge_fenda}",
+        "genero": "f",
+        "tags": [
+          "fenda",
+          "gelo"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_ge_gruta}",
+        "genero": "f",
+        "tags": [
+          "caverna",
+          "subterraneo",
+          "gelo"
+        ],
+        "chance": 0.6
+      }
+    ]
+  },
+  {
+    "id": "vulcao",
+    "nome": "{reg_n_vulcao}",
+    "genero": "m",
+    "bioma": "vulcanico",
+    "de": [
+      "montanha",
+      "vulcanico",
+      "deserto",
+      "terras_orc"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "vulcao",
+      "fogo"
+    ],
+    "descricao": "{reg_d_vulcao}",
+    "locais": [
+      {
+        "nome": "{reg_l_vu_encosta}",
+        "genero": "f",
+        "tags": [
+          "encosta",
+          "cinza"
+        ]
+      },
+      {
+        "nome": "{reg_l_vu_cratera}",
+        "genero": "f",
+        "tags": [
+          "cratera",
+          "perigoso"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_vu_lava}",
+        "genero": "m",
+        "tags": [
+          "lava"
+        ],
+        "chance": 0.6
+      },
+      {
+        "nome": "{reg_l_vu_forja}",
+        "genero": "f",
+        "tags": [
+          "forja",
+          "antigo"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "ilha_deserta",
+    "nome": "{reg_n_ilha_deserta}",
+    "genero": "f",
+    "bioma": "ilha",
+    "de": [
+      "costa",
+      "mar_aberto",
+      "ilha"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "ilha",
+      "costa"
+    ],
+    "descricao": "{reg_d_ilha_deserta}",
+    "locais": [
+      {
+        "nome": "{reg_l_il_praia}",
+        "genero": "f",
+        "tags": [
+          "praia"
+        ]
+      },
+      {
+        "nome": "{reg_l_il_mata}",
+        "genero": "f",
+        "tags": [
+          "selvagem"
+        ],
+        "bioma": "selva"
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_il_naufragio}",
+        "genero": "m",
+        "tags": [
+          "naufragio"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_il_enseada}",
+        "genero": "f",
+        "tags": [
+          "enseada",
+          "tesouro"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "arquipelago",
+    "nome": "{reg_n_arquipelago}",
+    "genero": "m",
+    "bioma": "mar_aberto",
+    "de": [
+      "costa",
+      "mar_aberto",
+      "ilha"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "arquipelago",
+      "mar"
+    ],
+    "descricao": "{reg_d_arquipelago}",
+    "locais": [
+      {
+        "nome": "{reg_l_ar_recife}",
+        "genero": "m",
+        "tags": [
+          "recife"
+        ]
+      },
+      {
+        "nome": "{reg_l_ar_ilhota}",
+        "genero": "f",
+        "tags": [
+          "ilha"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_ar_farol}",
+        "genero": "m",
+        "tags": [
+          "farol"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_ar_baixio}",
+        "genero": "m",
+        "tags": [
+          "baixio",
+          "naufragio"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "porto_pirata",
+    "nome": "{reg_n_porto_pirata}",
+    "genero": "m",
+    "bioma": "costa",
+    "de": [
+      "costa",
+      "ilha",
+      "mar_aberto"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "costa",
+      "pirata"
+    ],
+    "descricao": "{reg_d_porto_pirata}",
+    "locais": [
+      {
+        "nome": "{reg_l_pp_cais}",
+        "genero": "m",
+        "tags": [
+          "porto",
+          "seguro",
+          "mercado",
+          "estalagem",
+          "pirata"
+        ]
+      },
+      {
+        "nome": "{reg_l_pp_covil}",
+        "genero": "m",
+        "tags": [
+          "pirata",
+          "covil_pirata"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_pp_baia}",
+        "genero": "f",
+        "tags": [
+          "baia",
+          "naufragio"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "cidade_grande",
+    "nome": "{reg_n_cidade_grande}",
+    "genero": "f",
+    "bioma": "cidade",
+    "de": [
+      "estrada",
+      "vila",
+      "costa",
+      "feudo",
+      "cidade"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "cidade"
+    ],
+    "descricao": "{reg_d_cidade_grande}",
+    "locais": [
+      {
+        "nome": "{reg_l_ci_portao}",
+        "genero": "m",
+        "tags": [
+          "vila",
+          "seguro",
+          "mercado",
+          "estalagem"
+        ]
+      },
+      {
+        "nome": "{reg_l_ci_bairro}",
+        "genero": "m",
+        "tags": [
+          "vila",
+          "seguro",
+          "mercado"
+        ]
+      },
+      {
+        "nome": "{reg_l_ci_vielas}",
+        "genero": "f",
+        "plural": true,
+        "tags": [
+          "submundo"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_ci_catedral}",
+        "genero": "f",
+        "tags": [
+          "sagrado",
+          "seguro"
+        ],
+        "chance": 0.6
+      },
+      {
+        "nome": "{reg_l_ci_arena}",
+        "genero": "f",
+        "tags": [
+          "arena",
+          "seguro"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "feudo_castelo",
+    "nome": "{reg_n_feudo_castelo}",
+    "genero": "m",
+    "bioma": "feudo",
+    "de": [
+      "estrada",
+      "vila",
+      "feudo",
+      "savana"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "feudo"
+    ],
+    "descricao": "{reg_d_feudo_castelo}",
+    "locais": [
+      {
+        "nome": "{reg_l_ca_vila}",
+        "genero": "f",
+        "tags": [
+          "aldeia",
+          "seguro",
+          "mercado",
+          "estalagem"
+        ]
+      },
+      {
+        "nome": "{reg_l_ca_castelo}",
+        "genero": "m",
+        "tags": [
+          "castelo",
+          "vila",
+          "seguro",
+          "mercado",
+          "estalagem"
+        ]
+      },
+      {
+        "nome": "{reg_l_ca_campos}",
+        "genero": "m",
+        "plural": true,
+        "tags": [
+          "campos"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_ca_ponte}",
+        "genero": "f",
+        "tags": [
+          "ponte",
+          "troll"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_ca_torre}",
+        "genero": "f",
+        "tags": [
+          "torre",
+          "vigia"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "cidade_anao",
+    "nome": "{reg_n_cidade_anao}",
+    "genero": "f",
+    "bioma": "subterraneo_anao",
+    "de": [
+      "montanha",
+      "caverna",
+      "subterraneo_anao"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "anao",
+      "subterraneo"
+    ],
+    "descricao": "{reg_d_cidade_anao}",
+    "locais": [
+      {
+        "nome": "{reg_l_an_portao}",
+        "genero": "m",
+        "tags": [
+          "seguro",
+          "mercado"
+        ]
+      },
+      {
+        "nome": "{reg_l_an_salao}",
+        "genero": "m",
+        "tags": [
+          "seguro",
+          "mercado",
+          "estalagem",
+          "vila"
+        ]
+      },
+      {
+        "nome": "{reg_l_an_galeria}",
+        "genero": "f",
+        "plural": true,
+        "tags": [
+          "mina",
+          "perigoso"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_an_cripta}",
+        "genero": "f",
+        "tags": [
+          "cripta",
+          "antigo",
+          "sagrado"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "vila_halfling",
+    "nome": "{reg_n_vila_halfling}",
+    "genero": "m",
+    "bioma": "vila",
+    "de": [
+      "estrada",
+      "floresta",
+      "vila",
+      "feudo"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "halfling"
+    ],
+    "descricao": "{reg_d_vila_halfling}",
+    "locais": [
+      {
+        "nome": "{reg_l_ha_vila}",
+        "genero": "f",
+        "tags": [
+          "aldeia",
+          "seguro",
+          "mercado",
+          "estalagem"
+        ]
+      },
+      {
+        "nome": "{reg_l_ha_pomar}",
+        "genero": "m",
+        "plural": true,
+        "tags": [
+          "pomar"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_ha_colina}",
+        "genero": "f",
+        "tags": [
+          "colina",
+          "moinho"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "acampamento_orc",
+    "nome": "{reg_n_acampamento_orc}",
+    "genero": "m",
+    "bioma": "terras_orc",
+    "de": [
+      "montanha",
+      "estrada",
+      "deserto",
+      "terras_orc",
+      "feudo",
+      "savana"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "orc",
+      "hostil"
+    ],
+    "descricao": "{reg_d_acampamento_orc}",
+    "locais": [
+      {
+        "nome": "{reg_l_or_ermo}",
+        "genero": "m",
+        "tags": [
+          "ermo"
+        ]
+      },
+      {
+        "nome": "{reg_l_or_acampamento}",
+        "genero": "m",
+        "tags": [
+          "acampamento_orc",
+          "covil_orc"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_or_totens}",
+        "genero": "m",
+        "plural": true,
+        "tags": [
+          "totens",
+          "antigo"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "mosteiro_montanha",
+    "nome": "{reg_n_mosteiro_montanha}",
+    "genero": "m",
+    "bioma": "montanha",
+    "de": [
+      "montanha",
+      "tundra",
+      "geleira"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "montanha"
+    ],
+    "descricao": "{reg_d_mosteiro_montanha}",
+    "locais": [
+      {
+        "nome": "{reg_l_mo_degraus}",
+        "genero": "m",
+        "plural": true,
+        "tags": [
+          "escada"
+        ]
+      },
+      {
+        "nome": "{reg_l_mo_mosteiro}",
+        "genero": "m",
+        "tags": [
+          "mosteiro",
+          "sagrado",
+          "seguro",
+          "estalagem"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_mo_jardim}",
+        "genero": "m",
+        "tags": [
+          "jardim",
+          "sagrado"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_mo_ponte}",
+        "genero": "f",
+        "tags": [
+          "ponte"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "posto_fronteira",
+    "nome": "{reg_n_posto_fronteira}",
+    "genero": "f",
+    "bioma": "estrada",
+    "de": [
+      "*"
+    ],
+    "peso": 1,
+    "fronteira": 2,
+    "tags": [
+      "fronteira_civilizada"
+    ],
+    "descricao": "{reg_d_posto_fronteira}",
+    "locais": [
+      {
+        "nome": "{reg_l_po_forte}",
+        "genero": "m",
+        "tags": [
+          "posto",
+          "seguro",
+          "estalagem",
+          "mercado",
+          "vila"
+        ]
+      },
+      {
+        "nome": "{reg_l_po_estrada}",
+        "genero": "f",
+        "tags": [
+          "estrada"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_po_marco}",
+        "genero": "m",
+        "tags": [
+          "marco"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_po_acampamento}",
+        "genero": "m",
+        "tags": [
+          "seguro",
+          "mercado",
+          "acampamento_mercadores"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "floresta_elfica",
+    "nome": "{reg_n_floresta_elfica}",
+    "genero": "f",
+    "bioma": "floresta_elfica",
+    "de": [
+      "floresta",
+      "floresta_elfica",
+      "selva"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "elfica"
+    ],
+    "descricao": "{reg_d_floresta_elfica}",
+    "locais": [
+      {
+        "nome": "{reg_l_el_arvoredo}",
+        "genero": "m",
+        "tags": [
+          "arvoredo"
+        ]
+      },
+      {
+        "nome": "{reg_l_el_cidade}",
+        "genero": "f",
+        "tags": [
+          "aldeia",
+          "seguro",
+          "mercado",
+          "estalagem",
+          "cidade_arvore"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_el_santuario}",
+        "genero": "m",
+        "tags": [
+          "sagrado",
+          "antigo",
+          "santuario_elfico"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_el_lago}",
+        "genero": "m",
+        "tags": [
+          "lago",
+          "agua"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "canion_rubro",
+    "nome": "{reg_n_canion_rubro}",
+    "genero": "m",
+    "bioma": "deserto",
+    "de": [
+      "deserto",
+      "montanha",
+      "savana"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "canion",
+      "rochoso"
+    ],
+    "descricao": "{reg_d_canion_rubro}",
+    "locais": [
+      {
+        "nome": "{reg_l_cn_garganta}",
+        "genero": "f",
+        "tags": [
+          "garganta"
+        ]
+      },
+      {
+        "nome": "{reg_l_cn_mirante}",
+        "genero": "m",
+        "tags": [
+          "mirante"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_cn_caverna}",
+        "genero": "f",
+        "tags": [
+          "caverna",
+          "subterraneo",
+          "pintura_rupestre"
+        ],
+        "chance": 0.5
+      },
+      {
+        "nome": "{reg_l_cn_arco}",
+        "genero": "m",
+        "tags": [
+          "arco"
+        ],
+        "chance": 0.4
+      }
+    ]
+  },
+  {
+    "id": "lago_nevoa",
+    "nome": "{reg_n_lago_nevoa}",
+    "genero": "m",
+    "bioma": "pantano",
+    "de": [
+      "pantano",
+      "floresta",
+      "floresta_elfica"
+    ],
+    "peso": 1,
+    "fronteira": 1,
+    "tags": [
+      "lago",
+      "nevoa"
+    ],
+    "descricao": "{reg_d_lago_nevoa}",
+    "locais": [
+      {
+        "nome": "{reg_l_lg_margem}",
+        "genero": "f",
+        "tags": [
+          "margem",
+          "agua"
+        ]
+      },
+      {
+        "nome": "{reg_l_lg_ilha}",
+        "genero": "f",
+        "tags": [
+          "ilha",
+          "sagrado"
+        ]
+      },
+      {
+        "nome": "{reg_l_lg_pier}",
+        "genero": "m",
+        "tags": [
+          "aldeia",
+          "seguro",
+          "mercado"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_lg_torre}",
+        "genero": "f",
+        "tags": [
+          "torre",
+          "ruinas",
+          "afundado"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "ruinas_cidadela",
+    "nome": "{reg_n_ruinas_cidadela}",
+    "genero": "f",
+    "bioma": "ruinas",
+    "de": [
+      "ruinas",
+      "deserto",
+      "montanha",
+      "floresta",
+      "estrada",
+      "feudo",
+      "selva"
+    ],
+    "peso": 2,
+    "fronteira": 1,
+    "tags": [
+      "cidadela",
+      "antigo"
+    ],
+    "descricao": "{reg_d_ruinas_cidadela}",
+    "locais": [
+      {
+        "nome": "{reg_l_cd_muralhas}",
+        "genero": "f",
+        "plural": true,
+        "tags": [
+          "muralha",
+          "ruinas"
+        ]
+      },
+      {
+        "nome": "{reg_l_cd_patio}",
+        "genero": "m",
+        "tags": [
+          "patio",
+          "ruinas"
+        ]
+      },
+      {
+        "nome": "{reg_l_cd_homenagem}",
+        "genero": "f",
+        "tags": [
+          "torre",
+          "ruinas",
+          "antigo"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_cd_trono}",
+        "genero": "m",
+        "tags": [
+          "salao",
+          "ruinas",
+          "antigo",
+          "perigoso"
+        ],
+        "chance": 0.5
+      }
+    ]
+  },
+  {
+    "id": "cripta",
+    "tipo": "masmorra",
+    "nome": "{reg_n_cripta}",
+    "genero": "f",
+    "bioma": "ruinas",
+    "de": [
+      "ruinas",
+      "pantano",
+      "floresta",
+      "feudo",
+      "cidade",
+      "estrada",
+      "tundra"
+    ],
+    "peso": 2,
+    "tags": [
+      "cripta"
+    ],
+    "descricao": "{reg_d_cripta}",
+    "locais": [
+      {
+        "nome": "{reg_l_mc_entrada}",
+        "genero": "f",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_mc_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      2,
+      4
+    ],
+    "sala": {
+      "nome": "{reg_l_mc_sala}",
+      "genero": "f",
+      "tags": [
+        "sala",
+        "cripta_sala"
+      ]
+    }
+  },
+  {
+    "id": "mina_abandonada",
+    "tipo": "masmorra",
+    "nome": "{reg_n_mina_abandonada}",
+    "genero": "f",
+    "bioma": "subterraneo_anao",
+    "de": [
+      "montanha",
+      "subterraneo_anao",
+      "caverna",
+      "vulcanico"
+    ],
+    "peso": 2,
+    "tags": [
+      "mina",
+      "subterraneo"
+    ],
+    "descricao": "{reg_d_mina_abandonada}",
+    "locais": [
+      {
+        "nome": "{reg_l_mm_entrada}",
+        "genero": "f",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_mm_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      2,
+      4
+    ],
+    "sala": {
+      "nome": "{reg_l_mm_sala}",
+      "genero": "f",
+      "tags": [
+        "sala",
+        "mina_sala"
+      ]
+    }
+  },
+  {
+    "id": "catacumbas",
+    "tipo": "masmorra",
+    "nome": "{reg_n_catacumbas}",
+    "genero": "f",
+    "bioma": "ruinas",
+    "de": [
+      "cidade",
+      "ruinas",
+      "feudo",
+      "vila"
+    ],
+    "peso": 1,
+    "tags": [
+      "catacumbas",
+      "cripta"
+    ],
+    "descricao": "{reg_d_catacumbas}",
+    "locais": [
+      {
+        "nome": "{reg_l_mt_entrada}",
+        "genero": "f",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_mt_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      3,
+      4
+    ],
+    "sala": {
+      "nome": "{reg_l_mt_sala}",
+      "genero": "m",
+      "tags": [
+        "sala",
+        "catacumba_sala"
+      ]
+    }
+  },
+  {
+    "id": "caverna_cristal",
+    "tipo": "masmorra",
+    "nome": "{reg_n_caverna_cristal}",
+    "genero": "f",
+    "bioma": "subterraneo_anao",
+    "de": [
+      "montanha",
+      "caverna",
+      "geleira",
+      "subterraneo_anao"
+    ],
+    "peso": 1,
+    "tags": [
+      "cristal",
+      "caverna",
+      "subterraneo"
+    ],
+    "descricao": "{reg_d_caverna_cristal}",
+    "locais": [
+      {
+        "nome": "{reg_l_mx_entrada}",
+        "genero": "f",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_mx_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      2,
+      3
+    ],
+    "sala": {
+      "nome": "{reg_l_mx_sala}",
+      "genero": "f",
+      "tags": [
+        "sala",
+        "cristal_sala"
+      ]
+    }
+  },
+  {
+    "id": "ninho_dragao",
+    "tipo": "masmorra",
+    "nome": "{reg_n_ninho_dragao}",
+    "genero": "m",
+    "bioma": "vulcanico",
+    "de": [
+      "montanha",
+      "vulcanico",
+      "geleira"
+    ],
+    "peso": 1,
+    "nivel_min": 3,
+    "tags": [
+      "ninho_dragao",
+      "dragao"
+    ],
+    "descricao": "{reg_d_ninho_dragao}",
+    "locais": [
+      {
+        "nome": "{reg_l_md_entrada}",
+        "genero": "f",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_md_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      2,
+      3
+    ],
+    "sala": {
+      "nome": "{reg_l_md_sala}",
+      "genero": "f",
+      "tags": [
+        "sala",
+        "dragao_sala"
+      ]
+    }
+  },
+  {
+    "id": "templo_submerso",
+    "tipo": "masmorra",
+    "nome": "{reg_n_templo_submerso}",
+    "genero": "m",
+    "bioma": "mar_aberto",
+    "de": [
+      "costa",
+      "ilha",
+      "mar_aberto"
+    ],
+    "peso": 1,
+    "tags": [
+      "templo_submerso",
+      "agua",
+      "antigo"
+    ],
+    "descricao": "{reg_d_templo_submerso}",
+    "locais": [
+      {
+        "nome": "{reg_l_ms_entrada}",
+        "genero": "f",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_ms_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      2,
+      3
+    ],
+    "sala": {
+      "nome": "{reg_l_ms_sala}",
+      "genero": "m",
+      "tags": [
+        "sala",
+        "submerso_sala"
+      ]
+    }
+  },
+  {
+    "id": "labirinto",
+    "tipo": "masmorra",
+    "nome": "{reg_n_labirinto}",
+    "genero": "m",
+    "bioma": "ruinas",
+    "de": [
+      "ruinas",
+      "deserto",
+      "selva",
+      "savana"
+    ],
+    "peso": 1,
+    "tags": [
+      "labirinto",
+      "antigo"
+    ],
+    "descricao": "{reg_d_labirinto}",
+    "locais": [
+      {
+        "nome": "{reg_l_ml_entrada}",
+        "genero": "m",
+        "tags": [
+          "entrada_masmorra"
+        ]
+      },
+      {
+        "nome": "{reg_l_ml_covil}",
+        "genero": "m",
+        "tags": []
+      }
+    ],
+    "salas": [
+      3,
+      4
+    ],
+    "sala": {
+      "nome": "{reg_l_ml_sala}",
+      "genero": "m",
+      "tags": [
+        "sala",
+        "labirinto_sala"
+      ]
+    }
+  },
+  {
+    "id": "reino_feerico",
+    "nome": "{reg_n_reino_feerico}",
+    "genero": "m",
+    "bioma": "bosque_feerico",
+    "plano": true,
+    "peso": 1,
+    "fronteira": 0,
+    "tags": [
+      "feerico",
+      "plano",
+      "magico"
+    ],
+    "descricao": "{reg_d_reino_feerico}",
+    "locais": [
+      {
+        "nome": "{reg_l_pf_clareira}",
+        "genero": "f",
+        "tags": [
+          "feerico"
+        ]
+      },
+      {
+        "nome": "{reg_l_pf_bosque}",
+        "genero": "m",
+        "tags": [
+          "feerico",
+          "cogumelos"
+        ]
+      },
+      {
+        "nome": "{reg_l_pf_corte}",
+        "genero": "f",
+        "tags": [
+          "feerico",
+          "corte",
+          "sagrado"
+        ]
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "{reg_l_pf_mercado}",
+        "genero": "m",
+        "tags": [
+          "feerico",
+          "mercado",
+          "seguro"
+        ],
+        "chance": 0.6
+      }
+    ]
+  },
+  {
+    "id": "plano_sombras",
+    "nome": "{reg_n_plano_sombras}",
+    "genero": "m",
+    "bioma": "terras_sombrias",
+    "plano": true,
+    "peso": 1,
+    "fronteira": 0,
+    "tags": [
+      "sombras",
+      "plano"
+    ],
+    "descricao": "{reg_d_plano_sombras}",
+    "locais": [
+      {
+        "nome": "{reg_l_ps_limiar}",
+        "genero": "m",
+        "tags": [
+          "sombras"
+        ]
+      },
+      {
+        "nome": "{reg_l_ps_cidade}",
+        "genero": "f",
+        "tags": [
+          "sombras",
+          "espelho",
+          "antigo"
+        ]
+      },
+      {
+        "nome": "{reg_l_ps_torre}",
+        "genero": "f",
+        "tags": [
+          "sombras",
+          "torre",
+          "sagrado"
+        ]
+      }
+    ],
+    "opcionais": []
+  },
+  {
+    "id": "plano_fogo",
+    "nome": "{reg_n_plano_fogo}",
+    "genero": "m",
+    "bioma": "plano_fogo",
+    "plano": true,
+    "peso": 1,
+    "fronteira": 0,
+    "tags": [
+      "fogo",
+      "plano"
+    ],
+    "descricao": "{reg_d_plano_fogo}",
+    "locais": [
+      {
+        "nome": "{reg_l_pg_porta}",
+        "genero": "f",
+        "tags": [
+          "fogo"
+        ]
+      },
+      {
+        "nome": "{reg_l_pg_planicie}",
+        "genero": "f",
+        "tags": [
+          "fogo",
+          "perigoso"
+        ]
+      },
+      {
+        "nome": "{reg_l_pg_fortaleza}",
+        "genero": "f",
+        "tags": [
+          "fogo",
+          "fortaleza",
+          "covil_fogo"
+        ]
+      }
+    ],
+    "opcionais": []
+  },
+  {
+    "id": "abismo_aguas",
+    "nome": "{reg_n_abismo_aguas}",
+    "genero": "m",
+    "bioma": "plano_agua",
+    "plano": true,
+    "peso": 1,
+    "fronteira": 0,
+    "tags": [
+      "agua",
+      "plano"
+    ],
+    "descricao": "{reg_d_abismo_aguas}",
+    "locais": [
+      {
+        "nome": "{reg_l_pa_queda}",
+        "genero": "f",
+        "tags": [
+          "agua"
+        ]
+      },
+      {
+        "nome": "{reg_l_pa_jardim}",
+        "genero": "m",
+        "tags": [
+          "agua",
+          "coral"
+        ]
+      },
+      {
+        "nome": "{reg_l_pa_cidade}",
+        "genero": "f",
+        "tags": [
+          "agua",
+          "cidade_submersa",
+          "antigo"
+        ]
+      }
+    ],
+    "opcionais": []
+  },
+  {
+    "id": "terras_mortos",
+    "nome": "{reg_n_terras_mortos}",
+    "genero": "m",
+    "bioma": "terras_sombrias",
+    "plano": true,
+    "peso": 1,
+    "fronteira": 0,
+    "tags": [
+      "mortos",
+      "plano"
+    ],
+    "descricao": "{reg_d_terras_mortos}",
+    "locais": [
+      {
+        "nome": "{reg_l_pm_portao}",
+        "genero": "m",
+        "tags": [
+          "mortos",
+          "sagrado"
+        ]
+      },
+      {
+        "nome": "{reg_l_pm_campo}",
+        "genero": "m",
+        "tags": [
+          "mortos",
+          "cemiterio_antigo"
+        ]
+      },
+      {
+        "nome": "{reg_l_pm_castelo}",
+        "genero": "m",
+        "tags": [
+          "mortos",
+          "castelo_morto",
+          "antigo"
+        ]
+      }
+    ],
+    "opcionais": []
+  }
+]

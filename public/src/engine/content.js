@@ -10,9 +10,9 @@ export const REQUIRED_TABLES = ['local_desc', 'local_retorno', 'chegada', 'viage
   'ataque_parcial', 'ataque_falha', 'vitoria', 'fuga_sucesso', 'fuga_falha', 'negociar_sucesso',
   'negociar_falha', 'epitafio', 'subir_nivel', 'item_encontrado', 'novo_dia', 'ataque_critico',
   'ataque_desastre', 'poi_descoberta', 'trabalho_intro', 'missao_entregue', 'missao_investigar_sucesso',
-  'missao_investigar_parcial', 'missao_investigar_falha', 'mercado_intro', 'trabalho_vazio'];
-const ARRAY_FILES = ['classes', 'traits', 'biomes', 'locations', 'enemies', 'events', 'threads', 'pois', 'quests'];
-export const EVENT_TYPES = ['exploracao', 'viagem', 'fio', 'cadeia'];
+  'missao_investigar_parcial', 'missao_investigar_falha', 'mercado_intro', 'trabalho_vazio', 'missao_aceita', 'missao_recusada', 'apos_atividade', 'regiao_descoberta', 'portal_travessia', 'masmorra_descoberta'];
+const ARRAY_FILES = ['classes', 'traits', 'biomes', 'locations', 'enemies', 'events', 'threads', 'pois', 'quests', 'estabelecimentos', 'regioes'];
+export const EVENT_TYPES = ['exploracao', 'viagem', 'fio', 'cadeia', 'atividade'];
 
 function mergeById(a = [], b = []) {
   const map = new Map(a.map((x) => [x.id, x]));
@@ -69,6 +69,8 @@ export function buildContent(raw, manifests = []) {
     npcs: { oficios: raw.npcs?.oficios || [], temperamentos: raw.npcs?.temperamentos || [] },
     pois: raw.pois || [],
     quests: raw.quests || [],
+    estabelecimentos: raw.estabelecimentos || [],
+    regioes: raw.regioes || [],
   };
   // Locais dinâmicos (POIs) vivem no estado e têm prioridade.
   c.location = (s) => s.locais?.[s.local] || c.locations[s.local];
@@ -113,6 +115,43 @@ export function validate(c) {
   }
   const baseIds = new Set(c.items.bases.map((b) => b.id));
   const oficioIds = new Set(c.npcs.oficios.map((o) => o.id));
+  const estabIds = new Set(c.estabelecimentos.map((e) => e.id));
+  // Tags de locais fixos e das regiões procedurais (região + cada local do modelo).
+  const tagsLocais = new Set([...Object.values(c.locations).flatMap((l) => l.tags || []),
+    ...c.regioes.flatMap((r) => [...(r.tags || []), ...[...(r.locais || []), ...(r.opcionais || [])].flatMap((l) => l.tags || [])])]);
+  for (const e of c.estabelecimentos) {
+    if (!e.rotulo) err(`estabelecimento ${e.id}: "rotulo" ausente`);
+    if (e.nome) refsIn(e.nome, `estabelecimento ${e.id}.nome`);
+    const fixo = Object.values(c.locations).some((l) => l.estabelecimentos?.includes(e.id));
+    if (!fixo && !(e.em || []).some((t) => tagsLocais.has(t))) warn(`estabelecimento ${e.id}: nenhum local tem as tags ${JSON.stringify(e.em || [])}`);
+    if (!c.events.some((ev) => ev.tipo === 'atividade' && [ev.requer?.estab].flat().includes(e.id))) warn(`estabelecimento ${e.id}: nenhuma atividade usa`);
+  }
+  // Regiões procedurais
+  const regIds = new Set(c.regioes.map((r) => r.id));
+  for (const r of c.regioes) {
+    const w = `regiao ${r.id}`;
+    if (!c.biomes[r.bioma]) err(`${w}: bioma "${r.bioma}" não existe`);
+    if (!r.locais?.length) err(`${w}: precisa de "locais"`);
+    if (r.tipo === 'masmorra' && (r.locais?.length || 0) < 2) err(`${w}: masmorra precisa de entrada e covil em "locais"`);
+    if (!r.plano && !r.de?.length) warn(`${w}: sem "de" (pode nascer de qualquer bioma)`);
+    for (const b of r.de || []) if (b !== '*' && !c.biomes[b] && !tagsLocais.has(b)) warn(`${w}: "de" cita "${b}", que não é bioma nem tag de local`);
+    refsIn(r.nome || '', `${w}.nome`); if (r.descricao) refsIn(r.descricao, `${w}.descricao`);
+    for (const [i, l] of [...(r.locais || []), ...(r.opcionais || []), ...(r.sala ? [r.sala] : [])].entries()) {
+      refsIn(l.nome || '', `${w}.locais[${i}]`);
+      if (l.bioma && !c.biomes[l.bioma]) err(`${w}.locais[${i}]: bioma "${l.bioma}" não existe`);
+      for (const e of l.estabelecimentos || []) if (!estabIds.has(e)) err(`${w}.locais[${i}]: estabelecimento "${e}" não existe`);
+    }
+  }
+  // Crescimento: todo bioma alcançável deve ter ao menos um modelo aberto, repetível e sem nível mínimo.
+  if (c.regioes.some((r) => !r.plano && r.tipo !== 'masmorra')) {
+    const abertos = c.regioes.filter((r) => !r.plano && r.tipo !== 'masmorra' && !r.unico && !r.nivel_min);
+    const alcancaveis = new Set([...Object.values(c.locations).filter((l) => l.fronteira).map((l) => l.bioma),
+      ...c.regioes.filter((r) => !r.plano && r.tipo !== 'masmorra').flatMap((r) => [r.bioma, ...(r.locais || []).map((l) => l.bioma).filter(Boolean)])]);
+    for (const b of alcancaveis) if (!abertos.some((r) => !r.de || r.de.includes('*') || r.de.includes(b))) warn(`regioes: nenhum modelo aberto (não único, sem nivel_min) nasce do bioma "${b}"; fronteiras nele podem ficar sem uso`);
+  }
+  const idsReg = c.regioes.map((r) => r.id);
+  for (const id of new Set(idsReg)) if (idsReg.filter((x) => x === id).length > 1) err(`regioes: id duplicado "${id}"`);
+  for (const l of Object.values(c.locations)) for (const id of l.estabelecimentos || []) if (!estabIds.has(id)) err(`location ${l.id}: estabelecimento "${id}" não existe`);
   for (const o of c.npcs.oficios) {
     if (o.m === o.f && /o$/.test(o.m)) warn(`npcs: ofício "${o.id}" sem forma feminina ("${o.f}")`);
   }
@@ -134,6 +173,8 @@ export function validate(c) {
       if (k === 'traco' && !c.traits[v]) err(`${where}: traço "${v}" não existe`);
       if (k === 'item' && v.base && !baseIds.has(v.base)) err(`${where}: base "${v.base}" não existe`);
       if (k === 'diario') refsIn(v, where);
+      if (k === 'portal' && v !== '*' && v !== true && !c.regioes.some((r) => r.id === v && r.plano)) err(`${where}: portal para "${v}", que não é um plano em regioes.json`);
+      if (k === 'portal' && (v === '*' || v === true) && !c.regioes.some((r) => r.plano)) err(`${where}: portal para qualquer plano, mas não há planos em regioes.json`);
       if (k === 'cena') { if (!c.eventMap[v]) err(`${where}: cena "${v}" não existe`); else cenasAlvo.add(v); }
     }
   }
@@ -148,6 +189,11 @@ export function validate(c) {
     for (const o of ev.npc?.oficios || []) if (!oficioIds.has(o)) err(`${w}: ofício "${o}" não existe`);
     refsIn(ev.texto || '', w);
     checkReq(ev.requer, w);
+    if (ev.tipo === 'atividade') {
+      if (!ev.rotulo) err(`${w}: atividade precisa de "rotulo"`); else refsIn(ev.rotulo, `${w}.rotulo`);
+      for (const id of [ev.requer?.estab, ev.requer?.sem_estab].flat().filter(Boolean)) if (!estabIds.has(id)) err(`${w}: estabelecimento "${id}" não existe`);
+      if (ev.tempo != null && !(ev.tempo >= 0 && ev.tempo <= 4)) err(`${w}: "tempo" deve ser 0–4 períodos`);
+    }
     if (!ev.opcoes?.length) { err(`${w}: sem opções`); continue; }
     if (!ev.opcoes.some((o) => !o.requer)) err(`${w}: precisa de ao menos 1 opção sem "requer"`);
     ev.opcoes.forEach((o, i) => {

@@ -26,7 +26,7 @@ export function teste(g, atributo, { dificuldade = 0, bonusTag = null } = {}) {
   g.s.caos = Math.max(1, Math.min(9, g.s.caos + (resultado === 'falha' ? 1 : resultado === 'sucesso' ? -1 : 0)));
   const sinal = mod >= 0 ? '+' : '−';
   const rot = especial === 'critico' ? 'CRÍTICO!' : especial === 'desastre' ? 'DESASTRE!' : RESULT[resultado];
-  g.roll(`${ATTR_ROTULO[atributo] || atributo} · 2d6 (${d1}+${d2}) ${sinal}${Math.abs(mod)} = ${total} → ${rot}`, especial || resultado);
+  g.roll(`${ATTR_ROTULO[atributo] || atributo} · 2d6 (${d1}+${d2}) ${sinal}${Math.abs(mod)} = ${total} → ${rot}`, especial || resultado, { d1, d2, mod, total, atributo });
   return { d1, d2, mod, total, resultado, especial };
 }
 
@@ -87,11 +87,12 @@ export function ganharXp(g, n) {
   }
 }
 
+/** opts.silencioso: o texto da cena já narra a entrega (ex.: recompensa de NPC); só mostra a nota. */
 export function darItem(g, opts = {}) {
   const tier = opts.tier ?? Math.max(1, Math.ceil((g.c.biome(g.s).perigo || 1) / 1.5));
   const item = generateItem(g.c, g.rng, g.s, { ...opts, tier });
   g.vars.item = gvar(item.nome, item.genero);
-  g.say('{item_encontrado}');
+  if (!opts.silencioso) g.say('{item_encontrado}');
   if (addItem(g.s.heroi, item)) g.note(`Item: ${item.nome}`, `item r-${item.raridade}`);
   else g.note(`Mochila cheia — ${item.nome} ficou para trás.`, 'dano');
   if (['raro', 'lendario'].includes(item.raridade)) g.diary(`Encontrei ${item.nome}.`);
@@ -130,7 +131,7 @@ const EFFECTS = {
     if (h.ouro !== antes) g.note(`${n > 0 ? '+' : '−'}${Math.abs(h.ouro - antes)} ouro`, 'ouro');
   },
   xp: (g, v) => ganharXp(g, g.rng.roll(v)),
-  item: (g, v) => darItem(g, v || {}),
+  item: (g, v) => darItem(g, { silencioso: true, ...(v || {}) }),
   perder_item_tag: (g, v) => {
     const it = g.s.heroi.inventario.find((i) => i.tags?.includes(v));
     if (it) { removeItem(g.s.heroi, it.uid); g.note(`Perdeu: ${it.nome}`, 'dano'); }
@@ -161,6 +162,8 @@ const EFFECTS = {
   },
   diario: (g, v) => g.diary(g.label(v)),
   cena: (g, v) => { g.pendingScene = v; },
+  /** Abre um portal para outro plano (id de modelo com `plano: true`, ou "*" para qualquer um). */
+  portal: (g, v) => { g.pendingPortal = v || '*'; },
   disposicao: (g, v) => mudarDisposicao(g, g.s.npcs?.[g.s.evento?.npc], g.rng.roll(v)),
 };
 export const EFFECT_KEYS = Object.keys(EFFECTS);
@@ -244,7 +247,8 @@ function chanceEmboscada(g, fator) {
 function emboscada(g) {
   const lista = g.c.biome(g.s).inimigos || [];
   if (!lista.length) return null;
-  const id = g.rng.pick(lista);
+  // `peso` no inimigo controla a raridade (padrão 1; ex.: dragão 0.1).
+  const id = g.rng.weighted(lista, (x) => g.c.enemies[x]?.peso ?? 1);
   g.vars.inimigo = gvar(g.c.enemies[id].nome, g.c.enemies[id].genero);
   g.say('{emboscada}');
   return id;
@@ -262,7 +266,9 @@ export function descansoCurto(g) {
 export function acampar(g) {
   const h = g.s.heroi;
   const racao = h.inventario.find((i) => i.tags?.includes('racao'));
+  g.tagsExtra = racao ? [] : ['fome']; // o texto do acampamento sabe se você dorme com fome
   g.say('{acampamento}');
+  g.tagsExtra = null;
   ateAmanhecer(g);
   if (racao) {
     removeItem(h, racao.uid);

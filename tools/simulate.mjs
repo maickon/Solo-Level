@@ -4,7 +4,7 @@ import { estilo } from './estilo.mjs';
 
 export function simulate(content, { runs = 20, maxTurns = 300 } = {}) {
   const res = { runs, turns: 0, deaths: 0, maxLevel: 1, threadsOpened: 0, threadsResolved: 0, problems: [],
-    textos: new Map(), estilo: new Map() };
+    textos: new Map(), estilo: new Map(), eventos: new Set() };
   for (let r = 0; r < runs; r++) {
     const cls = content.classes[r % content.classes.length];
     const s = newState(content, { classe: cls.id, nome: 'Teste', genero: r % 2 ? 'f' : 'm', seed: `sim-${r}` });
@@ -13,7 +13,8 @@ export function simulate(content, { runs = 20, maxTurns = 300 } = {}) {
     for (let t = 0; t < maxTurns && !s.morto; t++) {
       const cena = s.cena;
       inspect(cena, s, res.problems);
-      coletar(cena, res);
+      coletar(cena, res, s.heroi.genero);
+      if (s.evento?.id) res.eventos.add(s.evento.id);
       const ok = cena.opcoes.map((o, i) => (o.desativada ? -1 : i)).filter((i) => i >= 0);
       if (!ok.length) { res.problems.push(`sem opções no modo ${cena.modo} (evento ${s.evento?.id})`); break; }
       // Bot: usa consumível de cura quando ferido; senão escolhe aleatoriamente.
@@ -34,12 +35,12 @@ export function simulate(content, { runs = 20, maxTurns = 300 } = {}) {
 
 /** Conta textos (variedade) e avisos de estilo; cada bloco é contado uma vez. */
 const contados = new WeakSet();
-function coletar(cena, res) {
+function coletar(cena, res, genero) {
   for (const b of cena.blocos) {
     if (b.tipo !== 'texto' || contados.has(b)) continue;
     contados.add(b);
     res.textos.set(b.texto, (res.textos.get(b.texto) || 0) + 1);
-    for (const a of estilo(b.texto)) if (!res.estilo.has(a)) res.estilo.set(a, b.texto);
+    for (const a of estilo(b.texto, { genero })) if (!res.estilo.has(a)) res.estilo.set(a, b.texto);
   }
 }
 

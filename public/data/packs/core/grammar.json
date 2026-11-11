@@ -4,6 +4,10 @@
       "t": "Telhados de palha, fumaça de chaminé e cães latindo à toa. {$local.O_nome} {#segue/seguem@local} seu ritmo preguiçoso.",
       "tags": [
         "vila"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
@@ -11,6 +15,10 @@
       "tags": [
         "vila",
         "manha"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
@@ -18,6 +26,10 @@
       "tags": [
         "vila",
         "noite"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
@@ -25,12 +37,20 @@
       "tags": [
         "vila",
         "chuva"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Vizinhos se cumprimentam sem pressa. Aqui, você pode respirar.",
       "tags": [
         "vila"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
@@ -38,6 +58,10 @@
       "tags": [
         "vila",
         "nevoa"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
@@ -220,7 +244,7 @@
       ]
     },
     {
-      "t": "Na penumbra, as ruínas ganham formas. Algo arranha pedra, longe demais para ser sorte.",
+      "t": "Na penumbra, as ruínas ganham formas. Algo arranha pedra, perto demais para ser o vento.",
       "tags": [
         "ruinas",
         "noite"
@@ -288,24 +312,40 @@
       "t": "Carroças cruzam a rua principal, e cada janela tem um rosto curioso. {$local.O_nome} {#observa/observam@local} quem chega.",
       "tags": [
         "vila"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Fumaça sobe de dez chaminés ao mesmo tempo, e o cheiro de lenha e sopa abraça tudo.",
       "tags": [
         "vila"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Um cão magro cochila no meio da rua, e ninguém ousa acordá-lo.",
       "tags": [
         "vila"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Roupas penduradas, vozes de lavadeiras e um sino distante. {$local.O_nome} {#vive/vivem@local} devagar.",
       "tags": [
         "vila"
+      ],
+      "nao": [
+        "cidade",
+        "castelo"
       ]
     },
     {
@@ -451,13 +491,471 @@
       "tags": [
         "costa"
       ]
+    },
+    {
+      "t": "Dunas sem fim, de um dourado que fere os olhos. {$local.O_nome} {#esconde/escondem@local} a sede em cada curva.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "O sol martela a areia, e o ar treme sobre {$local.o_nome}. Cada sombra vale ouro.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "Vento seco, pedras lisas e um silêncio de século. Aqui, a paciência é a única água.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "A noite do deserto é fria e clara. Sobre {$local.o_nome}, as estrelas parecem ao alcance da mão.",
+      "tags": [
+        "deserto",
+        "noite"
+      ]
+    },
+    {
+      "t": "O calor da tarde dobra o horizonte. {$local.O_nome} {#brilha/brilham@local} como metal ao fogo.",
+      "tags": [
+        "deserto",
+        "tarde"
+      ]
+    },
+    {
+      "t": "O vento levanta cortinas de areia, e {$local.o_nome} {#some/somem@local} e volta ao sabor das rajadas.",
+      "tags": [
+        "deserto",
+        "vento"
+      ]
+    },
+    {
+      "t": "Capim dourado até o horizonte, interrompido por acácias solitárias. {$local.O_nome} {#respira/respiram@local} devagar sob o céu largo.",
+      "tags": [
+        "savana"
+      ]
+    },
+    {
+      "t": "O vento ondula o capim como um mar seco. Em algum ponto, algo grande se move sem pressa.",
+      "tags": [
+        "savana"
+      ]
+    },
+    {
+      "t": "Pegadas de cascos e garras cruzam a terra vermelha {$local.do_nome}. A vida aqui tem hora marcada para comer e ser comida.",
+      "tags": [
+        "savana"
+      ]
+    },
+    {
+      "t": "Ao longe, um rugido grave rola pela planície escura. {$local.O_nome} {#fica/ficam@local} imóvel, de ouvidos atentos.",
+      "tags": [
+        "savana",
+        "noite"
+      ]
+    },
+    {
+      "t": "A manhã tinge o capim de cobre. Bandos pastam à distância, e a poeira sobe em colunas finas.",
+      "tags": [
+        "savana",
+        "manha"
+      ]
+    },
+    {
+      "t": "A selva fecha o céu com folhas largas e pinga sobre {$local.o_nome} sem parar. O ar é quente e grosso como um pano molhado.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "Macacos gritam nas copas, e o chão fervilha de vida pequena. {$local.O_nome} {#cheira/cheiram@local} a terra, fruta e podre.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "Raízes grossas rasgam o chão, e cipós pendem como cordas. A luz chega em lascas verdes.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "A chuva despenca em cortinas sobre a selva. O barulho cobre tudo, e {$local.o_nome} {#vira/viram@local} um rio de lama.",
+      "tags": [
+        "selva",
+        "chuva"
+      ]
+    },
+    {
+      "t": "A selva ferve de ruídos na escuridão: sapos, insetos, e algo maior, mais discreto.",
+      "tags": [
+        "selva",
+        "noite"
+      ]
+    },
+    {
+      "t": "Planície branca e baixa, cortada por ventos secos. {$local.O_nome} {#parece/parecem@local} o fim de tudo, só que sem avisar.",
+      "tags": [
+        "tundra"
+      ]
+    },
+    {
+      "t": "Neve dura, musgo cinza e um céu tão alto que cansa. A sua respiração vira nuvem diante do rosto.",
+      "tags": [
+        "tundra"
+      ]
+    },
+    {
+      "t": "Pedras negras rompem a neve {$local.do_nome}, e o vento arrasta flocos rente ao chão como fumaça.",
+      "tags": [
+        "tundra"
+      ]
+    },
+    {
+      "t": "A noite na tundra é azul e dura. Estrelas demais, e silêncio de menos.",
+      "tags": [
+        "tundra",
+        "noite"
+      ]
+    },
+    {
+      "t": "Paredes de gelo azul sobem como catedrais. {$local.O_nome} {#range/rangem@local} baixinho, e o som percorre o corpo.",
+      "tags": [
+        "geleira"
+      ]
+    },
+    {
+      "t": "O gelo reflete o céu e engana os olhos. Cada fenda é um buraco no mundo, e cada brilho, um convite.",
+      "tags": [
+        "geleira"
+      ]
+    },
+    {
+      "t": "Ventos cortantes e uma luz pálida. A geleira avança um dedo por século, e ainda assim parece viva.",
+      "tags": [
+        "geleira"
+      ]
+    },
+    {
+      "t": "Flocos finos caem sobre o gelo sem som. Tudo é branco, azul e perigosamente bonito.",
+      "tags": [
+        "geleira",
+        "neve"
+      ]
+    },
+    {
+      "t": "O chão é negro e quente. {$local.O_nome} {#cheira/cheiram@local} a enxofre, e a montanha ronca de longe como uma fera adormecida.",
+      "tags": [
+        "vulcanico"
+      ]
+    },
+    {
+      "t": "Fumaça sobe de fendas rubras, e a cinza se acumula nos ombros. Cada passo estala sobre rocha recém-nascida.",
+      "tags": [
+        "vulcanico"
+      ]
+    },
+    {
+      "t": "Um brilho alaranjado pulsa sob a crosta {$local.do_nome}. O ar treme de calor.",
+      "tags": [
+        "vulcanico"
+      ]
+    },
+    {
+      "t": "À noite, a lava pinta o céu de laranja. Sombras longas dançam nas pedras como línguas.",
+      "tags": [
+        "vulcanico",
+        "noite"
+      ]
+    },
+    {
+      "t": "Areia clara, palmeiras curvas e o mar a lamber tudo. {$local.O_nome} {#tem/têm@local} cheiro de sal e de coisa esquecida.",
+      "tags": [
+        "ilha"
+      ]
+    },
+    {
+      "t": "Gaivotas gritam sobre a praia, e a espuma deixa rendas na areia. O horizonte, de todos os lados, é água.",
+      "tags": [
+        "ilha"
+      ]
+    },
+    {
+      "t": "A brisa do mar traz sal e frutas maduras. Aqui, o mundo parece pequeno e o tempo, largo.",
+      "tags": [
+        "ilha"
+      ]
+    },
+    {
+      "t": "Ondas ritmadas e céu cheio de estrelas. A ilha dorme com o mar a embalá-la.",
+      "tags": [
+        "ilha",
+        "noite"
+      ]
+    },
+    {
+      "t": "Água de todos os lados e um céu que nunca acaba. {$local.O_nome} {#balança/balançam@local} no ritmo de ondas que nenhum mapa nomeia.",
+      "tags": [
+        "mar_aberto"
+      ]
+    },
+    {
+      "t": "O vento enche a vela, e o mar abre o horizonte em azul-escuro. Cada onda é um pensamento a mais.",
+      "tags": [
+        "mar_aberto"
+      ]
+    },
+    {
+      "t": "A noite no mar tem um céu sem fim e uma água sem fundo. O casco range, e as estrelas se afogam nas ondas.",
+      "tags": [
+        "mar_aberto",
+        "noite"
+      ]
+    },
+    {
+      "t": "A neblina engole as ondas, e o mundo vira um quarto branco que balança.",
+      "tags": [
+        "mar_aberto",
+        "nevoa"
+      ]
+    },
+    {
+      "t": "Troncos claros como marfim sobem em colunas, e a luz dourada cai em feixes. {$local.O_nome} {#sussurra/sussurram@local}, quase em palavras.",
+      "tags": [
+        "floresta_elfica"
+      ]
+    },
+    {
+      "t": "Folhas de prata cantam baixinho ao vento. Aqui, cada árvore parece lembrar de um nome.",
+      "tags": [
+        "floresta_elfica"
+      ]
+    },
+    {
+      "t": "Um tapete de musgo macio cobre as raízes {$local.do_nome}. A floresta guarda silêncio, mas é um silêncio atento.",
+      "tags": [
+        "floresta_elfica"
+      ]
+    },
+    {
+      "t": "Pequenas luzes flutuam entre as árvores brancas. A floresta élfica acende-se à noite como um céu invertido.",
+      "tags": [
+        "floresta_elfica",
+        "noite"
+      ]
+    },
+    {
+      "t": "Torres, pontes e vielas de pedra: {$local.O_nome} {#respira/respiram@local} e pulsa num barulho constante de gente.",
+      "tags": [
+        "cidade"
+      ]
+    },
+    {
+      "t": "Carroças, pregões e janelas por toda parte. Aqui, ninguém repara em ninguém, e todos reparam em tudo.",
+      "tags": [
+        "cidade"
+      ]
+    },
+    {
+      "t": "Bandeiras coloridas pendem de sacadas, e o cheiro de pão e de fumaça se mistura {$local.no_nome}.",
+      "tags": [
+        "cidade"
+      ]
+    },
+    {
+      "t": "Lanternas acendem, uma a uma, pelas ruas. A cidade muda de rosto quando escurece.",
+      "tags": [
+        "cidade",
+        "noite"
+      ]
+    },
+    {
+      "t": "A chuva escorre pelos telhados e enche as sarjetas. Passos rápidos ecoam sobre as pedras.",
+      "tags": [
+        "cidade",
+        "chuva"
+      ]
+    },
+    {
+      "t": "Padeiros, carroceiros e aguadeiros enchem as ruas. {$local.O_nome} {#acorda/acordam@local} com cheiro de pão quente.",
+      "tags": [
+        "cidade",
+        "manha"
+      ]
+    },
+    {
+      "t": "Campos dourados, cercas de pedra e, ao longe, uma torre de castelo. {$local.O_nome} {#pertence/pertencem@local} a alguém, e todos sabem a quem.",
+      "tags": [
+        "feudo"
+      ]
+    },
+    {
+      "t": "Estandartes do senhor tremulam sobre os campos. Camponeses curvados trabalham sem erguer a cabeça.",
+      "tags": [
+        "feudo"
+      ]
+    },
+    {
+      "t": "Estradas de terra batida, moinhos e muros baixos. A ordem do feudo é visível em cada cerca.",
+      "tags": [
+        "feudo"
+      ]
+    },
+    {
+      "t": "Cães latem em fazendas distantes, e o sino do castelo marca a hora. {$local.O_nome} {#dorme/dormem@local} sob as torres.",
+      "tags": [
+        "feudo",
+        "noite"
+      ]
+    },
+    {
+      "t": "Galerias de pedra lisa, escoradas por vigas de ferro. {$local.O_nome} {#ecoa/ecoam@local} o bater distante de ferro sobre ferro.",
+      "tags": [
+        "subterraneo_anao"
+      ]
+    },
+    {
+      "t": "Tochas de óleo iluminam runas na parede. O ar é quente, seco e cheira a metal.",
+      "tags": [
+        "subterraneo_anao"
+      ]
+    },
+    {
+      "t": "Cada corredor é uma obra de séculos, e cada pedra, uma promessa de ferro e de barba.",
+      "tags": [
+        "subterraneo_anao"
+      ]
+    },
+    {
+      "t": "Pedra, fogo e ferro: o mundo dos anões é feito de coisas firmes. Aqui, ao menos, o chão não treme.",
+      "tags": [
+        "subterraneo_anao",
+        "seguro"
+      ]
+    },
+    {
+      "t": "Terra seca, ossos e totens de pele pintada. {$local.O_nome} {#cheira/cheiram@local} a fumaça, gordura e ameaça.",
+      "tags": [
+        "terras_orc"
+      ]
+    },
+    {
+      "t": "Tambores batem ao longe, em ritmo de marcha. Aqui, cada pedra pode ter um vigia atrás.",
+      "tags": [
+        "terras_orc"
+      ]
+    },
+    {
+      "t": "Estacas com ossos marcam o território {$local.do_nome}. O recado é claro, e não tem tradução.",
+      "tags": [
+        "terras_orc"
+      ]
+    },
+    {
+      "t": "Fogueiras vermelhas pontilham a escuridão, e vozes graves cantam uma melodia de guerra.",
+      "tags": [
+        "terras_orc",
+        "noite"
+      ]
+    },
+    {
+      "t": "Cogumelos do tamanho de árvores brilham em tons impossíveis. {$local.O_nome} {#parece/parecem@local} sonhar com os olhos abertos.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "Risadas finas e música de flauta vêm de lugar nenhum. A luz muda de cor quando você a olha de lado.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "Folhas douradas caem para cima, e flores abrem em tom de prata. Nada aqui é de confiança.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "Tudo é cinza, e as sombras se mexem sem fonte de luz. {$local.O_nome} {#parece/parecem@local} a lembrança de um lugar que já foi.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "O silêncio é absoluto. Seus passos não fazem barulho, e as sombras observam, imóveis.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "A luz, aqui, vem de lugar nenhum, e as sombras apontam em todas as direções.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "Névoa baixa cobre o chão, e lápides surgem como dentes. {$local.O_nome} {#guarda/guardam@local} milhares de nomes que ninguém lembra.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "Um frio de sepultura sobe do chão. Vozes sem corpo murmuram orações antigas em línguas já mortas.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "Aqui o tempo parou, e a cinza cai como neve fina sobre pedras sem nome.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "O céu é rubro, e o chão queima sob os pés. {$local.O_nome} {#ruge/rugem@local} em brasa e em fumaça.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "Rios de lava correm em canais de pedra negra. O ar é uma fornalha que respira.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "Estrelas de cinza caem do céu vermelho. Cada passo levanta fagulhas, e cada fagulha tem pressa.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "Água clara em todas as direções, mas você respira. {$local.O_nome} {#brilha/brilham@local} em verde e azul de outro mundo.",
+      "tags": [
+        "plano_agua"
+      ]
+    },
+    {
+      "t": "Cardumes de luz passam em silêncio, e a correnteza empurra você como mão amiga ou inimiga.",
+      "tags": [
+        "plano_agua"
+      ]
+    },
+    {
+      "t": "Corais enormes e torres afundadas desenham uma paisagem lenta e antiga, sob um céu líquido.",
+      "tags": [
+        "plano_agua"
+      ]
     }
   ],
   "local_retorno": [
     "{ret_abre} {ret_fim}",
     "{ret_abre}",
     "{ret_abre} {periodo_nota} {ret_fim}",
-    "{ret_fim} {ret_abre}"
+    "{ret_abre} {periodo_nota}"
   ],
   "chegada": [
     "{chegada_passo} {chegada_fim}",
@@ -987,10 +1485,14 @@
       "nao": [
         "chuva",
         "neve",
-        "caverna"
+        "caverna",
+        "orvalho"
       ],
       "tags": [
         "manha"
+      ],
+      "diz": [
+        "orvalho"
       ]
     },
     {
@@ -1471,11 +1973,195 @@
       "tags": [
         "caverna"
       ]
+    },
+    {
+      "t": "O ar parado cheira a pedra e a metal quente.",
+      "tags": [
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Um martelar distante marca as horas que o sol não marca.",
+      "tags": [
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "As tochas chiam, e as sombras dançam nas paredes de pedra.",
+      "tags": [
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Aqui embaixo, o dia e a noite são só questão de tochas.",
+      "tags": [
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "O ar úmido e frio cheira a pedra velha e a segredo.",
+      "tags": [
+        "masmorra"
+      ]
+    },
+    {
+      "t": "Cada ruído volta amplificado pelas paredes.",
+      "tags": [
+        "masmorra"
+      ]
+    },
+    {
+      "t": "Sua tocha treme, e as sombras parecem respirar.",
+      "tags": [
+        "masmorra"
+      ]
+    },
+    {
+      "t": "Luzes pequenas piscam entre as raízes e somem quando você as olha.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "O tempo escorre de lado, e uma hora aqui pode ser um dia lá fora.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "O silêncio é absoluto, e a luz, uma ideia distante.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "Sua sombra se estica sem fonte de luz.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "A névoa baixa abafa tudo, até o som dos seus passos.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "O frio de sepultura não muda, seja dia ou noite.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "O céu vermelho nunca escurece, e o calor nunca cede.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "Fagulhas sobem do chão em pequenas espirais.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "A luz que desce das alturas muda de cor com a correnteza.",
+      "tags": [
+        "plano_agua"
+      ]
+    },
+    {
+      "t": "Bolhas sobem devagar, marcando um tempo diferente.",
+      "tags": [
+        "plano_agua"
+      ]
+    },
+    {
+      "t": "A manhã no deserto é fria e clara, antes do sol começar a mandar.",
+      "tags": [
+        "deserto",
+        "manha"
+      ]
+    },
+    {
+      "t": "O sol de chumbo pesa sobre a nuca, e o ar treme.",
+      "tags": [
+        "deserto",
+        "tarde"
+      ]
+    },
+    {
+      "t": "O frio do deserto desce rápido, e o céu fica cheio de estrelas.",
+      "tags": [
+        "deserto",
+        "noite"
+      ]
+    },
+    {
+      "t": "A noite da tundra é azul, e o vento nunca se cala.",
+      "tags": [
+        "tundra",
+        "noite"
+      ]
+    },
+    {
+      "t": "O gelo estala com o frio da noite, e o som corre longe.",
+      "tags": [
+        "geleira",
+        "noite"
+      ]
+    },
+    {
+      "t": "O brilho avermelhado da lava pinta a noite de laranja.",
+      "tags": [
+        "vulcanico",
+        "noite"
+      ]
+    },
+    {
+      "t": "A selva grita de noite com mil vozes pequenas.",
+      "tags": [
+        "selva",
+        "noite"
+      ]
+    },
+    {
+      "t": "O mar reflete as estrelas, e o horizonte desaparece.",
+      "tags": [
+        "mar_aberto",
+        "noite"
+      ]
+    },
+    {
+      "t": "O sol da tarde brilha na água, e a brisa vai e vem.",
+      "tags": [
+        "ilha",
+        "tarde"
+      ]
     }
   ],
   "dia_luz": [
     "Um novo dia nasce, e o mundo continua.",
-    "O galo canta, ou algo que parece um.",
+    {
+      "t": "O galo canta, ou algo que parece um.",
+      "diz": [
+        "galo_dito"
+      ],
+      "nao": [
+        "galo_dito",
+        "subterraneo",
+        "masmorra",
+        "caverna",
+        "castelo",
+        "cidade",
+        "selva",
+        "deserto",
+        "mar_aberto",
+        "geleira",
+        "tundra",
+        "subterraneo_anao"
+      ]
+    },
     "O dia chega sem pressa, como quem sabe que vai durar.",
     "A madrugada vai embora devagar, levando o frio da noite.",
     "Um fio de luz entra por onde pode e acorda você.",
@@ -1503,7 +2189,11 @@
       "nao": [
         "chuva",
         "nevoa",
-        "neve"
+        "neve",
+        "orvalho"
+      ],
+      "diz": [
+        "orvalho"
       ]
     },
     {
@@ -1519,7 +2209,13 @@
       "nao": [
         "chuva",
         "nevoa",
-        "neve"
+        "neve",
+        "tarde",
+        "noite",
+        "subterraneo",
+        "masmorra",
+        "caverna",
+        "subterraneo_anao"
       ]
     },
     {
@@ -1701,7 +2397,15 @@
   ],
   "dia_corpo": [
     "O corpo reclama, mas aceita.",
-    "Você se espreguiça e sente cada osso estalar.",
+    {
+      "t": "Você se espreguiça e sente cada osso estalar.",
+      "diz": [
+        "espreguicar"
+      ],
+      "nao": [
+        "espreguicar"
+      ]
+    },
     "Você acorda {=disposto/disposta@heroi}, para sua própria surpresa.",
     "O corpo pesa um pouco menos que ontem.",
     "Um bocejo, um gole d'água, e o dia começa para valer.",
@@ -1796,7 +2500,16 @@
     "O mundo não espera, mas também não corre.",
     "Que o dia seja menos cruel que o anterior.",
     "Você respira fundo e olha em volta.",
-    "Os mapas na sua cabeça se reorganizam.",
+    {
+      "t": "Os mapas na sua cabeça se reorganizam.",
+      "peso": 0.3,
+      "nao": [
+        "seguro",
+        "caverna",
+        "subterraneo",
+        "masmorra"
+      ]
+    },
     "Cada escolha de hoje vai pesar amanhã.",
     {
       "t": "",
@@ -1811,7 +2524,15 @@
     "Você afrouxa as correias da bolsa e solta um suspiro.",
     "Você desata as botas, massageia os pés e as calça de novo.",
     "Você mastiga um pedaço de pão duro, devagar.",
-    "Você alonga os ombros até estalarem.",
+    {
+      "t": "Você alonga os ombros até estalarem.",
+      "diz": [
+        "espreguicar"
+      ],
+      "nao": [
+        "espreguicar"
+      ]
+    },
     "Você senta numa pedra e deixa a cabeça esvaziar.",
     "Você afrouxa o cinto e deixa os braços penderem.",
     {
@@ -1888,237 +2609,736 @@
     }
   ],
   "desc_efeito": [
-    "O descanso é curto, mas faz diferença.",
+    {
+      "t": "O descanso é curto, mas faz diferença.",
+      "nao": [
+        "exausto"
+      ]
+    },
     "Os músculos agradecem, mas a estrada lembra.",
     "O fôlego volta aos poucos.",
     "É pouco, mas é o que há.",
-    "O coração desacelera e a cabeça clareia.",
-    "Parece nada, e pesa menos nos ombros.",
-    "Quando você levanta, o corpo obedece melhor.",
+    {
+      "t": "O coração desacelera e a cabeça clareia.",
+      "nao": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Parece nada, e pesa menos nos ombros.",
+      "nao": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Quando você levanta, o corpo obedece melhor.",
+      "nao": [
+        "exausto"
+      ]
+    },
     "O mundo espera, e você aproveita a trégua.",
-    "Dez minutos valem mais do que parecem.",
-    "A tensão escorre dos ombros, uma gota por vez."
+    {
+      "t": "Dez minutos valem mais do que parecem.",
+      "nao": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A tensão escorre dos ombros, uma gota por vez.",
+      "nao": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Não resolve, mas o mundo para de girar.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A trégua é curta, e o cansaço mal se afasta.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Dá para respirar. Dormir seria melhor.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Os olhos pesam, e o corpo pede mais do que isto.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Pelo menos as pernas deixam de tremer.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Uma pausa, ainda longe de um descanso de verdade.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Não cura, mas a dor fica menos aguda.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor continua, só que mais mansa.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "O corpo aceita a pausa, mesmo sem confiar nela.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os cortes seguem abertos, mas o fôlego volta.",
+      "tags": [
+        "ferido"
+      ]
+    }
   ],
   "camp_fogo": [
-    "Você acende uma fogueira pequena. As chamas dançam, e a noite parece menos vasta.",
-    "Uma capa no chão, uma pedra de travesseiro. É o que o mundo oferece, e basta.",
-    "Você monta o acampamento com cuidado e junta lenha para a noite toda.",
-    "O fogo estala. Você mastiga devagar, vigiando a escuridão com um olho só.",
-    "Você risca o sílex até a primeira fagulha pegar e sopra o fogo para a vida.",
-    "Três pedras formam um círculo, e dentro dele nasce uma chama teimosa.",
-    "Você arruma a bolsa como travesseiro e puxa a capa até o queixo.",
-    "Um caldo ralo ferve numa panelinha, e o cheiro faz o estômago agradecer.",
-    "Você escolhe um canto abrigado e arma o pouso com a calma de quem já fez isso muitas vezes.",
-    "Brasas baixas, capa dobrada, arma ao alcance. A rotina conforta."
+    {
+      "t": "Você acende uma fogueira pequena. As chamas dançam, e a noite parece menos vasta.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Uma capa no chão, uma pedra de travesseiro. É o que o mundo oferece, e basta.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "Você monta o acampamento com cuidado e junta lenha para a noite toda.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
+      ]
+    },
+    {
+      "t": "O fogo estala. Você vigia a escuridão com um olho só.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Você risca o sílex até a primeira fagulha pegar e sopra o fogo para a vida.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "Três pedras formam um círculo, e dentro dele nasce uma chama teimosa.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "Você arruma a bolsa como travesseiro e puxa a capa até o queixo.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "Um caldo ralo ferve numa panelinha, e o cheiro faz o estômago agradecer.",
+      "nao": [
+        "fome",
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "Você escolhe um canto abrigado e arma o pouso com a calma de quem já fez isso muitas vezes.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "Brasas baixas, capa dobrada, arma ao alcance. A rotina conforta.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "O estômago vazio faz barulho mais alto que o fogo. Você acende a chama mesmo assim e se encolhe junto dela.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Sem nada para pôr na panela, você apenas acende o fogo e aperta o cinto um furo.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "A fogueira nasce magra, como você. Não há o que cozinhar, só calor para dividir com o frio.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Você olha a bolsa vazia de comida, suspira e cuida ao menos do fogo.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "O fogo é a única coisa quente da noite. Você bebe água para enganar a fome e se ajeita ao lado dele.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Você junta gravetos secos e protege a chama do vento com o próprio corpo.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    {
+      "t": "A fogueira pega à segunda tentativa, e você a trata como a um bicho assustado.",
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
+      ]
+    },
+    "Você escolhe um canto abrigado, estende a capa e deixa a bolsa de travesseiro.",
+    "Você ajeita o pouso com a calma de quem já fez isso muitas vezes e confere as correias da bolsa.",
+    "Um canto firme, a capa por cima e a arma ao alcance. Para este descanso, basta.",
+    "Você tira as botas, solta o cinto e arma um pouso discreto.",
+    "Você limpa o chão de pedras e estende a capa num canto menos frio.",
+    "Sem pressa, você prepara um lugar para deitar e um jeito de acordar rápido."
   ],
   "camp_noite": [
     {
       "t": "Cada ruído da noite parece perto demais.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Você deixa a arma à mão e a respiração em ordem.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Sombras dançam na borda da luz e se desmancham.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Você conta as estrelas que o fogo deixa ver, até perder a conta.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Uma coruja pergunta alguma coisa ao escuro, e ninguém responde.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Você vigia o escuro por um tempo, só por hábito.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "O fogo baixa, e você o alimenta com mais um galho.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Você escuta o mundo respirar em volta e se acostuma.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "Fumaça sobe reta no ar parado e some entre as estrelas.",
       "nao": [
         "chuva",
-        "neve"
+        "neve",
+        "seguro",
+        "cidade",
+        "castelo",
+        "manha",
+        "tarde"
       ]
     },
     {
       "t": "A chuva martela a capa que você estica como teto.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Gotas furam o fogo e fazem a lenha chiar de raiva.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Você cava uma vala pequena para a água passar longe da cama.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "O chão vira lama, e o fogo vira teimosia.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A água cai sem pressa e sem fim, e você aprende a ignorá-la.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Cada pingo no pano esticado soa como um dedo batendo.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A névoa se arrasta ao redor da fogueira.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "O fogo vira uma mancha laranja, sem borda, dentro do branco.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A umidade faz a madeira crepitar e fumegar.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Do outro lado da névoa, ruídos sem dono vêm e vão.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Você mal vê além do próprio fogo.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A névoa devora a luz das chamas a poucos passos.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A neve abafa o mundo, e o fogo é a única coisa viva.",
       "tags": [
         "neve"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Você derrete um punhado de neve e bebe devagar.",
       "tags": [
         "neve"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "O frio morde por baixo da capa, não importa quanto você a ajeite.",
       "tags": [
         "neve"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Flocos morrem nas brasas com um chiado miúdo.",
       "tags": [
         "neve"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Você enterra os pés perto do fogo e conta as horas até o sol.",
       "tags": [
         "neve"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "O silêncio da neve só é quebrado pelo estalo da lenha.",
       "tags": [
         "neve"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A luz do fogo dança nas paredes e inventa formas.",
       "tags": [
         "caverna"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "O teto de pedra devolve cada estalo da lenha.",
       "tags": [
         "caverna"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "A fumaça sobe e some em alguma fenda que você não vê.",
       "tags": [
         "caverna"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "O escuro além do fogo é inteiro e atento.",
       "tags": [
         "caverna"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Gotas marcam a hora, longe, no fundo.",
       "tags": [
         "caverna"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Você escolhe o chão menos úmido e se encolhe junto às brasas.",
       "tags": [
         "caverna"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
-    }
+    },
+    {
+      "t": "A fome ronda o acampamento mais perto que qualquer fera.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "O estômago resmunga no escuro, e o silêncio da noite faz o barulho parecer maior.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Você tenta pensar em outra coisa que não seja comida, e falha com dignidade.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Cada vez que o fogo estala, você jura ouvir um prato.",
+      "tags": [
+        "fome"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo",
+        "fome_dita"
+      ],
+      "diz": [
+        "fome_dita"
+      ]
+    },
+    "Você escuta o que há em volta e se acostuma ao silêncio.",
+    "Um cheiro de terra e mato chega, e o corpo agradece a pausa.",
+    "Você confere a retaguarda uma última vez e se ajeita.",
+    "O tempo passa devagar, marcado só pela própria respiração.",
+    "Você ajeita a capa e deixa o ouvido de sentinela.",
+    "Nada se move por perto, e isso, por si, já é um conforto."
   ],
   "camp_sono": [
     "Você dorme, mas não fundo.",
@@ -2127,7 +3347,12 @@
     "Dormir é um acordo frágil com a noite.",
     "Você cochila e acorda, cochila e acorda, até a luz voltar.",
     "Quando enfim apaga, o sono é curto e pesado.",
-    "O sono chega tarde, mas chega inteiro.",
+    {
+      "t": "O sono chega tarde, mas chega inteiro.",
+      "nao": [
+        "fome"
+      ]
+    },
     "Você dorme vigiando e vigia dormindo.",
     {
       "t": "As feridas acordam você a cada virada de corpo.",
@@ -2169,12 +3394,18 @@
       "t": "O cansaço faz o trabalho do sono antes mesmo de você deitar.",
       "tags": [
         "exausto"
+      ],
+      "nao": [
+        "fome"
       ]
     },
     {
       "t": "Você desaba como pedra e não sonha.",
       "tags": [
         "exausto"
+      ],
+      "nao": [
+        "fome"
       ]
     },
     {
@@ -2187,18 +3418,86 @@
       "t": "Cai num sono fundo, quase uma pequena morte.",
       "tags": [
         "exausto"
+      ],
+      "nao": [
+        "fome"
       ]
     },
     {
       "t": "O cansaço {$heroi.lo} derruba antes que a fogueira acabe de crescer.",
       "tags": [
         "exausto"
+      ],
+      "nao": [
+        "seguro",
+        "cidade",
+        "castelo"
       ]
     },
     {
       "t": "Você dorme com a roupa, a bota e a preocupação.",
       "tags": [
         "exausto"
+      ]
+    },
+    {
+      "t": "A fome acorda você duas vezes antes do amanhecer.",
+      "tags": [
+        "fome"
+      ],
+      "diz": [
+        "fome_dita"
+      ],
+      "nao": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Dormir de barriga vazia é um sono raso e cheio de banquetes que nunca chegam.",
+      "tags": [
+        "fome"
+      ],
+      "diz": [
+        "fome_dita"
+      ],
+      "nao": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "O estômago vazio não deixa o sono pegar direito, e a noite se arrasta.",
+      "tags": [
+        "fome"
+      ],
+      "diz": [
+        "fome_dita"
+      ],
+      "nao": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Você se deita com fome e se levanta com ela, sem descanso de verdade.",
+      "tags": [
+        "fome"
+      ],
+      "diz": [
+        "fome_dita"
+      ],
+      "nao": [
+        "fome_dita"
+      ]
+    },
+    {
+      "t": "Você cochila sonhando com pão, e acorda com o gosto de nada.",
+      "tags": [
+        "fome"
+      ],
+      "diz": [
+        "fome_dita"
+      ],
+      "nao": [
+        "fome_dita"
       ]
     }
   ],
@@ -2751,13 +4050,13 @@
       ]
     },
     {
-      "t": "Na praça, entre o cheiro de pão e de fumaça, você pergunta por trabalho e recebe três respostas diferentes.",
+      "t": "Na praça, entre o cheiro de pão e de fumaça, você pergunta por trabalho, e mais de uma voz responde.",
       "tags": [
         "vila"
       ]
     },
     {
-      "t": "No balcão da taverna, o dono lembra de três pedidos e esquece dois.",
+      "t": "No balcão da taverna, o dono lembra de alguns pedidos e esquece outros.",
       "tags": [
         "vila"
       ]
@@ -2825,7 +4124,7 @@
     "Você segue sem pressa, medindo o chão com os pés.",
     "A trilha se desenrola à sua frente, sem surpresas.",
     "Você marca o ritmo pelo som das botas.",
-    "Os pés conhecem o trabalho e continuam sozinhos.",
+    "Os pés conhecem o trabalho e seguem no próprio ritmo.",
     "Pouca coisa se mexe no caminho além de você.",
     "O horizonte avança tão devagar quanto você."
   ],
@@ -3079,7 +4378,7 @@
       ]
     },
     {
-      "t": "A noite cai sobre o caminho, e você segue guiado só pelas estrelas.",
+      "t": "A noite cai sobre o caminho, e você segue {=guiado/guiada@heroi} só pelas estrelas.",
       "tags": [
         "noite"
       ]
@@ -3171,8 +4470,14 @@
     "Você retorna {$local.ao_nome}, e o lugar parece lembrar de você.",
     "O caminho de volta {$local.ao_nome} parece mais curto do que na ida.",
     "{$local.O_nome} {#reaparece/reaparecem@local} à sua frente, familiar.",
-    "Você reconhece cada pedra {$local.do_nome}.",
-    "Os pés levam você {$local.ao_nome} quase sozinhos.",
+    {
+      "t": "Você reconhece cada pedra {$local.do_nome}.",
+      "peso": 0.25
+    },
+    {
+      "t": "Os pés levam você {$local.ao_nome} quase sozinhos.",
+      "peso": 0.25
+    },
     "Você cruza de novo os limites {$local.do_nome}.",
     "Voltar {$local.ao_nome} tem sabor de teimosia.",
     "Você pisa outra vez {$local.no_nome}, e o chão já sabe seu peso.",
@@ -3180,72 +4485,439 @@
       "t": "De volta {$local.ao_nome}, com a noite caindo e o corpo pedindo descanso.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
-      "t": "Você retorna {$local.ao_nome} no escuro, guiado pela memória do caminho.",
+      "t": "Você retorna {$local.ao_nome} no escuro, {=guiado/guiada@heroi} pela memória do caminho.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "A noite acompanha você de volta {$local.ao_nome}.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Já é tarde quando você reconhece {$local.o_nome} no escuro.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Você retorna {$local.ao_nome} sob a chuva, e a pressa é de abrigo.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
-      "t": "De volta {$local.ao_nome}, encharcado até os ossos.",
+      "t": "De volta {$local.ao_nome}, {=encharcado/encharcada@heroi} até os ossos.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "A chuva lava o trecho final de volta {$local.ao_nome}.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Pingando, você entra outra vez {$local.no_nome}.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Você reencontra {$local.o_nome} no meio da névoa, mais pelo faro do que pela vista.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "De volta {$local.ao_nome}, depois de uma caminhada às cegas.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "A névoa devolve {$local.o_nome} a você aos pedaços.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Os contornos familiares {$local.do_nome} surgem da bruma, e você respira {=aliviado/aliviada@heroi}.",
       "tags": [
         "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    "Os telhados {$local.do_nome} surgem no fim da trilha, e você apressa o passo.",
+    "Você atravessa de novo os limites {$local.do_nome}.",
+    "O caminho termina outra vez {$local.no_nome}.",
+    "De novo {$local.no_nome}, como quem fecha um círculo.",
+    "A volta {$local.ao_nome} leva menos tempo do que você calculava.",
+    "{$local.O_nome} {#recebe/recebem@local} você sem cerimônia, como a um velho conhecido.",
+    "Você chega {$local.ao_nome} pela segunda vez, e o lugar já não é novidade.",
+    "Alguém na entrada {$local.do_nome} levanta a mão num cumprimento distraído.",
+    "Os sons {$local.do_nome} vêm ao seu encontro antes da vista.",
+    "Você reentra {$local.no_nome} pelo mesmo caminho da partida.",
+    "A trilha de volta {$local.ao_nome} está marcada pelas suas próprias pegadas.",
+    "Você revê {$local.o_nome} depois de algumas horas que parecem mais.",
+    "Mais uma vez {$local.ao_nome}, sem fanfarra.",
+    "A bolsa balança no ombro enquanto {$local.o_nome} {#cresce/crescem@local} à frente.",
+    "Os últimos passos até {$local.o_nome} são os mais fáceis.",
+    {
+      "t": "Você volta {$local.ao_nome} com o sol ainda alto.",
+      "tags": [
+        "tarde"
+      ],
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "O calor do dia acompanha você de volta {$local.ao_nome}.",
+      "tags": [
+        "tarde"
+      ],
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "vento",
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "O orvalho ainda molha a barra da capa quando você volta {$local.ao_nome}.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "chuva",
+        "neve",
+        "caverna",
+        "subterraneo",
+        "orvalho"
+      ],
+      "diz": [
+        "orvalho"
+      ]
+    },
+    {
+      "t": "Com a manhã nova, você volta {$local.ao_nome}.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Antes que o dia esquente, você já pisa outra vez {$local.no_nome}.",
+      "tags": [
+        "manha"
+      ],
+      "nao": [
+        "chuva",
+        "nevoa",
+        "neve",
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} à luz tímida do fim da madrugada.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "chuva",
+        "nevoa",
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Só o silêncio recebe você de volta {$local.ao_nome}.",
+      "tags": [
+        "madrugada"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Janelas acesas guiam o último trecho de volta {$local.ao_nome}.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo",
+        "madrugada"
+      ]
+    },
+    {
+      "t": "A noite já vai alta quando você cruza de novo os limites {$local.do_nome}.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A chuva engrossa justo quando {$local.o_nome} {#aparece/aparecem@local} no horizonte.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} com a água escorrendo pelo capuz.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Poças pontuam o caminho de volta {$local.ao_nome}.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Cada passo de volta {$local.ao_nome} faz a lama estalar.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A névoa só cede quando {$local.o_nome} já está ao alcance da mão.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você segue o contorno dos muros {$local.do_nome} pela bruma até achar a entrada.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} com a neve nos ombros e nos cílios.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A neve apaga as pegadas da ida, mas você acha a volta {$local.ao_nome}.",
+      "tags": [
+        "neve"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "O ar empurra você de volta {$local.ao_nome}, a golpes secos.",
+      "tags": [
+        "vento"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} com areia até nos pensamentos.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, com folhas no cabelo e um zumbido nos ouvidos.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome}, com o vento frio nas costas.",
+      "tags": [
+        "tundra"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, com os dedos dormentes de frio.",
+      "tags": [
+        "geleira"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} com cinza na capa e na garganta.",
+      "tags": [
+        "vulcanico"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, com sal na pele e na capa.",
+      "tags": [
+        "ilha"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} no balanço das ondas.",
+      "tags": [
+        "mar_aberto"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome}, e as folhas prateadas parecem mover-se para recebê-lo.",
+      "tags": [
+        "floresta_elfica"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, no meio do barulho de sempre.",
+      "tags": [
+        "cidade"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome}, sob olhares desconfiados.",
+      "tags": [
+        "feudo"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, entre ecos de forja e cheiro de brasa.",
+      "tags": [
+        "subterraneo_anao"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome} atento a cada sombra.",
+      "tags": [
+        "terras_orc"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome}, e as cores já são outras.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, entre sombras que parecem ter esperado por você.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "Você retorna {$local.ao_nome}, sob um frio que não vem do tempo.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "De volta {$local.ao_nome}, sob um céu que arde.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "Você volta {$local.ao_nome}, na correnteza.",
+      "tags": [
+        "plano_agua"
       ]
     }
   ],
@@ -3298,7 +4970,8 @@
       "t": "As pernas recusam mais um passo além do necessário.",
       "tags": [
         "exausto"
-      ]
+      ],
+      "peso": 0.25
     },
     {
       "t": "Você chega mais por teimosia do que por vontade.",
@@ -3310,7 +4983,8 @@
       "t": "Aqui, por um instante, o corpo desconfia menos.",
       "tags": [
         "seguro"
-      ]
+      ],
+      "peso": 0.25
     },
     {
       "t": "Há um conforto cego em saber onde ficam o fogo e a cama.",
@@ -3322,12 +4996,243 @@
       "t": "O lugar tem cheiro de fogão aceso e de gente conhecida.",
       "tags": [
         "seguro"
-      ]
+      ],
+      "peso": 0.25
     },
     {
       "t": "Aqui você pode, por um tempo, baixar a guarda.",
       "tags": [
         "seguro"
+      ],
+      "peso": 0.25
+    },
+    "Tem coisas que só se percebem na segunda visita.",
+    "Algumas portas já são conhecidas. Outras continuam fechadas.",
+    "Você sabe, agora, onde pisar e onde não pisar.",
+    "O lugar é o mesmo, mas você já não olha do mesmo jeito.",
+    "Há quem repare na sua volta, e quem finja não reparar.",
+    "Voltar é uma forma de dizer que algo ficou pendente.",
+    "Você tenta adivinhar o que mudou durante a sua ausência.",
+    "O que foi feito aqui não se desfaz tão cedo.",
+    "Você carrega agora um pouco mais do que levou na ida.",
+    {
+      "t": "O corpo reclama de cada esquina, mas o lugar ajuda a suportar.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Você procura um banco, um degrau, qualquer coisa onde apoiar o peso.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "Os curativos pedem troca, e você procura onde fazê-la.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A dor acompanha você pela rua, mas ao menos há onde repousar.",
+      "tags": [
+        "ferido"
+      ]
+    },
+    {
+      "t": "A cabeça pesa, e o resto do corpo concorda.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "A única vontade é a de se deitar e não pensar em nada.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Tudo em você pede sombra, água e uma cama.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "Você arrasta os pés e promete que será o último esforço do dia.",
+      "tags": [
+        "exausto"
+      ]
+    },
+    {
+      "t": "O alívio de ver telhados vale mais que qualquer moeda.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Há fumaça nas chaminés e voz de gente nas janelas.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O barulho distante de uma panela soa como boas-vindas.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Cães latem, crianças riem, e o mundo parece mais pequeno.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "noite",
+        "madrugada"
+      ]
+    },
+    {
+      "t": "Uma porta se abre, outra se fecha: o ritmo comum das ruas.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Aqui, ao menos, ninguém espera que você seja um herói.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "As ruas conhecidas dão ao corpo a licença de se soltar.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Entre paredes e telhados, o mundo cabe de novo numa medida possível.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você recosta o ombro num muro e deixa o fôlego voltar.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Há um tipo de calma que só vem de saber onde dormir.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "A cidade não pergunta nada, e isso já é um favor.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O calor vibra no ar, e a sombra deste lugar nunca foi tão bem-vinda.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "A umidade gruda na roupa. Você abre espaço entre as folhas e entra de novo na rotina do lugar.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "O vento frio empurra você para dentro, onde o fogo é sempre bem-vindo.",
+      "tags": [
+        "tundra"
+      ]
+    },
+    {
+      "t": "Os dedos dormem de frio, e o brilho do gelo cansa os olhos.",
+      "tags": [
+        "geleira"
+      ]
+    },
+    {
+      "t": "O cheiro de enxofre já virou parte do lugar, e do seu hálito.",
+      "tags": [
+        "vulcanico"
+      ]
+    },
+    {
+      "t": "O mar sussurra no fundo, e o sal seca nos lábios.",
+      "tags": [
+        "ilha"
+      ]
+    },
+    {
+      "t": "Cada onda lembra que o chão aqui nunca para quieto.",
+      "tags": [
+        "mar_aberto"
+      ]
+    },
+    {
+      "t": "As folhas sussurram, e a floresta parece satisfeita em ver você.",
+      "tags": [
+        "floresta_elfica"
+      ]
+    },
+    {
+      "t": "A cidade já esqueceu que você saiu. Você, não.",
+      "tags": [
+        "cidade"
+      ]
+    },
+    {
+      "t": "Os camponeses mal erguem os olhos. As torres do castelo seguem atentas.",
+      "tags": [
+        "feudo"
+      ]
+    },
+    {
+      "t": "O martelar distante é o único relógio que importa aqui.",
+      "tags": [
+        "subterraneo_anao"
+      ]
+    },
+    {
+      "t": "Você olha por cima do ombro mais vezes do que gostaria.",
+      "tags": [
+        "terras_orc"
+      ]
+    },
+    {
+      "t": "O brilho dos cogumelos mudou de cor, como quem esqueceu e relembrou de você.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "As sombras acompanham seu retorno em silêncio.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "Os mortos nem erguem a cabeça. Para eles, tempo não é conta.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "O calor acolhe você como a um velho conhecido que não perdoa.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "A correnteza empurra você de volta, como se dissesse que sentiu sua falta.",
+      "tags": [
+        "plano_agua"
       ]
     }
   ],
@@ -3483,6 +5388,56 @@
       "diz": [
         "chegou"
       ]
+    },
+    {
+      "t": "Você alcança {$destino.o_nome} depois de um bom pedaço de estrada.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Os limites {$destino.do_nome} aparecem, e o caminho se despede de você.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "A trilha desemboca {$destino.no_nome}.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Você pisa {$destino.no_nome} com poeira da viagem até os joelhos.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
+    },
+    {
+      "t": "Enfim, {$destino.o_nome}.",
+      "nao": [
+        "exausto",
+        "ferido"
+      ],
+      "diz": [
+        "chegou"
+      ]
     }
   ],
   "chegada_fim": [
@@ -3500,48 +5455,296 @@
       "t": "A escuridão torna tudo maior e mais estranho.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Há luz em algumas janelas, e só nelas.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "A noite deixa pouco a ver, e muito a imaginar.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Você procura com os olhos onde o escuro é menos denso.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Água escorre por todo canto, e você escorre junto.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "O chão é uma sopa de lama, e você a pisa sem escolha.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "A chuva aperta, e a pressa é de um teto.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
       "t": "Você sacode a água do capuz, sem muito resultado.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    "O chão é outro, e o cheiro também.",
+    "Você confere a bolsa, as armas e o próprio ânimo.",
+    "O lugar ainda não tem nome na sua memória.",
+    "Cada lugar novo tem regras que ninguém avisa.",
+    "Antes de tudo, convém entender onde você pisa.",
+    "Os olhos varrem o entorno em busca de saídas.",
+    "Há mais perguntas do que respostas, como sempre.",
+    "Você ajeita a correia da bolsa e examina o terreno.",
+    "O primeiro olhar já diz bastante.",
+    "Ninguém reparou em você. Por enquanto.",
+    {
+      "t": "A noite engole os detalhes, e você se orienta pelos sons.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Pouca luz, muita desconfiança.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você procura onde a luz de uma lamparina alcança.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A água escorre da capa e forma uma poça aos seus pés.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você sacode o capuz e procura um beiral.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A lama gruda nas botas e vira parte do cenário.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A névoa deixa tudo com cara de sonho mal contado.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Você avança devagar, com as mãos meio estendidas.",
+      "tags": [
+        "nevoa"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "A areia já entrou nas botas, no cabelo e nos pensamentos.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "O sol cobra pedágio logo na chegada: sede e suor.",
+      "tags": [
+        "deserto"
+      ]
+    },
+    {
+      "t": "O capim alto esconde mais do que mostra.",
+      "tags": [
+        "savana"
+      ]
+    },
+    {
+      "t": "Você escolhe um ponto de vista e examina o horizonte em busca de sombras que se mexem.",
+      "tags": [
+        "savana"
+      ]
+    },
+    {
+      "t": "O ar grosso gruda na pele, e cada folha parece olhar para você.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "Você afasta uma folha larga e respira o cheiro de terra e fruta.",
+      "tags": [
+        "selva"
+      ]
+    },
+    {
+      "t": "O vento frio morde os dedos, e você enfia as mãos nos bolsos.",
+      "tags": [
+        "tundra"
+      ]
+    },
+    {
+      "t": "O gelo brilha demais para olhar direto. Você aperta os olhos e avança.",
+      "tags": [
+        "geleira"
+      ]
+    },
+    {
+      "t": "O calor do chão atravessa as solas, e o cheiro de enxofre arde no nariz.",
+      "tags": [
+        "vulcanico"
+      ]
+    },
+    {
+      "t": "A brisa salgada bagunça o cabelo, e o mar murmura algo atrás de você.",
+      "tags": [
+        "ilha"
+      ]
+    },
+    {
+      "t": "O balanço das ondas continua nas pernas, mesmo em pé.",
+      "tags": [
+        "mar_aberto"
+      ]
+    },
+    {
+      "t": "As folhas parecem se afastar um pouco, para ver quem chegou.",
+      "tags": [
+        "floresta_elfica"
+      ]
+    },
+    {
+      "t": "Barulho, cheiro e olhares. A cidade engole você sem cerimônia.",
+      "tags": [
+        "cidade"
+      ]
+    },
+    {
+      "t": "Olhares desconfiados de camponeses e soldados acompanham seus primeiros passos.",
+      "tags": [
+        "feudo"
+      ]
+    },
+    {
+      "t": "O ar parado cheira a metal, e cada passo ecoa pelas galerias.",
+      "tags": [
+        "subterraneo_anao"
+      ]
+    },
+    {
+      "t": "Algo no ar diz que você é visto desde o primeiro passo.",
+      "tags": [
+        "terras_orc"
+      ]
+    },
+    {
+      "t": "As cores aqui são mais vivas do que deveriam, e o ar tem gosto de mel.",
+      "tags": [
+        "feerico"
+      ]
+    },
+    {
+      "t": "O silêncio é tão pesado que você ouve o próprio sangue.",
+      "tags": [
+        "sombras"
+      ]
+    },
+    {
+      "t": "O frio sobe do chão e se encosta nos seus ossos.",
+      "tags": [
+        "mortos"
+      ]
+    },
+    {
+      "t": "O calor é um tapa seco, e cada respiração queima um pouco.",
+      "tags": [
+        "plano_fogo"
+      ]
+    },
+    {
+      "t": "A água acaricia sua pele, e o ar tem gosto de sal e de eternidade.",
+      "tags": [
+        "plano_agua"
       ]
     }
   ],
@@ -3839,7 +6042,7 @@
     "A distância entre você e {$inimigo.o_nome} encolhe a cada respiração.",
     "Você abre a guarda, e {$inimigo.o_nome} aceita o convite.",
     "{$inimigo.O_nome} gira ao seu redor, procurando uma brecha.",
-    "O primeiro movimento é de {$inimigo.do_nome}, e você mal tem tempo de reagir."
+    "O primeiro movimento é {$inimigo.do_nome}, e você mal tem tempo de reagir."
   ],
   "ci_estado": [
     "O coração bate forte. É hora de lutar.",
@@ -4047,9 +6250,9 @@
   ],
   "ac_efeito": [
     "{$inimigo.Ref} cambaleia.",
-    "{$inimigo.Ref} recua um passo, surpreso e ferido.",
+    "{$inimigo.Ref} recua um passo, {=surpreso/surpresa@inimigo} e {=ferido/ferida@inimigo}.",
     "{$inimigo.Ref} estremece com o impacto.",
-    "{$inimigo.Ref} solta um grunhido e perde o equilíbrio por um instante.",
+    "{$inimigo.Ref} perde o fôlego e o equilíbrio por um instante.",
     "O golpe tira {$inimigo.o_nome} do prumo.",
     "{$inimigo.Ref} hesita, e a guarda baixa por um instante.",
     "O impacto ecoa, e {$inimigo.ref} cai de lado.",
@@ -4114,7 +6317,7 @@
   ],
   "pa_efeito": [
     "É algo, mas não o bastante.",
-    "{$inimigo.Ref} rosna ou ri, difícil dizer.",
+    "{$inimigo.Ref} reage, e é difícil dizer se com dor ou com raiva.",
     "O dano é pouco, mas real.",
     "{$inimigo.Ref} sente, mas não recua.",
     "Dá para continuar, mas dá para fazer melhor.",
@@ -4356,7 +6559,7 @@
   "ds_efeito": [
     "{$inimigo.Ref} aproveita sem piedade.",
     "Quando você ergue os olhos, {$inimigo.o_nome} já está sobre você.",
-    "Você se expõe por inteiro.",
+    "Você se expõe demais.",
     "{$inimigo.Ref} não desperdiça a oportunidade.",
     "A resposta {$inimigo.do_nome} é rápida e dura.",
     "O preço do erro chega na hora.",
@@ -4369,7 +6572,7 @@
     "Com um último golpe, {$inimigo.o_nome} tomba.",
     "{$inimigo.O_nome} desaba, e o chão recebe o peso final.",
     "A luta termina como começou: de repente.",
-    "{$inimigo.Ref} dá um último suspiro e se cala.",
+    "{$inimigo.Ref} estremece uma última vez e se cala.",
     "Quando o último golpe cai, o mundo volta ao tamanho normal.",
     "O silêncio que sobra é maior que a luta.",
     "O perigo acaba, e o resto do mundo reaparece aos poucos."
@@ -4509,10 +6712,10 @@
     "Dessa vez, a língua foi mais afiada que a lâmina."
   ],
   "nf_a": [
-    "{$inimigo.O_nome} ri na sua cara e ergue a arma.",
+    "{$inimigo.O_nome} descarta suas palavras e se prepara para atacar.",
     "As palavras não bastam. {$inimigo.O_nome} perde a paciência.",
     "Nenhum acordo. {$inimigo.O_nome} avança.",
-    "“Falou demais”, rosna {$inimigo.ref}.",
+    "Você falou demais, e {$inimigo.o_nome} deixa isso claro.",
     "O silêncio {$inimigo.do_nome} é pior que uma resposta.",
     "Você estende a mão, e a resposta vem em forma de golpe.",
     "{$inimigo.O_nome} escuta até o fim e responde com o que já queria fazer desde o início.",
@@ -4546,37 +6749,78 @@
   ],
   "it_abre": [
     "Entre os restos, {$item.um_nome} chama sua atenção.",
-    "Você encontra {$item.um_nome} e o guarda com cuidado.",
-    "Algo brilha. É {$item.um_nome}.",
+    "Você encontra {$item.um_nome} e {$item.lo} guarda com cuidado.",
+    "Algo chama sua atenção: {$item.um_nome}.",
     "Num canto esquecido, {$item.um_nome}.",
     "Sua mão se fecha sobre {$item.um_nome}.",
     "Você tropeça em {$item.um_nome}, por pura sorte.",
-    "Meio coberto de pó, {$item.um_nome} espera por alguém.",
+    "Meio escondido pela poeira, {$item.um_nome} espera por alguém.",
     "Debaixo de tudo, {$item.um_nome} se revela.",
-    "Seus dedos tocam algo frio: {$item.um_nome}.",
+    "Seus dedos tocam algo no meio da bagunça: {$item.um_nome}.",
     "Quem deixou {$item.um_nome} para trás não voltou para buscar.",
+    "Você esbarra em {$item.um_nome} quando já ia desistir.",
+    "Revirando o lugar, você descobre {$item.um_nome}.",
+    "Fora do alcance da vista, {$item.um_nome} aguarda.",
     {
-      "t": "Na penumbra, um reflexo denuncia {$item.um_nome}.",
+      "t": "Na penumbra, você esbarra em {$item.um_nome}.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
-      "t": "Às cegas, você tateia {$item.um_nome}.",
+      "t": "Às cegas, você tateia e encontra {$item.um_nome}.",
       "tags": [
         "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Sob o luar fraco, você distingue {$item.um_nome}.",
+      "tags": [
+        "noite"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo",
+        "chuva",
+        "nevoa"
       ]
     },
     {
       "t": "A chuva lava a lama e revela {$item.um_nome}.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     },
     {
-      "t": "Entre poças, {$item.um_nome} reluz.",
+      "t": "Entre poças, você vê {$item.um_nome}.",
       "tags": [
         "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
+      ]
+    },
+    {
+      "t": "Debaixo da água que escorre, {$item.um_nome} aparece.",
+      "tags": [
+        "chuva"
+      ],
+      "nao": [
+        "caverna",
+        "subterraneo"
       ]
     }
   ],
@@ -4584,29 +6828,31 @@
     "Sorte sua.",
     "Não é todo dia que o acaso é generoso.",
     "Pode ser útil.",
-    "Você o examina, ajeita a bolsa e segue.",
-    "Alguém o perdeu, ou o abandonou. Agora é seu.",
+    "Você ajeita a bolsa e segue.",
+    "Alguém {$item.lo} perdeu, ou abandonou. Agora é seu.",
     "O que o mundo dá, o mundo costuma cobrar depois.",
+    "Cabe na bolsa, e isso basta.",
+    "Melhor com você do que largado ali.",
     {
       "t": "",
-      "peso": 3
+      "peso": 4
     }
   ],
   "npc_abre": [
     {
-      "t": "Vocês nunca trocaram uma palavra, e {$npc.nome} {$heroi.lo} examina sem pressa.",
+      "t": "Vocês nunca trocaram uma palavra, e {$npc.ref} {$heroi.lo} examina sem pressa.",
       "tags": [
         "npc_novo"
       ]
     },
     {
-      "t": "Um rosto novo. {$npc.Nome} {$heroi.lo} mede de alto a baixo antes de falar.",
+      "t": "Um rosto novo. {$npc.Ref} {$heroi.lo} mede de alto a baixo antes de falar.",
       "tags": [
         "npc_novo"
       ]
     },
     {
-      "t": "{$npc.Nome} nunca viu você por ali, e a curiosidade vence a cautela.",
+      "t": "{$npc.Ref} nunca viu você por ali, e a curiosidade vence a cautela.",
       "nao": [
         "temp_desconfiado",
         "temp_taciturno",
@@ -4619,31 +6865,34 @@
       ]
     },
     {
-      "t": "{$npc.Nome} franze a testa para a figura desconhecida que se aproxima.",
+      "t": "{$npc.Ref} franze a testa para a figura desconhecida que se aproxima.",
       "tags": [
         "npc_novo"
       ]
     },
     {
-      "t": "{$npc.Nome} não reconhece seu rosto e pergunta com os olhos o que você quer.",
+      "t": "{$npc.Ref} não reconhece seu rosto e pergunta com os olhos o que você quer.",
       "tags": [
         "npc_novo"
       ]
     },
     {
-      "t": "Sem pressa nenhuma, {$npc.nome} espera que você fale primeiro.",
+      "t": "Sem pressa nenhuma, {$npc.ref} espera que você fale primeiro.",
+      "tags": [
+        "npc_novo"
+      ],
+      "nao": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} ergue o olhar e, ao ver um estranho, afasta o que tinha nas mãos.",
       "tags": [
         "npc_novo"
       ]
     },
     {
-      "t": "{$npc.Nome} ergue o olhar e, ao ver um estranho, afasta o que tinha nas mãos.",
-      "tags": [
-        "npc_novo"
-      ]
-    },
-    {
-      "t": "“Está perdid{=o/a@heroi}?”, pergunta {$npc.nome}, mais por educação do que por interesse.",
+      "t": "“Está perdid{=o/a@heroi}?”, pergunta {$npc.ref}, mais por educação do que por interesse.",
       "nao": [
         "temp_taciturno",
         "temp_rabugento"
@@ -4653,26 +6902,26 @@
       ]
     },
     {
-      "t": "{$npc.Nome} nunca viu você por ali, e a desconfiança trava a língua por um instante.",
+      "t": "{$npc.Ref} nunca viu você por ali, e a desconfiança trava a língua por um instante.",
       "tags": [
         "npc_novo",
         "temp_desconfiado"
       ]
     },
     {
-      "t": "“Ah, é você de novo”, diz {$npc.nome}, reconhecendo seus passos antes do rosto.",
+      "t": "“Ah, é você de novo”, diz {$npc.ref}, reconhecendo seus passos antes do rosto.",
       "tags": [
         "npc_conhecido"
       ]
     },
     {
-      "t": "{$npc.Nome} se lembra de você. A memória aparece nos olhos, e nem sempre é boa.",
+      "t": "{$npc.Ref} se lembra de você. A memória aparece nos olhos, e nem sempre é boa.",
       "tags": [
         "npc_conhecido"
       ]
     },
     {
-      "t": "“De novo por aqui”, comenta {$npc.nome}, sem decidir se é bom sinal.",
+      "t": "“De novo por aqui”, comenta {$npc.ref}, sem decidir se é bom sinal.",
       "nao": [
         "npc_amigo",
         "npc_hostil"
@@ -4682,25 +6931,25 @@
       ]
     },
     {
-      "t": "{$npc.Nome} acena de leve, como quem cumprimenta um rosto familiar.",
+      "t": "{$npc.Ref} acena de leve, como quem cumprimenta um rosto familiar.",
       "tags": [
         "npc_conhecido"
       ]
     },
     {
-      "t": "Você já não é {=estranho/estranha@heroi} ali, e {$npc.nome} faz questão de mostrar que sabe.",
+      "t": "Você já não é {=estranho/estranha@heroi} ali, e {$npc.ref} faz questão de mostrar que sabe.",
       "tags": [
         "npc_conhecido"
       ]
     },
     {
-      "t": "{$npc.Nome} assente devagar, reconhecendo você.",
+      "t": "{$npc.Ref} assente devagar, reconhecendo você.",
       "tags": [
         "npc_conhecido"
       ]
     },
     {
-      "t": "{$npc.Nome} levanta a mão num cumprimento tranquilo. “Voltou.”",
+      "t": "{$npc.Ref} levanta a mão num cumprimento tranquilo. “Voltou.”",
       "nao": [
         "npc_hostil"
       ],
@@ -4709,7 +6958,7 @@
       ]
     },
     {
-      "t": "{$npc.Nome} abre um sorriso largo ao ver você. “Um amigo é sempre bem-vindo.”",
+      "t": "{$npc.Ref} abre um sorriso largo ao ver você. “Um amigo é sempre bem-vindo.”",
       "nao": [
         "temp_taciturno",
         "temp_rabugento",
@@ -4720,31 +6969,31 @@
       ]
     },
     {
-      "t": "Assim que reconhece você, {$npc.nome} abaixa a guarda e faz um gesto para que se aproxime.",
+      "t": "Assim que reconhece você, {$npc.ref} abaixa a guarda e faz um gesto para que se aproxime.",
       "tags": [
         "npc_amigo"
       ]
     },
     {
-      "t": "{$npc.Nome} se adianta alguns passos e aperta seu antebraço.",
+      "t": "{$npc.Ref} se adianta alguns passos e aperta seu antebraço.",
       "tags": [
         "npc_amigo"
       ]
     },
     {
-      "t": "“Que bom que veio”, diz {$npc.nome}, e parece sincer{=o/a@npc}.",
+      "t": "“Que bom que veio”, diz {$npc.ref}, e parece sincer{=o/a@npc}.",
       "tags": [
         "npc_amigo"
       ]
     },
     {
-      "t": "{$npc.Nome} chama você pelo nome, num tom de quem faz isso com gosto.",
+      "t": "{$npc.Ref} chama você pelo nome, num tom de quem faz isso com gosto.",
       "tags": [
         "npc_amigo"
       ]
     },
     {
-      "t": "Há quem disfarce a alegria de ver um amigo. {$npc.Nome} não faz questão.",
+      "t": "Há quem disfarce a alegria de ver um amigo. {$npc.Ref} não faz questão.",
       "nao": [
         "temp_taciturno",
         "temp_desconfiado"
@@ -4754,37 +7003,43 @@
       ]
     },
     {
-      "t": "{$npc.Nome} fecha a cara. Há contas mal resolvidas entre vocês, e {$npc.ref} não esqueceu.",
+      "t": "{$npc.Ref} fecha a cara. Há contas mal resolvidas entre vocês, e {$npc.ref} não esqueceu.",
       "tags": [
         "npc_hostil"
       ]
     },
     {
-      "t": "Quando {$npc.nome} vê quem chegou, a conversa morre. O ressentimento ficou guardado.",
+      "t": "Quando {$npc.ref} vê quem chegou, a conversa morre. O ressentimento ficou guardado.",
+      "tags": [
+        "npc_hostil"
+      ],
+      "nao": [
+        "temp_falastrao"
+      ]
+    },
+    {
+      "t": "{$npc.Ref} cospe para o lado e mede a distância até a porta.",
       "tags": [
         "npc_hostil"
       ]
     },
     {
-      "t": "{$npc.Nome} cospe para o lado e mede a distância até a porta.",
+      "t": "Os olhos de {$npc.ref} endurecem. Você ainda deve alguma coisa a esta mesa.",
       "tags": [
         "npc_hostil"
       ]
     },
     {
-      "t": "Os olhos de {$npc.nome} endurecem. Você ainda deve alguma coisa a esta mesa.",
+      "t": "{$npc.Ref} não responde ao cumprimento. O silêncio faz o resto.",
       "tags": [
         "npc_hostil"
+      ],
+      "nao": [
+        "temp_falastrao"
       ]
     },
     {
-      "t": "{$npc.Nome} não responde ao cumprimento. O silêncio faz o resto.",
-      "tags": [
-        "npc_hostil"
-      ]
-    },
-    {
-      "t": "“Você tem coragem de aparecer”, murmura {$npc.nome}.",
+      "t": "“Você tem coragem de aparecer”, murmura {$npc.ref}.",
       "nao": [
         "temp_jovial"
       ],
@@ -4990,36 +7245,56 @@
       "t": "{$npc.Ref} assente em silêncio, e o silêncio basta.",
       "tags": [
         "temp_taciturno"
+      ],
+      "nao": [
+        "temp_falastrao"
       ]
     },
     {
       "t": "Uma sobrancelha erguida faz o papel de uma frase inteira.",
       "tags": [
         "temp_taciturno"
+      ],
+      "nao": [
+        "temp_falastrao"
       ]
     },
     {
       "t": "{$npc.Ref} responde com um aceno curto e deixa o resto para depois.",
       "tags": [
         "temp_taciturno"
+      ],
+      "nao": [
+        "temp_falastrao"
       ]
     },
     {
       "t": "Poucas palavras, e todas medidas.",
       "tags": [
         "temp_taciturno"
+      ],
+      "nao": [
+        "temp_falastrao"
       ]
     },
     {
       "t": "{$npc.Ref} começa a falar antes de você abrir a boca, e não para.",
       "tags": [
         "temp_falastrao"
+      ],
+      "nao": [
+        "npc_hostil",
+        "temp_taciturno"
       ]
     },
     {
       "t": "{$npc.Ref} já despeja três assuntos antes de respirar.",
       "tags": [
         "temp_falastrao"
+      ],
+      "nao": [
+        "npc_hostil",
+        "temp_taciturno"
       ]
     },
     {
@@ -5032,6 +7307,10 @@
       "t": "{$npc.Ref} gesticula com as duas mãos, contando algo que ninguém pediu.",
       "tags": [
         "temp_falastrao"
+      ],
+      "nao": [
+        "npc_hostil",
+        "temp_taciturno"
       ]
     },
     {
@@ -5344,7 +7623,7 @@
   ],
   "desp_a": [
     {
-      "t": "{$npc.Nome} acena com a cabeça, e você sente que, por ora, estão quites.",
+      "t": "{$npc.Nome} acena com a cabeça, e a conversa termina por ali.",
       "tags": [
         "npc_novo"
       ]
@@ -5737,14 +8016,16 @@
     }
   ],
   "it_meio": [
-    "Você o vira nas mãos, avaliando o peso e o brilho.",
-    "Há marcas de uso, mas nada que o torne inútil.",
+    "Você {$item.lo} vira nas mãos, avaliando o peso.",
+    "Há marcas de uso, mas nada que {$item.lo} torne inútil.",
     "Parece valer mais do que o lugar de onde veio.",
-    "Quem o fez sabia o que fazia.",
+    "Quem {$item.lo} fez sabia o que fazia.",
     "Você sopra a poeira e confere cada canto.",
-    "Algum dono anterior deixou nele um traço próprio.",
+    "Algum dono anterior deixou por ali um traço próprio.",
     "Um bom sinal para um dia que pedia um.",
-    "O lugar em que estava dizia pouco sobre o que valia."
+    "O lugar em que estava dizia pouco sobre o que valia.",
+    "Você {$item.lo} confere com o polegar, sem pressa.",
+    "Alguém cuidou disso um dia."
   ],
   "pa_fecho": [
     "A luta continua, igual e diferente.",
@@ -5793,5 +8074,2533 @@
       "t": "",
       "peso": 3
     }
+  ],
+  "missao_aceita": [
+    "{$npc.Ref} assente, satisfeit{=o/a@npc}, e acerta os últimos detalhes com você.",
+    "Um aperto de mão sela o acordo. {$npc.Ref} parece aliviad{=o/a@npc}.",
+    "{$npc.Ref} repete o essencial duas vezes, como quem não confia na própria sorte.",
+    "Está combinado. {$npc.Ref} se afasta antes que você mude de ideia.",
+    "{$npc.Ref} anota seu nome num pedaço de papel e o guarda junto ao peito.",
+    "Você aceita. {$npc.Ref} solta o ar devagar, e o resto é silêncio e pressa."
+  ],
+  "missao_recusada": [
+    "{$npc.Ref} dá de ombros e volta a procurar outra pessoa.",
+    "Você recusa com um gesto. {$npc.Ref} não insiste.",
+    "{$npc.Ref} engole a decepção e agradece mesmo assim.",
+    "Nem todo serviço vale o risco. {$npc.Ref} parece entender."
+  ],
+  "estab_nome_taverna": [
+    "Taverna do Corvo Manco",
+    "Taverna da Cabra Cega",
+    "Taverna do Barril Rachado",
+    "Taverna da Lua Torta",
+    "Taverna do Anzol Enferrujado"
+  ],
+  "estab_nome_templo": [
+    "Templo da Chama Mansa",
+    "Templo dos Sete Sinos",
+    "Templo do Sol Velado",
+    "Templo da Maré Branca"
+  ],
+  "estab_nome_forja": [
+    "Forja do Martelo Surdo",
+    "Forja da Brasa Teimosa",
+    "Forja do Velho Garrão",
+    "Forja da Bigorna Torta"
+  ],
+  "estab_nome_biblioteca": [
+    "Biblioteca do Selo Partido",
+    "Biblioteca das Mil Lombadas",
+    "Biblioteca da Pena Cinza",
+    "Biblioteca do Candeeiro Baixo"
+  ],
+  "estab_nome_casa_lanternas": [
+    "Casa das Lanternas Rubras",
+    "Casa da Lanterna Dourada",
+    "Casa das Três Lanternas",
+    "Casa da Lanterna Velada"
+  ],
+  "estab_nome_patio_armas": [
+    "Pátio do Mestre Ferrolho",
+    "Pátio das Lâminas Gastas",
+    "Pátio do Escudo Rachado",
+    "Pátio da Areia Vermelha"
+  ],
+  "estab_nome_casa_apostas": [
+    "Casa do Dado Torto",
+    "Casa da Sorte Magra",
+    "Casa do Gato Preto",
+    "Casa das Fichas de Osso"
+  ],
+  "estab_nome_herbanaria": [
+    "Casa da Curandeira Folha-Seca",
+    "Casa das Ervas Mansas",
+    "Casa do Chá Amargo",
+    "Casa do Ramo de Arruda"
+  ],
+  "estab_nome_alquimista": [
+    "Ateliê do Alambique Azul",
+    "Ateliê das Cinzas Vivas",
+    "Ateliê da Retorta Fumegante",
+    "Ateliê do Enxofre Doce"
+  ],
+  "estab_nome_ladroes": [
+    "Esconderijo do Rato Cinzento",
+    "Esconderijo da Porta Falsa",
+    "Esconderijo do Gancho Mudo",
+    "Esconderijo da Sola Silenciosa"
+  ],
+  "estab_nome_mercado_sombras": [
+    "Mercado do Lampião Cego",
+    "Mercado da Meia-Noite",
+    "Mercado do Pano Preto",
+    "Mercado das Mãos Fechadas"
+  ],
+  "estab_nome_cais": [
+    "Cais do Sal Grosso",
+    "Cais das Redes Longas",
+    "Cais da Âncora Torta",
+    "Cais do Último Barco"
+  ],
+  "estab_nome_estaleiro": [
+    "Estaleiro da Quilha Negra",
+    "Estaleiro do Velho Casco",
+    "Estaleiro do Alcatrão",
+    "Estaleiro das Costelas de Madeira"
+  ],
+  "estab_nome_cemiterio": [
+    "Cemitério do Salgueiro Triste",
+    "Cemitério da Colina Baixa",
+    "Cemitério dos Sem-Nome",
+    "Cemitério do Corvo Quieto"
+  ],
+  "estab_nome_praca": [
+    "Praça do Chafariz Seco",
+    "Praça do Pelourinho",
+    "Praça das Tílias",
+    "Praça da Lebre de Pedra"
+  ],
+  "estab_nome_poco_desejos": [
+    "Poço das Moedas Perdidas",
+    "Poço do Eco Fundo",
+    "Poço da Velha Promessa",
+    "Poço dos Sussurros"
+  ],
+  "estab_nome_moinho": [
+    "Moinho do Vento Velho",
+    "Moinho da Roda Presa",
+    "Moinho do Pó Dourado",
+    "Moinho das Três Pás"
+  ],
+  "estab_nome_cartografo": [
+    "Oficina do Compasso Torto",
+    "Oficina das Linhas Finas",
+    "Oficina da Rosa dos Ventos",
+    "Oficina do Tinteiro Seco"
+  ],
+  "estab_nome_quartel": [
+    "Quartel da Lança Curta",
+    "Quartel do Portão Baixo",
+    "Quartel do Gavião",
+    "Quartel das Chaves Pesadas"
+  ],
+  "estab_nome_banhos": [
+    "Casa de Banhos do Vapor Manso",
+    "Casa de Banhos da Água Morna",
+    "Casa de Banhos do Cedro",
+    "Casa de Banhos das Sete Bacias"
+  ],
+  "estab_nome_conselho": [
+    "Casa do Conselho dos Anciãos",
+    "Casa da Mesa Redonda",
+    "Casa do Selo Velho",
+    "Casa do Conselho do Rio"
+  ],
+  "estab_nome_palco_bardos": [
+    "Palco da Lira Rachada",
+    "Palco do Rouxinol",
+    "Palco das Cordas Soltas",
+    "Palco do Tambor Largo"
+  ],
+  "estab_nome_estabulo": [
+    "Estábulo do Potro Zarolho",
+    "Estábulo da Palha Fresca",
+    "Estábulo do Alazão",
+    "Estábulo da Mula Teimosa"
+  ],
+  "estab_nome_santuario_pescadores": [
+    "Santuário da Mãe das Redes",
+    "Santuário do Peixe de Prata",
+    "Santuário do Farol Menor",
+    "Santuário das Velas Rezadas"
+  ],
+  "estab_nome_defumacao": [
+    "Casa de Defumação do Fumo Lento",
+    "Casa de Defumação da Brasa Baixa",
+    "Casa de Defumação do Velho Tião",
+    "Casa de Defumação das Cem Varas"
+  ],
+  "estab_nome_parteira": [
+    "Casa da Parteira Mãe-Lua",
+    "Casa da Velha Aninha",
+    "Casa do Fogo Baixo",
+    "Casa das Mãos Quentes"
+  ],
+  "estab_nome_curiosidades": [
+    "Loja do Armário de Vidro",
+    "Loja das Coisas Sem Nome",
+    "Loja da Pulga Dourada",
+    "Loja do Baú Aberto"
+  ],
+  "estab_nome_torre_sino": [
+    "Torre do Sino Rouco",
+    "Torre das Horas Tortas",
+    "Torre do Bronze Velho",
+    "Torre do Badalo Único"
+  ],
+  "estab_nome_oficina_redes": [
+    "Oficina das Malhas Finas",
+    "Oficina da Agulha de Osso",
+    "Oficina do Nó Cego",
+    "Oficina da Rede Remendada"
+  ],
+  "atv_taverna_rumores": [
+    "Pagar uma rodada e ouvir rumores",
+    "Puxar conversa no balcão",
+    "Sentar-se entre os fregueses"
+  ],
+  "atv_taverna_briga": [
+    "Separar a briga",
+    "Entrar no meio da confusão",
+    "Intervir na barulheira"
+  ],
+  "atv_taverna_ensopado": [
+    "Pedir um prato quente",
+    "Comer algo substancial",
+    "Encomendar o ensopado da casa"
+  ],
+  "atv_templo_bencao": [
+    "Pedir uma benção ao templo",
+    "Ajoelhar-se diante do altar",
+    "Acender uma vela e rezar"
+  ],
+  "atv_templo_sacerdote": [
+    "Conversar com o sacerdote",
+    "Procurar o sacerdote do templo",
+    "Pedir conselho a quem cuida do altar"
+  ],
+  "atv_forja_aprendiz": [
+    "Ajudar na forja por um turno",
+    "Pedir para bater o ferro",
+    "Oferecer as mãos ao ferreiro"
+  ],
+  "atv_biblioteca_mapas": [
+    "Consultar os mapas da biblioteca",
+    "Pedir os atlas antigos",
+    "Folhear as cartas do arquivo"
+  ],
+  "atv_biblioteca_proibida": [
+    "Espiar a sala trancada",
+    "Arriscar a ala restrita",
+    "Procurar o livro que não deveria ser lido"
+  ],
+  "atv_lanternas_noite": [
+    "Passar a noite à luz das lanternas",
+    "Aceitar um convite discreto",
+    "Ficar um pouco entre as cortinas"
+  ],
+  "atv_patio_treino": [
+    "Treinar no pátio de armas",
+    "Pedir uma lição ao mestre de armas",
+    "Subir à areia de treino"
+  ],
+  "atv_patio_duelo": [
+    "Aceitar um duelo de treino",
+    "Subir ao círculo de duelos",
+    "Enfrentar um desafiante"
+  ],
+  "atv_apostas_dados": [
+    "Tentar a sorte nos dados",
+    "Sentar à mesa de apostas",
+    "Lançar os dados da casa"
+  ],
+  "atv_apostas_corrida": [
+    "Apostar na corrida de ratos",
+    "Comprar uma ficha para a corrida",
+    "Escolher um rato campeão"
+  ],
+  "atv_herbanaria_cataplasma": [
+    "Pedir um cataplasma à curandeira",
+    "Mostrar o ferimento à curandeira",
+    "Procurar cuidados na casa de ervas"
+  ],
+  "atv_herbanaria_ervas": [
+    "Comprar ervas medicinais",
+    "Vasculhar os feixes de ervas",
+    "Pedir ervas para a estrada"
+  ],
+  "atv_alquimista_experimento": [
+    "Ajudar num experimento do alquimista",
+    "Servir de aprendiz por um turno",
+    "Aceitar a oferta do alquimista"
+  ],
+  "atv_ladroes_trabalho": [
+    "Ouvir a proposta dos ladrões",
+    "Aceitar um trabalho de sombra",
+    "Descer ao esconderijo"
+  ],
+  "atv_sombras_barraca": [
+    "Olhar a mercadoria sem nome",
+    "Passear entre as barracas de pano preto",
+    "Perguntar pelo que não se vende à luz do dia"
+  ],
+  "atv_cais_carga": [
+    "Descarregar sacos no cais",
+    "Oferecer ajuda aos estivadores",
+    "Ajudar no carregamento"
+  ],
+  "atv_cais_barqueiro": [
+    "Conversar com um barqueiro",
+    "Pagar um barco de passeio",
+    "Ouvir os pescadores de volta ao cais"
+  ],
+  "atv_estaleiro_reparo": [
+    "Ajudar a calafetar um casco",
+    "Oferecer-se no estaleiro",
+    "Dar uma mão aos carpinteiros"
+  ],
+  "atv_cemiterio_vigilia": [
+    "Passar o fim de tarde entre as lápides",
+    "Ajudar o coveiro",
+    "Visitar os túmulos antigos"
+  ],
+  "atv_praca_artistas": [
+    "Assistir aos artistas da praça",
+    "Parar diante dos malabaristas",
+    "Juntar-se à roda de espectadores"
+  ],
+  "atv_praca_pregao": [
+    "Ouvir o pregoeiro da praça",
+    "Acompanhar os avisos do conselho",
+    "Parar para os anúncios do dia"
+  ],
+  "atv_poco_moeda": [
+    "Lançar uma moeda no poço",
+    "Fazer um pedido ao poço",
+    "Debruçar-se sobre o poço"
+  ],
+  "atv_moinho_ajuda": [
+    "Ajudar o moleiro com os sacos",
+    "Dar uma mão no moinho",
+    "Oferecer ajuda ao moleiro"
+  ],
+  "atv_cartografo_mapa": [
+    "Encomendar um mapa ao cartógrafo",
+    "Visitar a oficina de mapas",
+    "Pedir um desenho da região"
+  ],
+  "atv_quartel_cartazes": [
+    "Ler os cartazes de procurados",
+    "Passar pelo quartel da guarda",
+    "Pedir informações à guarda"
+  ],
+  "atv_banhos_descanso": [
+    "Relaxar nos banhos",
+    "Alugar uma tina de água quente",
+    "Mergulhar na casa de banhos"
+  ],
+  "atv_conselho_audiencia": [
+    "Assistir a uma audiência do conselho",
+    "Pedir um minuto aos conselheiros",
+    "Ouvir as queixas do povo"
+  ],
+  "atv_palco_cantar": [
+    "Subir ao palco dos bardos",
+    "Cantar uma canção aberta",
+    "Tentar uma noite de arte no palco"
+  ],
+  "atv_estabulo_cavalaria": [
+    "Ajudar com os cavalos",
+    "Escovar a pelagem dos animais",
+    "Ficar com o cavalariço por um turno"
+  ],
+  "atv_pescadores_oferta": [
+    "Oferecer algo ao santuário dos pescadores",
+    "Deixar uma vela ao pé do santuário",
+    "Falar com quem vigia o santuário"
+  ],
+  "atv_defumacao_ajuda": [
+    "Ajudar a defumar o peixe",
+    "Vigiar a brasa da casa de defumação",
+    "Dar uma mão com as varas"
+  ],
+  "atv_parteira_chas": [
+    "Visitar a parteira",
+    "Pedir um chá à parteira",
+    "Sentar com a velha parteira"
+  ],
+  "atv_curiosidades_barraca": [
+    "Vasculhar a loja de curiosidades",
+    "Examinar o armário de vidro",
+    "Perguntar pela peça mais estranha"
+  ],
+  "atv_sino_subir": [
+    "Subir à torre do sino",
+    "Escalar a escadaria do sino",
+    "Visitar o alto da torre"
+  ],
+  "atv_redes_remendo": [
+    "Remendar redes na oficina",
+    "Aprender com a mestre de redes",
+    "Dar uma mão com as malhas"
+  ],
+  "atv_porto_madrugada": [
+    "Ver os barcos voltarem da pesca",
+    "Esperar a pesca da madrugada",
+    "Descer ao porto antes do sol"
+  ],
+  "atv_porto_marujos": [
+    "Jogar nós com os marujos",
+    "Participar do jogo de cordas",
+    "Ouvir marujos no cais"
+  ],
+  "atv_noite_ronda": [
+    "Acompanhar a ronda noturna",
+    "Andar pelas ruas depois do toque de recolher",
+    "Vigiar a rua à noite"
+  ],
+  "atv_noite_mendigo": [
+    "Dar atenção a um mendigo de esquina",
+    "Parar diante do homem encolhido",
+    "Ouvir um mendigo na noite"
+  ],
+  "atv_vila_feira": [
+    "Percorrer a feira da manhã",
+    "Passear entre as barracas de feira",
+    "Olhar as mercadorias da feira"
+  ],
+  "atv_aldeia_menino": [
+    "Seguir um menino de olhos espertos",
+    "Dar atenção ao menino da rua",
+    "Atender a criança que lhe puxa a manga"
+  ],
+  "atv_aldeia_telhado": [
+    "Ajudar a consertar um telhado",
+    "Subir ao telhado de um vizinho",
+    "Dar uma mão num conserto"
+  ],
+  "atv_nevoa_lanterna": [
+    "Acompanhar um lanterneiro na névoa",
+    "Seguir a luz fraca na névoa",
+    "Andar pelas ruas enevoadas"
+  ],
+  "atv_povoado_ferido": [
+    "Pedir ajuda a um vizinho",
+    "Procurar quem cuide de seus ferimentos",
+    "Bater a uma porta amiga"
+  ],
+  "atv_vila_procissao": [
+    "Acompanhar a procissão da manhã",
+    "Juntar-se à procissão dos fiéis",
+    "Ver a procissão passar"
+  ],
+  "atv_aldeia_barco": [
+    "Pescar do barco de um aldeão",
+    "Embarcar numa canoa de pescador",
+    "Subir a bordo de uma canoa"
+  ],
+  "atv_erm_carroca": [
+    "Ajudar uma carroça atolada",
+    "Dar um empurrão à carroça",
+    "Oferecer ajuda ao viajante parado"
+  ],
+  "atv_erm_santuario_estrada": [
+    "Rezar no santuário de beira de estrada",
+    "Parar diante do pequeno altar",
+    "Acender uma vela ao santo da estrada"
+  ],
+  "atv_erm_arvore": [
+    "Subir numa árvore para ver o terreno",
+    "Escalar uma árvore alta",
+    "Trepar no galho mais firme"
+  ],
+  "atv_erm_ervas": [
+    "Colher ervas ao redor",
+    "Procurar plantas úteis",
+    "Revirar o mato atrás de ervas"
+  ],
+  "atv_erm_armadilha": [
+    "Montar uma armadilha de caça",
+    "Armar laços para pequenos animais",
+    "Preparar um laço entre as raízes"
+  ],
+  "atv_erm_rastros": [
+    "Seguir rastros no chão",
+    "Acompanhar pegadas estranhas",
+    "Ler as marcas deixadas na terra"
+  ],
+  "atv_erm_pesca": [
+    "Pescar num riacho",
+    "Tentar a sorte com anzol e paciência",
+    "Lançar a linha no riacho"
+  ],
+  "atv_erm_abrigo_chuva": [
+    "Procurar abrigo da chuva",
+    "Buscar uma saliência contra a chuva",
+    "Correr para debaixo de algo seco"
+  ],
+  "atv_erm_estrelas": [
+    "Observar as estrelas",
+    "Deitar-se e olhar o céu",
+    "Ler as constelações"
+  ],
+  "atv_erm_destrocos": [
+    "Vasculhar destroços na praia",
+    "Revirar o que o mar deixou",
+    "Caminhar pela linha da maré"
+  ],
+  "atv_erm_mariscar": [
+    "Procurar mariscos nas rochas",
+    "Catar mariscos na maré baixa",
+    "Juntar mariscos nas poças"
+  ],
+  "atv_erm_lampadas": [
+    "Seguir as luzes do pântano",
+    "Aproximar-se das luzes frias",
+    "Observar os fogos-fátuos"
+  ],
+  "atv_erm_juncos": [
+    "Colher juncos e raízes",
+    "Cortar juncos no brejo",
+    "Juntar raízes comestíveis"
+  ],
+  "atv_erm_escalada": [
+    "Escalar até um mirante",
+    "Subir ao penhasco mais alto",
+    "Escalar a rocha que domina o vale"
+  ],
+  "atv_erm_cabras": [
+    "Seguir as cabras montesas",
+    "Acompanhar as cabras pela trilha",
+    "Observar o rebanho selvagem"
+  ],
+  "atv_erm_inscricao": [
+    "Decifrar uma inscrição antiga",
+    "Ler os sinais gravados na pedra",
+    "Estudar a pedra riscada"
+  ],
+  "atv_erm_escavar": [
+    "Escavar entre as ruínas",
+    "Remover entulho em busca de algo",
+    "Cavar no meio dos escombros"
+  ],
+  "atv_erm_caverna_eco": [
+    "Escutar o eco da caverna",
+    "Gritar para ver o que responde",
+    "Parar no escuro e escutar"
+  ],
+  "atv_erm_cogumelos": [
+    "Colher cogumelos luminosos",
+    "Examinar os cogumelos da gruta",
+    "Recolher cogumelos nas paredes"
+  ],
+  "atv_erm_runas": [
+    "Estudar as runas antigas",
+    "Decifrar as marcas arcaicas",
+    "Tocar os sinais gastos"
+  ],
+  "atv_erm_fonte_sagrada": [
+    "Beber da fonte sagrada",
+    "Banhar o rosto na água benta",
+    "Ajoelhar-se junto à fonte"
+  ],
+  "atv_erm_vigilia": [
+    "Passar uma vigília no local sagrado",
+    "Meditar até a madrugada",
+    "Velar o altar durante a noite"
+  ],
+  "atv_erm_bandagem": [
+    "Enfaixar os ferimentos",
+    "Parar para cuidar dos machucados",
+    "Tratar os cortes à beira do caminho"
+  ],
+  "atv_erm_nevoa": [
+    "Atravessar a névoa pela luz",
+    "Seguir uma luz na névoa",
+    "Aventurar-se na névoa densa"
+  ],
+  "atv_erm_fogueira_neve": [
+    "Acender uma fogueira contra o frio",
+    "Armar uma fogueira para aquecer",
+    "Juntar lenha e acender o fogo"
+  ],
+  "atv_erm_acampamento_vigia": [
+    "Espiar o acampamento de longe",
+    "Vigiar o acampamento sem ser visto",
+    "Rastejar até a beira do acampamento"
+  ],
+  "atv_erm_alvorada": [
+    "Ver o amanhecer do alto",
+    "Esperar o sol nascer",
+    "Descansar a vista ao nascer do sol"
+  ],
+  "apos_atividade": [
+    {
+      "t": "",
+      "peso": 30
+    },
+    {
+      "t": "O dia segue seu curso."
+    },
+    {
+      "t": "Você volta ao movimento das ruas.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Há outras coisas a fazer por aqui."
+    },
+    {
+      "t": "O lugar continua a girar ao seu redor.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Lá fora, a vida não parou para esperar você.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Uma respiração, e o resto do dia reaparece."
+    },
+    {
+      "t": "O assunto fica para trás, mas não some da memória."
+    },
+    {
+      "t": "Você ajeita a bolsa e olha o que vem a seguir."
+    },
+    {
+      "t": "O barulho do povoado cobre o silêncio que ficou.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "A rua parece igual, mas você nem tanto.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Nada muda no povoado, a não ser você.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Falta ver o que o resto do dia reserva."
+    },
+    {
+      "t": "Você confere os bolsos por hábito e segue."
+    },
+    {
+      "t": "Há mais por fazer, e o tempo corre."
+    },
+    {
+      "t": "O dia ainda tem fôlego, e você também."
+    },
+    {
+      "t": "Você deixa o último assunto onde ele estava."
+    },
+    {
+      "t": "O sino de algum lugar marca a hora, e ninguém liga.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Um cão atravessa a rua como se nada tivesse acontecido.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Você sacode a poeira do que acabou de ver."
+    },
+    {
+      "t": "Cheiro de fumaça e pão atravessa a rua.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Uma carroça passa, e o assunto vai com ela.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "O que fica é um pouco de cansaço e um pouco de ideia."
+    },
+    {
+      "t": "Por ora, é o bastante."
+    },
+    {
+      "t": "Você espia o céu para calcular quanto resta."
+    },
+    {
+      "t": "Conversas distantes preenchem o vazio que sobrou.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Você respira o ar do povoado e escolhe o próximo passo.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "A conversa acabou, mas o ritmo do povoado não mudou.",
+      "tags": [
+        "seguro"
+      ],
+      "nao": [
+        "castelo",
+        "ruina",
+        "masmorra",
+        "subterraneo",
+        "caverna"
+      ]
+    },
+    {
+      "t": "Você aperta a correia da bolsa e olha em volta."
+    },
+    {
+      "t": "",
+      "peso": 30,
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O dia segue seu curso.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Há outras coisas a fazer por aqui.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Uma respiração, e o resto do dia reaparece.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O assunto fica para trás, mas não some da memória.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você ajeita a bolsa e olha o que vem a seguir.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Falta ver o que o resto do dia reserva.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você confere os bolsos por hábito e segue.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Há mais por fazer, e o tempo corre.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O dia ainda tem fôlego, e você também.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você deixa o último assunto onde ele estava.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você sacode a poeira do que acabou de ver.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "O que fica é um pouco de cansaço e um pouco de ideia.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Por ora, é o bastante.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você espia o céu para calcular quanto resta.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "Você aperta a correia da bolsa e olha em volta.",
+      "tags": [
+        "seguro"
+      ]
+    },
+    {
+      "t": "A tarde, ou o que for dela, continua à espera.",
+      "tags": [
+        "subterraneo",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Aqui embaixo, a tarde é só uma ideia; o resto do dia espera por você.",
+      "tags": [
+        "subterraneo",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Sem sol para medir as horas, você supõe que ainda é tarde.",
+      "tags": [
+        "subterraneo",
+        "tarde"
+      ]
+    },
+    {
+      "t": "A tarde, ou o que for dela, continua à espera.",
+      "tags": [
+        "masmorra",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Na pedra, a tarde é só um palpite; as sombras seguem esperando.",
+      "tags": [
+        "masmorra",
+        "tarde"
+      ]
+    },
+    {
+      "t": "Sem sol para medir as horas, você supõe que ainda é tarde.",
+      "tags": [
+        "masmorra",
+        "tarde"
+      ]
+    }
+  ],
+  "fora_rastro": [
+    "Você muda de rota e o rastro some atrás de você.",
+    "Você faz uma volta larga, e as pegadas ficam para trás.",
+    "Melhor deixar quem passou por ali seguir seu caminho. Você escolhe o outro.",
+    "Você troca de trilha, de ouvido atento, até o rastro sumir.",
+    "Você abre mão do rastro e segue por onde ninguém passou."
+  ],
+  "fora_rastro_sangue": [
+    "Você contorna o rastro, olhando para trás de vez em quando.",
+    "Você passa ao largo das manchas e não pergunta de quem eram.",
+    "Você dá a volta pelo mato, longe do que foi arrastado.",
+    "Você apressa o passo e deixa o rastro para quem tiver estômago.",
+    "Você escolhe outra trilha, e o sangue seco fica para trás."
+  ],
+  "fora_ronda": [
+    "Você recua. A noite é longa e a rua, escura.",
+    "Você dá meia-volta e procura uma esquina mais iluminada.",
+    "Melhor não saber o que corria. Você volta para perto das lamparinas.",
+    "Você deixa a sombra seguir seu rumo e escolhe o seu.",
+    "Você encosta na parede, espera a rua esvaziar e segue de volta."
+  ],
+  "fora_carroceiro": [
+    "Ele dá de ombros e chicoteia os bois.",
+    "O carroceiro encolhe os ombros e a carroça segue, rangendo.",
+    "Sem insistir, ele estala as rédeas e se afasta devagar.",
+    "Ele toca no chapéu, indiferente, e some na curva."
+  ],
+  "fora_desvio": [
+    "Você volta e procura outro caminho. O desvio toma boa parte do dia.",
+    "Você dá a volta por onde dá, e a volta custa o resto da manhã, ou da tarde.",
+    "O caminho alternativo é mais longo do que parecia, e o tempo vai se perdendo nele.",
+    "Você contorna o obstáculo, e o desvio rouba horas que você não tinha.",
+    "Você escolhe a rota segura, e a rota segura demora."
+  ],
+  "fora_chuva": [
+    "Você ergue a gola e prossegue. O frio entra em seus ossos.",
+    "Você aperta o capuz e segue sob a água, com o frio no encalço.",
+    "Sem tempo de procurar teto, você baixa a cabeça e continua. A chuva faz o resto do caminho parecer mais longo.",
+    "Você deixa o abrigo para trás e segue ensopando as botas.",
+    "Você prossegue na chuva, com a roupa pesando a cada passo."
+  ],
+  "regiao_descoberta": [
+    "O caminho conhecido acaba, e você segue mesmo assim. Horas depois, a paisagem muda: {$destino.o_nome} se abre à sua frente.",
+    "Nenhum mapa fala destas terras. Você abre trilha onde não há trilha até alcançar {$destino.o_nome}.",
+    "Além do último marco, o mundo continua. Cansad{=o/a@heroi} e atent{=o/a@heroi}, você chega {$destino.ao_nome}."
+  ],
+  "portal_travessia": [
+    "O ar se dobra como tecido molhado. Um passo, e o mundo que você conhecia fica do outro lado: {$destino.o_nome}.",
+    "Luz sem fonte engole você. Quando os olhos voltam a ver, você está {$destino.no_nome}.",
+    "Por um instante você não tem peso nem nome. Depois, o chão {$destino.do_nome} sob os pés."
+  ],
+  "masmorra_descoberta": [
+    "Atrás de pedras soltas, uma escada desce para o escuro. Ar frio sobe dela: {$poi.o_nome}.",
+    "O chão cede um palmo e revela uma passagem antiga. Alguém a selou há muito tempo. {$poi.O_nome} espera.",
+    "Entre raízes e entulho, você acha uma porta de ferro meio enterrada. Do outro lado, {$poi.o_nome}."
+  ],
+  "reg_n_deserto_dunas": [
+    "Deserto de Sal-Rubro",
+    "Deserto do Sol Calado",
+    "Deserto das Mil Tumbas",
+    "Deserto do Vento Cantor",
+    "Deserto de Vidro Moído"
+  ],
+  "reg_d_deserto_dunas": [
+    "A terra vira areia sob suas botas, e o horizonte treme como água que nunca chega.",
+    "Dunas se empilham até onde a vista alcança. O calor pesa mais que a mochila.",
+    "Ossos alvos marcam o caminho dos que vieram antes. O silêncio aqui tem gosto de sal."
+  ],
+  "reg_n_oasis": [
+    "Oásis do Poço Dourado",
+    "Oásis das Três Palmeiras",
+    "Oásis do Espelho Perdido",
+    "Oásis da Rainha Sedenta"
+  ],
+  "reg_d_oasis": [
+    "Depois de tanta poeira, o verde parece mentira. A água é de verdade, e fria.",
+    "Palmeiras se curvam sobre um espelho d'água. Camelos bebem sem pressa e você só os observa.",
+    "O ar muda: umidade, sombra, cheiro de tâmaras. Alguém acendeu uma fogueira por perto."
+  ],
+  "reg_n_savana_dourada": [
+    "Savana do Capim Dourado",
+    "Savana dos Leões Cegos",
+    "Savana das Mil Manadas",
+    "Savana da Seca Longa"
+  ],
+  "reg_d_savana_dourada": [
+    "O capim alto ondula como um mar dourado, e algo se move dentro dele.",
+    "Acácias esparsas riscam o céu. Ao longe, uma manada levanta poeira que nunca assenta.",
+    "O sol é largo e sem sombra. Você sente olhos amarelos acompanhando seus passos."
+  ],
+  "reg_n_selva_densa": [
+    "Selva dos Mil Sussurros",
+    "Selva do Jaguar Branco",
+    "Selva da Chuva Eterna",
+    "Selva Verde-Sangue"
+  ],
+  "reg_d_selva_densa": [
+    "A mata fecha sobre sua cabeça como um punho verde. Tudo pinga, tudo cheira a vida e a podridão.",
+    "Lianas grossas como braços, folhas do tamanho de escudos e um coro de bichos que cala quando você passa.",
+    "O calor é úmido e pegajoso. Você abre trilha a facão, e a selva fecha atrás de você."
+  ],
+  "reg_n_templo_selva": [
+    "Templo do Sol Devorado",
+    "Templo das Mil Serpentes",
+    "Templo do Deus Sem Nome",
+    "Templo da Orquídea Negra"
+  ],
+  "reg_d_templo_selva": [
+    "Entre as raízes, degraus de pedra surgem como ossos de um gigante. Alguém, um dia, rezou aqui.",
+    "A selva engoliu um templo inteiro. Ídolos de olhos vazios espiam por entre as folhas.",
+    "Pedras cobertas de musgo formam um caminho cerimonial. O silêncio é reverente e ameaçador."
+  ],
+  "reg_n_tundra_gelada": [
+    "Tundra do Silêncio Branco",
+    "Tundra dos Lobos Mudos",
+    "Tundra da Última Aurora",
+    "Tundra do Vento Ossudo"
+  ],
+  "reg_d_tundra_gelada": [
+    "O branco engole tudo, e o vento corta mais fundo que qualquer lâmina.",
+    "Neve dura, céu baixo e nenhuma árvore. Seu hálito congela antes de sumir.",
+    "Pegadas enormes cruzam a planície, já meio cobertas de neve. Você segue com cuidado."
+  ],
+  "reg_n_geleira_azul": [
+    "Geleira da Coroa Gélida",
+    "Geleira dos Mil Gritos",
+    "Geleira do Dragão Branco",
+    "Geleira Rangente"
+  ],
+  "reg_d_geleira_azul": [
+    "O gelo geme sob seus pés. Em suas profundezas azuis, formas escuras parecem se mover.",
+    "Muralhas de gelo azul se erguem à sua volta. Cada passo é uma aposta contra a fenda seguinte.",
+    "O frio aqui é antigo. Você ouve o gelo estalar como ossos de um gigante adormecido."
+  ],
+  "reg_n_vulcao": [
+    "Vulcão do Rei de Cinza",
+    "Vulcão Monte-Brasa",
+    "Vulcão das Cem Fumaças",
+    "Vulcão do Último Rugido"
+  ],
+  "reg_d_vulcao": [
+    "A terra treme baixinho e o ar cheira a enxofre. Cinza cai como neve preta.",
+    "Rios de rocha incandescente cortam a encosta. O calor sopra no seu rosto a cada passo.",
+    "A montanha respira fogo. Você sobe devagar, atento ao chão que estala e ao céu avermelhado."
+  ],
+  "reg_n_ilha_deserta": [
+    "Ilha da Concha Partida",
+    "Ilha do Náufrago Branco",
+    "Ilha dos Mil Caranguejos",
+    "Ilha Sem Nome"
+  ],
+  "reg_d_ilha_deserta": [
+    "Areia branca, palmeiras e nenhuma pegada além das suas. A ilha parece esperar por você.",
+    "Ondas mansas lambem a praia. Ao fundo, a mata verde esconde o que quer que viva aqui.",
+    "Gaivotas gritam sobre uma ilha esquecida pelos mapas. Alguém já esteve aqui: há restos de fogueira."
+  ],
+  "reg_n_arquipelago": [
+    "Arquipélago das Cem Brumas",
+    "Arquipélago do Albatroz",
+    "Arquipélago dos Dentes de Coral",
+    "Arquipélago do Sol Cadente"
+  ],
+  "reg_d_arquipelago": [
+    "Ilhotas e recifes pontilham o mar como migalhas. A maré decide por onde você passa.",
+    "Rochas negras furam as ondas. Entre elas, a água muda de azul para verde e de verde para escuro.",
+    "O mar se parte em mil caminhos. Você atravessa bancos de areia e brumas que escondem velas."
+  ],
+  "reg_n_porto_pirata": [
+    "Porto do Corvo Negro",
+    "Porto dos Sete Enforcados",
+    "Porto da Maré Podre",
+    "Porto do Rei dos Mares"
+  ],
+  "reg_d_porto_pirata": [
+    "Velas negras balançam num porto sem lei. Risadas, rum e facas competem pelo ar.",
+    "Navios de todas as bandeiras apodrecem lado a lado. Aqui, cada olhar tem um preço.",
+    "Cordas, gaiolas penduradas e um cheiro de sal e pólvora. Os piratas fingem não ver você."
+  ],
+  "reg_n_cidade_grande": [
+    "Cidade de Aurelmar",
+    "Cidade de Valdoro",
+    "Cidade das Cem Torres",
+    "Cidade de Altaluz",
+    "Cidade de Brasa-Branca"
+  ],
+  "reg_d_cidade_grande": [
+    "Muralhas altas, torres de sino e uma multidão que não para. Você nunca viu tanta gente junta.",
+    "O portão se abre para ruas de pedra, estandartes e mercadores aos gritos. A cidade fervilha.",
+    "Fumaça de mil chaminés sobe para um céu de telhados. Aqui, cada esquina guarda uma oportunidade ou um perigo."
+  ],
+  "reg_n_feudo_castelo": [
+    "Feudo do Barão Corvo",
+    "Feudo de Pedra Cinzenta",
+    "Feudo dos Três Rios",
+    "Feudo da Rosa Sombria",
+    "Feudo de Alto-Vale"
+  ],
+  "reg_d_feudo_castelo": [
+    "Campos cercados, um castelo no alto da colina e camponeses que baixam o olhar à sua passagem.",
+    "Estandartes tremulam sobre muralhas de pedra. Soldados vigiam a estrada com ar entediado.",
+    "A terra pertence a um senhor, e todos aqui sabem disso. O castelo domina o horizonte como um punho."
+  ],
+  "reg_n_cidade_anao": [
+    "Cidade de Khaz-Morn",
+    "Cidade sob a Montanha",
+    "Cidade de Ferro-Fundo",
+    "Cidade de Thrum-Dal"
+  ],
+  "reg_d_cidade_anao": [
+    "Um portão de pedra viva se abre na montanha. Lá dentro, martelos soam como um coração.",
+    "Escadarias esculpidas descem até salões iluminados por forjas. Os anões {$heroi.lo} observam com desconfiança.",
+    "Runas antigas brilham nas paredes. O ar quente cheira a ferro, carvão e cerveja escura."
+  ],
+  "reg_n_vila_halfling": [
+    "Vale das Cem Tocas",
+    "Vale do Pão Quente",
+    "Vale de Bolota Alegre",
+    "Vale do Tio Cachimbo"
+  ],
+  "reg_d_vila_halfling": [
+    "Colinas redondas com portinhas coloridas. Cheiro de pão, fumo e torta de maçã.",
+    "Hortas bem cuidadas, cercas baixas e crianças minúsculas que fogem rindo ao verem você.",
+    "Tudo aqui parece feito para gente pequena e confortável. Você precisa se abaixar para entrar."
+  ],
+  "reg_n_acampamento_orc": [
+    "Domínio do Clã Dente-Podre",
+    "Domínio da Mão Negra",
+    "Domínio do Grande Urro",
+    "Domínio dos Quebra-Escudos"
+  ],
+  "reg_d_acampamento_orc": [
+    "Crânios em estacas marcam o território. Tambores de guerra ecoam em algum lugar à frente.",
+    "O cheiro de fumaça e carne queimada vem do vento. Você está em terra de orcs, e eles sabem disso.",
+    "Fogueiras pontilham a planície devastada. Vozes guturais cantam uma canção de guerra."
+  ],
+  "reg_n_mosteiro_montanha": [
+    "Pico da Chama Pequena",
+    "Pico do Silêncio Sereno",
+    "Pico dos Monges Calados",
+    "Pico da Nuvem Baixa"
+  ],
+  "reg_d_mosteiro_montanha": [
+    "Acima das nuvens, uma escadaria de pedra leva a telhados curvos. Sinos ecoam no ar rarefeito.",
+    "Bandeiras de oração tremulam num vento gelado. Alguém acende incenso lá no alto.",
+    "O silêncio aqui é uma coisa viva. Você sobe degrau a degrau até um lugar de paz improvável."
+  ],
+  "reg_n_posto_fronteira": [
+    "Marca da Última Lança",
+    "Marca do Rei Distante",
+    "Marca dos Três Marcos",
+    "Marca do Fim do Mapa"
+  ],
+  "reg_d_posto_fronteira": [
+    "Um forte de madeira e uma bandeira desbotada marcam o limite do mundo conhecido.",
+    "Soldados cansados guardam um posto no meio do nada. Eles recebem você com mais curiosidade que cortesia.",
+    "Além deste marco, os mapas ficam em branco. Aqui, ao menos, há fogo e um prato quente."
+  ],
+  "reg_n_floresta_elfica": [
+    "Floresta de Prata Viva",
+    "Floresta das Folhas Cantantes",
+    "Floresta de Luzirrama",
+    "Floresta do Eterno Verão"
+  ],
+  "reg_d_floresta_elfica": [
+    "As árvores aqui são imensas e luminosas. Folhas prateadas cantam baixinho quando o vento passa.",
+    "Cada tronco guarda séculos. A luz filtrada cai em feixes dourados, e algo observa você das copas.",
+    "Um silêncio reverente, quebrado por flautas distantes. Você tem a estranha sensação de ser um intruso bem-vindo."
+  ],
+  "reg_n_canion_rubro": [
+    "Cânion do Vento Vermelho",
+    "Cânion das Mil Águias",
+    "Cânion do Rio Seco",
+    "Cânion da Sede Longa"
+  ],
+  "reg_d_canion_rubro": [
+    "Paredes de pedra vermelha se erguem dos dois lados. O vento assobia como uma flauta quebrada.",
+    "O caminho se afunda numa garganta estreita. Lá em cima, uma fita de céu e águias em círculos.",
+    "Estratos de rocha contam milênios. Seus passos ecoam e voltam como se alguém os repetisse."
+  ],
+  "reg_n_lago_nevoa": [
+    "Lago do Véu Pálido",
+    "Lago da Dama Cinzenta",
+    "Lago das Mil Brumas",
+    "Lago do Sino Afogado"
+  ],
+  "reg_d_lago_nevoa": [
+    "Uma névoa leitosa cobre a água parada. Em algum lugar, um sino toca embaixo da superfície.",
+    "O lago some no branco. Você ouve remos, mas não vê barco algum.",
+    "Águas negras e calmas refletem um céu que não está lá. A margem parece mais distante a cada passo."
+  ],
+  "reg_n_ruinas_cidadela": [
+    "Cidadela do Rei Esquecido",
+    "Cidadela de Pedra Negra",
+    "Cidadela da Coroa Enferrujada",
+    "Cidadela das Sombras Longas"
+  ],
+  "reg_d_ruinas_cidadela": [
+    "Muralhas rachadas cercam o que um dia foi uma fortaleza orgulhosa. Corvos reinam aqui agora.",
+    "Torres decapitadas, pátios tomados pelo mato e um vento que carrega ecos de batalha.",
+    "Uma cidadela caída. Cada pedra guarda uma história, e algumas ainda estão vivas."
+  ],
+  "reg_n_cripta": [
+    "Cripta do Rei Sem Sono",
+    "Cripta das Mil Velas Negras",
+    "Cripta de Lady Morwen",
+    "Cripta do Barão Afogado"
+  ],
+  "reg_d_cripta": [
+    "Uma escada úmida desce. O ar fede a mofo e a coisas que não deveriam estar quietas.",
+    "Degraus gastos levam à escuridão. Em algum lugar lá embaixo, ossos rangem."
+  ],
+  "reg_n_mina_abandonada": [
+    "Mina do Veio Perdido",
+    "Mina das Mil Picaretas",
+    "Mina do Eco Preto",
+    "Mina da Lamparina Apagada"
+  ],
+  "reg_d_mina_abandonada": [
+    "Trilhos enferrujados somem no escuro. Algo ali embaixo sabe que você chegou.",
+    "Vigas apodrecidas seguram o teto por teimosia. Há marcas de garras nas paredes."
+  ],
+  "reg_n_catacumbas": [
+    "Catacumbas do Santo Calado",
+    "Catacumbas dos Mil Nomes",
+    "Catacumbas sob a Catedral",
+    "Catacumbas do Pó Branco"
+  ],
+  "reg_d_catacumbas": [
+    "Sob o chão consagrado, corredores de nichos se estendem. Cada caveira parece seguir você com as órbitas.",
+    "Um alçapão revela túneis de ossos empilhados. Alguém ainda reza aqui, ou algo imita o som."
+  ],
+  "reg_n_caverna_cristal": [
+    "Caverna de Cristal Cantante",
+    "Caverna dos Mil Reflexos",
+    "Caverna do Coração Azul",
+    "Caverna da Geada Viva"
+  ],
+  "reg_d_caverna_cristal": [
+    "Cristais enormes brilham sozinhos, e a luz dança nas paredes. É lindo, até você notar que o brilho pulsa.",
+    "Um som agudo, quase musical, vem de dentro. Cada passo se multiplica em mil reflexos."
+  ],
+  "reg_n_ninho_dragao": [
+    "Ninho do Dragão Rubro",
+    "Ninho de Cinzas e Ouro",
+    "Ninho do Último Wyrm",
+    "Ninho da Asa Negra"
+  ],
+  "reg_d_ninho_dragao": [
+    "O ar fica quente e pesado. Ossos chamuscados e um brilho de ouro lá no fundo prometem riqueza e morte.",
+    "Garras do tamanho de espadas riscaram a rocha. O que vive aqui não gosta de visitas."
+  ],
+  "reg_n_templo_submerso": [
+    "Templo do Deus Afogado",
+    "Templo das Marés Mortas",
+    "Templo da Dama Coral",
+    "Templo Sob as Ondas"
+  ],
+  "reg_d_templo_submerso": [
+    "Na maré baixa, degraus de pedra emergem do mar. Lá embaixo, algo antigo espera sob a água escura.",
+    "Colunas cobertas de cracas sustentam um templo inundado. Bolhas sobem de lugares onde não deveria haver ar."
+  ],
+  "reg_n_labirinto": [
+    "Labirinto do Minotauro Cego",
+    "Labirinto dos Mil Espelhos",
+    "Labirinto de Espinhos",
+    "Labirinto do Rei Louco"
+  ],
+  "reg_d_labirinto": [
+    "Paredes altas e idênticas se fecham em curvas sem fim. Você marca o caminho de volta, e a marca some.",
+    "O corredor se bifurca, e se bifurca de novo. Em algum lugar, passos ecoam em compasso com os seus."
+  ],
+  "reg_n_reino_feerico": [
+    "Reino das Fadas Esquecidas",
+    "Reino do Crepúsculo Verde",
+    "Reino de Folhas e Ouro",
+    "Reino do Eterno Crepúsculo"
+  ],
+  "reg_d_reino_feerico": [
+    "O mundo vira do avesso: cogumelos altos como casas, luz sem sol e risos que vêm de lugar nenhum.",
+    "Você atravessa e a realidade amolece. Cores demais, doçura demais, e um olhar invisível que sorri.",
+    "Aqui, o tempo dança. Fadas ocultas cochicham, e cada promessa que você fizer vai pesar."
+  ],
+  "reg_n_plano_sombras": [
+    "Plano das Sombras",
+    "Reverso Cinzento",
+    "Mundo Sem Cor",
+    "Plano do Crepúsculo Eterno"
+  ],
+  "reg_d_plano_sombras": [
+    "As cores fogem de tudo. Sua sombra se solta do chão e caminha um passo à frente.",
+    "Um mundo de cinza e vidro negro: o reflexo de um lugar que você conhece, mas errado.",
+    "O silêncio aqui pesa. As sombras têm vontade própria, e algumas já sabem seu nome."
+  ],
+  "reg_n_plano_fogo": [
+    "Plano do Fogo",
+    "Reino das Brasas",
+    "Império do Fogo Eterno",
+    "Reino da Chama Primeira"
+  ],
+  "reg_d_plano_fogo": [
+    "O ar queima os pulmões. O chão é vidro vivo, e o céu, uma abóbada de chamas.",
+    "Rios de magma cortam planícies de obsidiana. Por toda parte, o rugido grave de algo imenso.",
+    "Cada respiração arde. Seres de chama observam de longe, curiosos e famintos."
+  ],
+  "reg_n_abismo_aguas": [
+    "Abismo das Águas",
+    "Abismo das Mil Marés",
+    "Abismo do Mar Sem Fundo",
+    "Abismo Azul-Negro"
+  ],
+  "reg_d_abismo_aguas": [
+    "Você cai por uma luz esverdeada e pousa onde o ar é feito de água. Respirar, estranhamente, não é problema.",
+    "Colunas de coral sobem para um céu líquido. Peixes brilhantes riscam a escuridão.",
+    "Um mar sem superfície e sem fundo. Sons graves, baleias ou algo pior, vibram nos seus ossos."
+  ],
+  "reg_n_terras_mortos": [
+    "Reino dos Mortos",
+    "Vale do Sono Longo",
+    "Campo da Última Névoa",
+    "Império Sem Aurora"
+  ],
+  "reg_d_terras_mortos": [
+    "Uma névoa fria rasteja por túmulos sem fim. Lamentos distantes sobem do chão.",
+    "Aqui os vivos são intrusos. Mãos pálidas parecem acenar do meio da neblina.",
+    "O céu não tem sol. Lápides se estendem até o horizonte, e cada uma tem um nome que você quase reconhece."
+  ],
+  "reg_l_de_trilha": [
+    "trilha das Cem Pegadas",
+    "trilha do Último Poço",
+    "trilha dos Ossos Alvos",
+    "trilha da Caravana Esquecida"
+  ],
+  "reg_l_de_mar": [
+    "mar de Dunas Vivas",
+    "mar de Areia Rubra",
+    "mar do Sol Calado",
+    "mar de Vidro Moído"
+  ],
+  "reg_l_de_ruina": [
+    "ruína do Escriba Enterrado",
+    "ruína da Rainha de Areia",
+    "ruína das Sete Cisternas",
+    "ruína do Sol Quebrado"
+  ],
+  "reg_l_de_caravana": [
+    "caravana dos Mortos Sedentos",
+    "caravana do Camelo Cego",
+    "caravana da Sede Eterna",
+    "caravana Soterrada"
+  ],
+  "reg_l_oa_lagoa": [
+    "lagoa das Palmas Quietas",
+    "lagoa do Espelho Verde",
+    "lagoa da Garça Dourada",
+    "lagoa dos Três Desejos"
+  ],
+  "reg_l_oa_pouso": [
+    "pouso dos Cameleiros",
+    "pouso do Poço Fundo",
+    "pouso do Ancião de Sal",
+    "pouso das Cem Tendas"
+  ],
+  "reg_l_oa_palmeiral": [
+    "palmeiral do Vento Manso",
+    "palmeiral Sussurrante",
+    "palmeiral dos Macacos Mudos",
+    "palmeiral da Lua Rasa"
+  ],
+  "reg_l_sv_campo": [
+    "campo de Capim Dourado",
+    "campo do Leão Cego",
+    "campo dos Ventos Altos",
+    "campo do Sol Longo"
+  ],
+  "reg_l_sv_baoba": [
+    "baobá do Velho Juramento",
+    "baobá Oco",
+    "baobá da Rainha Sem Sombra",
+    "baobá dos Mil Anos"
+  ],
+  "reg_l_sv_aguada": [
+    "aguada do Fim da Seca",
+    "aguada dos Búfalos Pálidos",
+    "aguada do Crocodilo Velho",
+    "aguada das Garças Magras"
+  ],
+  "reg_l_sv_toca": [
+    "toca das Hienas Risonhas",
+    "toca do Rei Ferido",
+    "toca da Mãe de Garras",
+    "toca dos Ossos Roídos"
+  ],
+  "reg_l_sl_borda": [
+    "borda da Selva Cega",
+    "borda do Verde Fechado",
+    "borda das Lianas Famintas",
+    "borda da Chuva Sem Fim"
+  ],
+  "reg_l_sl_rio": [
+    "rio das Cem Presas",
+    "rio do Jaguar Branco",
+    "rio Sussurro",
+    "rio da Lágrima Verde"
+  ],
+  "reg_l_sl_cipoal": [
+    "cipoal dos Sussurros",
+    "cipoal Sem Fim",
+    "cipoal da Aranha Rubra",
+    "cipoal dos Olhos Abertos"
+  ],
+  "reg_l_sl_clareira": [
+    "clareira dos Tambores Mudos",
+    "clareira do Ídolo Quebrado",
+    "clareira da Orquídea Negra",
+    "clareira das Borboletas Brancas"
+  ],
+  "reg_l_ts_escadaria": [
+    "escadaria dos Mil Degraus",
+    "escadaria Engolida",
+    "escadaria da Serpente de Pedra",
+    "escadaria do Rei Sol"
+  ],
+  "reg_l_ts_templo": [
+    "templo do Sol Esquecido",
+    "templo da Lua Quebrada",
+    "templo dos Deuses Mudos",
+    "templo da Serpente Emplumada",
+    "templo do Verde Eterno"
+  ],
+  "reg_l_ts_altar": [
+    "altar das Mil Oferendas",
+    "altar do Jaguar Sagrado",
+    "altar da Chuva Sangrenta",
+    "altar Rachado"
+  ],
+  "reg_l_ts_estatua": [
+    "estátua do Guardião Sem Rosto",
+    "estátua da Deusa de Cipó",
+    "estátua Caída",
+    "estátua dos Olhos de Jade"
+  ],
+  "reg_l_tu_planicie": [
+    "planície do Branco Eterno",
+    "planície dos Lobos Calados",
+    "planície da Ventania Larga",
+    "planície das Pegadas Longas"
+  ],
+  "reg_l_tu_aldeia": [
+    "aldeia dos Caçadores de Gelo",
+    "aldeia do Fogo Teimoso",
+    "aldeia da Foca Branca",
+    "aldeia das Peles Cinzentas"
+  ],
+  "reg_l_tu_ossos": [
+    "cemitério de Mamutes",
+    "cemitério do Gigante Branco",
+    "cemitério das Presas Longas",
+    "cemitério dos Ventos"
+  ],
+  "reg_l_ge_lingua": [
+    "língua de Gelo Azul",
+    "língua da Dama Branca",
+    "língua do Fim do Mundo",
+    "língua das Mil Fendas"
+  ],
+  "reg_l_ge_fenda": [
+    "fenda do Eco Azul",
+    "fenda da Queda Muda",
+    "fenda dos Mortos Congelados",
+    "fenda do Silêncio Branco"
+  ],
+  "reg_l_ge_gruta": [
+    "gruta de Cristal Frio",
+    "gruta do Dragão Congelado",
+    "gruta das Estalactites Azuis",
+    "gruta do Sono Branco"
+  ],
+  "reg_l_vu_encosta": [
+    "encosta de Cinza Viva",
+    "encosta das Brasas Mudas",
+    "encosta do Fogo Adormecido",
+    "encosta Negra"
+  ],
+  "reg_l_vu_cratera": [
+    "cratera do Dragão Dormindo",
+    "cratera da Boca Rubra",
+    "cratera do Sangue Velho",
+    "cratera dos Gigantes de Fogo"
+  ],
+  "reg_l_vu_lava": [
+    "rio de Fogo Lento",
+    "rio das Cem Brasas",
+    "rio do Sangue da Terra",
+    "rio de Ouro Derretido"
+  ],
+  "reg_l_vu_forja": [
+    "forja do Gigante de Cinza",
+    "forja dos Ferreiros Rubros",
+    "forja do Primeiro Martelo",
+    "forja da Salamandra Cega"
+  ],
+  "reg_l_il_praia": [
+    "praia da Concha Dourada",
+    "praia do Náufrago Sem Nome",
+    "praia das Areias Brancas",
+    "praia do Caranguejo Rei"
+  ],
+  "reg_l_il_mata": [
+    "mata da Palma Torta",
+    "mata dos Papagaios Mudos",
+    "mata do Fogo Distante",
+    "mata Sem Trilha"
+  ],
+  "reg_l_il_naufragio": [
+    "naufrágio do Corsário Cego",
+    "naufrágio da Rosa dos Ventos",
+    "naufrágio do Ouro Maldito",
+    "naufrágio da Gaivota Negra"
+  ],
+  "reg_l_il_enseada": [
+    "enseada do Mapa Rasgado",
+    "enseada dos Três Corais",
+    "enseada da Lua Baixa",
+    "enseada do Tesouro Falso"
+  ],
+  "reg_l_ar_recife": [
+    "recife dos Dentes Verdes",
+    "recife da Sereia Triste",
+    "recife do Coral Rubro",
+    "recife Afogado"
+  ],
+  "reg_l_ar_ilhota": [
+    "ilhota do Albatroz",
+    "ilhota das Focas Cinzentas",
+    "ilhota da Vela Rasgada",
+    "ilhota do Pescador Perdido"
+  ],
+  "reg_l_ar_farol": [
+    "farol do Fim das Águas",
+    "farol Sem Luz",
+    "farol do Velho Marujo",
+    "farol da Tempestade"
+  ],
+  "reg_l_ar_baixio": [
+    "baixio dos Mil Naufrágios",
+    "baixio da Névoa Viva",
+    "baixio do Kraken Adormecido",
+    "baixio dos Ventos Cruzados"
+  ],
+  "reg_l_pp_cais": [
+    "cais dos Sete Mares",
+    "cais da Bandeira Negra",
+    "cais do Rum Amargo",
+    "cais do Capitão Sem Nome"
+  ],
+  "reg_l_pp_covil": [
+    "covil do Barba de Sal",
+    "covil dos Cães do Mar",
+    "covil do Rei dos Corsários",
+    "covil da Âncora Torta"
+  ],
+  "reg_l_pp_baia": [
+    "baía dos Navios Fantasmas",
+    "baía do Tesouro Enterrado",
+    "baía das Velas Negras",
+    "baía dos Enforcados"
+  ],
+  "reg_l_ci_portao": [
+    "portão do Sol Poente",
+    "portão do Corvo Branco",
+    "portão das Sete Chaves",
+    "portão do Leão Dourado"
+  ],
+  "reg_l_ci_bairro": [
+    "bairro das Lanternas",
+    "bairro dos Mercadores",
+    "bairro Alto",
+    "bairro dos Artesãos"
+  ],
+  "reg_l_ci_vielas": [
+    "vielas do Gato Cego",
+    "vielas dos Ladrões",
+    "vielas da Cera Preta",
+    "vielas do Fim da Rua"
+  ],
+  "reg_l_ci_catedral": [
+    "catedral da Luz Eterna",
+    "catedral dos Sinos Dourados",
+    "catedral do Santo Mártir",
+    "catedral das Mil Velas"
+  ],
+  "reg_l_ci_arena": [
+    "arena do Sangue e Areia",
+    "arena dos Campeões",
+    "arena do Leão Preto",
+    "arena das Mil Vozes"
+  ],
+  "reg_l_ca_vila": [
+    "vila do Pão Magro",
+    "vila dos Camponeses",
+    "vila do Moinho Alto",
+    "vila da Fonte Curta"
+  ],
+  "reg_l_ca_castelo": [
+    "castelo do Barão Sombrio",
+    "castelo de Pedra Cinzenta",
+    "castelo do Lobo Branco",
+    "castelo dos Três Estandartes"
+  ],
+  "reg_l_ca_campos": [
+    "campos do Trigo Pálido",
+    "campos de Sangue Velho",
+    "campos da Colheita Magra",
+    "campos do Senhor Ausente"
+  ],
+  "reg_l_ca_ponte": [
+    "ponte do Troll Rabugento",
+    "ponte Velha do Rio Negro",
+    "ponte da Dívida",
+    "ponte dos Três Cobradores"
+  ],
+  "reg_l_ca_torre": [
+    "torre do Arauto Mudo",
+    "torre dos Corvos",
+    "torre da Bandeira Rasgada",
+    "torre do Fogo de Aviso"
+  ],
+  "reg_l_an_portao": [
+    "portão de Ferro-Fundo",
+    "portão de Pedra Viva",
+    "portão do Martelo Ancestral",
+    "portão das Runas Eternas"
+  ],
+  "reg_l_an_salao": [
+    "salão das Mil Forjas",
+    "salão do Rei sob a Montanha",
+    "salão do Fogo Profundo",
+    "salão dos Grandes Martelos"
+  ],
+  "reg_l_an_galeria": [
+    "galerias do Veio Dourado",
+    "galerias de Cristal Negro",
+    "galerias do Eco Longo",
+    "galerias dos Mineiros Mortos"
+  ],
+  "reg_l_an_cripta": [
+    "cripta dos Reis Antigos",
+    "cripta de Barba-de-Ferro",
+    "cripta das Runas Silenciosas",
+    "cripta do Martelo Quebrado"
+  ],
+  "reg_l_ha_vila": [
+    "vila de Pé-de-Feijão",
+    "vila da Panela Cheia",
+    "vila do Cachimbo Alegre",
+    "vila de Colina Mansa"
+  ],
+  "reg_l_ha_pomar": [
+    "pomares da Maçã Teimosa",
+    "pomares do Doce Outono",
+    "pomares de Mel e Sol",
+    "pomares do Tio Bolota"
+  ],
+  "reg_l_ha_colina": [
+    "colina dos Moinhos",
+    "colina do Jantar Eterno",
+    "colina da Pedra Falante",
+    "colina do Cachorro Dorminhoco"
+  ],
+  "reg_l_or_ermo": [
+    "ermo de Ossos Rachados",
+    "ermo do Crânio Rubro",
+    "ermo das Mil Fogueiras",
+    "ermo do Machado Sujo"
+  ],
+  "reg_l_or_acampamento": [
+    "acampamento da Presa Torta",
+    "acampamento do Crânio Partido",
+    "acampamento dos Cem Machados",
+    "acampamento do Chefe Grunak"
+  ],
+  "reg_l_or_totens": [
+    "totens dos Crânios",
+    "totens do Sangue Velho",
+    "totens do Urro Mudo",
+    "totens da Guerra Eterna"
+  ],
+  "reg_l_mo_degraus": [
+    "degraus das Mil Preces",
+    "degraus do Vento Mudo",
+    "degraus da Nuvem Baixa",
+    "degraus dos Penitentes"
+  ],
+  "reg_l_mo_mosteiro": [
+    "mosteiro do Silêncio Branco",
+    "mosteiro das Cem Campanas",
+    "mosteiro da Chama Eterna",
+    "mosteiro do Vento Manso"
+  ],
+  "reg_l_mo_jardim": [
+    "jardim de Pedra e Névoa",
+    "jardim do Monge Cego",
+    "jardim das Cinzas Mansas",
+    "jardim do Sino Quebrado"
+  ],
+  "reg_l_mo_ponte": [
+    "ponte de Cordas do Abismo",
+    "ponte dos Mil Passos",
+    "ponte da Fé Cega",
+    "ponte das Preces Soltas"
+  ],
+  "reg_l_po_forte": [
+    "forte do Vigia Teimoso",
+    "forte de Pedra Nova",
+    "forte dos Corvos de Ferro",
+    "forte do Rei Distante"
+  ],
+  "reg_l_po_estrada": [
+    "estrada Nova do Rei",
+    "estrada do Marco Quebrado",
+    "estrada das Carroças Perdidas",
+    "estrada da Última Taverna"
+  ],
+  "reg_l_po_marco": [
+    "marco dos Cartógrafos",
+    "marco da Fronteira Rasgada",
+    "marco do Rei Esquecido",
+    "marco das Três Terras"
+  ],
+  "reg_l_po_acampamento": [
+    "acampamento dos Mercadores",
+    "acampamento dos Cartógrafos Errantes",
+    "acampamento da Feira Itinerante",
+    "acampamento dos Cem Fardos"
+  ],
+  "reg_l_el_arvoredo": [
+    "arvoredo da Lua Dourada",
+    "arvoredo do Primeiro Canto",
+    "arvoredo das Raízes Azuis",
+    "arvoredo dos Cervos Brancos"
+  ],
+  "reg_l_el_cidade": [
+    "cidade de Altacopa",
+    "cidade das Pontes Suspensas",
+    "cidade do Canto Primeiro",
+    "cidade de Luzirrama"
+  ],
+  "reg_l_el_santuario": [
+    "santuário da Lua Branca",
+    "santuário do Ancião Verde",
+    "santuário das Estrelas Caídas",
+    "santuário do Primeiro Broto"
+  ],
+  "reg_l_el_lago": [
+    "lago do Espelho Estelar",
+    "lago das Folhas Prateadas",
+    "lago da Dama Silenciosa",
+    "lago do Reflexo Antigo"
+  ],
+  "reg_l_cn_garganta": [
+    "garganta do Eco Longo",
+    "garganta das Duas Faces",
+    "garganta do Abutre",
+    "garganta dos Passos Estreitos"
+  ],
+  "reg_l_cn_mirante": [
+    "mirante do Abismo",
+    "mirante do Último Olhar",
+    "mirante das Águias",
+    "mirante da Sede"
+  ],
+  "reg_l_cn_caverna": [
+    "caverna dos Pintores Antigos",
+    "caverna da Pedra Pintada",
+    "caverna do Escorpião Rei",
+    "caverna do Sopro Frio"
+  ],
+  "reg_l_cn_arco": [
+    "arco de Pedra Vermelha",
+    "arco do Sol Poente",
+    "arco da Ponte Natural",
+    "arco dos Gigantes"
+  ],
+  "reg_l_lg_margem": [
+    "margem da Névoa Branca",
+    "margem do Pescador Sem Rosto",
+    "margem dos Juncos Altos",
+    "margem da Lanterna Fria"
+  ],
+  "reg_l_lg_ilha": [
+    "ilha do Sino Submerso",
+    "ilha da Dama do Lago",
+    "ilha das Garças Pálidas",
+    "ilha do Barco Vazio"
+  ],
+  "reg_l_lg_pier": [
+    "píer dos Pescadores",
+    "píer do Barqueiro Mudo",
+    "píer das Redes Velhas",
+    "píer da Lamparina"
+  ],
+  "reg_l_lg_torre": [
+    "torre Afundada",
+    "torre do Mago Afogado",
+    "torre do Sino Mudo",
+    "torre da Lua Molhada"
+  ],
+  "reg_l_cd_muralhas": [
+    "muralhas da Cidade Morta",
+    "muralhas Rachadas",
+    "muralhas do Cerco Eterno",
+    "muralhas da Guarda Derradeira"
+  ],
+  "reg_l_cd_patio": [
+    "pátio das Armas Quebradas",
+    "pátio dos Estandartes Caídos",
+    "pátio do Último Cerco",
+    "pátio das Sombras Longas"
+  ],
+  "reg_l_cd_homenagem": [
+    "torre de Menagem Partida",
+    "torre do Conselho Mudo",
+    "torre da Última Rainha",
+    "torre dos Corvos Brancos"
+  ],
+  "reg_l_cd_trono": [
+    "salão do Trono Vazio",
+    "salão dos Espelhos Quebrados",
+    "salão da Coroa Perdida",
+    "salão do Banquete Eterno"
+  ],
+  "reg_l_mc_entrada": [
+    "porta de Ferro Lacrada",
+    "porta do Sepulcro Aberto",
+    "porta Rachada da Cripta"
+  ],
+  "reg_l_mc_covil": [
+    "sarcófago do Rei Insone",
+    "sarcófago de Chumbo",
+    "sarcófago do Cavaleiro Negro",
+    "sarcófago Sem Nome"
+  ],
+  "reg_l_mc_sala": [
+    "câmara dos Ossos Rangentes",
+    "câmara dos Nichos Vazios",
+    "câmara do Pó Antigo",
+    "câmara das Lápides Rachadas",
+    "câmara dos Votos Quebrados"
+  ],
+  "reg_l_mm_entrada": [
+    "boca da Mina Soterrada",
+    "boca do Túnel Cinco",
+    "boca de Cobre Podre"
+  ],
+  "reg_l_mm_covil": [
+    "poço Sem Fundo",
+    "poço do Despertar",
+    "poço da Fera Cega",
+    "poço dos Dez Mortos"
+  ],
+  "reg_l_mm_sala": [
+    "galeria dos Mineiros Mudos",
+    "galeria do Veio Seco",
+    "galeria do Teto Frágil",
+    "galeria das Vagonetes",
+    "galeria Inundada"
+  ],
+  "reg_l_mt_entrada": [
+    "grade do Cemitério Velho",
+    "laje Solta da Capela",
+    "porta do Ossuário"
+  ],
+  "reg_l_mt_covil": [
+    "altar dos Dentes Pretos",
+    "altar do Pastor de Mortos",
+    "altar da Última Missa",
+    "altar do Necromante"
+  ],
+  "reg_l_mt_sala": [
+    "ossário dos Santos Esquecidos",
+    "ossário das Mil Caveiras",
+    "ossário do Frei Cego",
+    "ossário do Silêncio"
+  ],
+  "reg_l_mx_entrada": [
+    "fenda de Cristal",
+    "fresta Brilhante",
+    "garganta Azul"
+  ],
+  "reg_l_mx_covil": [
+    "coração de Cristal Vivo",
+    "trono de Cristal Negro",
+    "salão do Grande Geodo",
+    "santuário Prismático"
+  ],
+  "reg_l_mx_sala": [
+    "gruta dos Espelhos",
+    "gruta do Eco Vítreo",
+    "gruta das Lágrimas Duras",
+    "gruta do Brilho Mudo"
+  ],
+  "reg_l_md_entrada": [
+    "garganta de Fumaça",
+    "trilha Chamuscada",
+    "fenda Quente"
+  ],
+  "reg_l_md_covil": [
+    "leito de Ouro Derretido",
+    "trono de Ossos e Ouro",
+    "salão do Tesouro Vivo",
+    "fosso das Brasas"
+  ],
+  "reg_l_md_sala": [
+    "caverna de Ossos Chamuscados",
+    "caverna das Brasas",
+    "caverna do Ouro Derretido",
+    "caverna Fumegante"
+  ],
+  "reg_l_ms_entrada": [
+    "porta de Coral Negro",
+    "escada de Algas",
+    "porta das Marés"
+  ],
+  "reg_l_ms_covil": [
+    "santuário das Pérolas Negras",
+    "santuário do Maremoto",
+    "altar do Deus Afogado",
+    "salão do Kraken Dormindo"
+  ],
+  "reg_l_ms_sala": [
+    "corredor Alagado",
+    "corredor das Conchas",
+    "corredor dos Afogados",
+    "corredor de Algas Pálidas",
+    "corredor do Eco Líquido"
+  ],
+  "reg_l_ml_entrada": [
+    "arco de Entrada Muda",
+    "portal do Primeiro Passo",
+    "arco das Duas Faces"
+  ],
+  "reg_l_ml_covil": [
+    "coração do Labirinto",
+    "trono do Minotauro",
+    "poço do Centro",
+    "salão do Rei Louco"
+  ],
+  "reg_l_ml_sala": [
+    "beco de Pedra Fria",
+    "beco dos Caminhos Falsos",
+    "beco do Eco Enganoso",
+    "beco das Paredes Vivas"
+  ],
+  "reg_l_pf_clareira": [
+    "clareira dos Anéis de Cogumelo",
+    "clareira das Mil Luzinhas",
+    "clareira do Primeiro Baile",
+    "clareira da Lua Verde"
+  ],
+  "reg_l_pf_bosque": [
+    "bosque dos Cogumelos Gigantes",
+    "bosque do Sono Doce",
+    "bosque das Raízes Cantoras",
+    "bosque do Riso Estranho"
+  ],
+  "reg_l_pf_corte": [
+    "corte da Rainha Cinzenta",
+    "corte do Rei Cervo",
+    "corte da Dama do Crepúsculo",
+    "corte das Cem Máscaras"
+  ],
+  "reg_l_pf_mercado": [
+    "mercado dos Favores Trocados",
+    "mercado do Preço Oculto",
+    "mercado da Lua Cheia",
+    "mercado das Cem Barganhas"
+  ],
+  "reg_l_ps_limiar": [
+    "limiar das Cinzas Mudas",
+    "limiar do Sem-Cor",
+    "limiar do Espelho Negro",
+    "limiar do Primeiro Eco"
+  ],
+  "reg_l_ps_cidade": [
+    "cidade Espelho",
+    "cidade dos Passos Invertidos",
+    "cidade de Vidro Negro",
+    "cidade Sem Reflexo"
+  ],
+  "reg_l_ps_torre": [
+    "torre do Rei Sombrio",
+    "torre da Noite Longa",
+    "torre do Sol Negro",
+    "torre dos Sussurros"
+  ],
+  "reg_l_pg_porta": [
+    "porta de Bronze Derretido",
+    "porta das Cem Chamas",
+    "ponte de Brasa"
+  ],
+  "reg_l_pg_planicie": [
+    "planície de Vidro Ardente",
+    "planície das Cinzas Vivas",
+    "planície do Mar de Fogo"
+  ],
+  "reg_l_pg_fortaleza": [
+    "fortaleza de Obsidiana",
+    "fortaleza do Rei de Chamas",
+    "fortaleza das Brasas Eternas",
+    "fortaleza do Dragão Primordial"
+  ],
+  "reg_l_pa_queda": [
+    "queda do Grande Redemoinho",
+    "queda das Marés Mortas",
+    "queda de Água Negra"
+  ],
+  "reg_l_pa_jardim": [
+    "jardim de Corais Cantantes",
+    "jardim das Algas Antigas",
+    "jardim da Dama Afogada",
+    "jardim das Pérolas Vivas"
+  ],
+  "reg_l_pa_cidade": [
+    "cidade dos Tritões",
+    "cidade do Coral Rubro",
+    "cidade Afogada",
+    "cidade de Atlantaer"
+  ],
+  "reg_l_pm_portao": [
+    "portão do Último Suspiro",
+    "portão dos Ossos Brancos",
+    "portão da Névoa Fria",
+    "portão dos Sem-Nome"
+  ],
+  "reg_l_pm_campo": [
+    "campo das Lápides Sem Nome",
+    "campo dos Mil Túmulos",
+    "campo do Luto Perpétuo",
+    "campo das Almas Vagas"
+  ],
+  "reg_l_pm_castelo": [
+    "castelo do Lich Sem Rosto",
+    "castelo da Rainha Pálida",
+    "castelo dos Reis Mortos",
+    "castelo da Coroa de Ossos"
+  ],
+  "estab_nome_arena": [
+    "Arena do Sol Partido",
+    "Arena das Mil Vozes",
+    "Arena do Leão Cego",
+    "Arena da Coroa Quebrada"
+  ],
+  "estab_nome_guilda_mercadores": [
+    "Guilda da Balança Dourada",
+    "Guilda dos Sete Selos",
+    "Guilda do Camelo Vermelho",
+    "Guilda da Rota Longa"
+  ],
+  "estab_nome_catedral": [
+    "Catedral da Luz Sem Nome",
+    "Catedral dos Sinos Gêmeos",
+    "Catedral de Pedra Branca",
+    "Catedral da Vigília Eterna"
+  ],
+  "estab_nome_teatro": [
+    "Teatro da Máscara Rota",
+    "Teatro do Pano Escarlate",
+    "Teatro das Três Cortinas",
+    "Teatro do Último Ato"
+  ],
+  "estab_nome_forja_anao": [
+    "Forja do Martelo Trovejante",
+    "Forja da Barba de Fogo",
+    "Forja do Veio Profundo",
+    "Forja da Bigorna de Ferro Frio"
+  ],
+  "estab_nome_cervejaria_anao": [
+    "Cervejaria do Barril Sem Fundo",
+    "Cervejaria da Espuma Negra",
+    "Cervejaria do Machado Bêbado",
+    "Cervejaria do Caneco de Ouro"
+  ],
+  "estab_nome_lapidario": [
+    "Lapidário da Gema Viva",
+    "Lapidário do Olho de Cristal",
+    "Lapidário do Brilho Surdo",
+    "Lapidário da Faceta Perfeita"
+  ],
+  "estab_nome_estalagem_pirata": [
+    "Estalagem da Âncora Torta",
+    "Estalagem do Papagaio Zarolho",
+    "Estalagem do Rum Proibido",
+    "Estalagem da Caveira Sorridente"
+  ],
+  "estab_nome_casa_apostas_pirata": [
+    "Casa de Apostas do Dobrão",
+    "Casa de Apostas da Mão Cortada",
+    "Casa de Apostas da Maré Alta",
+    "Casa de Apostas do Dado Viciado"
+  ],
+  "estab_nome_leilao_saque": [
+    "Leilão do Butim Fresco",
+    "Leilão da Carga Duvidosa",
+    "Leilão do Naufrágio",
+    "Leilão do Tesouro Molhado"
+  ],
+  "estab_nome_scriptorium": [
+    "Scriptorium da Pena Calada",
+    "Scriptorium do Livro Vivo",
+    "Scriptorium da Tinta Velha",
+    "Scriptorium das Mil Páginas"
+  ],
+  "estab_nome_claustro": [
+    "Claustro da Fonte Quieta",
+    "Claustro dos Doze Arcos",
+    "Claustro do Silêncio",
+    "Claustro da Oliveira Antiga"
+  ],
+  "estab_nome_patio_torneios": [
+    "Pátio das Lanças Quebradas",
+    "Pátio do Cavaleiro Branco",
+    "Pátio da Bandeira Rubra",
+    "Pátio dos Três Elmos"
+  ],
+  "estab_nome_salao_senhor": [
+    "Salão do Trono de Carvalho",
+    "Salão das Armas Antigas",
+    "Salão do Fogo Largo",
+    "Salão do Brasão Partido"
+  ],
+  "estab_nome_toca_contador": [
+    "Toca do Velho Pomponio",
+    "Toca da Lenda Pequena",
+    "Toca do Fogão de Histórias",
+    "Toca do Cachimbo Contador"
+  ],
+  "estab_nome_cozinha_halfling": [
+    "Cozinha da Torta Dourada",
+    "Cozinha do Caldeirão Grande",
+    "Cozinha do Segundo Café",
+    "Cozinha da Colher de Pau"
+  ],
+  "atv_arena_lutar": [
+    "Inscrever-se numa luta da arena",
+    "Descer à areia como lutador",
+    "Entrar na fila dos combatentes"
+  ],
+  "atv_arena_apostar": [
+    "Apostar nos lutadores",
+    "Comprar uma ficha de aposta",
+    "Sentar na arquibancada com uma bolsa"
+  ],
+  "atv_arena_treino": [
+    "Treinar com os gladiadores",
+    "Pedir lições a um veterano da arena",
+    "Usar os bonecos de treino"
+  ],
+  "atv_guilda_contrato": [
+    "Procurar um contrato na guilda",
+    "Ler o quadro de encomendas",
+    "Falar com o escrivão da guilda"
+  ],
+  "atv_guilda_cambio": [
+    "Trocar moedas estrangeiras",
+    "Visitar a mesa de câmbio",
+    "Pedir avaliação de uma joia"
+  ],
+  "atv_catedral_vitral": [
+    "Contemplar os vitrais da catedral",
+    "Acender uma vela na nave",
+    "Sentar nos bancos de pedra"
+  ],
+  "atv_catedral_confissao": [
+    "Confessar-se a um clérigo",
+    "Procurar o confessionário",
+    "Ouvir o sermão da tarde"
+  ],
+  "atv_teatro_peca": [
+    "Assistir à peça da noite",
+    "Comprar um assento no teatro",
+    "Subir ao palco entre os atos"
+  ],
+  "atv_forja_anao_encomenda": [
+    "Pedir uma peça na forja anã",
+    "Observar os mestres da forja",
+    "Oferecer-se para ajudar nos foles"
+  ],
+  "atv_cervejaria_anao_caneca": [
+    "Beber uma caneca anã",
+    "Entrar numa disputa de bebida",
+    "Sentar à longa mesa de pedra"
+  ],
+  "atv_lapidario_gema": [
+    "Mostrar uma gema ao lapidário",
+    "Pedir uma avaliação",
+    "Observar o corte de cristais"
+  ],
+  "atv_estalagem_pirata_historias": [
+    "Ouvir histórias de pirata",
+    "Dividir uma garrafa com marujos",
+    "Sentar junto ao fogo da estalagem"
+  ],
+  "atv_estalagem_pirata_briga": [
+    "Entrar numa briga de estalagem",
+    "Defender uma mesa",
+    "Ficar de olho na confusão"
+  ],
+  "atv_apostas_pirata_dados": [
+    "Jogar dados com piratas",
+    "Apostar o dobrão na mesa",
+    "Desafiar o crupiê"
+  ],
+  "atv_apostas_pirata_trapaca": [
+    "Trapacear no jogo",
+    "Trocar o dado do crupiê",
+    "Marcar as cartas às escondidas"
+  ],
+  "atv_leilao_saque_lance": [
+    "Dar um lance no leilão de saque",
+    "Examinar a carga do navio",
+    "Comprar de um pirata falido"
+  ],
+  "atv_scriptorium_copiar": [
+    "Copiar manuscritos no scriptorium",
+    "Pedir um livro ao monge bibliotecário",
+    "Ajudar a iluminar uma página"
+  ],
+  "atv_scriptorium_proibido": [
+    "Procurar o livro proibido",
+    "Espiar a estante trancada",
+    "Vasculhar o arquivo à noite"
+  ],
+  "atv_claustro_meditar": [
+    "Meditar no claustro",
+    "Sentar junto à fonte quieta",
+    "Caminhar entre os arcos"
+  ],
+  "atv_patio_torneios_justa": [
+    "Participar de uma justa",
+    "Entrar no torneio de espadas",
+    "Medir forças com um escudeiro"
+  ],
+  "atv_patio_torneios_ferreiro": [
+    "Visitar a tenda do armeiro",
+    "Examinar as armas do torneio",
+    "Ajudar a polir armaduras"
+  ],
+  "atv_salao_senhor_audiencia": [
+    "Pedir audiência ao senhor do castelo",
+    "Entrar no grande salão",
+    "Apresentar-se ao mordomo"
+  ],
+  "atv_salao_senhor_banquete": [
+    "Participar do banquete do senhor",
+    "Aceitar o convite do mordomo",
+    "Comer à mesa do castelo"
+  ],
+  "atv_toca_contador_historia": [
+    "Ouvir o contador de histórias",
+    "Sentar junto ao fogão do contador",
+    "Pedir uma lenda halfling"
+  ],
+  "atv_toca_contador_enigma": [
+    "Participar do jogo de enigmas",
+    "Aceitar um enigma halfling",
+    "Apostar numa adivinha"
+  ],
+  "atv_cozinha_halfling_banquete": [
+    "Ajudar na cozinha comunal",
+    "Provar a torta do dia",
+    "Pedir o segundo café da manhã"
+  ],
+  "atv_orc_fogueira": [
+    "Chegar perto da fogueira orc",
+    "Pedir lugar na roda de orcs",
+    "Encarar o chefe da roda"
+  ],
+  "atv_orc_saque": [
+    "Roubar do acampamento orc",
+    "Esgueirar-se até a tenda do chefe",
+    "Tentar levar um barril de pólvora"
+  ],
+  "atv_orc_tambor": [
+    "Ouvir os tambores de guerra",
+    "Observar a dança dos orcs",
+    "Aproximar-se dos tambores"
+  ],
+  "atv_caravana_negocio": [
+    "Negociar com os mercadores da caravana",
+    "Revirar as mercadorias da caravana",
+    "Pedir uma carona"
+  ],
+  "atv_caravana_conto": [
+    "Ouvir os contos da caravana",
+    "Sentar junto à fogueira dos camelos",
+    "Perguntar sobre as rotas"
+  ],
+  "atv_oasis_mergulho": [
+    "Mergulhar na lagoa do oásis",
+    "Beber da lagoa e descansar",
+    "Encher o odre na fonte"
+  ],
+  "atv_oasis_palmeiral": [
+    "Colher tâmaras no palmeiral",
+    "Subir numa palmeira",
+    "Conversar com o guardião do oásis"
+  ],
+  "atv_arvore_cidade_ponte": [
+    "Atravessar a ponte entre as copas",
+    "Subir pelas escadas de cipó",
+    "Visitar as casas nas árvores"
+  ],
+  "atv_arvore_cidade_canto": [
+    "Ouvir o coro das copas",
+    "Sentar sob o salgueiro-mestre",
+    "Pedir música a um menestrel élfico"
+  ],
+  "atv_submundo_informante": [
+    "Procurar um informante nas vielas",
+    "Perguntar nos becos",
+    "Pagar por uma informação"
+  ],
+  "atv_submundo_ladrao_guilda": [
+    "Falar com a guilda dos ladrões",
+    "Encontrar o chefe do bairro",
+    "Aceitar um trabalho do submundo"
+  ],
+  "atv_erm_deserto_poco": [
+    "Escavar em busca de água",
+    "Cavar entre as pedras úmidas",
+    "Procurar um poço na areia"
+  ],
+  "atv_erm_deserto_astros": [
+    "Orientar-se pelas estrelas",
+    "Descansar sob o céu do deserto",
+    "Contar as estrelas cadentes"
+  ],
+  "atv_erm_savana_cacar": [
+    "Caçar na savana",
+    "Seguir uma manada de longe",
+    "Montar uma tocaia na aguada"
+  ],
+  "atv_erm_savana_baoba": [
+    "Colher frutos do baobá",
+    "Procurar mel no tronco do baobá",
+    "Descansar na sombra do baobá"
+  ],
+  "atv_erm_selva_trilha": [
+    "Abrir trilha na selva",
+    "Cortar cipós e criar uma passagem",
+    "Marcar uma trilha com a lâmina"
+  ],
+  "atv_erm_selva_ervas": [
+    "Colher ervas medicinais da selva",
+    "Procurar flores e raízes",
+    "Seguir o cheiro das folhas"
+  ],
+  "atv_erm_tundra_rastrear": [
+    "Rastrear caça na tundra",
+    "Seguir pegadas de lebre na neve",
+    "Armar um laço para coelhos"
+  ],
+  "atv_erm_gelo_pescar": [
+    "Pescar no gelo",
+    "Abrir um buraco no lago congelado",
+    "Esperar o peixe sob a placa de gelo"
+  ],
+  "atv_erm_vulcao_obsidiana": [
+    "Colher obsidiana",
+    "Lascar vidro vulcânico",
+    "Procurar cristais de enxofre"
+  ],
+  "atv_erm_vulcao_fumarola": [
+    "Cozinhar numa fumarola",
+    "Esquentar a refeição no vapor",
+    "Descansar perto da encosta quente"
+  ],
+  "atv_erm_recife_mergulho": [
+    "Mergulhar no recife",
+    "Explorar o fundo raso",
+    "Procurar tesouros sob a água"
+  ],
+  "atv_erm_ilha_coco": [
+    "Colher cocos",
+    "Subir no coqueiral",
+    "Procurar água de coco"
+  ],
+  "atv_erm_mar_pesca": [
+    "Pescar em mar aberto",
+    "Lançar a rede ao largo",
+    "Arriscar o anzol fundo"
+  ],
+  "atv_erm_elfica_ervas": [
+    "Colher ervas élficas",
+    "Seguir o cheiro das flores prateadas",
+    "Procurar frutas douradas"
+  ],
+  "atv_erm_elfica_meditar": [
+    "Meditar entre as árvores brancas",
+    "Sentar sob o arco de galhos",
+    "Ouvir a floresta falar"
+  ],
+  "atv_erm_anao_minerar": [
+    "Minerar um veio na galeria",
+    "Quebrar pedra num filão",
+    "Procurar minério nas paredes"
+  ],
+  "atv_erm_anao_runas": [
+    "Decifrar runas anãs",
+    "Ler a inscrição na pedra",
+    "Copiar as runas num pergaminho"
+  ],
+  "atv_erm_orc_rastrear": [
+    "Rastrear a patrulha orc",
+    "Observar as trilhas do bando",
+    "Contar os orcs do vale"
+  ],
+  "atv_erm_feudo_colheita": [
+    "Ajudar na colheita",
+    "Trabalhar num campo de trigo",
+    "Oferecer as mãos aos camponeses"
+  ],
+  "atv_erm_fonte_cena": [
+    {
+      "t": "Uma bica de água clara escorre de uma pedra gravada. Fitas e conchas pendem dos galhos próximos, ofertas de quem acredita.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Entre as raízes, uma bica mansa enche uma bacia de pedra. Fitas desbotadas e conchas balançam nos galhos baixos.",
+      "tags": [
+        "floresta"
+      ]
+    },
+    {
+      "t": "Do paredão escorre um fio de água clara para uma pia entalhada. Moedas verdes de limo e fitas rasgadas marcam as ofertas.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Uma nascente gelada brota entre rochas, e pedrinhas empilhadas fazem as vezes de altar.",
+      "tags": [
+        "montanha"
+      ]
+    },
+    {
+      "t": "Entre colunas caídas, uma bica ainda cospe água limpa numa pia rachada. Alguém deixou fitas e flores secas por perto.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "Num nicho do muro quebrado, a água brota de uma boca de pedra. Velas gastas e conchas contam quantos já pararam ali.",
+      "tags": [
+        "ruinas"
+      ]
+    },
+    {
+      "t": "No meio do brejo, uma bica de água limpa teima em ser clara. Fitas e ossinhos de peixe pendem de uma estaca.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Pedras gravadas cercam uma pia onde a água clara não mistura com o lodo em volta. Fitas molhadas balançam sem vento.",
+      "tags": [
+        "pantano"
+      ]
+    },
+    {
+      "t": "Uma bica de água doce escorre entre rochas salgadas, longe do mar. Conchas e fitas pendem de uma corda esticada.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Numa fenda da rocha, uma nascente de água doce enche uma concha de pedra. Conchas de verdade foram deixadas em volta.",
+      "tags": [
+        "costa"
+      ]
+    },
+    {
+      "t": "Uma bica baixa alimenta uma poça de pedra à beira do caminho. Fitas desbotadas e moedas gastas marcam o lugar.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    {
+      "t": "Ao lado da trilha, uma pedra gravada pinga água limpa numa pia funda. Fitas e conchas pendem de uma estaca.",
+      "tags": [
+        "estrada"
+      ]
+    },
+    "Uma bica de água clara escorre de uma pedra gravada. Fitas e conchas pendem por perto, ofertas de quem acredita.",
+    "Uma nascente discreta enche uma pia de pedra, e fitas amarradas em galhos secos contam quantos pararam aqui.",
+    "A água brota de uma pedra marcada por sinais antigos. Em volta, conchas e fitas foram deixadas por mãos devotas.",
+    "Uma bica fina murmura numa pia de pedra gasta. Alguém deixou fitas, conchas e moedas pequenas ao redor."
   ]
 }

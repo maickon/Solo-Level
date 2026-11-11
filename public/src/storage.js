@@ -19,7 +19,7 @@ export function addMemorial(entry) { write(MEMORIAL, [entry, ...memorial()].slic
 export const PREFS_PADRAO = {
   audio: false,
   vol: { master: 0.8, ambiente: 0.7, musica: 0.55, efeitos: 0.8 },
-  voz: { on: false, auto: true, opcoes: false, voz: '', taxa: 1 },
+  voz: { on: false, auto: true, opcoes: false, voz: '', taxa: 1, motor: 'navegador', neural: 'pt_BR-faber-medium' },
   animar: true,
   tutorial: false,
 };

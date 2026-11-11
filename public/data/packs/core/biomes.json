@@ -139,5 +139,1403 @@
    "morto_afogado",
    "salteador"
   ]
+ },
+ {
+  "id": "deserto",
+  "nome": "Deserto",
+  "perigo": 3,
+  "cor": "#d9b66a",
+  "tags": [
+   "natureza",
+   "arido"
+  ],
+  "audio": "estrada",
+  "clima": {
+   "limpo": 5,
+   "vento": 3,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "escorpiao_gigante",
+   "serpente_das_dunas",
+   "mumia",
+   "salteador"
+  ],
+  "visual": {
+   "base": "estrada",
+   "cor_base": "#2a1d10",
+   "tinta": "#d9b66a",
+   "camadas": [
+    [
+     "dunas",
+     0.55,
+     0.08
+    ],
+    [
+     "dunas",
+     0.72,
+     0.1
+    ]
+   ],
+   "particulas": [
+    [
+     "poeira",
+     40
+    ]
+   ],
+   "ceu": [
+    "#3a2a18",
+    "#a8743c",
+    "#f0c78a"
+   ],
+   "ceuForca": 0.4
+  },
+  "som": {
+   "base": "montanha",
+   "ruido": "white",
+   "filtro": 900,
+   "vol": 0.05,
+   "raiz": 45,
+   "escala": [
+    0,
+    1,
+    4,
+    5,
+    7
+   ],
+   "vozes": {
+    "dia": [
+     "rajada"
+    ],
+    "noite": [
+     "grilo",
+     "rajada"
+    ]
+   }
+  }
+ },
+ {
+  "id": "savana",
+  "nome": "Savana",
+  "perigo": 2,
+  "cor": "#c9a24a",
+  "tags": [
+   "natureza"
+  ],
+  "audio": "estrada",
+  "clima": {
+   "limpo": 5,
+   "chuva": 2,
+   "vento": 2
+  },
+  "inimigos": [
+   "hiena",
+   "leao",
+   "serpente_das_dunas",
+   "salteador"
+  ],
+  "visual": {
+   "base": "estrada",
+   "cor_base": "#241a0c",
+   "tinta": "#e0b860",
+   "camadas": [
+    [
+     "colinas",
+     0.6,
+     0.06
+    ],
+    [
+     "arvores_esparsas",
+     0.72,
+     0.12
+    ]
+   ],
+   "particulas": [
+    [
+     "poeira",
+     25
+    ]
+   ],
+   "ceu": [
+    "#3a2a18",
+    "#c9843c",
+    "#f4cf8a"
+   ],
+   "ceuForca": 0.3
+  },
+  "som": {
+   "base": "estrada",
+   "ruido": "pink",
+   "filtro": 800,
+   "vol": 0.05,
+   "raiz": 47,
+   "escala": [
+    0,
+    2,
+    4,
+    7,
+    9
+   ],
+   "vozes": {
+    "dia": [
+     "passaro",
+     "rajada"
+    ],
+    "noite": [
+     "grilo",
+     "coruja",
+     "rajada"
+    ]
+   }
+  }
+ },
+ {
+  "id": "selva",
+  "nome": "Selva",
+  "perigo": 3,
+  "cor": "#2f8f3f",
+  "tags": [
+   "natureza",
+   "umido"
+  ],
+  "audio": "floresta",
+  "clima": {
+   "chuva": 5,
+   "nevoa": 3,
+   "limpo": 2
+  },
+  "inimigos": [
+   "jaguar",
+   "planta_carnivora",
+   "aranha_gigante",
+   "sapo_gigante"
+  ],
+  "visual": {
+   "base": "floresta",
+   "cor_base": "#06140a",
+   "tinta": "#4fd06a",
+   "camadas": [
+    [
+     "colinas",
+     0.5,
+     0.07
+    ],
+    [
+     "arvores_gigantes",
+     0.75,
+     0.18
+    ],
+    [
+     "palmeiras",
+     0.86,
+     0.14
+    ]
+   ],
+   "particulas": [
+    [
+     "folha",
+     18
+    ],
+    [
+     "vagalume",
+     20
+    ]
+   ],
+   "ceu": [
+    "#08240f",
+    "#2f8f4a",
+    "#b8e0a0"
+   ],
+   "ceuForca": 0.35
+  },
+  "som": {
+   "base": "floresta",
+   "ruido": "pink",
+   "filtro": 1500,
+   "vol": 0.08,
+   "raiz": 43,
+   "escala": [
+    0,
+    2,
+    3,
+    7,
+    8
+   ],
+   "vozes": {
+    "dia": [
+     "passaro",
+     "sapo",
+     "galho"
+    ],
+    "noite": [
+     "grilo",
+     "sapo",
+     "coruja",
+     "galho"
+    ]
+   }
+  }
+ },
+ {
+  "id": "tundra",
+  "nome": "Tundra",
+  "perigo": 3,
+  "cor": "#cfe0ea",
+  "tags": [
+   "natureza",
+   "frio"
+  ],
+  "audio": "montanha",
+  "clima": {
+   "neve": 4,
+   "vento": 4,
+   "limpo": 2,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "lobo_das_neves",
+   "yeti",
+   "urso",
+   "bandido"
+  ],
+  "visual": {
+   "base": "montanha",
+   "cor_base": "#10151c",
+   "tinta": "#d6e6f0",
+   "camadas": [
+    [
+     "colinas",
+     0.6,
+     0.05
+    ],
+    [
+     "pinheiros",
+     0.78,
+     0.12
+    ]
+   ],
+   "particulas": [
+    [
+     "neve",
+     60
+    ]
+   ],
+   "ceu": [
+    "#1c2a3a",
+    "#6f8aa6",
+    "#d6e6f0"
+   ],
+   "ceuForca": 0.45
+  },
+  "som": {
+   "base": "montanha",
+   "ruido": "white",
+   "filtro": 700,
+   "vol": 0.05,
+   "raiz": 40,
+   "escala": [
+    0,
+    2,
+    3,
+    7,
+    10
+   ],
+   "vozes": {
+    "dia": [
+     "rajada"
+    ],
+    "noite": [
+     "rajada",
+     "coruja"
+    ]
+   }
+  }
+ },
+ {
+  "id": "geleira",
+  "nome": "Geleira",
+  "perigo": 4,
+  "cor": "#9fd8ee",
+  "tags": [
+   "natureza",
+   "frio",
+   "altitude"
+  ],
+  "audio": "montanha",
+  "clima": {
+   "neve": 5,
+   "vento": 3,
+   "nevoa": 2,
+   "limpo": 1
+  },
+  "inimigos": [
+   "yeti",
+   "elemental_de_gelo",
+   "lobo_das_neves",
+   "espectro"
+  ],
+  "visual": {
+   "base": "montanha",
+   "cor_base": "#0c1824",
+   "tinta": "#9fe0f6",
+   "camadas": [
+    [
+     "picos",
+     0.4,
+     0.32
+    ],
+    [
+     "falesia",
+     0.62,
+     0.14
+    ],
+    [
+     "rochas",
+     0.9,
+     0.05
+    ]
+   ],
+   "particulas": [
+    [
+     "neve",
+     80
+    ]
+   ],
+   "ceu": [
+    "#08202e",
+    "#3a8ab0",
+    "#cdeefa"
+   ],
+   "ceuForca": 0.5
+  },
+  "som": {
+   "base": "montanha",
+   "ruido": "white",
+   "filtro": 500,
+   "vol": 0.05,
+   "raiz": 44,
+   "escala": [
+    0,
+    2,
+    7,
+    9,
+    12
+   ],
+   "eco": 0.7,
+   "vozes": {
+    "dia": [
+     "rajada",
+     "pedra"
+    ],
+    "noite": [
+     "rajada"
+    ]
+   }
+  }
+ },
+ {
+  "id": "vulcanico",
+  "nome": "Terras Vulcânicas",
+  "perigo": 4,
+  "cor": "#c8451e",
+  "tags": [
+   "natureza",
+   "fogo"
+  ],
+  "audio": "montanha",
+  "clima": {
+   "limpo": 3,
+   "vento": 3,
+   "nevoa": 2,
+   "chuva": 1
+  },
+  "inimigos": [
+   "salamandra_de_fogo",
+   "elemental_de_fogo",
+   "diabrete",
+   "golem_de_pedra",
+   "dragao_jovem"
+  ],
+  "visual": {
+   "base": "montanha",
+   "cor_base": "#1a0d0a",
+   "tinta": "#e0642a",
+   "camadas": [
+    [
+     "serra",
+     0.5,
+     0.1
+    ],
+    [
+     "vulcao",
+     0.62,
+     0.28
+    ],
+    [
+     "rochas",
+     0.9,
+     0.06
+    ]
+   ],
+   "particulas": [
+    [
+     "cinza",
+     50
+    ],
+    [
+     "brasa",
+     20
+    ]
+   ],
+   "ceu": [
+    "#2a0e08",
+    "#8a2a10",
+    "#e0642a"
+   ],
+   "ceuForca": 0.55
+  },
+  "som": {
+   "base": "montanha",
+   "ruido": "brown",
+   "filtro": 300,
+   "vol": 0.08,
+   "raiz": 38,
+   "escala": [
+    0,
+    1,
+    3,
+    6,
+    7
+   ],
+   "vozes": {
+    "dia": [
+     "pedra",
+     "rajada"
+    ],
+    "noite": [
+     "pedra",
+     "trovao"
+    ]
+   }
+  }
+ },
+ {
+  "id": "ilha",
+  "nome": "Ilha",
+  "perigo": 2,
+  "cor": "#e8d58a",
+  "tags": [
+   "natureza",
+   "mar"
+  ],
+  "audio": "mar",
+  "clima": {
+   "limpo": 5,
+   "vento": 2,
+   "chuva": 2,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "caranguejo_gigante",
+   "pirata",
+   "sereia"
+  ],
+  "visual": {
+   "base": "costa",
+   "cor_base": "#08202a",
+   "tinta": "#f2d98a",
+   "camadas": [
+    [
+     "colinas",
+     0.55,
+     0.05
+    ],
+    [
+     "palmeiras",
+     0.76,
+     0.16
+    ]
+   ],
+   "particulas": [
+    [
+     "folha",
+     10
+    ]
+   ],
+   "ceu": [
+    "#103a5a",
+    "#2aa0b8",
+    "#f6e6b0"
+   ],
+   "ceuForca": 0.3
+  },
+  "som": {
+   "base": "mar",
+   "ruido": "brown",
+   "filtro": 900,
+   "vol": 0.09,
+   "raiz": 47,
+   "escala": [
+    0,
+    2,
+    4,
+    7,
+    9
+   ],
+   "vozes": {
+    "dia": [
+     "gaivota",
+     "onda",
+     "passaro"
+    ],
+    "noite": [
+     "onda",
+     "grilo"
+    ]
+   }
+  }
+ },
+ {
+  "id": "mar_aberto",
+  "nome": "Mar Aberto",
+  "perigo": 3,
+  "cor": "#2a6fa8",
+  "tags": [
+   "natureza",
+   "mar"
+  ],
+  "audio": "mar",
+  "clima": {
+   "vento": 4,
+   "limpo": 3,
+   "chuva": 3,
+   "nevoa": 2
+  },
+  "inimigos": [
+   "pirata",
+   "sereia",
+   "tritao",
+   "tubarao",
+   "kraken_jovem"
+  ],
+  "visual": {
+   "base": "costa",
+   "cor_base": "#061826",
+   "tinta": "#6fb0e0",
+   "camadas": [
+    [
+     "rochas",
+     0.8,
+     0.08
+    ],
+    [
+     "falesia",
+     0.64,
+     0.08
+    ]
+   ],
+   "particulas": [
+    [
+     "gota",
+     25
+    ]
+   ],
+   "ceu": [
+    "#081c32",
+    "#2a5a8a",
+    "#a8c8e0"
+   ],
+   "ceuForca": 0.4
+  },
+  "som": {
+   "base": "mar",
+   "ruido": "brown",
+   "filtro": 700,
+   "vol": 0.12,
+   "raiz": 43,
+   "escala": [
+    0,
+    2,
+    5,
+    7,
+    9
+   ],
+   "vozes": {
+    "dia": [
+     "onda",
+     "gaivota"
+    ],
+    "noite": [
+     "onda",
+     "onda",
+     "sino"
+    ]
+   }
+  }
+ },
+ {
+  "id": "floresta_elfica",
+  "nome": "Floresta Élfica",
+  "perigo": 2,
+  "cor": "#6fd0a0",
+  "tags": [
+   "natureza",
+   "antigo"
+  ],
+  "audio": "floresta",
+  "clima": {
+   "limpo": 4,
+   "nevoa": 3,
+   "chuva": 1
+  },
+  "inimigos": [
+   "lobo",
+   "ent_corrompido",
+   "fada_maligna",
+   "aranha_gigante"
+  ],
+  "visual": {
+   "base": "floresta",
+   "cor_base": "#0a1f18",
+   "tinta": "#a8e6b8",
+   "camadas": [
+    [
+     "serra",
+     0.5,
+     0.06
+    ],
+    [
+     "arvores_gigantes",
+     0.7,
+     0.2
+    ],
+    [
+     "arvores_gigantes",
+     0.88,
+     0.28
+    ]
+   ],
+   "particulas": [
+    [
+     "vagalume",
+     40
+    ],
+    [
+     "folha",
+     15
+    ]
+   ],
+   "ceu": [
+    "#0a2a22",
+    "#2f8f7a",
+    "#cfe9c0"
+   ],
+   "ceuForca": 0.35
+  },
+  "som": {
+   "base": "floresta",
+   "ruido": "pink",
+   "filtro": 1600,
+   "vol": 0.06,
+   "raiz": 52,
+   "escala": [
+    0,
+    2,
+    4,
+    7,
+    9
+   ],
+   "eco": 0.5,
+   "vozes": {
+    "dia": [
+     "passaro",
+     "sino"
+    ],
+    "noite": [
+     "coruja",
+     "grilo",
+     "sino"
+    ]
+   }
+  }
+ },
+ {
+  "id": "bosque_feerico",
+  "nome": "Bosque Feérico",
+  "perigo": 4,
+  "cor": "#d070e0",
+  "tags": [
+   "plano",
+   "magico"
+  ],
+  "audio": "floresta",
+  "clima": {
+   "limpo": 3,
+   "nevoa": 4,
+   "chuva": 1
+  },
+  "inimigos": [
+   "fada_maligna",
+   "duende_travesso",
+   "ent_corrompido",
+   "lobo_alfa"
+  ],
+  "visual": {
+   "base": "floresta",
+   "cor_base": "#14082a",
+   "tinta": "#e0a0ff",
+   "camadas": [
+    [
+     "colinas",
+     0.55,
+     0.06
+    ],
+    [
+     "cogumelos",
+     0.75,
+     0.2
+    ],
+    [
+     "arvores_gigantes",
+     0.9,
+     0.25
+    ]
+   ],
+   "particulas": [
+    [
+     "esporo",
+     60
+    ],
+    [
+     "vagalume",
+     30
+    ]
+   ],
+   "ceu": [
+    "#2a0a3a",
+    "#8a3ab0",
+    "#f0a0e0"
+   ],
+   "ceuForca": 0.6
+  },
+  "som": {
+   "base": "floresta",
+   "ruido": "pink",
+   "filtro": 2000,
+   "vol": 0.04,
+   "raiz": 57,
+   "escala": [
+    0,
+    2,
+    4,
+    7,
+    11
+   ],
+   "eco": 0.6,
+   "vozes": {
+    "dia": [
+     "sino",
+     "passaro"
+    ],
+    "noite": [
+     "sino",
+     "grilo",
+     "coruja"
+    ]
+   }
+  }
+ },
+ {
+  "id": "terras_sombrias",
+  "nome": "Terras Sombrias",
+  "perigo": 5,
+  "cor": "#4a4a6a",
+  "tags": [
+   "plano",
+   "morte"
+  ],
+  "audio": "ruinas",
+  "clima": {
+   "nevoa": 5,
+   "vento": 2,
+   "limpo": 1
+  },
+  "inimigos": [
+   "sombra",
+   "espectro",
+   "cavaleiro_morto",
+   "cultista",
+   "mumia"
+  ],
+  "visual": {
+   "base": "ruinas",
+   "cor_base": "#050507",
+   "tinta": "#6a6a8a",
+   "camadas": [
+    [
+     "arvores_mortas",
+     0.7,
+     0.15
+    ],
+    [
+     "arcos",
+     0.62,
+     0.1
+    ],
+    [
+     "colunas",
+     0.82,
+     0.18
+    ]
+   ],
+   "particulas": [
+    [
+     "cinza",
+     40
+    ]
+   ],
+   "ceu": [
+    "#050508",
+    "#1a1a2a",
+    "#3a3a4a"
+   ],
+   "ceuForca": 0.7
+  },
+  "som": {
+   "base": "ruinas",
+   "ruido": "brown",
+   "filtro": 220,
+   "vol": 0.07,
+   "raiz": 36,
+   "escala": [
+    0,
+    1,
+    3,
+    6,
+    8
+   ],
+   "eco": 0.8,
+   "vozes": {
+    "dia": [
+     "carrilhao",
+     "pedra"
+    ],
+    "noite": [
+     "carrilhao",
+     "coruja",
+     "pedra"
+    ]
+   }
+  }
+ },
+ {
+  "id": "plano_fogo",
+  "nome": "Plano do Fogo",
+  "perigo": 5,
+  "cor": "#ff5a1a",
+  "tags": [
+   "plano",
+   "fogo"
+  ],
+  "audio": "montanha",
+  "clima": {
+   "limpo": 3,
+   "vento": 3,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "elemental_de_fogo",
+   "salamandra_de_fogo",
+   "diabrete",
+   "dragao_jovem"
+  ],
+  "visual": {
+   "base": "montanha",
+   "cor_base": "#1c0504",
+   "tinta": "#ff7a20",
+   "camadas": [
+    [
+     "vulcao",
+     0.55,
+     0.35
+    ],
+    [
+     "picos",
+     0.7,
+     0.25
+    ],
+    [
+     "torres",
+     0.88,
+     0.2
+    ]
+   ],
+   "particulas": [
+    [
+     "brasa",
+     80
+    ],
+    [
+     "cinza",
+     30
+    ]
+   ],
+   "ceu": [
+    "#200404",
+    "#a01808",
+    "#ff8a20"
+   ],
+   "ceuForca": 0.75
+  },
+  "som": {
+   "base": "montanha",
+   "ruido": "brown",
+   "filtro": 350,
+   "vol": 0.1,
+   "raiz": 36,
+   "escala": [
+    0,
+    1,
+    4,
+    6,
+    7
+   ],
+   "vozes": {
+    "dia": [
+     "rajada",
+     "pedra",
+     "trovao"
+    ],
+    "noite": [
+     "rajada",
+     "pedra",
+     "trovao"
+    ]
+   }
+  }
+ },
+ {
+  "id": "plano_agua",
+  "nome": "Abismo das Águas",
+  "perigo": 5,
+  "cor": "#1a8fb0",
+  "tags": [
+   "plano",
+   "mar"
+  ],
+  "audio": "mar",
+  "clima": {
+   "nevoa": 3,
+   "chuva": 3,
+   "limpo": 2
+  },
+  "inimigos": [
+   "tritao",
+   "elemental_da_agua",
+   "kraken_jovem",
+   "sereia",
+   "morto_afogado"
+  ],
+  "visual": {
+   "base": "costa",
+   "cor_base": "#020c1a",
+   "tinta": "#4ac0d0",
+   "camadas": [
+    [
+     "colunas",
+     0.7,
+     0.18
+    ],
+    [
+     "arcos",
+     0.8,
+     0.2
+    ],
+    [
+     "juncos",
+     0.92,
+     0.1
+    ]
+   ],
+   "particulas": [
+    [
+     "gota",
+     50
+    ]
+   ],
+   "ceu": [
+    "#001428",
+    "#0a4a7a",
+    "#4ac0d0"
+   ],
+   "ceuForca": 0.8
+  },
+  "som": {
+   "base": "mar",
+   "ruido": "brown",
+   "filtro": 500,
+   "q": 1.5,
+   "vol": 0.1,
+   "raiz": 38,
+   "escala": [
+    0,
+    2,
+    3,
+    7,
+    10
+   ],
+   "eco": 0.7,
+   "vozes": {
+    "dia": [
+     "bolha",
+     "onda",
+     "sino"
+    ],
+    "noite": [
+     "bolha",
+     "onda",
+     "sino"
+    ]
+   }
+  }
+ },
+ {
+  "id": "cidade",
+  "nome": "Cidade",
+  "perigo": 1,
+  "cor": "#c8b78a",
+  "tags": [
+   "civilizacao",
+   "urbano"
+  ],
+  "audio": "vila",
+  "clima": {
+   "limpo": 4,
+   "chuva": 3,
+   "nevoa": 2,
+   "vento": 1
+  },
+  "inimigos": [
+   "ladrao_de_rua",
+   "assassino",
+   "cultista",
+   "bandido"
+  ],
+  "visual": {
+   "base": "vila",
+   "cor_base": "#151018",
+   "tinta": "#e0c890",
+   "camadas": [
+    [
+     "telhados",
+     0.62,
+     0.1
+    ],
+    [
+     "torres",
+     0.74,
+     0.18
+    ],
+    [
+     "telhados",
+     0.9,
+     0.14
+    ]
+   ],
+   "particulas": [
+    [
+     "poeira",
+     12
+    ]
+   ],
+   "ceu": [
+    "#1a1830",
+    "#6a5a7a",
+    "#f0c890"
+   ],
+   "ceuForca": 0.25
+  },
+  "som": {
+   "base": "vila",
+   "ruido": "pink",
+   "filtro": 1000,
+   "vol": 0.06,
+   "raiz": 50,
+   "escala": [
+    0,
+    2,
+    4,
+    7,
+    9
+   ],
+   "vozes": {
+    "dia": [
+     "passaro",
+     "sino",
+     "carrilhao"
+    ],
+    "noite": [
+     "grilo",
+     "coruja",
+     "carrilhao"
+    ]
+   }
+  }
+ },
+ {
+  "id": "feudo",
+  "nome": "Feudo",
+  "perigo": 2,
+  "cor": "#8a9a5a",
+  "tags": [
+   "civilizacao",
+   "feudal"
+  ],
+  "audio": "vila",
+  "clima": {
+   "limpo": 4,
+   "chuva": 2,
+   "nevoa": 2,
+   "vento": 1
+  },
+  "inimigos": [
+   "cavaleiro_renegado",
+   "salteador",
+   "bandido",
+   "gargula",
+   "troll_da_ponte"
+  ],
+  "visual": {
+   "base": "vila",
+   "cor_base": "#10150c",
+   "tinta": "#b8c88a",
+   "camadas": [
+    [
+     "colinas",
+     0.55,
+     0.06
+    ],
+    [
+     "torres",
+     0.68,
+     0.22
+    ],
+    [
+     "colinas",
+     0.85,
+     0.1
+    ]
+   ],
+   "particulas": [
+    [
+     "poeira",
+     10
+    ]
+   ],
+   "ceu": [
+    "#1a2418",
+    "#6a8a5a",
+    "#e8e0a0"
+   ],
+   "ceuForca": 0.25
+  },
+  "som": {
+   "base": "vila",
+   "ruido": "pink",
+   "filtro": 900,
+   "vol": 0.05,
+   "raiz": 48,
+   "escala": [
+    0,
+    2,
+    5,
+    7,
+    9
+   ],
+   "vozes": {
+    "dia": [
+     "passaro",
+     "sino",
+     "galho"
+    ],
+    "noite": [
+     "grilo",
+     "coruja",
+     "carrilhao"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subterraneo_anao",
+  "nome": "Reinos Anões",
+  "perigo": 3,
+  "cor": "#b08a50",
+  "tags": [
+   "subterraneo",
+   "antigo"
+  ],
+  "audio": "caverna",
+  "clima": {
+   "limpo": 4,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "duergar",
+   "golem_de_pedra",
+   "goblin",
+   "troll_das_pedras",
+   "morcego_gigante"
+  ],
+  "visual": {
+   "base": "caverna",
+   "cor_base": "#14100a",
+   "tinta": "#e0a850",
+   "camadas": [
+    [
+     "colunas",
+     0.7,
+     0.2
+    ],
+    [
+     "arcos",
+     0.8,
+     0.15
+    ],
+    [
+     "rochas",
+     0.92,
+     0.07
+    ]
+   ],
+   "particulas": [
+    [
+     "brasa",
+     18
+    ],
+    [
+     "poeira",
+     15
+    ]
+   ],
+   "ceu": [
+    "#0a0805",
+    "#3a2a18",
+    "#7a5a30"
+   ],
+   "ceuForca": 0.3
+  },
+  "som": {
+   "base": "caverna",
+   "ruido": "brown",
+   "filtro": 260,
+   "vol": 0.08,
+   "raiz": 40,
+   "escala": [
+    0,
+    2,
+    3,
+    7,
+    10
+   ],
+   "eco": 0.7,
+   "vozes": {
+    "dia": [
+     "pedra",
+     "gota",
+     "carrilhao"
+    ],
+    "noite": [
+     "pedra",
+     "gota"
+    ]
+   }
+  }
+ },
+ {
+  "id": "terras_orc",
+  "nome": "Terras Orcs",
+  "perigo": 4,
+  "cor": "#a0452f",
+  "tags": [
+   "natureza",
+   "hostil"
+  ],
+  "audio": "montanha",
+  "clima": {
+   "limpo": 3,
+   "vento": 3,
+   "chuva": 1,
+   "nevoa": 1
+  },
+  "inimigos": [
+   "orc_saqueador",
+   "goblin",
+   "troll_da_ponte",
+   "lobo_alfa",
+   "salteador"
+  ],
+  "visual": {
+   "base": "montanha",
+   "cor_base": "#1a0e0a",
+   "tinta": "#c8603a",
+   "camadas": [
+    [
+     "picos",
+     0.5,
+     0.2
+    ],
+    [
+     "rochas",
+     0.75,
+     0.1
+    ],
+    [
+     "arvores_mortas",
+     0.9,
+     0.16
+    ]
+   ],
+   "particulas": [
+    [
+     "cinza",
+     30
+    ],
+    [
+     "brasa",
+     15
+    ]
+   ],
+   "ceu": [
+    "#2a0f08",
+    "#7a2a18",
+    "#c8603a"
+   ],
+   "ceuForca": 0.4
+  },
+  "som": {
+   "base": "montanha",
+   "ruido": "white",
+   "filtro": 500,
+   "vol": 0.06,
+   "raiz": 40,
+   "escala": [
+    0,
+    1,
+    5,
+    6,
+    10
+   ],
+   "vozes": {
+    "dia": [
+     "rajada",
+     "pedra"
+    ],
+    "noite": [
+     "rajada",
+     "coruja"
+    ]
+   }
+  }
  }
 ]

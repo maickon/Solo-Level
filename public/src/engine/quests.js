@@ -14,7 +14,9 @@ export function ofertas(g) {
   const lista = [];
   for (let i = 0; i < OFERTAS_POR_DIA * 2 && lista.length < OFERTAS_POR_DIA; i++) {
     const m = gerarMissao(g);
-    if (m && !lista.some((x) => x.destino === m.destino && x.tpl === m.tpl)) lista.push(m);
+    // Sem ofertas repetidas (mesmo título ou mesmo serviço no mesmo destino) nem iguais a missões já aceitas.
+    const repetida = (x) => x.titulo === m.titulo || (x.destino === m.destino && x.tpl === m.tpl);
+    if (m && !lista.some(repetida) && !s.missoes.some(repetida)) lista.push(m);
   }
   s.ofertas[s.local] = { dia: s.dia, lista };
   return lista;
@@ -34,7 +36,7 @@ export function gerarMissao(g) {
   }
   if (!cands.length) return null;
   const { l: dest, d } = g.rng.pick(cands);
-  const alvo = tpl.objetivo === 'vencer' ? g.rng.pick(g.c.biomes[dest.bioma].inimigos) : null;
+  const alvo = tpl.objetivo === 'vencer' ? g.rng.weighted(g.c.biomes[dest.bioma].inimigos, (x) => g.c.enemies[x]?.peso ?? 1) : null;
   // Contratante: reaproveita alguém conhecido do local com ofício compatível, ou rola um novo.
   const oficios = (tpl.oficios || []).filter((o) => g.c.npcs.oficios.some((x) => x.id === o));
   const pool = oficios.length ? oficios : g.c.npcs.oficios.map((o) => o.id);

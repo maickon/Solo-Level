@@ -7,7 +7,8 @@
     "tags": [
       "seguro",
       "estalagem",
-      "mercado"
+      "mercado",
+      "vila"
     ],
     "conexoes": [
       {
@@ -72,7 +73,8 @@
     "tags": [
       "seguro",
       "estalagem",
-      "mercado"
+      "mercado",
+      "porto"
     ],
     "conexoes": [
       {
@@ -100,7 +102,8 @@
       }
     ],
     "x": 93,
-    "y": 56
+    "y": 56,
+    "fronteira": 1
   },
   {
     "id": "pantano_negro",
@@ -119,7 +122,8 @@
       }
     ],
     "x": 16,
-    "y": 58
+    "y": 58,
+    "fronteira": 1
   },
   {
     "id": "aldeia_palafitas",
@@ -128,7 +132,8 @@
     "genero": "f",
     "tags": [
       "seguro",
-      "mercado"
+      "mercado",
+      "aldeia"
     ],
     "conexoes": [
       {
@@ -137,7 +142,8 @@
       }
     ],
     "x": 7,
-    "y": 76
+    "y": 76,
+    "fronteira": 1
   },
   {
     "id": "ruinas_antigas",
@@ -157,7 +163,8 @@
     ],
     "x": 40,
     "y": 26,
-    "plural": true
+    "plural": true,
+    "fronteira": 1
   },
   {
     "id": "passo_montanha",
@@ -176,7 +183,8 @@
       }
     ],
     "x": 57,
-    "y": 13
+    "y": 13,
+    "fronteira": 1
   },
   {
     "id": "caverna_eco",
@@ -193,6 +201,7 @@
       }
     ],
     "x": 76,
-    "y": 7
+    "y": 7,
+    "fronteira": 1
   }
 ]

@@ -9,8 +9,9 @@ description: Verificar o SoloLevel após mudanças — validação de conteúdo,
    (40 partidas, ~4000 turnos) + `node:test`. Tudo precisa passar.
    - "PROBLEMA: tabela ausente / token não expandido" → corrija o template no JSON.
    - "sem opções no modo evento" → evento sem opção livre de `requer`.
+   - Antes de concluir mudanças grandes de motor ou conteúdo, rode a skill `/playtest`
+     (`npm run qa` + revisão semântica + `npm run ui`).
 2. Mudou UI ou CSS? Suba `npm run dev` em segundo plano e confira no navegador
-   (desktop e largura de 390px). Sem navegador controlável, use Chrome headless via
-   DevTools Protocol (Node 22 tem `WebSocket` nativo) para clicar opções e tirar screenshots;
+   (desktop e largura de 390px) com `npm run ui` (Chrome/Edge headless, capturas em `reports/ui/`);
    console sem erros é obrigatório.
 3. Deploy só quando o usuário pedir: `npm run deploy` (Firebase Hosting, pasta `public/`).

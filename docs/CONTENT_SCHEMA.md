@@ -134,6 +134,8 @@ Atributos: `forca`, `agilidade`, `mente`, `presenca` (valores de -1 a 3).
 - `inteligente` em `tags` habilita a opção Negociar.
 - `saque`: chance (0–1) de dropar item gerado no tier do inimigo.
 
+- `peso` (opcional, padrão 1): raridade do inimigo nas emboscadas e missões do bioma (ex.: `0.1` para um dragão).
+
 ## items.json (sistema gerador)
 ```json
 {
@@ -308,3 +310,106 @@ O motor sorteia o NPC contratante, o destino (a 1–4 conexões de distância) e
 - A recompensa escala com a distância. Ao entregar: +2 de disposição com o contratante.
 
 Tabelas obrigatórias novas: `poi_descoberta` (usa `$poi`), `trabalho_intro`, `missao_entregue`.
+
+## Lugares internos e atividades (v0.6)
+O menu de um lugar tem opções fixas (explorar, missões, viajar, descansar, estalagem, mercado, trabalho) e
+**atividades sorteadas** (storylets): de um grande catálogo, o motor oferece as que passam nas condições do
+momento — até 4 em povoados e 2 no ermo — e troca a seleção a cada período. Atividades mais específicas
+(mais chaves em `requer`) pesam mais; uma atividade feita entra em recarga.
+
+### Tipo de povoado
+Povoados levam uma tag de tipo em `locations.json`: `vila`, `porto`, `aldeia` (e as que você criar, como
+`cidade`). Um local pode fixar estabelecimentos que sempre existem: `"estabelecimentos": ["templo"]`.
+
+### estabelecimentos.json
+```json
+[{ "id": "biblioteca", "rotulo": "biblioteca", "genero": "f",
+   "nome": "{estab_nome_biblioteca}", "em": ["vila", "cidade"], "chance": 0.35 }]
+```
+- Na primeira visita, cada povoado sorteia seus estabelecimentos (um teste de `chance` para cada um
+  cujo `em` bate com as tags do local; no mínimo 3) e os guarda para sempre. O jogador vê "Aqui há: …".
+- `nome`: template opcional do nome próprio ("Biblioteca do Selo Partido"); sem ele, usa `rotulo`.
+  `"artigo": false` para nomes sem artigo.
+- No contexto da gramática, cada estabelecimento presente vira a tag `estab_<id>`.
+
+### Variações do texto principal
+Em qualquer evento, `texto` pode ser uma **lista** de versões; o motor sorteia uma a cada vez
+(`"texto": ["Pegadas fundas…", "Um rastro de garras…", "Marcas recentes…"]`). Use nos eventos que
+aparecem muito, para a abertura não se repetir.
+
+### Contexto extra de algumas cenas
+- Acampar sem ração acrescenta a tag `fome` ao texto de `acampamento` (escreva variantes com `tags: ["fome"]`).
+- Depois de algo feito dentro do povoado (atividade, mercado, trabalho) o motor usa `apos_atividade`
+  (fechamento curto, quase sempre vazio); depois de explorar, `local_retorno`; viagem com encontro no caminho
+  termina com `chegada`.
+- O efeito `item` de eventos não narra "você encontra…": o texto da saída deve dizer como o item chegou.
+
+### Atividades (events.json, `tipo: "atividade"`)
+Uma atividade é um evento com rótulo de menu:
+```json
+{ "id": "biblioteca_mapas", "tipo": "atividade", "rotulo": "{atv_biblioteca_rotulo}",
+  "requer": { "estab": "biblioteca", "periodo": ["manha", "tarde"] },
+  "tempo": 1, "recarga": 3, "peso": 1, "dica": "1 período · teste: mente",
+  "texto": "{$estab.O_nome} cheira a pó e cera…", "opcoes": [ …iguais às de qualquer evento… ] }
+```
+- `rotulo` (obrigatório): texto do botão no menu do lugar; use tabelas para variar.
+- `requer`: condições normais + `estab` / `sem_estab` (id ou lista; basta um existir no povoado).
+  Atividades de ermo usam `bioma`, `local_tags`, `periodo`, `clima`, `ferido`, `item_tag` etc.
+- `tempo`: períodos gastos ao iniciar (padrão 1; 0–4). `recarga`: dias até poder voltar (padrão 2).
+- `{$estab}`: o estabelecimento exigido pela atividade (nome próprio com artigos prontos: `{$estab.no_nome}`).
+- Pode ter `npc`, testes, críticos, `cena` para encadear, como qualquer evento.
+- O validador mede quantas atividades a simulação alcançou ("Atividades: X de Y").
+
+## Mundo infinito: regiões, masmorras e planos (v0.7)
+### Fronteiras
+Locais com `"fronteira": N` (em `locations.json`) oferecem "Desbravar as terras além de…" até N vezes.
+Desbravar gera uma **região** nova a partir de um modelo de `regioes.json`, posicionada para fora do mapa,
+ligada ao local de origem; a região nova sempre deixa ao menos uma fronteira nova (o mundo não acaba).
+
+### regioes.json
+```json
+[{ "id": "ilha_deserta", "nome": "{reg_nome_ilha}", "genero": "f", "bioma": "ilha",
+   "de": ["costa"], "peso": 1, "fronteira": 1, "tags": ["ilha"], "descricao": "{reg_desc_ilha}",
+   "locais": [ { "nome": "{reg_ilha_praia}", "genero": "f", "tags": ["praia"] },
+               { "nome": "{reg_ilha_mata}", "tags": ["selvagem"], "bioma": "selva" } ],
+   "opcionais": [ { "nome": "{reg_ilha_naufragio}", "tags": ["naufragio"], "chance": 0.5 } ] }]
+```
+- `de`: biomas **ou tags de local** de onde a região pode nascer (coerência: ilha nasce da costa, cidade anã
+  da montanha). `"*"` = qualquer. `nivel_min` opcional. `unico: true` = só uma por mundo.
+- `locais`: o primeiro é a entrada; cada um pode ter `bioma` próprio, `tags`, `genero`, `artigo`, `plural`,
+  `estabelecimentos` fixos. Povoados levam tag de tipo (`cidade`, `castelo`, `anao`, `orc`, `pirata`…) para
+  os estabelecimentos com `em` correspondente.
+- `descricao`: texto dito ao chegar (além de `regiao_descoberta`).
+- Variável `{$regiao}` = nome da região; tags da região valem em todos os seus locais.
+
+### Masmorras (`"tipo": "masmorra"`)
+Descobertas ao **explorar** um local (6%, uma por local), nunca pela fronteira. Viram um corredor:
+entrada (`locais[0]`) → `salas` [min,max] salas sorteadas (`sala`: `{ "nome": "{sala_cripta}", "tags": [...] }`)
+→ covil (último de `locais`). Todos os locais recebem a tag `masmorra`; o último, `covil`. Use eventos com
+`requer.local_tags: ["masmorra"]` / `["covil"]` e tags próprias (`cripta`, `mina`, `labirinto`…).
+
+### Outros planos (`"plano": true`)
+Só abrem pelo efeito **`portal`** (`{"portal": "reino_feerico"}` ou `{"portal": "*"}`) num evento — de
+preferência raro, em locais `sagrado`/`antigo`. O portal liga o plano ao local de origem (0 períodos).
+
+### Perfis de cenário e som nos biomas
+```json
+{ "id": "deserto", "nome": "Deserto", "perigo": 3, "cor": "#d9b66a", "audio": "estrada",
+  "visual": { "base": "estrada", "cor_base": "#2a1d10", "tinta": "#d9b66a",
+              "camadas": [["dunas", 0.55, 0.08], ["dunas", 0.72, 0.1]], "particulas": [["poeira", 40]],
+              "ceu": ["#3a2a18", "#a8743c", "#f0c78a"], "ceuForca": 0.4 },
+  "som": { "base": "montanha", "ruido": "white", "filtro": 900, "vol": 0.05, "raiz": 45,
+           "escala": [0, 1, 4, 5, 7], "vozes": { "dia": ["rajada"], "noite": ["grilo", "rajada"] } } }
+```
+- `visual.base` / `som.base`: perfil embutido de partida (`vila`, `estrada`, `floresta`, `pantano`,
+  `montanha`, `ruinas`, `costa`/`mar`, `caverna`); os demais campos substituem os dele.
+- Cor das silhuetas: campo `"cor_base"` (opcional; padrão = a do perfil de partida); `"tinta"` = cor da névoa e brilhos.
+- `camadas`: `[forma, altura_do_horizonte 0–1, amplitude]`, do fundo para a frente. Formas: `serra`, `picos`,
+  `colinas`, `falesia`, `rochas`, `pinheiros`, `arvores_esparsas`, `arvores_mortas`, `juncos`, `telhados`,
+  `colunas`, `arcos`, `torres`, `palmeiras`, `dunas`, `arvores_gigantes`, `cogumelos`, `vulcao`.
+- `particulas`: `[tipo, quantidade]` — `chuva`, `neve`, `vagalume`, `poeira`, `brasa`, `folha`, `gota`,
+  `cinza`, `esporo`. `ceu`: três cores (topo, meio, horizonte) misturadas ao céu do período por `ceuForca`.
+- `som`: `ruido` (`white`/`pink`/`brown`), `filtro`, `q`, `lfo`, `vol`, `raiz` (nota MIDI), `escala`
+  (graus), `eco`, `vozes` (`passaro`, `gaivota`, `grilo`, `coruja`, `galho`, `sapo`, `bolha`, `gota`,
+  `pedra`, `rajada`, `onda`, `trovao`, `sino`, `carrilhao`).
+- `cor`: cor do bioma no mapa. O validador confere formas, partículas, perfis e vozes.

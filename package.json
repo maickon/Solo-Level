@@ -9,6 +9,9 @@
     "test": "node --test tests/*.test.mjs",
     "validate": "node tools/validate.mjs",
     "check": "node tools/validate.mjs && node --test tests/*.test.mjs",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "firebase deploy --only hosting",
+    "playtest": "node tools/playtest.mjs",
+    "ui": "node tools/ui-smoke.mjs",
+    "qa": "npm run check && npm run playtest"
   }
 }

@@ -2,6 +2,8 @@
 import { hasItemTag } from './hero.js';
 
 const has = (arr, v) => Array.isArray(arr) && arr.includes(v);
+const lista = (v) => (Array.isArray(v) ? v : [v]);
+const estabsAqui = (s) => (s.estabs?.[s.local] || []).map((e) => e.id);
 
 const CHECKS = {
   bioma: (v, s, c) => has(v, c.biome(s).id),
@@ -23,6 +25,9 @@ const CHECKS = {
   nivel_min: (v, s) => s.heroi.nivel >= v,
   perigo_min: (v, s, c) => (c.biome(s).perigo ?? 0) >= v,
   perigo_max: (v, s, c) => (c.biome(s).perigo ?? 0) <= v,
+  // Estabelecimentos do povoado atual: basta um da lista existir (sem_estab: nenhum).
+  estab: (v, s) => lista(v).some((id) => estabsAqui(s).includes(id)),
+  sem_estab: (v, s) => !lista(v).some((id) => estabsAqui(s).includes(id)),
   npc_conhecido: (v, s) => !!s.evento?.npc && !s.evento.npcNovo === !!v,
   npc_disposicao_min: (v, s) => (s.npcs?.[s.evento?.npc]?.disposicao ?? -99) >= v,
   npc_disposicao_max: (v, s) => (s.npcs?.[s.evento?.npc]?.disposicao ?? 99) <= v,

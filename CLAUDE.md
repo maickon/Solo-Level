@@ -7,16 +7,20 @@ servidor: ES modules puros, zero dependências, conteúdo em JSON, hospedado no 
 - `npm run dev`: servidor local em http://127.0.0.1:5173 (`fetch` exige servidor; `file://` não funciona)
 - `npm run check`: validação de conteúdo + simulação + testes. **Rode após qualquer mudança.**
 - `npm run validate`: só conteúdo + simulação (bot joga ~4000 turnos procurando textos quebrados e estados inválidos)
+- `npm run playtest`: 120 partidas com 6 estilos de robô; relatório em `reports/playtest.md` e cenas para revisão em `reports/amostras.md`
+- `npm run qa`: check + playtest. `npm run ui`: teste no navegador real (com `npm run dev` rodando)
 - `npm run deploy`: Firebase Hosting (requer `firebase login` e `firebase use <projeto>`)
 
 ## Mapa
 - `public/src/engine/`: motor puro, sem DOM. `game.js` orquestra; `rules.js` regras e efeitos;
   `items.js` gerador de itens; `grammar.js` texto procedural; `conditions.js` condições; `hero.js` ficha;
   `content.js` carga, mescla e validação de pacotes; `rng.js` RNG com semente; `names.js` Markov;
-  `world.js` POIs, conexões dinâmicas e distâncias; `npcs.js` NPCs recorrentes; `quests.js` gerador de missões.
+  `world.js` POIs, conexões dinâmicas e distâncias; `atividades.js` estabelecimentos por povoado e atividades sorteadas (storylets); `regioes.js` mundo infinito (fronteiras, regiões, masmorras, planos); `npcs.js` NPCs recorrentes; `quests.js` gerador de missões.
 - `public/src/main.js`: UI (só lê `game.s.cena` e chama a API do `Game`). `storage.js` save local e preferências.
 - `public/src/audio/`: `engine.js` mesa (barramentos ambiente/música/efeitos), `ambience.js` ambiente e música por lugar,
   `sfx.js` efeitos sintetizados, `cues.js` (puro) traduz classes de blocos da cena em sons. `voice.js` narração (Web Speech).
+- `public/src/visual/`: `cenario.js` fundo animado por bioma/período/clima (canvas, semente = id do local),
+  `icones.js` ícones SVG e dados. Layout de jogo em `public/css/jogo.css` (HUD, palco, painel, folhas no celular).
 - `public/data/packs/<id>/`: pacotes de conteúdo. **Contrato: `docs/CONTENT_SCHEMA.md`.**
 - `tools/`: validador e simulação (Node). `tests/`: `node:test`.
 - `docs/ARCHITECTURE.md`: decisões e fluxo de cena.
@@ -33,5 +37,5 @@ servidor: ES modules puros, zero dependências, conteúdo em JSON, hospedado no 
 ## Economia de tokens
 - Não leia os JSON de pacote inteiros (são grandes): use Grep por id ou chave.
 - Para entender o contrato de conteúdo, leia `docs/CONTENT_SCHEMA.md`, não os pacotes.
-- Use as skills do projeto: `/conteudo` (criar conteúdo), `/regras` (mudar mecânica), `/verificar` (testar).
+- Use as skills do projeto: `/conteudo` (criar conteúdo), `/regras` (mudar mecânica), `/verificar` (testar), `/playtest` (testar a fundo + agente `revisor-texto`).
 - Delegue volume de conteúdo ao agente `escritor-conteudo` (Sonnet).

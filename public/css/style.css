@@ -6,7 +6,7 @@
   --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 var(--sans); }
+html, body { margin: 0; background: #0b0907; color: var(--text); font: 15px/1.55 var(--sans); }
 button { font: inherit; color: inherit; cursor: pointer; }
 .loading { text-align: center; padding: 30vh 16px; color: var(--muted); font-family: var(--serif); font-size: 1.4rem; }
 
@@ -35,49 +35,14 @@ h2 { font: 600 1.8rem var(--serif); margin: 0 0 16px; }
 .seg button { padding: 7px 14px; }
 .seg button.sel { border-color: var(--accent); color: var(--accent); }
 
-/* ---------- Jogo ---------- */
-.game { display: grid; grid-template-columns: minmax(0, 1fr) 320px; min-height: 100vh; }
-.main { display: flex; flex-direction: column; min-width: 0; }
-.topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 24px; border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 2; }
-.topbar .where { font: 600 1.25rem var(--serif); }
-.topbar .when { color: var(--muted); font-size: .85rem; }
-.topbar .row { flex-wrap: nowrap; }
+/* ---------- Jogo: layout em jogo.css ---------- */
 .icon-btn { white-space: nowrap; background: none; border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; color: var(--muted); font-size: .85rem; }
-.story { flex: 1; padding: 24px; max-width: 760px; width: 100%; margin: 0 auto; }
-.scene { margin-bottom: 18px; }
-.scene.old { opacity: .42; }
-.scene p.txt { font: 500 1.28rem/1.5 var(--serif); margin: 0 0 10px; }
-.note, .rollb { display: inline-block; font-size: .8rem; padding: 2px 8px; border-radius: 4px; margin: 0 6px 6px 0; background: var(--panel-2); border: 1px solid var(--line); color: var(--muted); }
-.rollb { display: block; width: fit-content; font-family: ui-monospace, monospace; }
-.rollb.sucesso { color: var(--good); border-color: #355c3b; }
-.rollb.parcial { color: var(--accent); border-color: #5c4a2a; }
-.rollb.falha { color: var(--bad); border-color: #6b302a; }
-.note.dano, .note.golpe { color: var(--bad); } .note.cura { color: var(--good); }
-.note.xp, .note.ouro { color: var(--accent); } .note.fio { color: var(--exh); }
-.note.r-incomum { color: var(--r-incomum); } .note.r-raro { color: var(--r-raro); } .note.r-lendario { color: var(--r-lendario); }
-.options { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
-.options .btn { display: flex; justify-content: space-between; gap: 12px; }
-.options .dica { color: var(--muted); font-size: .8rem; white-space: nowrap; }
-.options .btn.combate { border-color: #6b302a; }
-.foe { background: var(--panel); border: 1px solid #6b302a; border-radius: 8px; padding: 10px 14px; margin: 8px 0; }
 .death { text-align: center; padding: 20px 0; }
 .death h2 { color: var(--hp); font-size: 2.4rem; }
 
 /* ---------- Ficha ---------- */
-.side { background: var(--panel); border-left: 1px solid var(--line); height: 100vh; position: sticky; top: 0; overflow-y: auto; }
-.tabs { display: flex; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--panel); z-index: 1; }
-.tabs button { flex: 1; background: none; border: none; border-bottom: 2px solid transparent; padding: 12px 4px; color: var(--muted); font-size: .85rem; }
-.tabs button.sel { color: var(--accent); border-bottom-color: var(--accent); }
-.pane { padding: 16px; }
 .hero-name { font: 600 1.5rem var(--serif); margin: 0; }
 .hero-sub { color: var(--muted); font-size: .85rem; margin-bottom: 14px; }
-.bar { margin-bottom: 10px; }
-.bar .lbl { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); }
-.bar .track { height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; }
-.bar .fill { height: 100%; transition: width .35s; }
-.bar.hp .track { height: 12px; }
-.pips { display: flex; gap: 4px; } .pips i { width: 14px; height: 8px; border-radius: 2px; background: var(--panel-2); }
-.pips i.on { background: var(--exh); }
 .kv { display: grid; grid-template-columns: 1fr auto; gap: 4px; font-size: .9rem; margin: 14px 0; }
 .kv span:nth-child(even) { color: var(--accent); text-align: right; }
 .sec { font: 600 .75rem var(--sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 16px 0 8px; }
@@ -94,19 +59,8 @@ h2 { font: 600 1.8rem var(--serif); margin: 0 0 16px; }
 .empty { color: var(--muted); font-size: .88rem; font-style: italic; }
 .trait { font-size: .85rem; margin-bottom: 6px; } .trait b { color: var(--exh); }
 
-@media (max-width: 820px) {
-  .game { grid-template-columns: 1fr; }
-  .side { height: auto; position: static; border-left: none; border-top: 1px solid var(--line); }
-  .story, .topbar { padding-left: 16px; padding-right: 16px; }
-  .scene p.txt { font-size: 1.18rem; }
-}
 
 /* ---------- v0.2: críticos, missões, mapa ---------- */
-.rollb.critico { color: #1b1305; background: var(--accent); border-color: var(--accent); font-weight: 700; }
-.rollb.desastre { color: #fff; background: #8a2a22; border-color: #8a2a22; font-weight: 700; }
-.note.critico { color: var(--accent); font-weight: 600; }
-.options .btn.destaque { border-color: var(--accent); background: #2a2318; }
-.options .btn.destaque .dica { color: var(--accent); }
 .quest { border: 1px solid var(--line); border-left: 3px solid var(--exh); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; background: var(--panel-2); }
 .quest.cumprida { border-left-color: var(--good); }
 .quest .n { font-weight: 600; font-size: .9rem; }
@@ -130,32 +84,18 @@ h2 { font: 600 1.8rem var(--serif); margin: 0 0 16px; }
 .maplegend span { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: -8px; }
 .lg-cur { border: 2px solid var(--accent); } .lg-q { background: var(--exh); transform: rotate(45deg); border-radius: 1px !important; }
 .lg-fog { border: 1px dashed var(--muted); }
-.tabs button { padding: 12px 2px; font-size: .8rem; }
 
 /* ---------- v0.3: experiência (atalhos, revelação, ajustes, comparação, lampejos) ---------- */
 kbd { display: inline-block; min-width: 1.4em; padding: 0 5px; margin: 0 1px; border: 1px solid var(--line); border-bottom-width: 2px;
   border-radius: 4px; font: 600 .72rem/1.5 ui-monospace, monospace; color: var(--muted); text-align: center; background: var(--panel); }
-.options .btn kbd { vertical-align: 1px; margin: 0 8px 0 0; }
 .cmp { display: block; font-size: .75rem; color: var(--muted); margin-top: 3px; }
 .cmp b { font-weight: 600; margin-right: 6px; white-space: nowrap; }
 .cmp b.up { color: var(--good); } .cmp b.down { color: var(--bad); }
 
-.anim .scene.fresh > .txt, .anim .scene.fresh > .rollb, .anim .scene.fresh > .note, .anim .scene.fresh > .options {
-  animation: surgir .5s ease-out both; animation-delay: calc(var(--i, 0) * 130ms); }
 @keyframes surgir { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-.game { position: relative; }
-.game::after { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: 0; z-index: 5; }
-.game.fx-dano::after { background: radial-gradient(ellipse at center, transparent 45%, rgba(194, 69, 59, .45)); animation: lampejo .65s ease-out; }
-.game.fx-crit::after { background: radial-gradient(ellipse at center, transparent 50%, rgba(212, 162, 76, .35)); animation: lampejo .65s ease-out; }
-.game.fx-nivel::after { background: radial-gradient(ellipse at center, rgba(212, 162, 76, .18), transparent 70%); animation: lampejo .65s ease-out; }
-.game.fx-dano .story { animation: tremor .3s; }
 @keyframes lampejo { 0% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes tremor { 0%, 100% { transform: none; } 25% { transform: translateX(-4px); } 50% { transform: translateX(3px); } 75% { transform: translateX(-2px); } }
-@media (prefers-reduced-motion: reduce) {
-  .anim .scene.fresh > * { animation: none !important; }
-  .game::after, .game .story { animation: none !important; }
-}
 
 .modal-bg { position: fixed; inset: 0; background: rgba(8, 7, 6, .72); z-index: 10; display: flex; align-items: flex-start; justify-content: center;
   padding: 6vh 16px; overflow-y: auto; animation: surgir .2s ease-out; }
@@ -171,6 +111,5 @@ kbd { display: inline-block; min-width: 1.4em; padding: 0 5px; margin: 0 1px; bo
 .chk input { accent-color: var(--accent); width: 16px; height: 16px; }
 .tut { padding-left: 18px; margin: 4px 0 18px; } .tut li { margin-bottom: 10px; line-height: 1.5; }
 @media (max-width: 820px) {
-  .topbar { flex-wrap: wrap; } .topbar .row { flex-wrap: wrap; gap: 6px; }
   .rng { grid-template-columns: 96px 1fr 30px; }
 }

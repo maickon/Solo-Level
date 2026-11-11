@@ -41,7 +41,7 @@ export class Ambience {
 
   /** mood = { audio, periodo, clima, modo, seguro, sagrado } */
   set(mood, force = false) {
-    const key = ['audio', 'periodo', 'clima', 'modo', 'seguro', 'sagrado'].map((k) => mood[k]).join('|');
+    const key = ['audio', 'periodo', 'clima', 'modo', 'seguro', 'sagrado', 'bioma'].map((k) => mood[k]).join('|');
     if (key === this.key && !force) return;
     this.key = key;
     const t = this.c.currentTime;
@@ -61,7 +61,9 @@ export class Ambience {
   }
 
   build(mood) {
-    const c = this.c, p = PERFIS[mood.audio] || PERFIS.estrada;
+    const c = this.c, base = PERFIS[mood.perfil?.base || mood.audio] || PERFIS.estrada;
+    // Perfil do bioma vindo dos dados (bioma.som) por cima do embutido.
+    const p = mood.perfil ? { ...base, ...mood.perfil, vozes: mood.perfil.vozes || base.vozes } : base;
     const noite = mood.periodo === 'noite' || mood.periodo === 'madrugada';
     const L = { vivo: true, nodes: [], timers: [], p, noite, mood };
     L.amb = c.createGain(); L.amb.gain.value = 0; L.amb.connect(this.ambBus);
@@ -261,3 +263,6 @@ const VOZES = {
     for (let i = 0; i < 3; i++) a.osc(L, t + i * rnd(0.3, 0.6), { f: NOTA(raiz + pick(L.p.escala)), vol: 0.015, ataque: 0.003, dur: 2.2 });
   },
 };
+
+export const PERFIS_SOM = Object.keys(PERFIS);
+export const VOZES_SOM = Object.keys(VOZES);

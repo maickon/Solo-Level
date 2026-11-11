@@ -9,10 +9,13 @@ import { START_LOCATION } from './content.js';
 import { loc, conexoes, marcarVisita, descobrirPoi } from './world.js';
 import { vincularNpc, npcVar, registrarNpc, mudarDisposicao } from './npcs.js';
 import { ofertas, textoMissao, varsMissao, contratante, MAX_ATIVAS } from './quests.js';
+import { fronteirasLivres, modelosPara, gerarRegiao, TEMPO_DESBRAVAR, CHANCE_MASMORRA } from './regioes.js';
+import { estabelecimentos, atividadesDoMomento, estabDaAtividade, varEstab, concluirAtividade } from './atividades.js';
 import * as R from './rules.js';
 
 export const SAVE_VERSION = 2;
 const RECENTES = 6;
+const NOME_ATRIBUTO = { forca: 'força', agilidade: 'agilidade', mente: 'mente', presenca: 'presença' };
 const ESTOQUE_FIXO = ['racao', 'pocao_menor', 'pocao', 'tocha', 'corda'];
 
 export function newState(content, { classe, nome, genero = 'm', seed = String(Date.now()) }) {
@@ -22,7 +25,7 @@ export function newState(content, { classe, nome, genero = 'm', seed = String(Da
     local: START_LOCATION, fios: [], flags: {}, diario: [], memoria: {}, recentes: [],
     caos: 5, uid: 0, mercados: {}, cena: null, combate: null, evento: null, morto: false,
     visitados: [START_LOCATION], locais: {}, conexoesExtra: {}, npcs: {}, missoes: [], ofertas: {},
-    aposCombate: null, combateMissao: null,
+    aposCombate: null, combateMissao: null, estabs: {}, estabsVistos: {}, atvOferta: {}, atvFeitas: {}, regioes: {}, fronteirasUsadas: {}, masmorras: {},
     heroi: {
       nome, genero, classe: cls.id, atributos: { ...cls.atributos },
       hpBase: cls.hp, energiaBase: cls.energia, hp: cls.hp, hpMax: cls.hp,
@@ -52,6 +55,9 @@ export class Game {
   constructor(content, state) {
     this.c = content;
     this.s = state;
+    // Campos adicionados depois da v2 (saves antigos continuam válidos).
+    state.estabs ||= {}; state.estabsVistos ||= {}; state.atvOferta ||= {}; state.atvFeitas ||= {};
+    state.regioes ||= {}; state.fronteirasUsadas ||= {}; state.masmorras ||= {};
     this.rng = new Rng(state.rng);
     this.vars = {};
     this.out = [];
@@ -64,8 +70,10 @@ export class Game {
     const s = this.s, h = s.heroi, l = this.c.location(s);
     const t = new Set([l.bioma, ...(l.tags || []), s.periodo, s.clima]);
     if (s.combate) t.add('combate');
+    for (const x of this.tagsExtra || []) t.add(x);
     if (h.hp <= h.hpMax / 2) t.add('ferido');
     if (h.exaustao >= 3) t.add('exausto');
+    for (const e of s.estabs?.[s.local] || []) t.add(`estab_${e.id}`);
     // NPC do evento atual, ou um contexto temporário (ex.: contratante de missão).
     const npc = this.npcCtx?.npc || s.npcs[s.evento?.npc];
     if (npc) {
@@ -84,6 +92,7 @@ export class Game {
     this.vars.bioma = gvar(b.nome || '', b.genero);
     const npc = this.npcCtx?.npc || s.npcs[s.evento?.npc];
     if (npc) this.vars.npc = npcVar(this, npc);
+    if (s.evento?.estab) this.vars.estab = varEstab(this, s.evento.estab);
   }
   text(tpl) {
     this.refreshVars();
@@ -100,10 +109,11 @@ export class Game {
   }
   say(tpl) { const t = polir(this.text(tpl)); if (t) this.out.push({ tipo: 'texto', texto: t }); }
   note(texto, classe = '') { this.out.push({ tipo: 'nota', texto, classe }); }
-  roll(texto, classe) { this.out.push({ tipo: 'rolagem', texto, classe }); }
+  /** dados = { d1, d2, mod, total, atributo } (opcional; a UI desenha os dados). */
+  roll(texto, classe, dados = null) { this.out.push({ tipo: 'rolagem', texto, classe, ...(dados || {}) }); }
   diary(texto) { this.s.diario.push({ dia: this.s.dia, periodo: this.s.periodo, texto }); }
 
-  begin() { this.out = []; this.pendingCombat = null; this.pendingScene = null; this.cenaCtx = novaCena(); }
+  begin() { this.out = []; this.pendingCombat = null; this.pendingScene = null; this.pendingPortal = null; this.semSair = false; this.cenaCtx = novaCena(); }
   commit(modo, opcoes) {
     if (this.s.morto) { modo = 'morte'; opcoes = []; this.say('{epitafio}'); }
     this.s.cena = { modo, blocos: this.out, opcoes };
@@ -125,32 +135,46 @@ export class Game {
         ops.push(this.opt(`Entregar a missão a ${contratante(this, m)?.nome}`, { tipo: 'missao_entregar', uid: m.uid }, { dica: `${m.ouro} ouro`, destaque: true }));
       }
     }
+    // Atividades do momento (storylets sorteados pelo contexto), antes das opções fixas de viagem e descanso.
+    estabelecimentos(this, l);
+    for (const id of atividadesDoMomento(this)) {
+      const ev = this.c.eventMap[id], estab = estabDaAtividade(s, ev);
+      this.vars.estab = estab ? varEstab(this, estab) : null;
+      const tempo = ev.tempo ?? 1;
+      ops.push(this.opt(ev.rotulo, { tipo: 'atividade', id }, { dica: ev.dica || (tempo ? `${tempo} período(s)` : ''), atividade: true }));
+    }
     for (const cx of conexoes(this, s.local)) {
       const d = this.loc(cx.para);
       if (!d) continue;
       const v = gvar(d.nome, d.genero, { art: d.artigo ?? true, plural: !!d.plural });
       const novo = !s.visitados.includes(d.id);
-      ops.push(this.opt(`Viajar para ${v.o} ${d.nome}`, { tipo: 'viajar', para: d.id }, { dica: `${cx.tempo || 1} período(s)${novo ? ' · inexplorado' : ''}` }));
+      ops.push(this.opt(`Viajar para ${v.o} ${d.nome}`, { tipo: 'viajar', para: d.id }, { dica: `${(cx.tempo ?? 1) ? `${cx.tempo ?? 1} período(s)` : 'perto'}${novo ? ' · inexplorado' : ''}` }));
+    }
+    // Fronteira: caminho para terras ainda não geradas (o mundo cresce sem fim).
+    if (fronteirasLivres(this, l) && modelosPara(this, l).length) {
+      ops.push(this.opt('Desbravar as terras além {$local.do_nome}', { tipo: 'desbravar' }, { dica: `desconhecido · ${TEMPO_DESBRAVAR} período(s)` }));
     }
     ops.push(this.opt('Descansar um pouco', { tipo: 'descansar' }, { dica: 'curto' }));
     if (!l.tags?.includes('seguro')) {
       const temRacao = h.inventario.some((i) => i.tags?.includes('racao'));
-      ops.push(this.opt(temRacao ? 'Acampar até o amanhecer' : 'Acampar sem comida', { tipo: 'acampar' }, { dica: temRacao ? 'gasta 1 ração' : 'arriscado' }));
+      ops.push(this.opt('Acampar até o amanhecer', { tipo: 'acampar' }, { dica: temRacao ? 'gasta 1 ração' : 'sem ração: descanso ruim' }));
     }
     if (l.tags?.includes('estalagem')) {
-      ops.push(this.opt('Dormir na estalagem', { tipo: 'estalagem' }, { dica: `${R.PRECO_ESTALAGEM} ouro`, desativada: h.ouro < R.PRECO_ESTALAGEM }));
+      ops.push(this.opt('Dormir na estalagem', { tipo: 'estalagem' }, { dica: h.ouro < R.PRECO_ESTALAGEM ? `${R.PRECO_ESTALAGEM} ouro · faltam ${R.PRECO_ESTALAGEM - h.ouro}` : `${R.PRECO_ESTALAGEM} ouro`, desativada: h.ouro < R.PRECO_ESTALAGEM }));
     }
-    if (l.tags?.includes('mercado')) ops.push(this.opt('Visitar o mercado', { tipo: 'mercado' }));
-    if (l.tags?.includes('seguro') && this.c.quests.length) ops.push(this.opt('Procurar trabalho', { tipo: 'trabalho' }, { dica: `${s.missoes.length}/${MAX_ATIVAS} missões` }));
+    // Mercado e trabalho fecham na madrugada.
+    const fechado = s.periodo === 'madrugada';
+    if (l.tags?.includes('mercado')) ops.push(this.opt('Visitar o mercado', { tipo: 'mercado' }, fechado ? { dica: 'fechado até de manhã', desativada: true } : {}));
+    if (l.tags?.includes('seguro') && this.c.quests.length) ops.push(this.opt('Procurar trabalho', { tipo: 'trabalho' }, fechado ? { dica: 'ninguém contrata de madrugada', desativada: true } : { dica: `${s.missoes.length}/${MAX_ATIVAS} missões` }));
     this.commit('local', ops);
   }
 
   /** Abre um evento. `herdar` mantém o NPC do passo anterior de uma cadeia. */
-  eventScene(ev, herdar = null) {
+  eventScene(ev, herdar = null, extra = {}) {
     let npc = null, npcNovo = false;
     if (ev.npc) { const r = vincularNpc(this, ev.npc); npc = r.npc.id; npcNovo = r.novo; }
     else if (herdar?.npc) { npc = herdar.npc; npcNovo = herdar.npcNovo; }
-    this.s.evento = { id: ev.id, npc, npcNovo };
+    this.s.evento = { id: ev.id, npc, npcNovo, ...extra };
     this.say(ev.texto);
     this.commit('evento', this.eventOptions(ev));
   }
@@ -158,7 +182,7 @@ export class Game {
     return ev.opcoes
       .map((o, i) => ({ o, i }))
       .filter(({ o }) => check(o.requer, this.s, this.c))
-      .map(({ o, i }) => this.opt(o.rotulo, { tipo: 'opcao', idx: i }, o.teste ? { dica: `teste: ${o.teste}` } : {}));
+      .map(({ o, i }) => this.opt(o.rotulo, { tipo: 'opcao', idx: i }, o.teste ? { dica: `teste: ${NOME_ATRIBUTO[o.teste] || o.teste}` } : {}));
   }
 
   combatScene() {
@@ -172,10 +196,16 @@ export class Game {
     const st = this.estoque();
     const h = this.s.heroi;
     const ops = st.map((it, i) => this.opt(`Comprar ${it.nome}`, { tipo: 'comprar', idx: i },
-      { dica: `${precoCompra(it)} ouro`, desativada: h.ouro < precoCompra(it), item: it }));
+      { dica: h.ouro < precoCompra(it) ? `${precoCompra(it)} ouro · faltam ${precoCompra(it) - h.ouro}` : `${precoCompra(it)} ouro`, desativada: h.ouro < precoCompra(it), item: it }));
+    // Itens iguais (mesmo nome e valor) viram uma opção só: "Vender Mapa rabiscado (3)".
+    const grupos = new Map();
     for (const it of h.inventario) {
       if (Object.values(h.equipado).includes(it.uid) || it.tags?.includes('missao')) continue;
-      ops.push(this.opt(`Vender ${it.nome}`, { tipo: 'vender', uid: it.uid }, { dica: `+${precoVenda(it)} ouro`, item: it }));
+      const k = `${it.nome}|${it.valor}`;
+      if (grupos.has(k)) grupos.get(k).n++; else grupos.set(k, { it, n: 1 });
+    }
+    for (const { it, n } of grupos.values()) {
+      ops.push(this.opt(`Vender ${it.nome}${n > 1 ? ` (${n})` : ''}`, { tipo: 'vender', uid: it.uid }, { dica: `+${precoVenda(it)} ouro`, item: it }));
     }
     ops.push(this.opt('Sair do mercado', { tipo: 'sair' }));
     this.commit('mercado', ops);
@@ -186,7 +216,10 @@ export class Game {
     if (m && m.dia === s.dia) return m.itens;
     const itens = ESTOQUE_FIXO.filter((id) => this.c.items.bases.some((b) => b.id === id))
       .map((id) => generateItem(this.c, this.rng, s, { base: id, raridade: 'comum' }));
-    for (let i = 0; i < 3; i++) itens.push(generateItem(this.c, this.rng, s, { tier: Math.min(3, 1 + Math.floor(s.heroi.nivel / 2)), slot: this.rng.pick(SLOTS_EQUIP) }));
+    for (let i = 0, tent = 0; i < 3 && tent < 9; tent++) {
+      const it = generateItem(this.c, this.rng, s, { tier: Math.min(3, 1 + Math.floor(s.heroi.nivel / 2)), slot: this.rng.pick(SLOTS_EQUIP) });
+      if (!itens.some((x) => x.nome === it.nome)) { itens.push(it); i++; } // sem repetidos na banca
+    }
     s.mercados[s.local] = { dia: s.dia, itens };
     return itens;
   }
@@ -196,7 +229,7 @@ export class Game {
     const ops = ofertas(this).map((m) => {
       const d = this.loc(m.destino);
       const semEspaco = m.objetivo === 'chegar' && s.heroi.inventario.length >= LIMITE_INVENTARIO;
-      return this.opt(`Aceitar: ${m.titulo}`, { tipo: 'aceitar', uid: m.uid },
+      return this.opt(`Ouvir: ${m.titulo}`, { tipo: 'oferta', uid: m.uid },
         { dica: `${d?.nome} · ${m.ouro} ouro`, desativada: cheio || semEspaco });
     });
     if (!ops.length) this.say('{trabalho_vazio}');
@@ -230,11 +263,11 @@ export class Game {
     return ev;
   }
 
+  /** Gasta n de energia; o que faltar vira exaustão. Uma nota só para cada recurso ("−2 energia"). */
   gastarEnergia(n) {
-    for (let i = 0; i < n; i++) {
-      if (this.s.heroi.energia > 0) R.energia(this, -1);
-      else R.exaustao(this, 1);
-    }
+    const h = this.s.heroi, deEnergia = Math.min(n, h.energia);
+    if (deEnergia) R.energia(this, -deEnergia);
+    if (n - deEnergia) R.exaustao(this, n - deEnergia);
   }
 
   // ---------- Escolhas ----------
@@ -249,19 +282,82 @@ export class Game {
     this.s.turno = (this.s.turno || 0) + 1;
   }
 
+  /** Texto de volta ao menu do lugar: chegada (se a viagem foi interrompida por um evento no caminho),
+   *  fechamento curto (algo feito dentro do povoado) ou retorno de uma exploração. */
+  retorno(dentro = false) {
+    if (this.s.chegadaPendente) { this.s.chegadaPendente = false; this.say('{chegada}'); return; }
+    this.say(dentro ? '{apos_atividade}' : '{local_retorno}');
+  }
+
   /** Após resolver algo: combate pendente, próxima cena da cadeia, morte ou volta ao local. */
   afterResolve() {
     if (this.s.morto) return this.commit('morte', []);
     const herdar = this.s.evento;
+    if (this.pendingPortal && !this.pendingCombat) return this.atravessarPortal(this.pendingPortal);
     if (this.pendingCombat) {
-      this.s.aposCombate = this.pendingScene ? { id: this.pendingScene, npc: herdar?.npc, npcNovo: false } : null;
+      // O que vem depois da luta (próxima cena da cadeia e/ou portal) fica no estado: só acontece se vencer.
+      this.s.aposCombate = this.pendingScene || this.pendingPortal
+        ? { id: this.pendingScene || null, npc: herdar?.npc, npcNovo: false, portal: this.pendingPortal || null } : null;
+      this.pendingPortal = null;
       R.iniciarCombate(this, this.pendingCombat);
       return this.combatScene();
     }
     if (this.pendingScene && this.c.eventMap[this.pendingScene]) {
       return this.eventScene(this.c.eventMap[this.pendingScene], herdar && { ...herdar, npcNovo: false });
     }
-    this.say('{local_retorno}');
+    this.retorno(this.semSair || this.c.eventMap[herdar?.id]?.tipo === 'atividade');
+    this.hub();
+  }
+
+  /** Atividade do lugar: gasta o tempo dela e abre a mini-cena (evento tipo "atividade"). */
+  act_atividade({ id }) {
+    const ev = this.c.eventMap[id];
+    if (!ev || !(this.s.atvOferta[this.s.local]?.ids || []).includes(id)) return this.hub();
+    concluirAtividade(this.s, id);
+    const conhecido = estabDaAtividade(this.s, ev);
+    if (conhecido) ((this.s.estabsVistos[this.s.local] ||= []).includes(conhecido) || this.s.estabsVistos[this.s.local].push(conhecido));
+    if (ev.tempo ?? 1) R.avancarTempo(this, ev.tempo ?? 1);
+    const estab = estabDaAtividade(this.s, ev);
+    this.eventScene(ev, null, { estab });
+  }
+
+  /** Desbravar: gera uma região nova a partir da fronteira e chega à entrada dela. */
+  act_desbravar() {
+    const s = this.s, origem = this.c.location(s);
+    const pool = modelosPara(this, origem);
+    if (!fronteirasLivres(this, origem) || !pool.length) return this.hub();
+    this.gastarEnergia(TEMPO_DESBRAVAR);
+    R.avancarTempo(this, TEMPO_DESBRAVAR);
+    if (s.morto) return this.commit('morte', []);
+    const modelo = this.rng.weighted(pool);
+    s.fronteirasUsadas[origem.id] = (s.fronteirasUsadas[origem.id] || 0) + 1;
+    const entrada = gerarRegiao(this, origem, modelo);
+    this.chegarEmRegiao(entrada, modelo, '{regiao_descoberta}');
+  }
+
+  /** Efeito `portal`: abre outro plano de existência e leva o herói até ele. */
+  atravessarPortal(alvo) {
+    this.pendingPortal = null;
+    const origem = this.c.location(this.s);
+    const planos = modelosPara(this, origem, { plano: true }).filter((m) => alvo === '*' || alvo === true || m.id === alvo);
+    if (!planos.length) { this.retorno(); return this.hub(); }
+    const modelo = this.rng.weighted(planos);
+    const entrada = gerarRegiao(this, origem, modelo, { portal: true });
+    this.chegarEmRegiao(entrada, modelo, '{portal_travessia}');
+  }
+
+  chegarEmRegiao(entrada, modelo, texto) {
+    const s = this.s, bioma0 = this.c.location(s).bioma;
+    s.local = entrada.id;
+    marcarVisita(s, entrada.id);
+    if (entrada.bioma !== bioma0) R.sortearClima(this);
+    this.vars.destino = gvar(entrada.nome, entrada.genero, { art: entrada.artigo ?? true, plural: !!entrada.plural });
+    this.say(texto);
+    if (modelo.descricao) this.say(modelo.descricao);
+    this.note(`Nova região: ${s.regioes[entrada.regiao].nome}`, 'fio');
+    this.diary(`Cheguei a terras novas: ${s.regioes[entrada.regiao].nome}.`);
+    R.ganharXp(this, 2);
+    if (s.morto) return this.commit('morte', []);
     this.hub();
   }
 
@@ -270,6 +366,20 @@ export class Game {
     R.avancarTempo(this, 1);
     this.tickFios();
     if (this.s.morto) return this.commit('morte', []);
+    // Entrada de masmorra escondida (no máximo uma por local).
+    const aqui = this.c.location(this.s);
+    if (!aqui.tags?.includes('seguro') && !aqui.tags?.includes('masmorra') && !this.s.masmorras[aqui.id] && this.rng.chance(CHANCE_MASMORRA)) {
+      const pool = modelosPara(this, aqui, { masmorra: true });
+      if (pool.length) {
+        const entrada = gerarRegiao(this, aqui, this.rng.weighted(pool));
+        this.s.masmorras[aqui.id] = entrada.regiao;
+        this.vars.poi = gvar(entrada.nome, entrada.genero, { art: entrada.artigo ?? true });
+        this.say('{masmorra_descoberta}');
+        this.note(`Novo local no mapa: ${entrada.nome}`, 'fio');
+        this.diary(`Encontrei a entrada ${gvar(entrada.nome, entrada.genero).do_nome}.`);
+        return this.hub();
+      }
+    }
     const poi = descobrirPoi(this);
     if (poi) {
       this.say('{poi_descoberta}');
@@ -278,7 +388,7 @@ export class Game {
       return this.hub();
     }
     const ev = this.emergirFio() || this.sortearEvento('exploracao');
-    if (!ev) { this.say('{local_retorno}'); return this.hub(); }
+    if (!ev) { this.retorno(); return this.hub(); }
     this.eventScene(ev);
   }
 
@@ -287,7 +397,7 @@ export class Game {
     const cx = conexoes(this, origem.id).find((x) => x.para === para);
     const destino = this.loc(para);
     if (!cx || !destino) return this.hub();
-    const tempo = cx.tempo || 1;
+    const tempo = cx.tempo ?? 1; // 0 = salas de masmorra e portais
     this.vars.destino = gvar(destino.nome, destino.genero, { art: destino.artigo ?? true, plural: !!destino.plural });
     this.gastarEnergia(tempo);
     R.avancarTempo(this, tempo);
@@ -299,11 +409,12 @@ export class Game {
     if (primeiraVez) R.ganharXp(this, 1);
     if (mudouBioma) R.sortearClima(this);
     this.tickFios();
+    // Um encontro no caminho acontece antes da chegada; a chegada é narrada quando ele termina.
+    const ev = this.emergirFio() || (this.rng.chance(mudouBioma ? 0.6 : 0.25) ? this.sortearEvento('viagem') : null);
+    if (ev) { this.s.chegadaPendente = true; this.entregasNaChegada(); if (this.s.morto) return this.commit('morte', []); return this.eventScene(ev); }
     this.say('{chegada}');
     this.entregasNaChegada();
     if (this.s.morto) return this.commit('morte', []);
-    const ev = this.emergirFio() || (this.rng.chance(mudouBioma ? 0.6 : 0.25) ? this.sortearEvento('viagem') : null);
-    if (ev) return this.eventScene(ev);
     this.say('{local_desc}');
     this.hub();
   }
@@ -340,23 +451,26 @@ export class Game {
     }
     const apos = s.aposCombate;
     s.aposCombate = null;
+    if (r === 'vitoria' && apos?.portal && !s.morto) return this.atravessarPortal(apos.portal);
     if (r === 'vitoria' && apos && this.c.eventMap[apos.id]) return this.eventScene(this.c.eventMap[apos.id], apos);
     if (s.morto) return this.commit('morte', []);
-    this.say('{local_retorno}');
+    this.retorno();
     this.hub();
   }
 
   act_descansar() {
+    this.semSair = true; // descansou no lugar: nada de "você volta a…"
     const emb = R.descansoCurto(this);
     if (emb) this.pendingCombat = emb;
     this.afterResolve();
   }
   act_acampar() {
+    this.semSair = true;
     const emb = R.acampar(this);
     if (emb) this.pendingCombat = emb;
     this.afterResolve();
   }
-  act_estalagem() { R.estalagem(this); this.afterResolve(); }
+  act_estalagem() { this.semSair = true; R.estalagem(this); this.afterResolve(); }
 
   act_mercado() { this.say('{mercado_intro}'); this.marketScene(); }
   act_comprar({ idx }) {
@@ -373,10 +487,29 @@ export class Game {
     if (it) { this.s.heroi.ouro += precoVenda(it); this.note(`Vendeu: ${it.nome} (+${precoVenda(it)} ouro)`, 'ouro'); }
     this.marketScene();
   }
-  act_sair() { this.say('{local_retorno}'); this.hub(); }
+  act_sair() { this.retorno(true); this.hub(); }
 
   // ---------- Missões ----------
   act_trabalho() { this.say('{trabalho_intro}'); this.workScene(); }
+
+  /** Proposta: o contratante explica o serviço antes de você decidir. */
+  act_oferta({ uid }) {
+    const s = this.s, m = ofertas(this).find((x) => x.uid === uid);
+    if (!m || s.missoes.length >= MAX_ATIVAS) return this.workScene();
+    this.say(textoMissao(this, m, 'pedido'));
+    this.note(`Recompensa: ${m.ouro} ouro · ${m.xp} XP`, 'ouro');
+    const semEspaco = m.objetivo === 'chegar' && s.heroi.inventario.length >= LIMITE_INVENTARIO;
+    this.commit('trabalho', [
+      this.opt('Aceitar o serviço', { tipo: 'aceitar', uid }, { destaque: true, desativada: semEspaco, dica: semEspaco ? 'mochila cheia' : '' }),
+      this.opt('Recusar e ouvir outras propostas', { tipo: 'recusar', uid }),
+      this.opt('Voltar', { tipo: 'sair' }),
+    ]);
+  }
+  act_recusar({ uid }) {
+    const m = ofertas(this).find((x) => x.uid === uid);
+    if (m) { varsMissao(this, m); this.npcCtx = { npc: contratante(this, m), novo: true }; this.say('{missao_recusada}'); this.npcCtx = null; }
+    this.workScene();
+  }
 
   act_aceitar({ uid }) {
     const s = this.s, lista = ofertas(this), i = lista.findIndex((m) => m.uid === uid);
@@ -396,10 +529,14 @@ export class Game {
       this.note(`Recebeu: ${pacote.nome}`, 'item');
     }
     s.missoes.push(m);
-    this.say(textoMissao(this, m, 'pedido'));
+    varsMissao(this, m);
+    this.npcCtx = { npc, novo: false };
+    this.say('{missao_aceita}');
+    this.npcCtx = null;
     this.note(`Nova missão: ${m.titulo}`, 'fio');
     this.diary(`Aceitei uma missão de ${npc.nome}: ${m.titulo}.`);
-    this.workScene();
+    this.retorno(true);
+    this.hub();
   }
 
   act_missao_cumprir({ uid }) {
@@ -428,7 +565,7 @@ export class Game {
     const m = this.s.missoes.find((x) => x.uid === uid);
     if (!m || m.estado !== 'cumprida') return this.hub();
     this.concluirMissao(m);
-    this.say('{local_retorno}');
+    this.retorno(true);
     this.hub();
   }
 

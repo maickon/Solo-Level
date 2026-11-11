@@ -11,6 +11,7 @@ import { newState, Game } from '../public/src/engine/game.js';
 import { stats, compararEquip, mediaDado } from '../public/src/engine/hero.js';
 import { cuesFrom } from '../public/src/audio/cues.js';
 import * as R from '../public/src/engine/rules.js';
+import { gerarRegiao } from '../public/src/engine/regioes.js';
 import { loadNodeContent, PACKS_DIR } from '../tools/node-content.mjs';
 import { simulate } from '../tools/simulate.mjs';
 
@@ -24,7 +25,7 @@ const fixture = () => buildContent({
   biomes: [{ id: 'vila', nome: 'Vila', perigo: 0, clima: { limpo: 1 }, inimigos: [] },
     { id: 'mata', nome: 'Mata', perigo: 3, clima: { chuva: 1 }, inimigos: ['lobo'] }],
   locations: [{ id: 'vila_bruma', nome: 'Vila', genero: 'f', bioma: 'vila', tags: ['seguro', 'mercado', 'estalagem'], x: 50, y: 80, conexoes: [{ para: 'mata1', tempo: 1 }] },
-    { id: 'mata1', nome: 'Mata', genero: 'f', bioma: 'mata', tags: [], x: 50, y: 40, conexoes: [{ para: 'vila_bruma', tempo: 1 }, { para: 'vila2', tempo: 1 }] },
+    { id: 'mata1', nome: 'Mata', genero: 'f', bioma: 'mata', tags: [], fronteira: 1, x: 50, y: 40, conexoes: [{ para: 'vila_bruma', tempo: 1 }, { para: 'vila2', tempo: 1 }] },
     { id: 'vila2', nome: 'Porto', genero: 'm', bioma: 'vila', tags: ['seguro'], x: 80, y: 40, conexoes: [{ para: 'mata1', tempo: 1 }] }],
   enemies: [{ id: 'lobo', nome: 'lobo', genero: 'm', hp: 4, dano: '1d2', tier: 1, xp: 9, ouro: '1d2', saque: 1 }],
   events: [{ id: 'e1', tipo: 'exploracao', texto: 'Algo.', opcoes: [
@@ -37,13 +38,28 @@ const fixture = () => buildContent({
       { rotulo: 'Lutar e seguir', resultado: { texto: 'luta', efeitos: [{ combate: 'lobo' }, { cena: 'e3' }] } }] },
     { id: 'e3', tipo: 'cadeia', texto: 'Fim da cadeia com {$npc.nome}.', opcoes: [{ rotulo: 'Fim', resultado: { texto: 'fim', efeitos: [] } }] },
     { id: 'p1', tipo: 'exploracao', requer: { local_tags: ['caverna'] }, texto: 'Caverna.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] },
-    { id: 'p2', tipo: 'exploracao', requer: { local_tags: ['caverna'] }, texto: 'Caverna 2.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] }],
+    { id: 'p2', tipo: 'exploracao', requer: { local_tags: ['caverna'] }, texto: 'Caverna 2.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] },
+    { id: 'a_taverna', tipo: 'atividade', rotulo: 'Beber {$estab.no_nome}', requer: { estab: 'taverna' }, texto: 'Você entra {$estab.no_nome}.',
+      opcoes: [{ rotulo: 'Pagar', resultado: { texto: 'ok', efeitos: [{ ouro: '-1' }] } }] },
+    { id: 'a_templo', tipo: 'atividade', rotulo: 'Rezar', requer: { estab: 'templo' }, texto: 'Templo.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] },
+    { id: 'a_noite', tipo: 'atividade', rotulo: 'Ver as estrelas', tempo: 0, requer: { periodo: ['noite'] }, texto: 'Estrelas.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] },
+    { id: 'a_mato', tipo: 'atividade', rotulo: 'Colher ervas', requer: { bioma: ['mata'] }, texto: 'Ervas.', opcoes: [{ rotulo: 'Ok', resultado: { texto: 'ok' } }] }],
   npcs: { oficios: [{ id: 'ferreiro', m: 'ferreiro', f: 'ferreira' }, { id: 'guarda', m: 'guarda', f: 'guarda' }],
     temperamentos: [{ id: 'calmo', m: 'calmo', f: 'calma' }] },
   pois: [{ id: 'caverna', nome: 'Caverna Funda', genero: 'f', biomas: ['mata'], tags: ['caverna'] }],
   quests: [
     { id: 'cacar', objetivo: 'vencer', oficios: ['guarda'], titulo: 'Caçar {$alvo.nome}', pedido: '{$npc.nome} pede.', conclusao: 'Feito.', recompensa: { ouro: '5', xp: 2 } },
     { id: 'entregar', objetivo: 'chegar', oficios: ['ferreiro'], titulo: 'Levar a {$destino.nome}', pedido: 'Leve.', conclusao: 'Entregue.', recompensa: { ouro: '3', xp: 1 } }],
+  estabelecimentos: [{ id: 'taverna', rotulo: 'taverna', nome: 'Taverna do Galo', genero: 'f', em: ['seguro'], chance: 1 },
+    { id: 'templo', rotulo: 'templo', genero: 'm', em: ['seguro'], chance: 0 },
+    { id: 'forja', rotulo: 'forja', genero: 'f', em: ['seguro'], chance: 0 }],
+  regioes: [
+    { id: 'bosque', nome: 'Bosque Novo', genero: 'm', bioma: 'mata', de: ['mata'], fronteira: 1,
+      locais: [{ nome: 'Orla do Bosque', genero: 'f' }, { nome: 'Coração do Bosque', tags: ['sagrado'] }] },
+    { id: 'cripta', tipo: 'masmorra', nome: 'Cripta Funda', genero: 'f', bioma: 'mata', de: ['mata'], salas: [2, 2],
+      locais: [{ nome: 'Entrada da Cripta', genero: 'f' }, { nome: 'Câmara do Rei', genero: 'f' }],
+      opcionais: [{ nome: 'Ossuário', chance: 1 }] },
+    { id: 'feerico', plano: true, nome: 'Reino Feérico', bioma: 'mata', locais: [{ nome: 'Clareira de Vidro', genero: 'f' }] }],
   threads: [],
   items: {
     raridades: [{ id: 'comum', peso: 60, afixos: 0, mult: 1 }, { id: 'raro', peso: 10, afixos: 2, mult: 4 }, { id: 'lendario', peso: 1, afixos: 3, mult: 10 }],
@@ -228,9 +244,21 @@ test('missões: aceitar, cumprir (vencer) e entregar; entrega por chegada', () =
   s.heroi.hpBase = 99; s.heroi.hp = 99; s.heroi.hpMax = 99;
   g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'trabalho'));
   assert.equal(s.cena.modo, 'trabalho');
-  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'aceitar'));
-  const livre = () => s.cena.opcoes.findIndex((o) => o.acao.tipo === 'aceitar' && !o.desativada);
-  while (livre() >= 0) g.choose(livre());
+  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'oferta'));
+  // Ouvir a proposta mostra o pedido antes de aceitar; recusar volta à lista.
+  const n0 = s.cena.opcoes.filter((o) => o.acao.tipo === 'oferta').length;
+  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'oferta'));
+  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'aceitar') && s.cena.opcoes.some((o) => o.acao.tipo === 'recusar'));
+  assert.equal(s.missoes.length, 0);
+  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'recusar'));
+  assert.equal(s.cena.opcoes.filter((o) => o.acao.tipo === 'oferta').length, n0);
+  const livre = () => s.cena.opcoes.findIndex((o) => o.acao.tipo === 'oferta' && !o.desativada);
+  while (livre() >= 0) {
+    g.choose(livre());
+    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'aceitar'));
+    assert.equal(s.cena.modo, 'local'); // aceitar volta ao lugar
+    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'trabalho'));
+  }
   assert.ok(s.missoes.length >= 1 && s.missoes.every((m) => s.npcs[m.npcId]));
   const ouro0 = s.heroi.ouro;
   const cacar = s.missoes.find((m) => m.objetivo === 'vencer');
@@ -344,6 +372,141 @@ test('gramática 2.0: polimento, lint de lugar sem artigo e nomes com gênero', 
     assert.match(nomePessoa(r, names, 'f'), /a$|e$|is$|ys$|ine$/);
     assert.doesNotMatch(nomePessoa(r, names, 'm'), /a$/);
   }
+});
+
+test('atividades: povoado sorteia estabelecimentos fixos; menu mostra atividades do contexto', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'atv' });
+  const g = new Game(c, s);
+  // Estabelecimentos: chance 1 entra; mínimo de 3 completa com os demais; ficam guardados.
+  const ids = s.estabs.vila_bruma.map((e) => e.id).sort();
+  assert.deepEqual(ids, ['forja', 'taverna', 'templo']);
+  assert.equal(s.estabs.vila_bruma.find((e) => e.id === 'taverna').nome, 'Taverna do Galo');
+  // Menu: atividades válidas (taverna e templo; não a da noite nem a do mato).
+  const atv = () => s.cena.opcoes.filter((o) => o.acao.tipo === 'atividade').map((o) => o.acao.id).sort();
+  assert.deepEqual(atv(), ['a_taverna', 'a_templo']);
+  const rot = s.cena.opcoes.find((o) => o.acao.id === 'a_taverna').rotulo;
+  assert.equal(rot, 'Beber na Taverna do Galo');
+  // Fazer: gasta 1 período, mostra o texto com o estabelecimento e entra em recarga.
+  const per0 = s.periodo;
+  g.choose(s.cena.opcoes.findIndex((o) => o.acao.id === 'a_taverna'));
+  assert.equal(s.cena.modo, 'evento');
+  assert.notEqual(s.periodo, per0);
+  assert.ok(s.cena.blocos.some((b) => b.texto === "Você entra na Taverna do Galo."), JSON.stringify(s.cena.blocos));
+  g.choose(0);
+  assert.equal(s.cena.modo, 'local');
+  assert.ok(!atv().includes('a_taverna')); // em recarga
+  // À noite aparece a atividade noturna; no ermo, as do bioma.
+  s.periodo = 'noite'; g.begin(); g.hub();
+  assert.ok(atv().includes('a_noite'));
+  s.local = 'mata1'; s.periodo = 'manha'; g.begin(); g.hub();
+  assert.deepEqual(atv(), ['a_mato']);
+  assert.deepEqual(s.estabs.mata1, []);
+});
+
+test('mundo infinito: desbravar gera regiões conectadas, sem fim; masmorra em cadeia; portal para outro plano', () => {
+  const c = fixture();
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'reg' });
+  const g = new Game(c, s);
+  s.heroi.hpBase = 999; s.heroi.hp = 999; s.heroi.hpMax = 999;
+  s.local = 'mata1'; g.begin(); g.hub();
+  const desbravar = () => s.cena.opcoes.findIndex((o) => o.acao.tipo === 'desbravar');
+  assert.ok(desbravar() >= 0);
+  // Desbrava 6 vezes seguidas, sempre a partir da fronteira nova: o mundo continua crescendo.
+  const vistos = new Set();
+  for (let i = 0; i < 6; i++) {
+    let idx = desbravar();
+    // procura uma fronteira livre no mundo, se a atual já foi usada
+    if (idx < 0) {
+      const livre = Object.values(s.locais).find((l) => (l.fronteira || 0) > (s.fronteirasUsadas[l.id] || 0));
+      assert.ok(livre, 'sempre existe uma fronteira livre (exceto masmorras)');
+      s.local = livre.id; g.begin(); g.hub(); idx = desbravar();
+    }
+    const antes = s.local;
+    g.choose(idx);
+    const aqui = c.location(s);
+    assert.ok(aqui.gerado && aqui.regiao && s.regioes[aqui.regiao]);
+    assert.ok(aqui.conexoes.some((x) => x.para === antes), 'a entrada liga de volta à origem');
+    vistos.add(aqui.modelo);
+    // nenhum local gerado fica isolado e todos têm coordenadas
+    for (const l of Object.values(s.locais)) { assert.ok(l.conexoes.length, l.id); assert.ok(Number.isFinite(l.x) && Number.isFinite(l.y)); }
+    while (s.cena.modo !== 'local') g.choose(s.cena.opcoes.findIndex((o) => !o.desativada));
+  }
+  assert.ok(Object.keys(s.regioes).length >= 6);
+  assert.ok(!Object.values(s.regioes).some((r) => r.modelo === 'cripta'), 'fronteira não gera masmorra');
+  // Masmorra: descoberta ao explorar; entrada → 2 salas → covil, em linha.
+  const origemM = Object.values(s.locais).find((l) => !l.tags.includes('masmorra'));
+  s.local = origemM.id;
+  for (let i = 0; i < 400 && !s.masmorras[origemM.id]; i++) { g.begin(); g.act_explorar(); s.heroi.energia = s.heroi.energiaMax; s.heroi.exaustao = 0; s.local = origemM.id; }
+  const reg = s.regioes[s.masmorras[origemM.id]];
+  assert.ok(reg, 'explorar acaba revelando uma masmorra');
+  {
+    const ls = reg.locais.map((id) => s.locais[id]);
+    assert.equal(ls.length, 5); // entrada + opcional + 2 salas + covil
+    assert.ok(ls.at(-1).tags.includes('covil') && ls.every((l) => l.tags.includes('masmorra')));
+    assert.ok(ls.every((l) => !l.fronteira));
+  }
+  // Portal: efeito leva a outro plano e deixa caminho de volta.
+  const antes = s.local;
+  g.begin(); R.aplicarEfeitos(g, [{ portal: 'feerico' }]); g.afterResolve();
+  const plano = c.location(s);
+  assert.equal(plano.modelo, 'feerico');
+  assert.ok(plano.conexoes.some((x) => x.para === antes && x.tempo === 0));
+  assert.deepEqual(validate(c).errors, []);
+  JSON.parse(JSON.stringify(s));
+});
+
+test('mundo infinito: portal após vitória, tempo 0, covil com opcionais, determinismo e save antigo', () => {
+  const c = fixture();
+  const novo = (seed) => {
+    const s = newState(c, { classe: 'g', nome: 'Ana', seed });
+    const g = new Game(c, s);
+    s.heroi.hpBase = 999; s.heroi.hp = 999; s.heroi.hpMax = 999;
+    return { s, g };
+  };
+  // Portal + combate: só atravessa depois de vencer, e nada vaza para a ação seguinte.
+  const { s, g } = novo('pc');
+  g.begin(); R.aplicarEfeitos(g, [{ portal: 'feerico' }, { combate: 'lobo' }]); g.afterResolve();
+  assert.equal(s.cena.modo, 'combate');
+  for (let i = 0; i < 40 && s.cena.modo === 'combate'; i++) g.choose(0);
+  assert.equal(c.location(s).modelo, 'feerico');
+  const plano = s.local;
+  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'explorar'));
+  for (let i = 0; i < 20 && s.cena.modo !== 'local'; i++) g.choose(s.cena.opcoes.findIndex((o) => !o.desativada));
+  assert.equal(Object.values(s.regioes).filter((r) => r.modelo === 'feerico').length, 1);
+  // Voltar pelo portal (tempo 0) não gasta período.
+  s.local = plano; g.begin(); g.hub();
+  const per = s.periodo, dia = s.dia;
+  const volta = s.cena.opcoes.findIndex((o) => o.acao.tipo === 'viajar' && c.location(s).conexoes.find((x) => x.para === o.acao.para)?.tempo === 0);
+  assert.ok(volta >= 0);
+  g.choose(volta);
+  assert.ok(s.local !== plano && s.periodo === per && s.dia === dia);
+  // Masmorra com opcional sorteado: o covil continua sendo a última sala.
+  const cr = c.regioes.find((r) => r.id === 'cripta');
+  const ent = gerarRegiao(g, c.location(s), cr);
+  const salas = s.regioes[ent.regiao].locais.map((id) => s.locais[id]);
+  assert.ok(salas.at(-1).tags.includes('covil') && salas.at(-1).nome === 'Câmara do Rei');
+  // Determinismo: mesma semente e mesmas escolhas → mesmas regiões e coordenadas; retomar do JSON também.
+  const jogar = (st, gg, n) => {
+    for (let i = 0; i < n; i++) {
+      const k = st.cena.opcoes.findIndex((o) => o.acao.tipo === 'desbravar');
+      gg.choose(k >= 0 ? k : st.cena.opcoes.findIndex((o) => !o.desativada));
+    }
+  };
+  const a = novo('det'), b = novo('det');
+  a.s.local = 'mata1'; b.s.local = 'mata1';
+  a.g.begin(); a.g.hub(); b.g.begin(); b.g.hub();
+  jogar(a.s, a.g, 15); jogar(b.s, b.g, 7);
+  const bRet = JSON.parse(JSON.stringify(b.s)), gb = new Game(c, bRet);
+  jogar(bRet, gb, 8);
+  assert.deepEqual(Object.values(a.s.locais).map((l) => [l.id, l.x, l.y]), Object.values(bRet.locais).map((l) => [l.id, l.x, l.y]));
+  // Save antigo (sem os campos novos) carrega e desbrava.
+  const velho = JSON.parse(JSON.stringify(novo('velho').s));
+  delete velho.regioes; delete velho.fronteirasUsadas; delete velho.masmorras;
+  velho.local = 'mata1';
+  const gv = new Game(c, velho); gv.begin(); gv.hub();
+  gv.choose(velho.cena.opcoes.findIndex((o) => o.acao.tipo === 'desbravar'));
+  assert.equal(Object.keys(velho.regioes).length, 1);
 });
 
 const hasPack = existsSync(join(PACKS_DIR, 'index.json'));

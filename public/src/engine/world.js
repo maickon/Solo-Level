@@ -31,7 +31,7 @@ export function distancias(g, origem) {
 /** Tenta descobrir um POI no local atual. Retorna o novo local ou null. */
 export function descobrirPoi(g) {
   const s = g.s, atual = g.c.location(s);
-  if (atual.gerado || atual.tags?.includes('seguro') || !g.c.pois.length) return null;
+  if (atual.tags?.includes('poi') || atual.tags?.includes('masmorra') || atual.tags?.includes('seguro') || !g.c.pois.length) return null;
   const filhos = Object.values(s.locais).filter((l) => l.pai === atual.id);
   if (filhos.length >= MAX_POIS_POR_LOCAL || !g.rng.chance(CHANCE_POI)) return null;
   const usados = new Set(filhos.map((f) => f.modelo));
@@ -39,7 +39,8 @@ export function descobrirPoi(g) {
   const tpl = g.rng.weighted(pool);
   if (!tpl) return null;
   // Testa 12 posições ao redor do pai e fica com a mais afastada de qualquer local existente.
-  const clamp = (v) => Math.max(3, Math.min(97, Math.round(v)));
+  // No mapa original os POIs ficam dentro de 3..97; em regiões desbravadas o mundo já passou dessas bordas.
+  const clamp = (v) => (atual.regiao ? Math.round(v) : Math.max(3, Math.min(97, Math.round(v))));
   const todos = [...Object.values(g.c.locations), ...Object.values(s.locais)].filter((l) => l.x != null);
   const base = g.rng.next() * Math.PI * 2;
   let melhor = null;

@@ -1,12 +1,17 @@
 // Narração com a Web Speech API (grátis, sem servidor). Prefere vozes neurais em PT-BR quando o
 // navegador oferece: no Edge, "Microsoft Francisca/Antonio Online (Natural)"; no Chrome, "Google português".
+import { VozNeural } from './voz-neural.js';
 const NEURAL = /natural|neural|online|google|premium|enhanced/i;
 
 export class Narrador {
   constructor() {
     this.synth = typeof window !== 'undefined' ? window.speechSynthesis || null : null;
-    this.cfg = { on: false, auto: true, opcoes: false, voz: '', taxa: 1 };
+    this.cfg = { on: false, auto: true, opcoes: false, voz: '', taxa: 1, motor: 'navegador', neural: 'pt_BR-faber-medium' };
     this.falando = false; this.onEstado = null; this.lote = 0;
+    // Narrador neural (Piper): usado quando escolhido e já baixado.
+    this.neural = new VozNeural();
+    this.neuralBaixadas = [];
+    this.neural.onEstado = (v) => { this.falando = v; this.onEstado?.(v); };
     this.vozes = [];
     if (this.synth) {
       const carregar = () => { this.vozes = this.synth.getVoices(); this.onVozes?.(); };
@@ -14,7 +19,13 @@ export class Narrador {
       this.synth.addEventListener?.('voiceschanged', carregar);
     }
   }
-  get disponivel() { return !!this.synth; }
+  get disponivel() { return !!this.synth || this.neural.suportada; }
+  get usaNeural() { return this.cfg.motor === 'neural' && this.neuralBaixadas.includes(this.cfg.neural); }
+  async atualizarNeural() {
+    this.neuralBaixadas = this.neural.suportada ? await this.neural.baixadas() : [];
+    if (this.usaNeural) this.neural.aquecer(this.cfg.neural);
+    return this.neuralBaixadas;
+  }
 
   /** Vozes em português, neurais e PT-BR primeiro. */
   listar() {
@@ -27,7 +38,9 @@ export class Narrador {
 
   /** Fala o texto em frases curtas (o Chrome corta falas longas). */
   falar(texto) {
-    if (!this.synth || !texto?.trim()) return;
+    if (!texto?.trim()) return;
+    if (this.usaNeural) { this.parar(); this.neural.voz = this.cfg.neural; this.neural.taxa = this.cfg.taxa; this.neural.falar(texto); return; }
+    if (!this.synth) return;
     this.parar();
     const lote = ++this.lote;
     const frases = texto.replace(/\s+/g, ' ').match(/[^.!?…]+[.!?…]+["”»]?|[^.!?…]+$/g) || [texto];
@@ -52,6 +65,7 @@ export class Narrador {
     }, 60);
   }
   parar() {
+    this.neural.parar();
     if (!this.synth) return;
     this.lote++;
     this.synth.cancel();

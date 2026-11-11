@@ -1,0 +1,481 @@
+[
+          {
+                    "id": "taverna",
+                    "rotulo": "taverna",
+                    "genero": "f",
+                    "nome": "{estab_nome_taverna}",
+                    "em": [
+                              "vila",
+                              "porto",
+                              "aldeia"
+                    ],
+                    "chance": 0.85
+          },
+          {
+                    "id": "templo",
+                    "rotulo": "templo",
+                    "genero": "m",
+                    "nome": "{estab_nome_templo}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.6
+          },
+          {
+                    "id": "forja",
+                    "rotulo": "forja",
+                    "genero": "f",
+                    "nome": "{estab_nome_forja}",
+                    "em": [
+                              "vila",
+                              "porto",
+                              "aldeia"
+                    ],
+                    "chance": 0.6
+          },
+          {
+                    "id": "biblioteca",
+                    "rotulo": "biblioteca",
+                    "genero": "f",
+                    "nome": "{estab_nome_biblioteca}",
+                    "em": [
+                              "vila"
+                    ],
+                    "chance": 0.4
+          },
+          {
+                    "id": "casa_lanternas",
+                    "rotulo": "casa das lanternas",
+                    "genero": "f",
+                    "nome": "{estab_nome_casa_lanternas}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.45
+          },
+          {
+                    "id": "patio_armas",
+                    "rotulo": "pátio de armas",
+                    "genero": "m",
+                    "nome": "{estab_nome_patio_armas}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.45
+          },
+          {
+                    "id": "casa_apostas",
+                    "rotulo": "casa de apostas",
+                    "genero": "f",
+                    "nome": "{estab_nome_casa_apostas}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.4
+          },
+          {
+                    "id": "herbanaria",
+                    "rotulo": "casa da curandeira",
+                    "genero": "f",
+                    "nome": "{estab_nome_herbanaria}",
+                    "em": [
+                              "vila",
+                              "aldeia"
+                    ],
+                    "chance": 0.6
+          },
+          {
+                    "id": "alquimista",
+                    "rotulo": "ateliê de alquimia",
+                    "genero": "m",
+                    "nome": "{estab_nome_alquimista}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.35
+          },
+          {
+                    "id": "ladroes",
+                    "rotulo": "esconderijo de ladrões",
+                    "genero": "m",
+                    "nome": "{estab_nome_ladroes}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.3
+          },
+          {
+                    "id": "mercado_sombras",
+                    "rotulo": "mercado de sombras",
+                    "genero": "m",
+                    "nome": "{estab_nome_mercado_sombras}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.3
+          },
+          {
+                    "id": "cais",
+                    "rotulo": "cais",
+                    "genero": "m",
+                    "nome": "{estab_nome_cais}",
+                    "em": [
+                              "porto"
+                    ],
+                    "chance": 0.95
+          },
+          {
+                    "id": "estaleiro",
+                    "rotulo": "estaleiro",
+                    "genero": "m",
+                    "nome": "{estab_nome_estaleiro}",
+                    "em": [
+                              "porto"
+                    ],
+                    "chance": 0.6
+          },
+          {
+                    "id": "cemiterio",
+                    "rotulo": "cemitério",
+                    "genero": "m",
+                    "nome": "{estab_nome_cemiterio}",
+                    "em": [
+                              "vila",
+                              "aldeia"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "praca",
+                    "rotulo": "praça principal",
+                    "genero": "f",
+                    "nome": "{estab_nome_praca}",
+                    "em": [
+                              "vila",
+                              "porto",
+                              "aldeia"
+                    ],
+                    "chance": 0.85
+          },
+          {
+                    "id": "poco_desejos",
+                    "rotulo": "poço dos desejos",
+                    "genero": "m",
+                    "nome": "{estab_nome_poco_desejos}",
+                    "em": [
+                              "vila",
+                              "aldeia"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "moinho",
+                    "rotulo": "moinho",
+                    "genero": "m",
+                    "nome": "{estab_nome_moinho}",
+                    "em": [
+                              "vila",
+                              "aldeia"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "cartografo",
+                    "rotulo": "oficina de cartógrafo",
+                    "genero": "f",
+                    "nome": "{estab_nome_cartografo}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.3
+          },
+          {
+                    "id": "quartel",
+                    "rotulo": "quartel da guarda",
+                    "genero": "m",
+                    "nome": "{estab_nome_quartel}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "banhos",
+                    "rotulo": "casa de banhos",
+                    "genero": "f",
+                    "nome": "{estab_nome_banhos}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.35
+          },
+          {
+                    "id": "conselho",
+                    "rotulo": "casa do conselho",
+                    "genero": "f",
+                    "nome": "{estab_nome_conselho}",
+                    "em": [
+                              "vila",
+                              "aldeia"
+                    ],
+                    "chance": 0.4
+          },
+          {
+                    "id": "palco_bardos",
+                    "rotulo": "palco dos bardos",
+                    "genero": "m",
+                    "nome": "{estab_nome_palco_bardos}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.4
+          },
+          {
+                    "id": "estabulo",
+                    "rotulo": "estábulo",
+                    "genero": "m",
+                    "nome": "{estab_nome_estabulo}",
+                    "em": [
+                              "vila",
+                              "aldeia"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "santuario_pescadores",
+                    "rotulo": "santuário dos pescadores",
+                    "genero": "m",
+                    "nome": "{estab_nome_santuario_pescadores}",
+                    "em": [
+                              "porto",
+                              "aldeia"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "defumacao",
+                    "rotulo": "casa de defumação",
+                    "genero": "f",
+                    "nome": "{estab_nome_defumacao}",
+                    "em": [
+                              "aldeia",
+                              "porto"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "parteira",
+                    "rotulo": "casa da parteira",
+                    "genero": "f",
+                    "nome": "{estab_nome_parteira}",
+                    "em": [
+                              "aldeia",
+                              "vila"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "curiosidades",
+                    "rotulo": "loja de curiosidades",
+                    "genero": "f",
+                    "nome": "{estab_nome_curiosidades}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.3
+          },
+          {
+                    "id": "torre_sino",
+                    "rotulo": "torre do sino",
+                    "genero": "f",
+                    "nome": "{estab_nome_torre_sino}",
+                    "em": [
+                              "vila",
+                              "porto"
+                    ],
+                    "chance": 0.3
+          },
+          {
+                    "id": "oficina_redes",
+                    "rotulo": "oficina de redes",
+                    "genero": "f",
+                    "nome": "{estab_nome_oficina_redes}",
+                    "em": [
+                              "porto",
+                              "aldeia"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "arena",
+                    "rotulo": "arena",
+                    "genero": "f",
+                    "nome": "{estab_nome_arena}",
+                    "em": [
+                              "arena"
+                    ],
+                    "chance": 1
+          },
+          {
+                    "id": "guilda_mercadores",
+                    "rotulo": "guilda de mercadores",
+                    "genero": "f",
+                    "nome": "{estab_nome_guilda_mercadores}",
+                    "em": [
+                              "cidade"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "catedral",
+                    "rotulo": "catedral",
+                    "genero": "f",
+                    "nome": "{estab_nome_catedral}",
+                    "em": [
+                              "cidade"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "teatro",
+                    "rotulo": "teatro",
+                    "genero": "m",
+                    "nome": "{estab_nome_teatro}",
+                    "em": [
+                              "cidade"
+                    ],
+                    "chance": 0.4
+          },
+          {
+                    "id": "forja_anao",
+                    "rotulo": "forja anã",
+                    "genero": "f",
+                    "nome": "{estab_nome_forja_anao}",
+                    "em": [
+                              "anao"
+                    ],
+                    "chance": 0.8
+          },
+          {
+                    "id": "cervejaria_anao",
+                    "rotulo": "cervejaria anã",
+                    "genero": "f",
+                    "nome": "{estab_nome_cervejaria_anao}",
+                    "em": [
+                              "anao"
+                    ],
+                    "chance": 0.8
+          },
+          {
+                    "id": "lapidario",
+                    "rotulo": "lapidário",
+                    "genero": "m",
+                    "nome": "{estab_nome_lapidario}",
+                    "em": [
+                              "anao"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "estalagem_pirata",
+                    "rotulo": "estalagem pirata",
+                    "genero": "f",
+                    "nome": "{estab_nome_estalagem_pirata}",
+                    "em": [
+                              "pirata"
+                    ],
+                    "chance": 0.8
+          },
+          {
+                    "id": "casa_apostas_pirata",
+                    "rotulo": "casa de apostas pirata",
+                    "genero": "f",
+                    "nome": "{estab_nome_casa_apostas_pirata}",
+                    "em": [
+                              "pirata"
+                    ],
+                    "chance": 0.6
+          },
+          {
+                    "id": "leilao_saque",
+                    "rotulo": "leilão de saque",
+                    "genero": "m",
+                    "nome": "{estab_nome_leilao_saque}",
+                    "em": [
+                              "pirata"
+                    ],
+                    "chance": 0.5
+          },
+          {
+                    "id": "scriptorium",
+                    "rotulo": "scriptorium",
+                    "genero": "m",
+                    "nome": "{estab_nome_scriptorium}",
+                    "em": [
+                              "mosteiro"
+                    ],
+                    "chance": 0.9
+          },
+          {
+                    "id": "claustro",
+                    "rotulo": "claustro",
+                    "genero": "m",
+                    "nome": "{estab_nome_claustro}",
+                    "em": [
+                              "mosteiro"
+                    ],
+                    "chance": 0.7
+          },
+          {
+                    "id": "patio_torneios",
+                    "rotulo": "pátio de torneios",
+                    "genero": "m",
+                    "nome": "{estab_nome_patio_torneios}",
+                    "em": [
+                              "castelo"
+                    ],
+                    "chance": 0.8
+          },
+          {
+                    "id": "salao_senhor",
+                    "rotulo": "salão do senhor",
+                    "genero": "m",
+                    "nome": "{estab_nome_salao_senhor}",
+                    "em": [
+                              "castelo"
+                    ],
+                    "chance": 0.8
+          },
+          {
+                    "id": "toca_contador",
+                    "rotulo": "toca do contador de histórias",
+                    "genero": "f",
+                    "nome": "{estab_nome_toca_contador}",
+                    "em": [
+                              "halfling"
+                    ],
+                    "chance": 0.8
+          },
+          {
+                    "id": "cozinha_halfling",
+                    "rotulo": "cozinha comunal",
+                    "genero": "f",
+                    "nome": "{estab_nome_cozinha_halfling}",
+                    "em": [
+                              "halfling"
+                    ],
+                    "chance": 0.7
+          }
+]

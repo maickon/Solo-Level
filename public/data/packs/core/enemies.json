@@ -1,300 +1,856 @@
 [
- {
-  "id": "lobo",
-  "nome": "lobo",
-  "genero": "m",
-  "hp": 6,
-  "dano": "1d4",
-  "defesa": 0,
-  "tier": 1,
-  "xp": 2,
-  "ouro": "0",
-  "tags": [
-   "fera"
-  ],
-  "saque": 0.1
- },
- {
-  "id": "javali",
-  "nome": "javali",
-  "genero": "m",
-  "hp": 8,
-  "dano": "1d4",
-  "defesa": 1,
-  "tier": 1,
-  "xp": 2,
-  "ouro": "0",
-  "tags": [
-   "fera"
-  ],
-  "saque": 0.1
- },
- {
-  "id": "bandido",
-  "nome": "bandido",
-  "genero": "m",
-  "hp": 8,
-  "dano": "1d6",
-  "defesa": 0,
-  "tier": 1,
-  "xp": 3,
-  "ouro": "1d6",
-  "tags": [
-   "humano",
-   "inteligente"
-  ],
-  "saque": 0.3
- },
- {
-  "id": "sapo_gigante",
-  "nome": "sapo gigante",
-  "genero": "m",
-  "hp": 7,
-  "dano": "1d4",
-  "defesa": 0,
-  "tier": 1,
-  "xp": 2,
-  "ouro": "0",
-  "tags": [
-   "pantano",
-   "fera"
-  ],
-  "saque": 0.1
- },
- {
-  "id": "caranguejo_gigante",
-  "nome": "caranguejo gigante",
-  "genero": "m",
-  "hp": 8,
-  "dano": "1d4",
-  "defesa": 2,
-  "tier": 1,
-  "xp": 3,
-  "ouro": "0",
-  "tags": [
-   "costa",
-   "fera"
-  ],
-  "saque": 0.1
- },
- {
-  "id": "morcego_gigante",
-  "nome": "morcego gigante",
-  "genero": "m",
-  "hp": 6,
-  "dano": "1d4",
-  "defesa": 0,
-  "tier": 1,
-  "xp": 2,
-  "ouro": "0",
-  "tags": [
-   "fera",
-   "voador"
-  ],
-  "saque": 0.05
- },
- {
-  "id": "esqueleto",
-  "nome": "esqueleto",
-  "genero": "m",
-  "hp": 9,
-  "dano": "1d6",
-  "defesa": 1,
-  "tier": 2,
-  "xp": 4,
-  "ouro": "1d4",
-  "tags": [
-   "morto"
-  ],
-  "saque": 0.25
- },
- {
-  "id": "aranha_gigante",
-  "nome": "aranha gigante",
-  "genero": "f",
-  "hp": 10,
-  "dano": "1d6",
-  "defesa": 0,
-  "tier": 2,
-  "xp": 5,
-  "ouro": "0",
-  "tags": [
-   "fera",
-   "veneno"
-  ],
-  "saque": 0.15
- },
- {
-  "id": "urso",
-  "nome": "urso",
-  "genero": "m",
-  "hp": 14,
-  "dano": "1d8",
-  "defesa": 1,
-  "tier": 2,
-  "xp": 6,
-  "ouro": "0",
-  "tags": [
-   "fera"
-  ],
-  "saque": 0.1
- },
- {
-  "id": "salteador",
-  "nome": "salteador",
-  "genero": "m",
-  "hp": 12,
-  "dano": "1d6+1",
-  "defesa": 1,
-  "tier": 2,
-  "xp": 6,
-  "ouro": "2d6",
-  "tags": [
-   "humano",
-   "inteligente"
-  ],
-  "saque": 0.35
- },
- {
-  "id": "contrabandista",
-  "nome": "contrabandista",
-  "genero": "m",
-  "hp": 11,
-  "dano": "1d6",
-  "defesa": 1,
-  "tier": 2,
-  "xp": 5,
-  "ouro": "2d6",
-  "tags": [
-   "humano",
-   "inteligente"
-  ],
-  "saque": 0.4
- },
- {
-  "id": "sanguessuga",
-  "nome": "sanguessuga colossal",
-  "genero": "f",
-  "hp": 9,
-  "dano": "1d4+1",
-  "defesa": 0,
-  "tier": 2,
-  "xp": 4,
-  "ouro": "0",
-  "tags": [
-   "pantano",
-   "fera"
-  ],
-  "saque": 0.05
- },
- {
-  "id": "jacare",
-  "nome": "jacaré",
-  "genero": "m",
-  "hp": 14,
-  "dano": "1d8",
-  "defesa": 2,
-  "tier": 2,
-  "xp": 6,
-  "ouro": "0",
-  "tags": [
-   "pantano",
-   "fera"
-  ],
-  "saque": 0.1
- },
- {
-  "id": "morto_afogado",
-  "nome": "morto afogado",
-  "genero": "m",
-  "hp": 12,
-  "dano": "1d6",
-  "defesa": 1,
-  "tier": 2,
-  "xp": 6,
-  "ouro": "1d6",
-  "tags": [
-   "morto",
-   "pantano"
-  ],
-  "saque": 0.3
- },
- {
-  "id": "cultista",
-  "nome": "cultista",
-  "genero": "m",
-  "hp": 10,
-  "dano": "1d6",
-  "defesa": 0,
-  "tier": 2,
-  "xp": 5,
-  "ouro": "1d6",
-  "tags": [
-   "humano",
-   "inteligente"
-  ],
-  "saque": 0.35
- },
- {
-  "id": "espectro",
-  "nome": "espectro",
-  "genero": "m",
-  "hp": 13,
-  "dano": "1d6+1",
-  "defesa": 1,
-  "tier": 3,
-  "xp": 8,
-  "ouro": "0",
-  "tags": [
-   "morto",
-   "incorporeo"
-  ],
-  "saque": 0.3
- },
- {
-  "id": "guardiao_de_pedra",
-  "nome": "guardião de pedra",
-  "genero": "m",
-  "hp": 20,
-  "dano": "1d8+1",
-  "defesa": 3,
-  "tier": 3,
-  "xp": 10,
-  "ouro": "0",
-  "tags": [
-   "constructo"
-  ],
-  "saque": 0.4
- },
- {
-  "id": "troll_das_pedras",
-  "nome": "troll das pedras",
-  "genero": "m",
-  "hp": 22,
-  "dano": "1d10",
-  "defesa": 2,
-  "tier": 3,
-  "xp": 10,
-  "ouro": "0",
-  "tags": [
-   "monstro"
-  ],
-  "saque": 0.4
- },
- {
-  "id": "lobo_alfa",
-  "nome": "lobo alfa",
-  "genero": "m",
-  "hp": 18,
-  "dano": "1d8",
-  "defesa": 1,
-  "tier": 3,
-  "xp": 12,
-  "ouro": "0",
-  "tags": [
-   "fera",
-   "chefe"
-  ],
-  "saque": 0.5
- }
+          {
+                    "id": "lobo",
+                    "nome": "lobo",
+                    "genero": "m",
+                    "hp": 6,
+                    "dano": "1d4",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 2,
+                    "ouro": "0",
+                    "tags": [
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "javali",
+                    "nome": "javali",
+                    "genero": "m",
+                    "hp": 8,
+                    "dano": "1d4",
+                    "defesa": 1,
+                    "tier": 1,
+                    "xp": 2,
+                    "ouro": "0",
+                    "tags": [
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "bandido",
+                    "nome": "bandido",
+                    "genero": "m",
+                    "hp": 8,
+                    "dano": "1d6",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 3,
+                    "ouro": "1d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "sapo_gigante",
+                    "nome": "sapo gigante",
+                    "genero": "m",
+                    "hp": 7,
+                    "dano": "1d4",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 2,
+                    "ouro": "0",
+                    "tags": [
+                              "pantano",
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "caranguejo_gigante",
+                    "nome": "caranguejo gigante",
+                    "genero": "m",
+                    "hp": 8,
+                    "dano": "1d4",
+                    "defesa": 2,
+                    "tier": 1,
+                    "xp": 3,
+                    "ouro": "0",
+                    "tags": [
+                              "costa",
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "morcego_gigante",
+                    "nome": "morcego gigante",
+                    "genero": "m",
+                    "hp": 6,
+                    "dano": "1d4",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 2,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "voador"
+                    ],
+                    "saque": 0.05
+          },
+          {
+                    "id": "esqueleto",
+                    "nome": "esqueleto",
+                    "genero": "m",
+                    "hp": 9,
+                    "dano": "1d6",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 4,
+                    "ouro": "1d4",
+                    "tags": [
+                              "morto"
+                    ],
+                    "saque": 0.25
+          },
+          {
+                    "id": "aranha_gigante",
+                    "nome": "aranha gigante",
+                    "genero": "f",
+                    "hp": 10,
+                    "dano": "1d6",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "veneno"
+                    ],
+                    "saque": 0.15
+          },
+          {
+                    "id": "urso",
+                    "nome": "urso",
+                    "genero": "m",
+                    "hp": 14,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "0",
+                    "tags": [
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "salteador",
+                    "nome": "salteador",
+                    "genero": "m",
+                    "hp": 12,
+                    "dano": "1d6+1",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "2d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.35
+          },
+          {
+                    "id": "contrabandista",
+                    "nome": "contrabandista",
+                    "genero": "m",
+                    "hp": 11,
+                    "dano": "1d6",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "2d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.4
+          },
+          {
+                    "id": "sanguessuga",
+                    "nome": "sanguessuga colossal",
+                    "genero": "f",
+                    "hp": 9,
+                    "dano": "1d4+1",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 4,
+                    "ouro": "0",
+                    "tags": [
+                              "pantano",
+                              "fera"
+                    ],
+                    "saque": 0.05
+          },
+          {
+                    "id": "jacare",
+                    "nome": "jacaré",
+                    "genero": "m",
+                    "hp": 14,
+                    "dano": "1d8",
+                    "defesa": 2,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "0",
+                    "tags": [
+                              "pantano",
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "morto_afogado",
+                    "nome": "morto afogado",
+                    "genero": "m",
+                    "hp": 12,
+                    "dano": "1d6",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "1d6",
+                    "tags": [
+                              "morto",
+                              "pantano"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "cultista",
+                    "nome": "cultista",
+                    "genero": "m",
+                    "hp": 10,
+                    "dano": "1d6",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "1d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.35
+          },
+          {
+                    "id": "espectro",
+                    "nome": "espectro",
+                    "genero": "m",
+                    "hp": 13,
+                    "dano": "1d6+1",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 8,
+                    "ouro": "0",
+                    "tags": [
+                              "morto",
+                              "incorporeo"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "guardiao_de_pedra",
+                    "nome": "guardião de pedra",
+                    "genero": "m",
+                    "hp": 20,
+                    "dano": "1d8+1",
+                    "defesa": 3,
+                    "tier": 3,
+                    "xp": 10,
+                    "ouro": "0",
+                    "tags": [
+                              "constructo"
+                    ],
+                    "saque": 0.4
+          },
+          {
+                    "id": "troll_das_pedras",
+                    "nome": "troll das pedras",
+                    "genero": "m",
+                    "hp": 22,
+                    "dano": "1d10",
+                    "defesa": 2,
+                    "tier": 3,
+                    "xp": 10,
+                    "ouro": "0",
+                    "tags": [
+                              "monstro"
+                    ],
+                    "saque": 0.4,
+                    "peso": 0.6
+          },
+          {
+                    "id": "lobo_alfa",
+                    "nome": "lobo alfa",
+                    "genero": "m",
+                    "hp": 18,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 12,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "chefe"
+                    ],
+                    "saque": 0.5,
+                    "peso": 0.3
+          },
+          {
+                    "id": "escorpiao_gigante",
+                    "nome": "escorpião gigante",
+                    "genero": "m",
+                    "hp": 11,
+                    "dano": "1d6+1",
+                    "defesa": 2,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "veneno",
+                              "deserto"
+                    ],
+                    "saque": 0.15
+          },
+          {
+                    "id": "serpente_das_dunas",
+                    "nome": "serpente das dunas",
+                    "genero": "f",
+                    "hp": 9,
+                    "dano": "1d6+1",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "veneno",
+                              "deserto"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "mumia",
+                    "nome": "múmia",
+                    "genero": "f",
+                    "hp": 18,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 9,
+                    "ouro": "1d6",
+                    "tags": [
+                              "morto",
+                              "antigo"
+                    ],
+                    "saque": 0.35
+          },
+          {
+                    "id": "hiena",
+                    "nome": "hiena",
+                    "genero": "f",
+                    "hp": 7,
+                    "dano": "1d4",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 2,
+                    "ouro": "0",
+                    "tags": [
+                              "fera"
+                    ],
+                    "saque": 0.05
+          },
+          {
+                    "id": "leao",
+                    "nome": "leão",
+                    "genero": "m",
+                    "hp": 15,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 7,
+                    "ouro": "0",
+                    "tags": [
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "jaguar",
+                    "nome": "jaguar",
+                    "genero": "m",
+                    "hp": 13,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "0",
+                    "tags": [
+                              "fera"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "planta_carnivora",
+                    "nome": "planta carnívora",
+                    "genero": "f",
+                    "hp": 12,
+                    "dano": "1d6+1",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "0",
+                    "tags": [
+                              "planta",
+                              "veneno"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "yeti",
+                    "nome": "yeti",
+                    "genero": "m",
+                    "hp": 24,
+                    "dano": "1d10",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 11,
+                    "ouro": "0",
+                    "tags": [
+                              "monstro",
+                              "frio"
+                    ],
+                    "saque": 0.35,
+                    "peso": 0.5
+          },
+          {
+                    "id": "lobo_das_neves",
+                    "nome": "lobo das neves",
+                    "genero": "m",
+                    "hp": 12,
+                    "dano": "1d6+1",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "frio"
+                    ],
+                    "saque": 0.1
+          },
+          {
+                    "id": "elemental_de_gelo",
+                    "nome": "elemental de gelo",
+                    "genero": "m",
+                    "hp": 20,
+                    "dano": "1d8+1",
+                    "defesa": 2,
+                    "tier": 3,
+                    "xp": 10,
+                    "ouro": "0",
+                    "tags": [
+                              "elemental",
+                              "frio"
+                    ],
+                    "saque": 0.35
+          },
+          {
+                    "id": "salamandra_de_fogo",
+                    "nome": "salamandra de fogo",
+                    "genero": "f",
+                    "hp": 16,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 9,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "fogo"
+                    ],
+                    "saque": 0.25
+          },
+          {
+                    "id": "elemental_de_fogo",
+                    "nome": "elemental de fogo",
+                    "genero": "m",
+                    "hp": 24,
+                    "dano": "1d10",
+                    "defesa": 1,
+                    "tier": 4,
+                    "xp": 15,
+                    "ouro": "0",
+                    "tags": [
+                              "elemental",
+                              "fogo"
+                    ],
+                    "saque": 0.45,
+                    "peso": 0.6
+          },
+          {
+                    "id": "elemental_da_agua",
+                    "nome": "elemental da água",
+                    "genero": "m",
+                    "hp": 24,
+                    "dano": "1d8+2",
+                    "defesa": 1,
+                    "tier": 4,
+                    "xp": 14,
+                    "ouro": "0",
+                    "tags": [
+                              "elemental",
+                              "aquatico"
+                    ],
+                    "saque": 0.45,
+                    "peso": 0.6
+          },
+          {
+                    "id": "sereia",
+                    "nome": "sereia",
+                    "genero": "f",
+                    "hp": 11,
+                    "dano": "1d6",
+                    "defesa": 0,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "1d6",
+                    "tags": [
+                              "aquatico",
+                              "inteligente"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "tritao",
+                    "nome": "tritão",
+                    "genero": "m",
+                    "hp": 16,
+                    "dano": "1d8+1",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 9,
+                    "ouro": "1d6",
+                    "tags": [
+                              "aquatico",
+                              "inteligente"
+                    ],
+                    "saque": 0.35
+          },
+          {
+                    "id": "tubarao",
+                    "nome": "tubarão",
+                    "genero": "m",
+                    "hp": 14,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "0",
+                    "tags": [
+                              "fera",
+                              "aquatico"
+                    ],
+                    "saque": 0.05
+          },
+          {
+                    "id": "kraken_jovem",
+                    "nome": "kraken jovem",
+                    "genero": "m",
+                    "hp": 40,
+                    "dano": "2d6",
+                    "defesa": 2,
+                    "tier": 5,
+                    "xp": 30,
+                    "ouro": "0",
+                    "tags": [
+                              "monstro",
+                              "aquatico",
+                              "chefe"
+                    ],
+                    "saque": 0.7,
+                    "peso": 0.15
+          },
+          {
+                    "id": "pirata",
+                    "nome": "pirata",
+                    "genero": "m",
+                    "hp": 12,
+                    "dano": "1d6+1",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 6,
+                    "ouro": "2d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.4
+          },
+          {
+                    "id": "cavaleiro_renegado",
+                    "nome": "cavaleiro renegado",
+                    "genero": "m",
+                    "hp": 18,
+                    "dano": "1d8",
+                    "defesa": 3,
+                    "tier": 3,
+                    "xp": 10,
+                    "ouro": "2d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.45
+          },
+          {
+                    "id": "gargula",
+                    "nome": "górgula",
+                    "genero": "f",
+                    "hp": 18,
+                    "dano": "1d8",
+                    "defesa": 3,
+                    "tier": 3,
+                    "xp": 9,
+                    "ouro": "0",
+                    "tags": [
+                              "constructo",
+                              "voador"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "golem_de_pedra",
+                    "nome": "golem de pedra",
+                    "genero": "m",
+                    "hp": 26,
+                    "dano": "1d10+1",
+                    "defesa": 3,
+                    "tier": 4,
+                    "xp": 16,
+                    "ouro": "0",
+                    "tags": [
+                              "constructo"
+                    ],
+                    "saque": 0.5,
+                    "peso": 0.6
+          },
+          {
+                    "id": "goblin",
+                    "nome": "goblin",
+                    "genero": "m",
+                    "hp": 6,
+                    "dano": "1d4",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 3,
+                    "ouro": "1d4",
+                    "tags": [
+                              "goblinoide",
+                              "inteligente"
+                    ],
+                    "saque": 0.25
+          },
+          {
+                    "id": "orc_saqueador",
+                    "nome": "orc saqueador",
+                    "genero": "m",
+                    "hp": 14,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 7,
+                    "ouro": "1d6",
+                    "tags": [
+                              "orc",
+                              "inteligente"
+                    ],
+                    "saque": 0.35
+          },
+          {
+                    "id": "troll_da_ponte",
+                    "nome": "troll da ponte",
+                    "genero": "m",
+                    "hp": 24,
+                    "dano": "1d10",
+                    "defesa": 2,
+                    "tier": 3,
+                    "xp": 11,
+                    "ouro": "2d6",
+                    "tags": [
+                              "monstro",
+                              "inteligente"
+                    ],
+                    "saque": 0.4,
+                    "peso": 0.6
+          },
+          {
+                    "id": "ent_corrompido",
+                    "nome": "ent corrompido",
+                    "genero": "m",
+                    "hp": 28,
+                    "dano": "1d10+1",
+                    "defesa": 2,
+                    "tier": 4,
+                    "xp": 16,
+                    "ouro": "0",
+                    "tags": [
+                              "planta",
+                              "monstro"
+                    ],
+                    "saque": 0.4,
+                    "peso": 0.5
+          },
+          {
+                    "id": "fada_maligna",
+                    "nome": "fada maligna",
+                    "genero": "f",
+                    "hp": 8,
+                    "dano": "1d6",
+                    "defesa": 1,
+                    "tier": 2,
+                    "xp": 5,
+                    "ouro": "0",
+                    "tags": [
+                              "feerico",
+                              "inteligente",
+                              "voador"
+                    ],
+                    "saque": 0.25
+          },
+          {
+                    "id": "duende_travesso",
+                    "nome": "duende travesso",
+                    "genero": "m",
+                    "hp": 6,
+                    "dano": "1d4",
+                    "defesa": 1,
+                    "tier": 1,
+                    "xp": 3,
+                    "ouro": "1d4",
+                    "tags": [
+                              "feerico",
+                              "inteligente"
+                    ],
+                    "saque": 0.25
+          },
+          {
+                    "id": "dragao_jovem",
+                    "nome": "dragão jovem",
+                    "genero": "m",
+                    "hp": 46,
+                    "dano": "2d8",
+                    "defesa": 3,
+                    "tier": 5,
+                    "xp": 36,
+                    "ouro": "4d6+10",
+                    "tags": [
+                              "dragao",
+                              "chefe",
+                              "fogo"
+                    ],
+                    "saque": 0.9,
+                    "peso": 0.15
+          },
+          {
+                    "id": "ladrao_de_rua",
+                    "nome": "ladrão de rua",
+                    "genero": "m",
+                    "hp": 8,
+                    "dano": "1d6",
+                    "defesa": 0,
+                    "tier": 1,
+                    "xp": 3,
+                    "ouro": "1d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "assassino",
+                    "nome": "assassino",
+                    "genero": "m",
+                    "hp": 14,
+                    "dano": "1d8",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 9,
+                    "ouro": "2d6",
+                    "tags": [
+                              "humano",
+                              "inteligente"
+                    ],
+                    "saque": 0.45
+          },
+          {
+                    "id": "duergar",
+                    "nome": "duergar",
+                    "genero": "m",
+                    "hp": 18,
+                    "dano": "1d8",
+                    "defesa": 2,
+                    "tier": 3,
+                    "xp": 9,
+                    "ouro": "1d6",
+                    "tags": [
+                              "anao",
+                              "inteligente",
+                              "subterraneo"
+                    ],
+                    "saque": 0.4
+          },
+          {
+                    "id": "sombra",
+                    "nome": "sombra",
+                    "genero": "f",
+                    "hp": 14,
+                    "dano": "1d6+1",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 8,
+                    "ouro": "0",
+                    "tags": [
+                              "morto",
+                              "incorporeo"
+                    ],
+                    "saque": 0.25
+          },
+          {
+                    "id": "diabrete",
+                    "nome": "diabrete",
+                    "genero": "m",
+                    "hp": 14,
+                    "dano": "1d6+1",
+                    "defesa": 1,
+                    "tier": 3,
+                    "xp": 8,
+                    "ouro": "1d6",
+                    "tags": [
+                              "demonio",
+                              "fogo",
+                              "inteligente"
+                    ],
+                    "saque": 0.3
+          },
+          {
+                    "id": "cavaleiro_morto",
+                    "nome": "cavaleiro morto",
+                    "genero": "m",
+                    "hp": 20,
+                    "dano": "1d8+1",
+                    "defesa": 2,
+                    "tier": 3,
+                    "xp": 10,
+                    "ouro": "1d6",
+                    "tags": [
+                              "morto"
+                    ],
+                    "saque": 0.4
+          }
 ]

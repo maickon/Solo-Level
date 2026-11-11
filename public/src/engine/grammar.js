@@ -141,7 +141,9 @@ function pickEntry(name, ctx, gender) {
   let pool = tagged.length ? tagged : untagged.length ? untagged : idx;
   // 3. Novidade entre cenas.
   const mem = ctx.memory ? (ctx.memory[name] ||= []) : [];
-  const fresh = pool.filter((i) => !mem.includes(i));
+  // Entradas vazias (partes opcionais) nunca entram na memória: o peso delas vale sempre.
+  const vazia = (i) => entryText(table[i], gender) === '';
+  const fresh = pool.filter((i) => vazia(i) || !mem.includes(i));
   if (fresh.length) pool = fresh;
   // 4. Evita repetir palavras já usadas nesta cena ("cansado… olhos cansados").
   if (cena.usadas.size) {
@@ -149,7 +151,7 @@ function pickEntry(name, ctx, gender) {
     if (limpas.length) pool = limpas;
   }
   const choice = ctx.rng.weighted(pool, (i) => table[i].peso ?? 1);
-  if (ctx.memory) {
+  if (ctx.memory && !vazia(choice)) {
     mem.push(choice);
     while (mem.length > memoriaMax(table.length)) mem.shift();
   }
@@ -199,6 +201,8 @@ export function lintTemplate(tpl) {
     if (/\{\$\w+\.(o|O|do|no|ao|um)\}\s*$/.test(antes)) continue; // já tem artigo explícito
     avisos.push(`{$${m[1]}.${m[2]}} sem artigo; use {$${m[1]}.o_nome}, do_nome, no_nome ou ao_nome`);
   }
+  const prep = /(?<![a-zà-ú])(de|em|a|à) \{\$\w+\.(o_nome|O_nome|do_nome|no_nome|ao_nome)\}/.exec(s);
+  if (prep) avisos.push(`preposição antes de nome já contraído ("${prep[0]}"): use só {$x.do_nome}/no_nome/ao_nome`);
   const p = PRONOME_FIXO.exec(s);
   if (p) avisos.push(`pronome do herói fixo no masculino ("${p[0].trim()}"); use {$heroi.lo}`);
   return avisos;
