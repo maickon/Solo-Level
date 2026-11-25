@@ -3,6 +3,7 @@
 import { tableRefs, lintTemplate } from './grammar.js';
 import { CONDITION_KEYS } from './conditions.js';
 import { EFFECT_KEYS } from './rules.js';
+import { locaisDoMundo } from './mundo.js';
 
 export const START_LOCATION = 'vila_bruma';
 export const REQUIRED_TABLES = ['local_desc', 'local_retorno', 'chegada', 'viagem_sem_evento',
@@ -11,7 +12,7 @@ export const REQUIRED_TABLES = ['local_desc', 'local_retorno', 'chegada', 'viage
   'negociar_falha', 'epitafio', 'subir_nivel', 'item_encontrado', 'novo_dia', 'ataque_critico',
   'ataque_desastre', 'poi_descoberta', 'trabalho_intro', 'missao_entregue', 'missao_investigar_sucesso',
   'missao_investigar_parcial', 'missao_investigar_falha', 'mercado_intro', 'trabalho_vazio', 'missao_aceita', 'missao_recusada', 'apos_atividade', 'regiao_descoberta', 'portal_travessia', 'masmorra_descoberta'];
-const ARRAY_FILES = ['classes', 'traits', 'biomes', 'locations', 'enemies', 'events', 'threads', 'pois', 'quests', 'estabelecimentos', 'regioes'];
+const ARRAY_FILES = ['prestigios', 'classes', 'traits', 'biomes', 'locations', 'enemies', 'events', 'threads', 'pois', 'quests', 'estabelecimentos', 'regioes'];
 export const EVENT_TYPES = ['exploracao', 'viagem', 'fio', 'cadeia', 'atividade'];
 
 function mergeById(a = [], b = []) {
@@ -48,6 +49,12 @@ export async function loadContent(readJson) {
       } else if (f === 'grammar' || f === 'names') raw[f] = mergeLists(raw[f], data);
     }
   }
+  // Mundo autoral (Semente exportada em data/mundo/): se existir, substitui os locais do pacote.
+  try {
+    const indice = await readJson('../mundo/indice.json');
+    const reinos = await Promise.all(indice.reinos.map((r) => readJson(`../mundo/${r.arquivo}`)));
+    raw.mundo = { indice, reinos };
+  } catch { /* sem Semente exportada: modo clássico */ }
   return buildContent(raw, manifests);
 }
 
@@ -56,6 +63,7 @@ export function buildContent(raw, manifests = []) {
   const c = {
     manifests,
     classes: raw.classes || [],
+    prestigios: raw.prestigios || [],
     traits: byId(raw.traits),
     biomes: byId(raw.biomes),
     locations: byId(raw.locations),
@@ -72,6 +80,11 @@ export function buildContent(raw, manifests = []) {
     estabelecimentos: raw.estabelecimentos || [],
     regioes: raw.regioes || [],
   };
+  // Mundo autoral: os locais vêm da Semente do Mundo; o início é o ponto de partida escolhido na curadoria.
+  if (raw.mundo) {
+    const { locations, inicio } = locaisDoMundo(raw.mundo, c.biomes);
+    c.locations = locations; c.inicio = inicio; c.modo = 'autoral'; c.mundo = raw.mundo.indice;
+  } else { c.inicio = START_LOCATION; c.modo = 'classico'; }
   // Locais dinâmicos (POIs) vivem no estado e têm prioridade.
   c.location = (s) => s.locais?.[s.local] || c.locations[s.local];
   c.biome = (s) => c.biomes[c.location(s)?.bioma] || { id: '?', perigo: 0 };
@@ -99,7 +112,8 @@ export function validate(c) {
     });
   }
 
-  if (!c.locations[START_LOCATION]) err(`locations: local inicial "${START_LOCATION}" ausente`);
+  if (!c.locations[c.inicio]) err(`locations: local inicial "${c.inicio}" ausente`);
+  if (c.modo === 'autoral' && !c.locations[c.inicio]?.jogavel) err(`mundo: o ponto de partida "${c.inicio}" não é jogável`);
   for (const l of Object.values(c.locations)) {
     if (!c.biomes[l.bioma]) err(`location ${l.id}: bioma "${l.bioma}" não existe`);
     for (const cx of l.conexoes || []) {
@@ -125,6 +139,28 @@ export function validate(c) {
     const fixo = Object.values(c.locations).some((l) => l.estabelecimentos?.includes(e.id));
     if (!fixo && !(e.em || []).some((t) => tagsLocais.has(t))) warn(`estabelecimento ${e.id}: nenhum local tem as tags ${JSON.stringify(e.em || [])}`);
     if (!c.events.some((ev) => ev.tipo === 'atividade' && [ev.requer?.estab].flat().includes(e.id))) warn(`estabelecimento ${e.id}: nenhuma atividade usa`);
+  }
+  // Mundo autoral: bíblias, sub-lugares, pessoas fixas e eventos ligados a lugares.
+  if (c.modo === 'autoral') {
+    const oficios = new Set(c.npcs.oficios.map((o) => o.id)), temps = new Set(c.npcs.temperamentos.map((t) => t.id));
+    for (const l of Object.values(c.locations)) {
+      const w = `lugar ${l.id}`;
+      if (l.nivel >= 1 && !l.biblia) warn(`${w}: nível ${l.nivel} sem bíblia`);
+      if (l.nivel >= 2 && !l.sublugares?.length && l.categoria === 'povoado') warn(`${w}: nível ${l.nivel} sem sub-lugares`);
+      for (const d of l.biblia?.descricoes || []) refsIn(d, `${w}.biblia.descricoes`);
+      const subs = new Set((l.sublugares || []).map((x) => x.id));
+      for (const x of l.sublugares || []) {
+        if (x.estab && !estabIds.has(x.estab)) err(`${w}: sub-lugar ${x.id} usa estabelecimento "${x.estab}" inexistente`);
+        for (const d of [...(x.descricoes || []), x.descricao || '']) refsIn(d, `${w}.sublugares.${x.id}`);
+      }
+      for (const p of l.biblia?.pessoas || []) {
+        if (!oficios.has(p.oficio)) err(`${w}: pessoa ${p.id} com ofício "${p.oficio}" inexistente (npcs.json)`);
+        if (p.temperamento && !temps.has(p.temperamento)) err(`${w}: pessoa ${p.id} com temperamento "${p.temperamento}" inexistente`);
+        if (p.sublugar && !subs.has(p.sublugar)) err(`${w}: pessoa ${p.id} em sub-lugar inexistente "${p.sublugar}"`);
+        if (p.evento && !c.eventMap[p.evento]) err(`${w}: pessoa ${p.id} com evento inexistente "${p.evento}"`);
+      }
+    }
+    for (const ev of c.events) for (const id of [ev.requer?.local].flat().filter(Boolean)) if (!c.locations[id]) warn(`event ${ev.id}: local "${id}" não existe no mundo (evento fica inativo)`);
   }
   // Regiões procedurais
   const regIds = new Set(c.regioes.map((r) => r.id));
@@ -161,6 +197,12 @@ export function validate(c) {
     for (const t of cl.tracos || []) if (!c.traits[t]) err(`classe ${cl.id}: traço "${t}" não existe`);
   }
   for (const b of c.items.bases) for (const e of b.efeitos || []) checkEffect(e, `item ${b.id}`);
+  const classeIds = new Set(c.classes.map((x) => x.id));
+  for (const p of c.prestigios) {
+    if (!c.traits[p.traco]) err(`prestígio ${p.id}: traço "${p.traco}" não existe`);
+    for (const id of p.classes || []) if (!classeIds.has(id)) err(`prestígio ${p.id}: classe "${id}" não existe`);
+    if (!p.nome?.m || !p.nome?.f) err(`prestígio ${p.id}: nome precisa de m e f`);
+  }
 
   const checkReq = (req, where) => {
     for (const k of Object.keys(req || {})) if (!CONDITION_KEYS.includes(k)) err(`${where}: condição desconhecida "${k}"`);
@@ -213,6 +255,8 @@ export function validate(c) {
     else if (ev.tipo !== 'fio') err(`thread ${t.id}: evento "${t.evento}" deve ter tipo "fio"`);
     checkReq(t.requer, `thread ${t.id}`);
   }
+  // Conversas das pessoas fixas (bíblia) também abrem cadeias.
+  for (const l of Object.values(c.locations)) for (const p of l.biblia?.pessoas || []) if (p.evento) cenasAlvo.add(p.evento);
   for (const ev of c.events) if (ev.tipo === 'cadeia' && !cenasAlvo.has(ev.id)) warn(`event ${ev.id}: cadeia inalcançável (nenhuma "cena" aponta para ele)`);
   for (const p of c.pois) {
     refsIn(p.nome || '', `poi ${p.id}`);

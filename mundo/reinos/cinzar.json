@@ -1,0 +1,546 @@
+{
+  "id": "cinzar",
+  "nome": "Forja-Reino de Cinzar",
+  "letra": "q",
+  "tipo": "reino",
+  "governo": "Forja-Reino",
+  "cultura": "cinzar",
+  "povo": "humanos",
+  "capital": "cinzarra",
+  "descricao": "Forja-Reino cinzarano de humanos, com cidades escavadas em basalto, iluminadas por lava canalizada. Valorizam trabalho, resistência, fogo que purifica e cultuam Demarann, o fogo e a renovação.",
+  "tensao": "Disputas internas pela sucessão.",
+  "relacoes": {
+    "lindartmor": "aliança",
+    "aldwick": "comércio",
+    "mitzira": "comércio"
+  },
+  "economia": {
+    "produz": [
+      "ferro",
+      "prata",
+      "madeira",
+      "caça",
+      "madeira encantada"
+    ],
+    "precisa": [
+      "peles",
+      "cacau",
+      "marfim"
+    ],
+    "parceiros": [
+      "kaldheim",
+      "jard",
+      "silmare"
+    ]
+  },
+  "territorio": {
+    "celulas": 242,
+    "centro": {
+      "x": 82,
+      "y": 71
+    }
+  },
+  "nivel": 0,
+  "revisado": false,
+  "lugares": [
+    {
+      "nivel": 1,
+      "id": "cinzarra",
+      "nome": "Cinzarra",
+      "genero": "f",
+      "tipo": "capital",
+      "categoria": "povoado",
+      "reino": "cinzar",
+      "x": 80,
+      "y": 73,
+      "bioma": "montanha",
+      "cultura": "cinzar",
+      "porto": false,
+      "conceito": "Capital de Cinzar: cidades escavadas em basalto, iluminadas por lava canalizada.",
+      "perigo": 1,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Capital escavada em basalto, com ruas em degraus iluminadas por calhas de lava e um Grande Forno central que nunca apaga.",
+        "poder": "O Regente Ferron Brasa-Velha, disputado pelos mestres Kaldor Cinza-Rubra e Sirocca Mão-de-Brasa.",
+        "situacao": "O martelo da coroa sumiu da câmara do trono e cada facção acusa a outra.",
+        "segredo": "O martelo foi retirado por Ferron, que o escondeu para não escolher e assim manter o poder.",
+        "vida": "Martelos em cadência, vapor sibilante, mestres gritando ordens, cheiro de licor ardente.",
+        "descricoes": [
+          "O calor sobe do chão em ondas, e calhas de lava correm ao longo das ruas como veias vermelhas. O Grande Forno ao centro pulsa com um rugido baixo e constante.",
+          "Cada passo ecoa no basalto polido. Mestres de forja de avental chamuscado discutem em voz baixa, e param de falar quando você passa."
+        ],
+        "fatos": {
+          "problema": "o martelo da coroa sumiu",
+          "governante": "o Regente Ferron Brasa-Velha",
+          "rumor": "o regente escondeu o martelo para adiar a sucessão",
+          "aldwick": "emissários de Valmont esperam audiência há semanas",
+          "sucessao": "dois mestres reclamam o trono"
+        },
+        "pessoas": [
+          {
+            "id": "ferron_regente",
+            "nome": "Ferron Brasa-Velha",
+            "genero": "m",
+            "oficio": "guarda",
+            "temperamento": "astuto",
+            "papel": "Regente; esconde o martelo da coroa."
+          },
+          {
+            "id": "kaldor_mestre",
+            "nome": "Kaldor Cinza-Rubra",
+            "genero": "m",
+            "oficio": "ferreiro",
+            "temperamento": "corajoso",
+            "papel": "Mestre de forja que reclama o trono."
+          },
+          {
+            "id": "sirocca_mestra",
+            "nome": "Sirocca Mão-de-Brasa",
+            "genero": "f",
+            "oficio": "ferreiro",
+            "temperamento": "astuto",
+            "papel": "Mestra rival; paga por informação."
+          }
+        ]
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "porto_de_fumaria",
+      "nome": "Porto de Fumaria",
+      "genero": "m",
+      "tipo": "porto",
+      "categoria": "povoado",
+      "reino": "cinzar",
+      "x": 76,
+      "y": 67,
+      "bioma": "costa",
+      "cultura": "cinzar",
+      "porto": true,
+      "conceito": "Porto movimentado; navios para outras terras partem daqui.",
+      "perigo": 0,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Porto de casario escuro sobre uma baía rasa, com chaminés de fundição enfileiradas e navios de casco enegrecido.",
+        "poder": "A Guilda dos Fundidores, chefiada por Calda Pé-de-Ferro.",
+        "situacao": "Navios saem sem tripulação completa e voltam com escombros; o porto vive sob fumaça pesada.",
+        "segredo": "A guilda esconde que parte do ferro exportado a Aldwick está contaminado, vindo de uma mina fechada.",
+        "vida": "Fumaça densa, correntes de âncora, gritos de contramestres, cheiro de peixe defumado.",
+        "descricoes": [
+          "Fumaça sobe das chaminés em colunas escuras e cobre a baía como um telhado. Os navios, negros de fuligem, rangem contra os cais.",
+          "Os marinheiros tossem e cospem pretos. Ao longe, uma fila de barcos volta com os cascos limpos demais, como lavados por outro mar."
+        ],
+        "fatos": {
+          "problema": "navios saem e voltam sem tripulação",
+          "governante": "a mestra do porto Calda Pé-de-Ferro",
+          "rumor": "o ferro vendido a Aldwick está contaminado",
+          "aldwick": "mercadores de Cornvale compram a carga mesmo assim",
+          "crise": "peixes aparecem mortos nas redes do sul"
+        },
+        "pessoas": [
+          {
+            "id": "calda_guilda",
+            "nome": "Calda Pé-de-Ferro",
+            "genero": "f",
+            "oficio": "mercador",
+            "temperamento": "avarento",
+            "papel": "Chefe da guilda; esconde a contaminação."
+          },
+          {
+            "id": "toran_barqueiro",
+            "nome": "Toran Remo-Preto",
+            "genero": "m",
+            "oficio": "barqueiro",
+            "temperamento": "cansado",
+            "papel": "Viu um navio voltar sem tripulação."
+          },
+          {
+            "id": "aska_cura",
+            "nome": "Aska Lábio-Seco",
+            "genero": "f",
+            "oficio": "curandeiro",
+            "temperamento": "melancolico",
+            "papel": "Trata a tosse negra dos fundidores."
+          }
+        ]
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "mosteiro_de_vulkar",
+      "nome": "Mosteiro de Vulkar",
+      "genero": "m",
+      "tipo": "mosteiro",
+      "categoria": "povoado",
+      "reino": "cinzar",
+      "x": 88,
+      "y": 72,
+      "bioma": "montanha",
+      "cultura": "cinzar",
+      "porto": false,
+      "conceito": "Mosteiro isolado onde se guardam livros e segredos.",
+      "perigo": 1,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Mosteiro escavado na encosta de um vulcão extinto, com claustros de basalto e uma lareira central do tamanho de um salão.",
+        "poder": "O Abade Vulkan, guardião do Fogo Perpétuo.",
+        "situacao": "O Fogo Perpétuo diminui a cada ano e os monges não concordam sobre o motivo.",
+        "segredo": "O fogo é alimentado por um fragmento de estrela caída, que está se apagando; sem ele, o vulcão desperta.",
+        "vida": "Cantos graves, carvão estalando, cheiro de incenso de enxofre.",
+        "descricoes": [
+          "Os claustros de basalto conservam um calor seco, e a lareira central lança sombras longas nas paredes. O canto grave dos monges parece vir da própria pedra.",
+          "Há cinzas finas nos beirais, e o ar cheira a incenso de enxofre. Um monge sopra as brasas com devoção cansada."
+        ],
+        "fatos": {
+          "problema": "o Fogo Perpétuo diminui",
+          "governante": "o Abade Vulkan",
+          "rumor": "o fogo vem de uma estrela caída",
+          "peregrinos": "peregrinos cinzaranos pagam por brasas do altar"
+        },
+        "pessoas": [
+          {
+            "id": "vulkan_abade",
+            "nome": "Vulkan Cinza-Santa",
+            "genero": "m",
+            "oficio": "sacerdote",
+            "temperamento": "taciturno",
+            "papel": "Abade; esconde a origem do fogo."
+          },
+          {
+            "id": "pyra_novica",
+            "nome": "Pyra Faísca",
+            "genero": "f",
+            "oficio": "erudito",
+            "temperamento": "curioso",
+            "papel": "Noviça que estuda o fragmento de estrela."
+          }
+        ]
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "bosque_perdido",
+      "nome": "Bosque Perdido",
+      "genero": "m",
+      "plural": false,
+      "tipo": "bosque",
+      "categoria": "natureza",
+      "reino": "cinzar",
+      "x": 83,
+      "y": 75,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Poucos passam por aqui sem um bom motivo.",
+      "perigo": 1,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Bosque de árvores negras de troncos retorcidos, com folhas cor de ferrugem e solo coberto de cinza fina.",
+        "poder": "Os Guardiões de Cinza, espíritos de lenhadores mortos.",
+        "situacao": "Caminhos mudam de lugar e viajantes se perdem por dias, sempre voltando ao mesmo carvalho queimado.",
+        "segredo": "O bosque foi plantado sobre um campo de batalha e as árvores crescem das armaduras.",
+        "descricoes": [
+          "As árvores negras se retorcem como braços em prece, e as folhas cor de ferrugem caem sem fazer ruído. A cinza fina sobe em nuvens a cada passo.",
+          "Você já passou pelo carvalho queimado antes, ou talvez seja outro. O silêncio é abafado e quente."
+        ],
+        "fatos": {
+          "problema": "os caminhos mudam de lugar",
+          "governante": "os Guardiões de Cinza",
+          "rumor": "as árvores crescem de armaduras",
+          "perigo": "o bosque faz o viajante andar em círculos"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "templo_sombrio",
+      "nome": "Templo Sombrio",
+      "genero": "m",
+      "plural": false,
+      "tipo": "templo",
+      "categoria": "ruina",
+      "reino": "cinzar",
+      "x": 83,
+      "y": 79,
+      "bioma": "selva",
+      "porto": false,
+      "historia": "Cai o Império de Nolvelpudo, que dominava meio continente. Suas ruínas mais famosas: o Templo Sombrio.",
+      "fama": true,
+      "conceito": "Cai o Império de Nolvelpudo, que dominava meio continente. Suas ruínas mais famosas: o Templo Sombrio.",
+      "perigo": 3,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Templo de pedra negra meio engolido pela selva, com degraus largos, estátuas de rostos apagados e cipós grossos como cordas.",
+        "poder": "Os sacerdotes mortos do antigo Império de Nolvelpudo, que ainda celebram seus ritos.",
+        "situacao": "Na lua nova, luzes percorrem o templo e fiéis de um culto estranho vêm de longe.",
+        "segredo": "O templo é um dos selos do império caído; o que ele guarda, o Culto do Verme Sem Fim quer despertar.",
+        "descricoes": [
+          "Degraus largos sobem em meio a cipós grossos como cordas, até estátuas de rostos apagados. A selva à volta parece prender a respiração.",
+          "O ar é denso e doce, com cheiro de incenso velho. De dentro vem um murmúrio de cantos em língua morta."
+        ],
+        "fatos": {
+          "problema": "luzes e cantos surgem na lua nova",
+          "governante": "os sacerdotes mortos",
+          "rumor": "o culto do verme quer abrir o templo",
+          "historia": "último templo do Império de Nolvelpudo",
+          "perigo": "sacerdotes mortos-vivos e armadilhas"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "mina_gelada",
+      "nome": "Mina Gelada",
+      "genero": "f",
+      "plural": false,
+      "tipo": "mina",
+      "categoria": "masmorra",
+      "reino": "cinzar",
+      "x": 85,
+      "y": 69,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Passagens que descem mais fundo do que deveriam.",
+      "perigo": 4,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Mina em encosta alta, cheia de gelo azulado apesar do vulcão próximo, com trilhos cobertos de geada e lanternas congeladas.",
+        "poder": "Um golem de gelo, que ainda cuida dos poços.",
+        "situacao": "Mineiros que desceram para buscar prata voltam com a pele azulada e frias demais para viver.",
+        "segredo": "O gelo vem de uma câmara de dragão de frio morto, cujo corpo ainda irradia gelo.",
+        "descricoes": [
+          "O ar da boca da mina queima de frio, e cristais de gelo azulado cobrem as vigas. Lanternas congeladas pendem como frutos de vidro.",
+          "Cada respiração sua vira névoa. Lá no fundo, algo range lentamente, como gelo cedendo."
+        ],
+        "fatos": {
+          "problema": "mineiros voltam azulados e frios",
+          "governante": "o golem de gelo",
+          "rumor": "há um dragão de frio morto lá embaixo",
+          "perigo": "frio mortal e golems"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "passo_do_lobo_branco",
+      "nome": "Passo do Lobo Branco",
+      "genero": "m",
+      "plural": false,
+      "tipo": "passo",
+      "categoria": "natureza",
+      "reino": "cinzar",
+      "x": 82,
+      "y": 64,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Poucos passam por aqui sem um bom motivo.",
+      "perigo": 2,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Passo estreito entre paredões de rocha clara, com neve fresca e pegadas de lobo marcando cada curva.",
+        "poder": "Uma alcateia branca liderada por uma loba velha, Cinza-Mãe.",
+        "situacao": "Cobradores de pedágio da regência são devorados e o comércio por terra está bloqueado.",
+        "segredo": "A loba é a última de uma linhagem de lobos guardiões que protegiam a rainha-forjadora Ashka.",
+        "descricoes": [
+          "Entre paredões brancos de rocha, o vento traz neve fina que arranha o rosto. Pegadas de lobo marcam cada curva, frescas.",
+          "Há uivos a distância, e a alcateia observa de saliências altas. Você sente que é medido."
+        ],
+        "fatos": {
+          "problema": "cobradores são devorados e o passo está bloqueado",
+          "governante": "a loba Cinza-Mãe",
+          "rumor": "os lobos serviam à rainha morta",
+          "perigo": "alcateia de lobos brancos"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "caverna_da_lua_partida",
+      "nome": "Caverna da Lua Partida",
+      "genero": "f",
+      "plural": false,
+      "tipo": "caverna",
+      "categoria": "masmorra",
+      "reino": "cinzar",
+      "x": 76,
+      "y": 61,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Tesouros e mortos dividem o mesmo escuro.",
+      "perigo": 4,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Caverna de entrada em fenda curva, como uma lua minguante partida, e paredes cintilantes de cristais pálidos.",
+        "poder": "O Escultor, um morto-vivo que molda estátuas com ossos.",
+        "situacao": "Viajantes procuram os cristais e voltam sem lembrar do próprio nome.",
+        "segredo": "O Escultor tenta recriar a rainha Ashka com ossos de todos os que cruzaram a gruta.",
+        "descricoes": [
+          "A entrada em fenda curva engole a luz, e dentro os cristais pálidos cintilam como pedaços de lua. O ar tem cheiro de pó de osso.",
+          "Estátuas de osso alinhadas contra as paredes parecem seguir você com órbitas vazias. Um raspar lento e rítmico vem do fundo."
+        ],
+        "fatos": {
+          "problema": "viajantes perdem a memória",
+          "governante": "o Escultor",
+          "rumor": "alguém tenta recriar a rainha morta",
+          "perigo": "estátuas de ossos que se movem"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "circulo_feerico_antigo",
+      "nome": "Círculo Feérico Antigo",
+      "genero": "m",
+      "plural": false,
+      "tipo": "circulo",
+      "categoria": "ruina",
+      "reino": "cinzar",
+      "x": 88,
+      "y": 78,
+      "bioma": "floresta_antiga",
+      "porto": false,
+      "conceito": "Dizem que algo antigo ainda guarda o lugar.",
+      "perigo": 2,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Círculo de cogumelos grandes e pedras cobertas de musgo numa clareira de floresta antiga, com luzes fracas dançando ao redor.",
+        "poder": "A Corte Verde, um grupo de fadas antigas.",
+        "situacao": "Camponeses perdem tempo ali: voltam e descobrem que passaram dias fora.",
+        "segredo": "As fadas oferecem negócio: calor eterno em troca de nomes, e o regente já entregou um.",
+        "descricoes": [
+          "Cogumelos grandes brilham em tom esverdeado ao pé de pedras cobertas de musgo. Luzes minúsculas dançam em volta, e algumas riem.",
+          "O tempo parece mais lento aqui, e o canto distante de uma flauta insiste em um refrão que você já ouviu."
+        ],
+        "fatos": {
+          "problema": "camponeses perdem dias inteiros",
+          "governante": "a Corte Verde",
+          "rumor": "o regente já fez um acordo com as fadas",
+          "perigo": "barganhas de nomes"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "passo_das_mil_vozes",
+      "nome": "Passo das Mil Vozes",
+      "genero": "m",
+      "plural": false,
+      "tipo": "passo",
+      "categoria": "natureza",
+      "reino": "cinzar",
+      "x": 79,
+      "y": 69,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Um lugar que parece observar quem chega.",
+      "perigo": 2,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Passo ventoso entre dois paredões, onde o vento assobia em tons diferentes e cada eco responde com outra voz.",
+        "poder": "Ninguém; as vozes não obedecem a ninguém.",
+        "situacao": "As vozes copiam entes queridos de quem passa, e já levaram dois viajantes ao abismo.",
+        "segredo": "Uma das vozes é verdadeira: um marinheiro do Naufrágio do Corvo que ficou preso na rocha, pedindo ajuda.",
+        "descricoes": [
+          "O vento passa pelo desfiladeiro com mil tons, e cada eco responde com outra voz. Há quem pareça chamar você pelo nome.",
+          "Uma voz familiar pede que você chegue mais perto da beirada. O ar seco cheira a pedra molhada."
+        ],
+        "fatos": {
+          "problema": "vozes atraem viajantes ao abismo",
+          "governante": "ninguém",
+          "rumor": "uma das vozes pede ajuda de verdade",
+          "perigo": "queda e vozes enganosas"
+        }
+      }
+    },
+    {
+      "nivel": 1,
+      "id": "naufragio_do_corvo",
+      "nome": "Naufrágio do Corvo",
+      "genero": "m",
+      "plural": false,
+      "tipo": "naufragio",
+      "categoria": "ruina",
+      "reino": "cinzar",
+      "x": 76,
+      "y": 71,
+      "bioma": "costa",
+      "porto": false,
+      "conceito": "Restos de algo que já foi grande.",
+      "perigo": 2,
+      "revisado": false,
+      "biblia": {
+        "aparencia": "Casco de um grande navio encalhado numa enseada rochosa, com mastros partidos e algas negras grudadas ao casco.",
+        "poder": "O capitão afogado, que ainda comanda uma tripulação de mortos.",
+        "situacao": "Algas negras cobrem a praia e peixes aparecem mortos na água rasa.",
+        "segredo": "O navio levava de volta cargas do Farol dos Mil Degraus e foi o primeiro a morrer da Maré Morta.",
+        "descricoes": [
+          "O casco do navio, enegrecido e coberto de algas, assoma sobre a enseada como um animal morto. A água ao redor é parada e oleosa.",
+          "As algas negras estalam sob seus pés. Do porão sai um cheiro doce e podre, e um sino bate sem vento."
+        ],
+        "fatos": {
+          "problema": "algas negras e peixes mortos cercam o casco",
+          "governante": "o capitão afogado",
+          "rumor": "o navio é o primeiro morto da Maré Morta",
+          "crise": "vem do Farol dos Mil Degraus",
+          "perigo": "mortos-vivos marinhos"
+        }
+      }
+    }
+  ],
+  "rotas": [
+    {
+      "de": "porto_de_fumaria",
+      "para": "cinzarra",
+      "tipo": "passo",
+      "tempo": 2
+    },
+    {
+      "de": "cinzarra",
+      "para": "mosteiro_de_vulkar",
+      "tipo": "passo",
+      "tempo": 2
+    },
+    {
+      "de": "mosteiro_de_vulkar",
+      "para": "porto_de_fumaria",
+      "tipo": "passo",
+      "tempo": 3
+    },
+    {
+      "de": "bosque_perdido",
+      "para": "cinzarra",
+      "tipo": "passo",
+      "tempo": 1
+    },
+    {
+      "de": "templo_sombrio",
+      "para": "bosque_perdido",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "mina_gelada",
+      "para": "mosteiro_de_vulkar",
+      "tipo": "passo",
+      "tempo": 1
+    },
+    {
+      "de": "passo_das_mil_vozes",
+      "para": "porto_de_fumaria",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "naufragio_do_corvo",
+      "para": "passo_das_mil_vozes",
+      "tipo": "trilha",
+      "tempo": 1
+    }
+  ],
+  "biblia": {
+    "governante": "Regente Ferron Brasa-Velha, guardião do trono vago de Cinzar",
+    "historia": "A Rainha-Forjadora Ashka morreu sem designar sucessor, e o trono ficou vago desde a última Noite da Grande Fornalha. Ferron governa como regente, mas dois mestres de forja reclamam o martelo da coroa.",
+    "conflito": "Disputas internas pela sucessão ameaçam romper o reino em oligarquias de forja, e as cidades de lava se armam entre si com ferro que deveria ir ao comércio.",
+    "relacaoAldwick": "Parceiros comerciais: Cinzar vende ferro e prata a Aldwick e compra peles e sal. Cornvale é o ponto de troca, e mercadores de Valmont visitam a regência.",
+    "viajante": "Basalto negro, rios de lava canalizados em calhas e o calor que sobe do chão como hálito de bicho."
+  }
+}

@@ -1,22 +1,23 @@
 {
-  "id": "core",
-  "nome": "Núcleo",
-  "versao": "0.1.0",
-  "arquivos": [
-    "classes",
-    "traits",
-    "biomes",
-    "locations",
-    "enemies",
-    "items",
-    "events",
-    "threads",
-    "grammar",
-    "names",
-    "npcs",
-    "pois",
-    "quests",
-    "estabelecimentos",
-    "regioes"
-  ]
+ "id": "core",
+ "nome": "Núcleo",
+ "versao": "0.1.0",
+ "arquivos": [
+  "classes",
+  "traits",
+  "biomes",
+  "locations",
+  "enemies",
+  "items",
+  "events",
+  "threads",
+  "grammar",
+  "names",
+  "npcs",
+  "pois",
+  "quests",
+  "estabelecimentos",
+  "regioes",
+  "prestigios"
+ ]
 }

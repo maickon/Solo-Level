@@ -67,6 +67,21 @@ export function morrer(g) {
 }
 
 // ---------- Progressão ----------
+export const NIVEL_PRESTIGIO = 3;
+/** Classes de prestígio que o herói pode seguir (classe de origem e atributos-base mínimos). */
+export function prestigiosPossiveis(g) {
+  const h = g.s.heroi;
+  return (g.c.prestigios || []).filter((p) => p.classes.includes(h.classe)
+    && Object.entries(p.minimo || {}).every(([a, v]) => (h.atributos[a] || 0) >= v));
+}
+export function tornarPrestigio(g, p) {
+  const h = g.s.heroi;
+  h.prestigio = p.id; h.prestigioPendente = false;
+  if (!h.tracos.includes(p.traco)) h.tracos.push(p.traco);
+  h.hpBase += p.hp || 0; h.energiaBase += p.energia || 0;
+  syncMax(h, g.c);
+  h.hp = Math.min(h.hpMax, h.hp + (p.hp || 0));
+}
 export function ganharXp(g, n) {
   const h = g.s.heroi;
   h.xp += n;
@@ -84,6 +99,10 @@ export function ganharXp(g, n) {
     g.say('{subir_nivel}');
     g.note(`Nível ${h.nivel}!`, 'xp nivel');
     g.diary(`Alcancei o nível ${h.nivel}.`);
+  }
+  if (h.nivel >= NIVEL_PRESTIGIO && !h.prestigio && !h.prestigioPendente && prestigiosPossiveis(g).length) {
+    h.prestigioPendente = true;
+    g.note('Um caminho de prestígio se abre', 'xp nivel');
   }
 }
 

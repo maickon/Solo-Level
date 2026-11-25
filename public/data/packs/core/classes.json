@@ -122,5 +122,304 @@
   "tracos": [
    "lingua_de_prata"
   ]
+ },
+ {
+  "id": "barbaro",
+  "nome": {
+   "m": "Bárbaro",
+   "f": "Bárbara"
+  },
+  "descricao": "Fúria das terras de fora: aguenta o que mataria outros.",
+  "atributos": {
+   "forca": 2,
+   "agilidade": 1,
+   "mente": -1,
+   "presenca": 0
+  },
+  "hp": 16,
+  "energia": 6,
+  "inicial": [
+   {
+    "base": "machado"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   }
+  ],
+  "tracos": [
+   "furia"
+  ]
+ },
+ {
+  "id": "bardo",
+  "nome": {
+   "m": "Bardo",
+   "f": "Barda"
+  },
+  "descricao": "Canções, lábia e uma lâmina que ninguém espera.",
+  "atributos": {
+   "forca": -1,
+   "agilidade": 1,
+   "mente": 1,
+   "presenca": 2
+  },
+  "hp": 10,
+  "energia": 7,
+  "inicial": [
+   {
+    "base": "adaga"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "tonico"
+   }
+  ],
+  "tracos": [
+   "voz_encantadora"
+  ]
+ },
+ {
+  "id": "clerigo",
+  "nome": {
+   "m": "Clérigo",
+   "f": "Clériga"
+  },
+  "descricao": "Fé armada: maça numa mão, prece na outra.",
+  "atributos": {
+   "forca": 1,
+   "agilidade": 0,
+   "mente": 1,
+   "presenca": 1
+  },
+  "hp": 12,
+  "energia": 6,
+  "inicial": [
+   {
+    "base": "maca"
+   },
+   {
+    "base": "gibao"
+   },
+   {
+    "base": "racao"
+   }
+  ],
+  "tracos": [
+   "fe_inabalavel"
+  ]
+ },
+ {
+  "id": "druida",
+  "nome": {
+   "m": "Druida",
+   "f": "Druida"
+  },
+  "descricao": "Fala com o que cresce e com o que caça.",
+  "atributos": {
+   "forca": 0,
+   "agilidade": 1,
+   "mente": 2,
+   "presenca": 0
+  },
+  "hp": 11,
+  "energia": 7,
+  "inicial": [
+   {
+    "base": "cajado"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "erva"
+   }
+  ],
+  "tracos": [
+   "filho_da_terra"
+  ]
+ },
+ {
+  "id": "monge",
+  "nome": {
+   "m": "Monge",
+   "f": "Monja"
+  },
+  "descricao": "Corpo disciplinado como uma arma que não se tira.",
+  "atributos": {
+   "forca": 1,
+   "agilidade": 2,
+   "mente": 1,
+   "presenca": -1
+  },
+  "hp": 11,
+  "energia": 8,
+  "inicial": [
+   {
+    "base": "bordao"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   }
+  ],
+  "tracos": [
+   "corpo_disciplinado"
+  ]
+ },
+ {
+  "id": "paladino",
+  "nome": {
+   "m": "Paladino",
+   "f": "Paladina"
+  },
+  "descricao": "Um juramento com armadura por cima.",
+  "atributos": {
+   "forca": 2,
+   "agilidade": -1,
+   "mente": 0,
+   "presenca": 1
+  },
+  "hp": 14,
+  "energia": 5,
+  "inicial": [
+   {
+    "base": "espada"
+   },
+   {
+    "base": "cota"
+   },
+   {
+    "base": "racao"
+   }
+  ],
+  "tracos": [
+   "aura_de_coragem"
+  ]
+ },
+ {
+  "id": "ladino",
+  "nome": {
+   "m": "Ladino",
+   "f": "Ladina"
+  },
+  "descricao": "Fechaduras, bolsos e becos: tudo se abre para quem sabe.",
+  "atributos": {
+   "forca": -1,
+   "agilidade": 3,
+   "mente": 0,
+   "presenca": 1
+  },
+  "hp": 10,
+  "energia": 7,
+  "inicial": [
+   {
+    "base": "adaga"
+   },
+   {
+    "base": "gazua"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   }
+  ],
+  "tracos": [
+   "maos_leves"
+  ]
+ },
+ {
+  "id": "feiticeiro",
+  "nome": {
+   "m": "Feiticeiro",
+   "f": "Feiticeira"
+  },
+  "descricao": "A magia nasceu no sangue, e o sangue cobra.",
+  "atributos": {
+   "forca": -1,
+   "agilidade": 0,
+   "mente": 1,
+   "presenca": 2
+  },
+  "hp": 9,
+  "energia": 8,
+  "inicial": [
+   {
+    "base": "cajado"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "talisma"
+   }
+  ],
+  "tracos": [
+   "sangue_arcano"
+  ]
+ },
+ {
+  "id": "mago",
+  "nome": {
+   "m": "Mago",
+   "f": "Maga"
+  },
+  "descricao": "Anos de estudo num grimório gasto.",
+  "atributos": {
+   "forca": -1,
+   "agilidade": 0,
+   "mente": 3,
+   "presenca": 0
+  },
+  "hp": 8,
+  "energia": 7,
+  "inicial": [
+   {
+    "base": "grimorio"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   }
+  ],
+  "tracos": [
+   "mente_afiada"
+  ]
+ },
+ {
+  "id": "bruxo",
+  "nome": {
+   "m": "Bruxo",
+   "f": "Bruxa"
+  },
+  "descricao": "Um pacto com algo que não tem nome, e poder emprestado.",
+  "atributos": {
+   "forca": 0,
+   "agilidade": 0,
+   "mente": 1,
+   "presenca": 2
+  },
+  "hp": 10,
+  "energia": 7,
+  "inicial": [
+   {
+    "base": "adaga"
+   },
+   {
+    "base": "racao",
+    "qtd": 2
+   },
+   {
+    "base": "amuleto_osso"
+   }
+  ],
+  "tracos": [
+   "pacto_sombrio"
+  ]
  }
 ]

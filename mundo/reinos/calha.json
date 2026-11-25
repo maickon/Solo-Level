@@ -1,0 +1,410 @@
+{
+  "id": "calha",
+  "nome": "Forja-Reino de Calha",
+  "letra": "a",
+  "tipo": "reino",
+  "governo": "Forja-Reino",
+  "cultura": "cinzar",
+  "povo": "humanos",
+  "capital": "fumar",
+  "descricao": "Forja-Reino cinzarano de humanos, com cidades escavadas em basalto, iluminadas por lava canalizada. Valorizam trabalho, resistência, fogo que purifica e cultuam Demarann, o fogo e a renovação.",
+  "tensao": "Disputas internas pela sucessão.",
+  "relacoes": {
+    "ashgra": "aliança",
+    "silmare": "neutralidade"
+  },
+  "economia": {
+    "produz": [
+      "madeira",
+      "caça",
+      "ferro",
+      "prata",
+      "obsidiana"
+    ],
+    "precisa": [
+      "vinho",
+      "marfim",
+      "madeiras nobres"
+    ],
+    "parceiros": [
+      "krak",
+      "al_karemet",
+      "mitzira"
+    ]
+  },
+  "territorio": {
+    "celulas": 403,
+    "centro": {
+      "x": 159,
+      "y": 67
+    }
+  },
+  "nivel": 0,
+  "revisado": false,
+  "lugares": [
+    {
+      "nivel": 0,
+      "id": "fumar",
+      "nome": "Fumar",
+      "genero": "f",
+      "tipo": "capital",
+      "categoria": "povoado",
+      "reino": "calha",
+      "x": 152,
+      "y": 63,
+      "bioma": "montanha",
+      "cultura": "cinzar",
+      "porto": false,
+      "conceito": "Capital de Calha: cidades escavadas em basalto, iluminadas por lava canalizada.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "mosteiro_de_vulkarra",
+      "nome": "Mosteiro de Vulkarra",
+      "genero": "m",
+      "tipo": "mosteiro",
+      "categoria": "povoado",
+      "reino": "calha",
+      "x": 168,
+      "y": 64,
+      "bioma": "montanha",
+      "cultura": "cinzar",
+      "porto": false,
+      "conceito": "Mosteiro isolado onde se guardam livros e segredos.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "escoris",
+      "nome": "Escóris",
+      "genero": "f",
+      "tipo": "vila",
+      "categoria": "povoado",
+      "reino": "calha",
+      "x": 160,
+      "y": 70,
+      "bioma": "floresta",
+      "cultura": "cinzar",
+      "porto": false,
+      "conceito": "Vila cinzarana que vive de prata.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "porto_de_obsidarra",
+      "nome": "Porto de Obsidarra",
+      "genero": "m",
+      "tipo": "porto",
+      "categoria": "povoado",
+      "reino": "calha",
+      "x": 166,
+      "y": 76,
+      "bioma": "costa",
+      "cultura": "cinzar",
+      "porto": true,
+      "conceito": "Porto movimentado; navios para outras terras partem daqui.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "tisnalha",
+      "nome": "Tisnalha",
+      "genero": "f",
+      "tipo": "vila",
+      "categoria": "povoado",
+      "reino": "calha",
+      "x": 171,
+      "y": 71,
+      "bioma": "floresta",
+      "cultura": "cinzar",
+      "porto": false,
+      "conceito": "Vila cinzarana que vive de caça.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "clareira_profunda",
+      "nome": "Clareira Profunda",
+      "genero": "f",
+      "plural": false,
+      "tipo": "clareira",
+      "categoria": "natureza",
+      "reino": "calha",
+      "x": 164,
+      "y": 72,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Os locais evitam o lugar depois do anoitecer.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "fortaleza_caida_do_corvo",
+      "nome": "Fortaleza Caída do Corvo",
+      "genero": "f",
+      "plural": false,
+      "tipo": "fortaleza",
+      "categoria": "ruina",
+      "reino": "calha",
+      "x": 158,
+      "y": 62,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Dizem que algo antigo ainda guarda o lugar.",
+      "perigo": 3,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "mina_dos_mil_degraus",
+      "nome": "Mina dos Mil Degraus",
+      "genero": "f",
+      "plural": false,
+      "tipo": "mina",
+      "categoria": "masmorra",
+      "reino": "calha",
+      "x": 170,
+      "y": 61,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Tesouros e mortos dividem o mesmo escuro.",
+      "perigo": 4,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "lago_partido",
+      "nome": "Lago Partido",
+      "genero": "m",
+      "plural": false,
+      "tipo": "lago",
+      "categoria": "natureza",
+      "reino": "calha",
+      "x": 156,
+      "y": 68,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Um lugar que parece observar quem chega.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "passo_dourado",
+      "nome": "Passo Dourado",
+      "genero": "m",
+      "plural": false,
+      "tipo": "passo",
+      "categoria": "natureza",
+      "reino": "calha",
+      "x": 162,
+      "y": 62,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Lugar de beleza perigosa.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "clareira_do_trovao",
+      "nome": "Clareira do Trovão",
+      "genero": "f",
+      "plural": false,
+      "tipo": "clareira",
+      "categoria": "natureza",
+      "reino": "calha",
+      "x": 150,
+      "y": 69,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Os locais evitam o lugar depois do anoitecer.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "lago_das_almas",
+      "nome": "Lago das Almas",
+      "genero": "m",
+      "plural": false,
+      "tipo": "lago",
+      "categoria": "natureza",
+      "reino": "calha",
+      "x": 165,
+      "y": 67,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Um lugar que parece observar quem chega.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "cratera_dos_herois",
+      "nome": "Cratera dos Heróis",
+      "genero": "f",
+      "plural": false,
+      "tipo": "cratera",
+      "categoria": "natureza",
+      "reino": "calha",
+      "x": 147,
+      "y": 63,
+      "bioma": "vulcanico",
+      "porto": false,
+      "conceito": "Um lugar que parece observar quem chega.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "mina_silenciosa",
+      "nome": "Mina Silenciosa",
+      "genero": "f",
+      "plural": false,
+      "tipo": "mina",
+      "categoria": "masmorra",
+      "reino": "calha",
+      "x": 151,
+      "y": 59,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Tesouros e mortos dividem o mesmo escuro.",
+      "perigo": 4,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "santuario_gelado",
+      "nome": "Santuário Gelado",
+      "genero": "m",
+      "plural": false,
+      "tipo": "santuario",
+      "categoria": "ruina",
+      "reino": "calha",
+      "x": 158,
+      "y": 73,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Restos de algo que já foi grande.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "farol_das_bruxas",
+      "nome": "Farol das Bruxas",
+      "genero": "m",
+      "plural": false,
+      "tipo": "farol",
+      "categoria": "ruina",
+      "reino": "calha",
+      "x": 170,
+      "y": 75,
+      "bioma": "costa",
+      "porto": false,
+      "conceito": "Pedras com inscrições que ninguém mais lê.",
+      "perigo": 2,
+      "revisado": false
+    }
+  ],
+  "rotas": [
+    {
+      "de": "fumar",
+      "para": "escoris",
+      "tipo": "trilha",
+      "tempo": 3
+    },
+    {
+      "de": "escoris",
+      "para": "porto_de_obsidarra",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "porto_de_obsidarra",
+      "para": "tisnalha",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "escoris",
+      "para": "mosteiro_de_vulkarra",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "mosteiro_de_vulkarra",
+      "para": "porto_de_obsidarra",
+      "tipo": "estrada",
+      "tempo": 2
+    },
+    {
+      "de": "mosteiro_de_vulkarra",
+      "para": "tisnalha",
+      "tipo": "passo",
+      "tempo": 2
+    },
+    {
+      "de": "clareira_profunda",
+      "para": "escoris",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "mina_dos_mil_degraus",
+      "para": "mosteiro_de_vulkarra",
+      "tipo": "passo",
+      "tempo": 1
+    },
+    {
+      "de": "lago_partido",
+      "para": "escoris",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "passo_dourado",
+      "para": "fortaleza_caida_do_corvo",
+      "tipo": "passo",
+      "tempo": 1
+    },
+    {
+      "de": "clareira_do_trovao",
+      "para": "lago_partido",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "lago_das_almas",
+      "para": "mosteiro_de_vulkarra",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "cratera_dos_herois",
+      "para": "fumar",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "santuario_gelado",
+      "para": "escoris",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "farol_das_bruxas",
+      "para": "porto_de_obsidarra",
+      "tipo": "trilha",
+      "tempo": 1
+    }
+  ]
+}

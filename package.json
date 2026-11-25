@@ -12,6 +12,12 @@
     "deploy": "firebase deploy --only hosting",
     "playtest": "node tools/playtest.mjs",
     "ui": "node tools/ui-smoke.mjs",
-    "qa": "npm run check && npm run playtest"
+    "qa": "npm run check && npm run playtest",
+    "mundo:gerar": "node tools/semente/gerar.mjs",
+    "mundo:mapa": "node tools/semente/mapa.mjs",
+    "mundo:validar": "node tools/semente/validar.mjs",
+    "mundo:relatorio": "node tools/semente/validar.mjs --relatorio",
+    "mundo:exportar": "node tools/semente/exportar.mjs",
+    "mundo:painel": "node tools/semente/painel.mjs"
   }
 }

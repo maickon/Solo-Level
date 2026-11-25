@@ -55,6 +55,15 @@ passa, a chance de emergir é pressão × 10% (máx. 80%). O evento `tipo: "fio"
 - **Mapa**: coordenadas `x,y` dos locais. A UI desenha visitados, vizinhos sob névoa e alvos de missão,
   e permite viajar clicando num vizinho.
 
+## Mundo autoral — Fase B mínima (v0.8)
+- O jogo carrega a Semente exportada (`public/data/mundo/`): `mundo.js` converte lugares e rotas em locais;
+  `content.inicio` é o ponto de partida; `content.modo = 'autoral'` desliga POIs, masmorras sorteadas e fronteiras.
+- Locais não jogáveis (fora da região inicial e de nível 0) aparecem no mapa e bloqueiam a viagem com motivo.
+- **Menu do lugar com no máximo 4 opções**: `hub()` monta todas as ações em grupos (`s.lugarOpcoes`) e mostra
+  Explorar · Ir a… · Viajar… · Descansar…; submenus paginados (`act_menu`); `agir(acao)` executa uma ação do
+  lugar diretamente (mapa, testes). Cenas de navegação de menu levam `navegacao: true`.
+- `SAVE_VERSION` 3: saves anteriores são zerados.
+
 ## Mundo infinito (v0.7)
 - **Fronteiras** (`fronteira` nos locais) → "Desbravar": `gerarRegiao` escolhe um modelo de `regioes.json`
   compatível com o bioma/tags de origem (`de`), cria 2–5 locais (`state.locais`, `regiao`, `gerado`) para fora

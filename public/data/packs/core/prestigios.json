@@ -1,0 +1,325 @@
+[
+ {
+  "id": "arqueiro_arcano",
+  "nome": {
+   "m": "Arqueiro Arcano",
+   "f": "Arqueira Arcana"
+  },
+  "descricao": "Cada flecha leva um feitiço na ponta.",
+  "classes": [
+   "batedor",
+   "ladino",
+   "feiticeiro",
+   "mago",
+   "erudito",
+   "druida"
+  ],
+  "minimo": {
+   "agilidade": 2
+  },
+  "traco": "p_flecha_arcana",
+  "hp": 2,
+  "energia": 1
+ },
+ {
+  "id": "assassino",
+  "nome": {
+   "m": "Assassino",
+   "f": "Assassina"
+  },
+  "descricao": "Um golpe só, no lugar certo, na hora certa.",
+  "classes": [
+   "ladino",
+   "batedor",
+   "bruxo",
+   "monge"
+  ],
+  "minimo": {
+   "agilidade": 2
+  },
+  "traco": "p_golpe_furtivo",
+  "hp": 2,
+  "energia": 0
+ },
+ {
+  "id": "cavaleiro_arcano",
+  "nome": {
+   "m": "Cavaleiro Arcano",
+   "f": "Cavaleira Arcana"
+  },
+  "descricao": "Aço e magia na mesma mão.",
+  "classes": [
+   "guerreiro",
+   "paladino",
+   "feiticeiro",
+   "mago",
+   "erudito",
+   "bruxo"
+  ],
+  "minimo": {
+   "forca": 1,
+   "mente": 1
+  },
+  "traco": "p_lamina_e_feitico",
+  "hp": 3,
+  "energia": 1
+ },
+ {
+  "id": "defensor",
+  "nome": {
+   "m": "Defensor Juramentado",
+   "f": "Defensora Juramentada"
+  },
+  "descricao": "Uma muralha que respira: ninguém passa.",
+  "classes": [
+   "guerreiro",
+   "paladino",
+   "barbaro",
+   "clerigo"
+  ],
+  "minimo": {
+   "forca": 2
+  },
+  "traco": "p_baluarte",
+  "hp": 4,
+  "energia": 0
+ },
+ {
+  "id": "dancarino_sombras",
+  "nome": {
+   "m": "Dançarino das Sombras",
+   "f": "Dançarina das Sombras"
+  },
+  "descricao": "Some numa sombra e reaparece em outra.",
+  "classes": [
+   "ladino",
+   "monge",
+   "bardo",
+   "batedor"
+  ],
+  "minimo": {
+   "agilidade": 2
+  },
+  "traco": "p_passo_sombrio",
+  "hp": 1,
+  "energia": 1
+ },
+ {
+  "id": "arquimago",
+  "nome": {
+   "m": "Arquimago",
+   "f": "Arquimaga"
+  },
+  "descricao": "Os segredos mais altos da arte arcana.",
+  "classes": [
+   "mago",
+   "erudito",
+   "feiticeiro"
+  ],
+  "minimo": {
+   "mente": 3
+  },
+  "traco": "p_alta_arcana",
+  "hp": 1,
+  "energia": 2
+ },
+ {
+  "id": "hierofante",
+  "nome": {
+   "m": "Hierofante",
+   "f": "Hierofante"
+  },
+  "descricao": "A voz do divino falando por uma boca mortal.",
+  "classes": [
+   "clerigo",
+   "druida",
+   "paladino"
+  ],
+  "minimo": {
+   "mente": 1,
+   "presenca": 1
+  },
+  "traco": "p_hierofania",
+  "hp": 3,
+  "energia": 1
+ },
+ {
+  "id": "mestre_saber",
+  "nome": {
+   "m": "Mestre do Saber",
+   "f": "Mestra do Saber"
+  },
+  "descricao": "Sabe o nome antigo de quase tudo.",
+  "classes": [
+   "erudito",
+   "mago",
+   "bardo",
+   "clerigo"
+  ],
+  "minimo": {
+   "mente": 2
+  },
+  "traco": "p_saber_antigo",
+  "hp": 2,
+  "energia": 1
+ },
+ {
+  "id": "teurgo",
+  "nome": {
+   "m": "Teurgo Místico",
+   "f": "Teurga Mística"
+  },
+  "descricao": "Reza e conjura ao mesmo tempo, e os dois respondem.",
+  "classes": [
+   "clerigo",
+   "druida",
+   "mago",
+   "feiticeiro",
+   "erudito"
+  ],
+  "minimo": {
+   "mente": 1,
+   "presenca": 1
+  },
+  "traco": "p_dois_caminhos",
+  "hp": 2,
+  "energia": 1
+ },
+ {
+  "id": "duelista",
+  "nome": {
+   "m": "Duelista",
+   "f": "Duelista"
+  },
+  "descricao": "Elegância letal: a lâmina dança, o corpo não se toca.",
+  "classes": [
+   "guerreiro",
+   "ladino",
+   "bardo",
+   "batedor",
+   "andarilho"
+  ],
+  "minimo": {
+   "agilidade": 2
+  },
+  "traco": "p_esgrima",
+  "hp": 2,
+  "energia": 1
+ },
+ {
+  "id": "berserker",
+  "nome": {
+   "m": "Berserker Frenético",
+   "f": "Berserker Frenética"
+  },
+  "descricao": "Quando a fúria vem, não há dor nem medo.",
+  "classes": [
+   "barbaro",
+   "guerreiro"
+  ],
+  "minimo": {
+   "forca": 2
+  },
+  "traco": "p_frenesi",
+  "hp": 3,
+  "energia": 0
+ },
+ {
+  "id": "campeao_sagrado",
+  "nome": {
+   "m": "Campeão de Demar",
+   "f": "Campeã de Demar"
+  },
+  "descricao": "O sol de Demar escolheu um braço.",
+  "classes": [
+   "paladino",
+   "clerigo"
+  ],
+  "minimo": {
+   "forca": 1,
+   "presenca": 1
+  },
+  "traco": "p_campeao",
+  "hp": 3,
+  "energia": 0
+ },
+ {
+  "id": "andarilho_horizonte",
+  "nome": {
+   "m": "Andarilho do Horizonte",
+   "f": "Andarilha do Horizonte"
+  },
+  "descricao": "Nenhuma terra é estranha por muito tempo.",
+  "classes": [
+   "andarilho",
+   "batedor",
+   "druida",
+   "monge",
+   "bardo"
+  ],
+  "minimo": {
+   "agilidade": 1
+  },
+  "traco": "p_horizonte",
+  "hp": 2,
+  "energia": 1
+ },
+ {
+  "id": "mestre_feras",
+  "nome": {
+   "m": "Mestre das Feras",
+   "f": "Mestra das Feras"
+  },
+  "descricao": "Os animais seguem, e às vezes lutam a seu lado.",
+  "classes": [
+   "druida",
+   "batedor",
+   "barbaro"
+  ],
+  "minimo": {
+   "presenca": 0
+  },
+  "traco": "p_feras",
+  "hp": 3,
+  "energia": 0
+ },
+ {
+  "id": "arauto_pacto",
+  "nome": {
+   "m": "Arauto do Pacto",
+   "f": "Arauta do Pacto"
+  },
+  "descricao": "O patrono fala mais alto agora, e cobra mais.",
+  "classes": [
+   "bruxo",
+   "feiticeiro"
+  ],
+  "minimo": {
+   "presenca": 2
+  },
+  "traco": "p_patrono",
+  "hp": 1,
+  "energia": 1
+ },
+ {
+  "id": "mestre_armas",
+  "nome": {
+   "m": "Mestre de Armas",
+   "f": "Mestra de Armas"
+  },
+  "descricao": "Qualquer coisa vira arma na sua mão.",
+  "classes": [
+   "guerreiro",
+   "barbaro",
+   "paladino",
+   "monge"
+  ],
+  "minimo": {
+   "forca": 1,
+   "agilidade": 1
+  },
+  "traco": "p_mestre_espada",
+  "hp": 3,
+  "energia": 0
+ }
+]

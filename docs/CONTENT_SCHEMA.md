@@ -413,3 +413,20 @@ preferência raro, em locais `sagrado`/`antigo`. O portal liga o plano ao local 
   (graus), `eco`, `vozes` (`passaro`, `gaivota`, `grilo`, `coruja`, `galho`, `sapo`, `bolha`, `gota`,
   `pedra`, `rajada`, `onda`, `trovao`, `sino`, `carrilhao`).
 - `cor`: cor do bioma no mapa. O validador confere formas, partículas, perfis e vozes.
+
+## prestigios.json (classes de prestígio, v0.9)
+```json
+[{ "id": "assassino", "nome": {"m":"Assassino","f":"Assassina"}, "descricao": "Um golpe só, no lugar certo.",
+   "classes": ["ladino","batedor"], "minimo": {"agilidade": 2}, "traco": "p_golpe_furtivo", "hp": 2, "energia": 0 }]
+```
+- A partir do nível 3 (`NIVEL_PRESTIGIO` em `rules.js`), se a classe do herói está em `classes` e os atributos-base
+  cumprem `minimo`, o grupo **Descansar…** ganha "Refletir sobre o seu caminho": até 3 caminhos sorteados (fixos até a
+  escolha) + "Decidir mais tarde". Escolher acrescenta o `traco` (com `mods`), `hp` e `energia` às bases.
+- O validador acusa traço ou classe inexistentes.
+
+## Regras de tela (v0.9)
+- **Nunca uma opção só.** Se uma cena ficaria com uma escolha livre, o motor acrescenta uma alternativa real:
+  em evento, mostra as opções trancadas por item/ouro/nível (desativadas, com "precisa: corda") e, se ainda faltar,
+  "Deixar para lá"; no lugar, "Ir a outro canto…" ou "Explorar…".
+- **O jogador rola.** Opções de evento com `teste` e as ações de combate abrem a janela "Hora de rolar"; o resultado
+  continua vindo do motor (determinístico). Pode ser desligado em Ajustes.

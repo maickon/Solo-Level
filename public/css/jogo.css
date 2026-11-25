@@ -42,8 +42,6 @@
 .cartao.antigo p.txt { color: #b3a594; }
 .cartao.antigo p.txt { font-size: 1.05rem; }
 .cartao p.txt { font: 500 1.3rem/1.55 var(--serif); margin: 0 0 10px; color: #efe6d8; }
-.cartao p.txt:first-child::first-letter { font-size: 1.9em; float: left; line-height: .9; padding: 4px 6px 0 0; color: var(--accent); font-weight: 700; }
-.cartao.antigo p.txt:first-child::first-letter { font-size: 1em; float: none; padding: 0; color: inherit; font-weight: inherit; }
 .marcas { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
 .marca { font-size: .78rem; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); color: var(--muted); }
 .marca.dano { color: #f08a7e; border-color: rgba(224,103,91,.35); } .marca.cura { color: #8fd49a; border-color: rgba(111,179,122,.35); }
@@ -187,3 +185,38 @@
 /* Atividades sorteadas do lugar (storylets) */
 .op.atividade { border-left: 3px solid rgba(154,106,212,.55); }
 .op.atividade:hover:not(:disabled) { border-left-color: #b98ce8; }
+
+/* Mapa-múndi */
+.mundi-btn { width: 100%; margin: 0 0 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.mundi-btn svg { width: 18px; height: 18px; }
+.modal.largo { max-width: min(1200px, 96vw); }
+.mundi-info { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
+.map.mundi { aspect-ratio: 180 / 110; background: #2a4a6b; }
+.map.mundi text { font: 600 9px var(--serif); fill: #fff3d6; paint-order: stroke; stroke: #1b1206; stroke-width: 2.5px; text-anchor: middle; pointer-events: none; }
+.map.mundi .m-fech circle { fill: #1b1206; opacity: .35; }
+.map.mundi .m-con circle { fill: #fff6e0; stroke: #1b1206; stroke-width: 1; opacity: .85; }
+.map.mundi .m-vis circle { fill: var(--accent); stroke: #fff3d6; stroke-width: 1.6; }
+.map.mundi .m-vis text { fill: #ffe28a; }
+.map.mundi .m-aqui .ponto { fill: #ff5a3c; stroke: #fff; stroke-width: 2; animation: pisca 1s steps(2, start) infinite; }
+.map.mundi .m-aqui .onda { fill: none; stroke: #ff5a3c; stroke-width: 2.5; transform-box: fill-box; transform-origin: center; animation: onda 1.8s ease-out infinite; }
+.map.mundi .m-aqui .o2 { animation-delay: .9s; }
+@keyframes pisca { to { opacity: .25; } }
+@keyframes onda { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .map.mundi .m-aqui .ponto, .map.mundi .m-aqui .onda { animation: none; } }
+.lg-vis, .lg-con, .lg-fech { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 4px 0 10px; vertical-align: -1px; }
+.lg-vis { background: var(--accent); border: 1.5px solid #fff3d6; } .lg-con { background: #fff6e0; } .lg-fech { background: #1b1206; opacity: .5; border: 1px solid #6b6258; }
+
+/* Rolagem pelo jogador */
+.modal.rolar { max-width: 400px; text-align: center; }
+.rol-acao { font: 600 1.05rem var(--serif); margin: 0 0 14px; }
+.rol-mesa { display: flex; justify-content: center; gap: 18px; margin: 8px 0 14px; }
+.rol-mesa .dado { width: 64px; height: 64px; border-radius: 13px; padding: 9px; }
+.rol-mesa .dado i { width: 10px; height: 10px; }
+.rol-mesa.treme { transform: rotate(-4deg) translateY(-3px); }
+.rol-conta { font-size: 1.05rem; margin: 0 0 6px; } .rol-conta b { color: var(--accent); font-size: 1.3rem; }
+.rol-res { min-height: 30px; margin: 0 0 8px; } .rol-res .res { font: 700 .95rem var(--sans); letter-spacing: .06em; text-transform: uppercase; padding: 5px 14px; border-radius: 6px; }
+.rol-legenda { color: var(--muted); font-size: .78rem; margin: 0 0 14px; }
+.rol-botoes { display: flex; flex-direction: column; gap: 8px; }
+.rol-botoes .btn { text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; }
+.rol-botoes svg { width: 18px; height: 18px; }
+.card .prest { margin: 8px 0 0; font-size: .8rem; color: var(--muted); }

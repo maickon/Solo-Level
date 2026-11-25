@@ -26,7 +26,8 @@ export function gerarMissao(g) {
   const s = g.s;
   const tpl = g.rng.weighted(g.c.quests);
   if (!tpl) return null;
-  let cands = [...distancias(g, s.local)].filter(([, d]) => d >= 1 && d <= 4).map(([id, d]) => ({ l: loc(g, id), d }));
+  let cands = [...distancias(g, s.local)].filter(([, d]) => d >= 1 && d <= 4).map(([id, d]) => ({ l: loc(g, id), d }))
+    .filter((x) => !x.l.autoral || x.l.jogavel); // nada de mandar o herói para terras ainda não construídas
   if (tpl.objetivo === 'chegar') {
     const seguros = cands.filter((x) => x.l.tags?.includes('seguro'));
     if (seguros.length) cands = seguros;

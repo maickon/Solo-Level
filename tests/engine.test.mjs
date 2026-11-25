@@ -15,6 +15,17 @@ import { gerarRegiao } from '../public/src/engine/regioes.js';
 import { loadNodeContent, PACKS_DIR } from '../tools/node-content.mjs';
 import { simulate } from '../tools/simulate.mjs';
 
+
+// Ações do lugar ficam agrupadas em menus de até 4 opções: estes atalhos acham a ação onde ela estiver.
+const opcoesLugar = (st) => (st.cena.modo === 'local' && st.lugarOpcoes ? st.lugarOpcoes : st.cena.opcoes);
+function escolher(g, pred) {
+  const i = g.s.cena.opcoes.findIndex(pred);
+  if (i >= 0) return g.choose(i);
+  const op = (g.s.lugarOpcoes || []).find(pred);
+  if (op && g.s.cena.modo === 'local') return g.agir(op.acao);
+  return g.choose(-1);
+}
+
 // ---------- Fixture mínima ----------
 const T = (s) => [s];
 const grammar = Object.fromEntries(REQUIRED_TABLES.map((k) => [k, T(`${k}.`)]));
@@ -117,8 +128,8 @@ test('novo jogo: equipa itens iniciais, aplica traço, cena válida', () => {
   assert.ok(st.arma);
   assert.equal(s.heroi.inventario.length, 3);
   assert.equal(s.cena.modo, 'local');
-  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'viajar'));
-  assert.ok(!s.cena.opcoes.some((o) => o.acao.tipo === 'acampar')); // vila é segura
+  assert.ok(opcoesLugar(s).some((o) => o.acao.tipo === 'viajar'));
+  assert.ok(!opcoesLugar(s).some((o) => o.acao.tipo === 'acampar')); // vila é segura
 });
 
 test('opções com requer só aparecem quando a condição passa', () => {
@@ -126,7 +137,7 @@ test('opções com requer só aparecem quando a condição passa', () => {
   const s = newState(c, { classe: 'g', nome: 'Ana', seed: 's2' });
   const g = new Game(c, s);
   g.begin(); g.eventScene(c.eventMap.e1);
-  assert.equal(s.cena.opcoes.length, 3);
+  assert.equal(opcoesLugar(s).length, 3);
 });
 
 test('combate leva a vitória com xp, ouro e saque; morte encerra o jogo', () => {
@@ -134,7 +145,7 @@ test('combate leva a vitória com xp, ouro e saque; morte encerra o jogo', () =>
   const s = newState(c, { classe: 'g', nome: 'Ana', seed: 's3' });
   const g = new Game(c, s);
   g.begin(); g.eventScene(c.eventMap.e1);
-  g.choose(s.cena.opcoes.findIndex((o) => o.rotulo === 'Lutar'));
+  escolher(g, (o) => o.rotulo === 'Lutar');
   assert.equal(s.cena.modo, 'combate');
   for (let i = 0; i < 30 && s.cena.modo === 'combate'; i++) g.choose(0);
   assert.ok(s.morto || s.heroi.nivel >= 2);
@@ -162,7 +173,7 @@ test('exaustão penaliza testes; energia zerada gera exaustão ao explorar', () 
   const s = newState(c, { classe: 'g', nome: 'Ana', seed: 's5' });
   const g = new Game(c, s);
   s.heroi.energia = 0;
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'explorar'));
+  escolher(g, (o) => o.acao.tipo === 'explorar');
   assert.equal(s.heroi.exaustao, 1);
   s.heroi.exaustao = 3;
   assert.equal(stats(s.heroi, c).penalidade, 1);
@@ -192,12 +203,12 @@ test('cadeia: cena leva ao próximo evento, vincula NPC e continua após vencer 
   const g = new Game(c, s);
   s.heroi.hpBase = 99; s.heroi.hp = 99; s.heroi.hpMax = 99;
   g.begin(); g.eventScene(c.eventMap.e1);
-  g.choose(s.cena.opcoes.findIndex((o) => o.rotulo === 'Seguir'));
+  escolher(g, (o) => o.rotulo === 'Seguir');
   assert.equal(s.evento.id, 'e2');
   const npc = s.npcs[s.evento.npc];
   assert.ok(npc && npc.oficio === 'ferreiro');
   assert.match(s.cena.blocos.at(-1).texto, /ferreir[oa]\.$/);
-  g.choose(s.cena.opcoes.findIndex((o) => o.rotulo === 'Lutar e seguir'));
+  escolher(g, (o) => o.rotulo === 'Lutar e seguir');
   assert.equal(s.cena.modo, 'combate');
   for (let i = 0; i < 40 && s.cena.modo === 'combate'; i++) g.choose(0);
   assert.equal(s.evento?.id, 'e3');
@@ -231,8 +242,8 @@ test('POI: explorar descobre local novo, conectado e com coordenadas', () => {
   const poi = Object.values(s.locais)[0];
   assert.ok(poi, 'nenhum POI descoberto');
   assert.ok(poi.tags.includes('poi') && poi.pai === 'mata1' && poi.x >= 3);
-  assert.ok(s.cena.opcoes.some((o) => o.acao.para === poi.id));
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.para === poi.id));
+  assert.ok(opcoesLugar(s).some((o) => o.acao.para === poi.id));
+  escolher(g, (o) => o.acao.para === poi.id);
   assert.equal(s.local, poi.id);
   assert.ok(s.visitados.includes(poi.id));
 });
@@ -242,22 +253,22 @@ test('missões: aceitar, cumprir (vencer) e entregar; entrega por chegada', () =
   const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'q1' });
   const g = new Game(c, s);
   s.heroi.hpBase = 99; s.heroi.hp = 99; s.heroi.hpMax = 99;
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'trabalho'));
+  escolher(g, (o) => o.acao.tipo === 'trabalho');
   assert.equal(s.cena.modo, 'trabalho');
-  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'oferta'));
+  assert.ok(opcoesLugar(s).some((o) => o.acao.tipo === 'oferta'));
   // Ouvir a proposta mostra o pedido antes de aceitar; recusar volta à lista.
-  const n0 = s.cena.opcoes.filter((o) => o.acao.tipo === 'oferta').length;
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'oferta'));
-  assert.ok(s.cena.opcoes.some((o) => o.acao.tipo === 'aceitar') && s.cena.opcoes.some((o) => o.acao.tipo === 'recusar'));
+  const n0 = opcoesLugar(s).filter((o) => o.acao.tipo === 'oferta').length;
+  escolher(g, (o) => o.acao.tipo === 'oferta');
+  assert.ok(opcoesLugar(s).some((o) => o.acao.tipo === 'aceitar') && opcoesLugar(s).some((o) => o.acao.tipo === 'recusar'));
   assert.equal(s.missoes.length, 0);
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'recusar'));
-  assert.equal(s.cena.opcoes.filter((o) => o.acao.tipo === 'oferta').length, n0);
-  const livre = () => s.cena.opcoes.findIndex((o) => o.acao.tipo === 'oferta' && !o.desativada);
+  escolher(g, (o) => o.acao.tipo === 'recusar');
+  assert.equal(opcoesLugar(s).filter((o) => o.acao.tipo === 'oferta').length, n0);
+  const livre = () => opcoesLugar(s).findIndex((o) => o.acao.tipo === 'oferta' && !o.desativada);
   while (livre() >= 0) {
     g.choose(livre());
-    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'aceitar'));
+    escolher(g, (o) => o.acao.tipo === 'aceitar');
     assert.equal(s.cena.modo, 'local'); // aceitar volta ao lugar
-    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'trabalho'));
+    escolher(g, (o) => o.acao.tipo === 'trabalho');
   }
   assert.ok(s.missoes.length >= 1 && s.missoes.every((m) => s.npcs[m.npcId]));
   const ouro0 = s.heroi.ouro;
@@ -266,18 +277,18 @@ test('missões: aceitar, cumprir (vencer) e entregar; entrega por chegada', () =
   assert.ok(cacar || entregar);
   if (cacar) {
     s.local = cacar.destino; g.begin(); g.hub();
-    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'missao_cumprir'));
+    escolher(g, (o) => o.acao.tipo === 'missao_cumprir');
     for (let i = 0; i < 40 && s.cena.modo === 'combate'; i++) g.choose(0);
     assert.equal(cacar.estado, 'cumprida');
     s.local = cacar.origem; g.begin(); g.hub();
-    g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'missao_entregar'));
+    escolher(g, (o) => o.acao.tipo === 'missao_entregar');
     assert.ok(!s.missoes.includes(cacar));
     assert.ok(s.heroi.ouro > ouro0);
   }
   if (entregar) {
     assert.ok(s.heroi.inventario.some((i) => i.missao === entregar.uid));
     s.local = 'mata1'; g.begin(); g.hub();
-    g.choose(s.cena.opcoes.findIndex((o) => o.acao.para === entregar.destino));
+    escolher(g, (o) => o.acao.para === entregar.destino);
     assert.ok(!s.missoes.includes(entregar));
     assert.ok(!s.heroi.inventario.some((i) => i.missao === entregar.uid));
   }
@@ -383,13 +394,13 @@ test('atividades: povoado sorteia estabelecimentos fixos; menu mostra atividades
   assert.deepEqual(ids, ['forja', 'taverna', 'templo']);
   assert.equal(s.estabs.vila_bruma.find((e) => e.id === 'taverna').nome, 'Taverna do Galo');
   // Menu: atividades válidas (taverna e templo; não a da noite nem a do mato).
-  const atv = () => s.cena.opcoes.filter((o) => o.acao.tipo === 'atividade').map((o) => o.acao.id).sort();
+  const atv = () => opcoesLugar(s).filter((o) => o.acao.tipo === 'atividade').map((o) => o.acao.id).sort();
   assert.deepEqual(atv(), ['a_taverna', 'a_templo']);
-  const rot = s.cena.opcoes.find((o) => o.acao.id === 'a_taverna').rotulo;
+  const rot = opcoesLugar(s).find((o) => o.acao.id === 'a_taverna').rotulo;
   assert.equal(rot, 'Beber na Taverna do Galo');
   // Fazer: gasta 1 período, mostra o texto com o estabelecimento e entra em recarga.
   const per0 = s.periodo;
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.id === 'a_taverna'));
+  escolher(g, (o) => o.acao.id === 'a_taverna');
   assert.equal(s.cena.modo, 'evento');
   assert.notEqual(s.periodo, per0);
   assert.ok(s.cena.blocos.some((b) => b.texto === "Você entra na Taverna do Galo."), JSON.stringify(s.cena.blocos));
@@ -410,7 +421,7 @@ test('mundo infinito: desbravar gera regiões conectadas, sem fim; masmorra em c
   const g = new Game(c, s);
   s.heroi.hpBase = 999; s.heroi.hp = 999; s.heroi.hpMax = 999;
   s.local = 'mata1'; g.begin(); g.hub();
-  const desbravar = () => s.cena.opcoes.findIndex((o) => o.acao.tipo === 'desbravar');
+  const desbravar = () => opcoesLugar(s).findIndex((o) => o.acao.tipo === 'desbravar');
   assert.ok(desbravar() >= 0);
   // Desbrava 6 vezes seguidas, sempre a partir da fronteira nova: o mundo continua crescendo.
   const vistos = new Set();
@@ -423,14 +434,14 @@ test('mundo infinito: desbravar gera regiões conectadas, sem fim; masmorra em c
       s.local = livre.id; g.begin(); g.hub(); idx = desbravar();
     }
     const antes = s.local;
-    g.choose(idx);
+    escolher(g, (o) => o.acao.tipo === 'desbravar');
     const aqui = c.location(s);
     assert.ok(aqui.gerado && aqui.regiao && s.regioes[aqui.regiao]);
     assert.ok(aqui.conexoes.some((x) => x.para === antes), 'a entrada liga de volta à origem');
     vistos.add(aqui.modelo);
     // nenhum local gerado fica isolado e todos têm coordenadas
     for (const l of Object.values(s.locais)) { assert.ok(l.conexoes.length, l.id); assert.ok(Number.isFinite(l.x) && Number.isFinite(l.y)); }
-    while (s.cena.modo !== 'local') g.choose(s.cena.opcoes.findIndex((o) => !o.desativada));
+    while (s.cena.modo !== 'local') escolher(g, (o) => !o.desativada);
   }
   assert.ok(Object.keys(s.regioes).length >= 6);
   assert.ok(!Object.values(s.regioes).some((r) => r.modelo === 'cripta'), 'fronteira não gera masmorra');
@@ -471,13 +482,13 @@ test('mundo infinito: portal após vitória, tempo 0, covil com opcionais, deter
   for (let i = 0; i < 40 && s.cena.modo === 'combate'; i++) g.choose(0);
   assert.equal(c.location(s).modelo, 'feerico');
   const plano = s.local;
-  g.choose(s.cena.opcoes.findIndex((o) => o.acao.tipo === 'explorar'));
-  for (let i = 0; i < 20 && s.cena.modo !== 'local'; i++) g.choose(s.cena.opcoes.findIndex((o) => !o.desativada));
+  escolher(g, (o) => o.acao.tipo === 'explorar');
+  for (let i = 0; i < 20 && s.cena.modo !== 'local'; i++) escolher(g, (o) => !o.desativada);
   assert.equal(Object.values(s.regioes).filter((r) => r.modelo === 'feerico').length, 1);
   // Voltar pelo portal (tempo 0) não gasta período.
   s.local = plano; g.begin(); g.hub();
   const per = s.periodo, dia = s.dia;
-  const volta = s.cena.opcoes.findIndex((o) => o.acao.tipo === 'viajar' && c.location(s).conexoes.find((x) => x.para === o.acao.para)?.tempo === 0);
+  const volta = opcoesLugar(s).findIndex((o) => o.acao.tipo === 'viajar' && c.location(s).conexoes.find((x) => x.para === o.acao.para)?.tempo === 0);
   assert.ok(volta >= 0);
   g.choose(volta);
   assert.ok(s.local !== plano && s.periodo === per && s.dia === dia);
@@ -489,8 +500,8 @@ test('mundo infinito: portal após vitória, tempo 0, covil com opcionais, deter
   // Determinismo: mesma semente e mesmas escolhas → mesmas regiões e coordenadas; retomar do JSON também.
   const jogar = (st, gg, n) => {
     for (let i = 0; i < n; i++) {
-      const k = st.cena.opcoes.findIndex((o) => o.acao.tipo === 'desbravar');
-      gg.choose(k >= 0 ? k : st.cena.opcoes.findIndex((o) => !o.desativada));
+      if (opcoesLugar(st).some((o) => o.acao.tipo === 'desbravar')) escolher(gg, (o) => o.acao.tipo === 'desbravar');
+      else escolher(gg, (o) => !o.desativada && o.acao.tipo !== 'menu');
     }
   };
   const a = novo('det'), b = novo('det');
@@ -505,7 +516,7 @@ test('mundo infinito: portal após vitória, tempo 0, covil com opcionais, deter
   delete velho.regioes; delete velho.fronteirasUsadas; delete velho.masmorras;
   velho.local = 'mata1';
   const gv = new Game(c, velho); gv.begin(); gv.hub();
-  gv.choose(velho.cena.opcoes.findIndex((o) => o.acao.tipo === 'desbravar'));
+  escolher(gv, (o) => o.acao.tipo === 'desbravar');
   assert.equal(Object.keys(velho.regioes).length, 1);
 });
 
@@ -533,4 +544,74 @@ test('gramática 2.0: concordância de número com lugar no plural', () => {
   const tpl = '{$local.O_nome} se {#mostra/mostram@local}, {=ignorado/ignorada@local}.';
   assert.equal(expand(tpl, ctx(gvar('Ruínas Antigas', 'f', { plural: true }))), 'As Ruínas Antigas se mostram, ignoradas.');
   assert.equal(expand(tpl, ctx(gvar('Vila de Bruma', 'f'))), 'A Vila de Bruma se mostra, ignorada.');
+});
+
+test('mundo autoral: bíblia descreve o lugar, sub-lugares com pessoas fixas e conversa escrita', () => {
+  const base = fixture();
+  const lugar = (id, extra = {}) => ({ id, nome: id === 'kor' ? 'Kor' : 'Mata Alta', genero: 'f', tipo: id === 'kor' ? 'cidade' : 'bosque',
+    categoria: id === 'kor' ? 'povoado' : 'natureza', reino: 'r1', x: 10, y: 10, bioma: 'planicie', nivel: 0, ...extra });
+  const raw = {
+    classes: base.classes, traits: Object.values(base.traits), biomes: Object.values(base.biomes).concat([{ id: 'estrada', nome: 'Estrada', perigo: 1, clima: { limpo: 1 }, inimigos: [] }]),
+    locations: [], enemies: Object.values(base.enemies), threads: [], items: base.items, grammar: base.grammar, names: base.names,
+    npcs: base.npcs, pois: [], quests: [], estabelecimentos: base.estabelecimentos, regioes: [],
+    events: base.events.concat([{ id: 'conv_irma', tipo: 'cadeia', texto: '{$npc.Nome} ergue os olhos. “{$lugar.problema}”', opcoes: [{ rotulo: 'Ouvir', resultado: { texto: 'ok' } }] }]),
+    mundo: {
+      indice: { partida: 'kor', regiaoInicial: [], biomaNoJogo: { planicie: 'estrada' }, ermos: [], rotasEntreReinos: [], reinos: [{ id: 'r1' }] },
+      reinos: [{ id: 'r1', povo: 'humanos', lugares: [
+        lugar('kor', { nivel: 2, biblia: { descricoes: ['Kor cheira a pão e a medo.'], fatos: { problema: 'A ponte caiu.' },
+          pessoas: [{ id: 'irma', nome: 'Irmã Veyra', genero: 'f', oficio: 'guarda', temperamento: 'calmo', sublugar: 'templo', evento: 'conv_irma' }] },
+          sublugares: [{ id: 'templo', nome: 'Templo da Aurora', genero: 'm', estab: 'templo', ao: 'ao', descricoes: ['Velas e silêncio.'] }] }),
+        lugar('mata', {})], rotas: [{ de: 'kor', para: 'mata', tipo: 'trilha', tempo: 1 }] }],
+    },
+  };
+  const c = buildContent(raw);
+  assert.equal(c.modo, 'autoral');
+  assert.deepEqual(validate(c).errors, []);
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'aut' });
+  const g = new Game(c, s);
+  assert.equal(s.local, 'kor');
+  assert.ok(s.cena.blocos.some((b) => b.texto === 'Kor cheira a pão e a medo.'), 'descrição da bíblia');
+  // A mata é de nível 0 e fora da região inicial: aparece, mas a viagem fica bloqueada.
+  const viagem = s.lugarOpcoes.find((o) => o.acao.tipo === 'viajar');
+  assert.ok(viagem.desativada && /mato/.test(viagem.dica));
+  // Sub-lugar: entra, vê a pessoa fixa e conversa (evento escrito, com fatos do lugar).
+  escolher(g, (o) => o.acao.tipo === 'sublugar');
+  assert.ok(s.cena.blocos.some((b) => b.texto === 'Velas e silêncio.'));
+  escolher(g, (o) => o.acao.tipo === 'conversa');
+  assert.equal(s.npcs[s.evento.npc].nome, 'Irmã Veyra');
+  assert.ok(s.cena.blocos.some((b) => b.texto.includes('A ponte caiu.')));
+  // Estabelecimentos do lugar = sub-lugares escritos (com o nome próprio).
+  assert.equal(s.estabs.kor[0].nome, 'Templo da Aurora');
+});
+
+test('classe de prestígio: abre no nível 3, aparece no descanso e aplica traço e bônus', async () => {
+  const { ganharXp } = await import('../public/src/engine/rules.js');
+  const c = fixture();
+  c.traits.p_teste = { id: 'p_teste', nome: 'Teste', descricao: '+1 em força.', mods: { forca: 1 } };
+  c.prestigios = [{ id: 'campeao', nome: { m: 'Campeão', f: 'Campeã' }, descricao: 'Escolhido.', classes: ['g'], minimo: {}, traco: 'p_teste', hp: 3, energia: 1 },
+    { id: 'outro', nome: { m: 'Outro', f: 'Outra' }, descricao: 'x', classes: ['nenhuma'], minimo: {}, traco: 'p_teste' }];
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'prest' });
+  const g = new Game(c, s);
+  const hp0 = s.heroi.hpBase;
+  g.begin(); ganharXp(g, 500); g.hub();
+  assert.ok(s.heroi.nivel >= 3 && s.heroi.prestigioPendente);
+  escolher(g, (o) => o.acao.tipo === 'prestigio');
+  assert.equal(s.cena.opcoes.filter((o) => o.acao.tipo === 'virar_prestigio').length, 1, 'só os prestígios da classe');
+  escolher(g, (o) => o.acao.tipo === 'virar_prestigio');
+  assert.equal(s.heroi.prestigio, 'campeao');
+  assert.ok(s.heroi.tracos.includes('p_teste'));
+  assert.equal(s.heroi.hpBase, hp0 + 3 * (s.heroi.nivel - 1) + 3);
+  assert.ok(!opcoesLugar(s).some((o) => o.acao.tipo === 'prestigio'));
+});
+
+test('nunca uma opção só: sub-lugar vazio e evento com uma saída ganham alternativa', () => {
+  const c = fixture();
+  c.events.push({ id: 'unica', tipo: 'exploracao', texto: 'Uma porta.', opcoes: [{ rotulo: 'Seguir em frente', resultado: { texto: 'ok' } },
+    { rotulo: 'Forçar', requer: { item_tag: 'pe_de_cabra' }, resultado: { texto: 'x' } }] });
+  c.eventMap.unica = c.events.at(-1);
+  const s = newState(c, { classe: 'g', nome: 'Ana', seed: 'um' });
+  const g = new Game(c, s);
+  g.begin(); g.eventScene(c.eventMap.unica);
+  assert.ok(s.cena.opcoes.length >= 2);
+  assert.ok(s.cena.opcoes.some((o) => o.desativada && /precisa/.test(o.dica)), 'opção trancada mostra o que falta');
 });

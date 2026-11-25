@@ -1,0 +1,9 @@
+{
+  "id": "vandor",
+  "nome": "Vandor (mundo autoral)",
+  "versao": "0.1.0",
+  "arquivos": [
+    "events",
+    "grammar"
+  ]
+}

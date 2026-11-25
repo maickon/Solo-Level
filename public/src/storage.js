@@ -21,6 +21,7 @@ export const PREFS_PADRAO = {
   vol: { master: 0.8, ambiente: 0.7, musica: 0.55, efeitos: 0.8 },
   voz: { on: false, auto: true, opcoes: false, voz: '', taxa: 1, motor: 'navegador', neural: 'pt_BR-faber-medium' },
   animar: true,
+  rolar: true, // o jogador rola os dados nos testes (em vez de rolar sozinho)
   tutorial: false,
 };
 export function prefs() {

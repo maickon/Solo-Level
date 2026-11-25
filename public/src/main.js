@@ -77,7 +77,7 @@ function titleScreen() {
   app.innerHTML = `
     <div class="screen title">
       <h1>SoloLevel</h1>
-      <p>Um mundo que se escreve enquanto você caminha.</p>
+      <p>${content.mundo ? `${esc(content.mundo.mundo.nome)} · ${esc(content.mundo.mundo.era)}` : 'Um mundo que se escreve enquanto você caminha.'}</p>
       <div class="stack">
         ${save ? `<button class="btn primary" data-act="continue">Continuar: ${esc(save.heroi.nome)}, dia ${save.dia}</button>` : ''}
         <button class="btn ${save ? '' : 'primary'}" data-act="new">Nova jornada</button>
@@ -112,6 +112,7 @@ function creationScreen() {
                 <span>Vida</span><b>${c.hp}</b><span>Energia</span><b>${c.energia}</b>
               </div>
               <p style="margin:10px 0 0">${(c.tracos || []).map((t) => `<b style="color:var(--exh)">${esc(content.traits[t]?.nome)}</b>: ${esc(content.traits[t]?.descricao)}`).join('<br>')}</p>
+              ${(() => { const ps = (content.prestigios || []).filter((p) => p.classes.includes(c.id)); return ps.length ? `<p class="prest">No nível 3: ${ps.map((p) => esc(p.nome[sel.genero] || p.nome.m)).join(', ')}</p>` : ''; })()}
             </button>`).join('')}
         </div>
         <div class="row seg">
@@ -152,7 +153,7 @@ function act(fn, newScene = true) {
   const prev = game.s.cena, antes = { blocos: prev?.blocos || [], modo: prev?.modo, local: game.s.local };
   const h0 = { hp: game.s.heroi.hp, ouro: game.s.heroi.ouro };
   fn();
-  const cur = game.s.cena, mudou = prev !== cur;
+  const cur = game.s.cena, mudou = prev !== cur && !cur.navegacao;
   if (newScene && prev && mudou && !game.s.morto) history = [...history, prev].slice(-1);
   persist();
   const cues = cuesFrom(antes, { blocos: cur.blocos, modo: cur.modo, local: game.s.local });
@@ -289,7 +290,7 @@ function ligarJogo(fresh) {
   app.querySelector('[data-act="menu"]').onclick = () => { narr.parar(); titleScreen(); };
   const ler = app.querySelector('[data-act="ler"]');
   if (ler) ler.onclick = () => lerCena();
-  app.querySelectorAll('[data-opt]').forEach((b) => (b.onclick = () => act(() => game.choose(+b.dataset.opt))));
+  app.querySelectorAll('[data-opt]').forEach((b) => (b.onclick = () => escolherOpcao(+b.dataset.opt)));
   app.querySelectorAll('#abas [data-tab]').forEach((b) => (b.onclick = () => { tab = b.dataset.tab; renderGame(); }));
   app.querySelectorAll('#navinf [data-tab]').forEach((b) => (b.onclick = () => {
     if (folhaAberta && tab === b.dataset.tab) folhaAberta = false; else { tab = b.dataset.tab; folhaAberta = true; }
@@ -299,7 +300,8 @@ function ligarJogo(fresh) {
   app.querySelectorAll('[data-equip]').forEach((b) => (b.onclick = () => act(() => game.equiparItem(+b.dataset.equip), false)));
   app.querySelectorAll('[data-drop]').forEach((b) => (b.onclick = () => act(() => game.descartarItem(+b.dataset.drop), false)));
   app.querySelectorAll('[data-abandon]').forEach((b) => (b.onclick = () => act(() => game.abandonarMissao(+b.dataset.abandon), false)));
-  app.querySelectorAll('.map').forEach(ligarMapa);
+  app.querySelectorAll('.map').forEach((m) => ligarMapa(m));
+  app.querySelectorAll('[data-act="mundi"]').forEach((b) => (b.onclick = abrirMundi));
   const nova = app.querySelector('[data-act="again"]');
   if (nova) nova.onclick = creationScreen;
   if (fresh) {
@@ -393,7 +395,7 @@ function fichaHtml() {
   return `
     <div class="retrato"><div class="selo">${esc(h.nome.charAt(0))}</div><div>
       <p class="hero-name">${esc(h.nome)}</p>
-      <div class="hero-sub">${esc(cls?.nome[h.genero] || '')} · nível ${h.nivel} · ${h.xp}/${xpParaNivel(h.nivel)} XP</div></div></div>
+      <div class="hero-sub">${esc(cls?.nome[h.genero] || '')}${h.prestigio ? ` · <b style="color:var(--accent)">${esc(content.prestigios.find((p) => p.id === h.prestigio)?.nome[h.genero] || '')}</b>` : ''} · nível ${h.nivel} · ${h.xp}/${xpParaNivel(h.nivel)} XP</div></div></div>
     <div class="atributos">${ATRIBUTOS.map((a) => `<div><b>${sinal(st.attrs[a])}</b><small>${ATTR_NOME[a]}</small></div>`).join('')}</div>
     <div class="kv">
       <span>Vida</span><span>${h.hp} / ${h.hpMax}</span>
@@ -468,14 +470,15 @@ function mapaAuto(nodes, atual) {
   if (extensao <= 110 || !atual) return { cx: (Math.max(...xs) + Math.min(...xs)) / 2, cy: (Math.max(...ys) + Math.min(...ys)) / 2, size: Math.max(36, extensao), max: Math.max(140, extensao) };
   return { cx: atual.x, cy: atual.y, size: 110, max: extensao + 20 };
 }
-const vbDe = (v) => `${(v.cx - v.size / 2).toFixed(2)} ${(v.cy - v.size / 2).toFixed(2)} ${v.size.toFixed(2)} ${v.size.toFixed(2)}`;
+const vbDe = (v) => { const r = v.r || 1; return `${(v.cx - v.size / 2).toFixed(2)} ${(v.cy - (v.size * r) / 2).toFixed(2)} ${v.size.toFixed(2)} ${(v.size * r).toFixed(2)}`; };
 
 /** Mapa com névoa: visitados com nome, vizinhos como "?", o resto oculto. Zoom, arrastar e clicar num vizinho para viajar. */
 function mapaHtml() {
   const s = game.s, visit = new Set(s.visitados), conhecidos = new Set(visit);
   for (const id of visit) for (const cx of conexoes(game, id)) conhecidos.add(cx.para);
   const viaveis = new Map();
-  if (s.cena.modo === 'local') s.cena.opcoes.forEach((o, i) => { if (o.acao.tipo === 'viajar') viaveis.set(o.acao.para, i); });
+  // Destinos de viagem disponíveis agora (o menu do lugar guarda todas as ações, mesmo as que estão em submenus).
+  if (s.cena.modo === 'local') (s.lugarOpcoes || s.cena.opcoes).forEach((o) => { if (o.acao.tipo === 'viajar' && !o.desativada) viaveis.set(o.acao.para, true); });
   const alvos = new Set(s.missoes.map((m) => (m.estado === 'cumprida' ? m.origem : m.destino)));
   const nodes = [...conhecidos].map((id) => game.loc(id)).filter((l) => l && l.x != null);
   const auto = mapaAuto(nodes, game.loc(s.local));
@@ -493,19 +496,21 @@ function mapaHtml() {
   const circles = nodes.map((l) => {
     const v = visit.has(l.id), atual = l.id === s.local, r = (l.gerado ? 2 : 2.8) * k;
     const cor = content.biomes[l.bioma]?.cor || COR_BIOMA[l.bioma] || '#a2978a';
-    const clic = viaveis.has(l.id) ? `data-maptravel="${viaveis.get(l.id)}" class="n-go"` : '';
+    const clic = viaveis.has(l.id) ? `data-maptravel="${esc(l.id)}" class="n-go"` : '';
+    const fechado = l.autoral && !l.jogavel; // terra ainda não construída: aparece, mas não se visita
     const rel = (l.x - (auto.cx - auto.size / 2)) / auto.size;
     const anchor = rel > 0.8 ? 'end' : rel < 0.2 ? 'start' : 'middle';
     const a = 1.4 * k;
     return `<g ${clic}>
       ${atual ? `<circle cx="${l.x}" cy="${l.y}" r="${r + 2.2 * k}" stroke-width="${(.6 * k).toFixed(2)}" class="n-atual"/>` : ''}
-      <circle cx="${l.x}" cy="${l.y}" r="${r}" fill="${v ? cor : 'none'}" stroke="${cor}" stroke-width="${(.6 * k).toFixed(2)}" ${v ? '' : 'stroke-dasharray="1 .8" opacity=".7"'}/>
+      <circle cx="${l.x}" cy="${l.y}" r="${r}" fill="${v ? cor : 'none'}" stroke="${fechado ? '#6b6258' : cor}" stroke-width="${(.6 * k).toFixed(2)}" ${v ? '' : `stroke-dasharray="1 .8" opacity="${fechado ? '.45' : '.7'}"`}/>
       ${alvos.has(l.id) ? `<path d="M${l.x + r + a / 2} ${l.y - r - 2 * a} l${a} ${a} -${a} ${a} -${a} -${a}z" class="n-alvo"/>` : ''}
-      <text x="${l.x}" y="${l.y + r + 3.4 * k}" font-size="${(2.7 * k).toFixed(2)}" text-anchor="${anchor}" stroke-width="${(.8 * k).toFixed(2)}" class="${v ? 'lbl' : 'lbl fog'}">${v ? esc(l.nome) : '?'}</text>
-      <title>${v ? esc(l.nome) : 'Inexplorado'}${viaveis.has(l.id) ? ' (clique para viajar)' : ''}</title></g>`;
+      <text x="${l.x}" y="${l.y + r + 3.4 * k}" font-size="${(2.7 * k).toFixed(2)}" text-anchor="${anchor}" stroke-width="${(.8 * k).toFixed(2)}" class="${v ? 'lbl' : 'lbl fog'}">${v ? esc(l.nome) : fechado ? '…' : '?'}</text>
+      <title>${v ? esc(l.nome) : fechado ? 'Terras ainda não mapeadas' : 'Inexplorado'}${viaveis.has(l.id) ? ' (clique para viajar)' : ''}</title></g>`;
   }).join('');
   const total = Object.keys(content.locations).length + Object.keys(s.locais).length;
-  return `<div class="sec" style="margin-top:0">Mundo conhecido · ${visit.size}/${total} locais visitados</div>
+  return `${content.mundo ? `<button class="btn primary mundi-btn" data-act="mundi">${icone('mapa')} Abrir o mapa-múndi de ${esc(content.mundo.mundo?.nome || 'Vandor')}</button>` : ''}
+    <div class="sec" style="margin-top:0">Mundo conhecido · ${visit.size}/${total} locais visitados</div>
     <div class="mapa-caixa">
       <svg class="map" viewBox="${vbDe(view)}" data-auto='${JSON.stringify(auto)}' role="img" aria-label="Mapa do mundo">${edges.join('')}${circles}</svg>
       <div class="mapa-ctl">
@@ -514,18 +519,18 @@ function mapaHtml() {
         <button class="ibtn" data-zoom="fit" title="Centralizar" aria-label="Centralizar">${icone('alvo')}</button>
       </div>
     </div>
-    <p class="maplegend"><span class="lg-cur"></span>você <span class="lg-q"></span>missão <span class="lg-fog"></span>inexplorado</p>
+    <p class="maplegend"><span class="lg-cur"></span>você <span class="lg-q"></span>missão <span class="lg-fog"></span>inexplorado${content.modo === 'autoral' ? ' · “…” terras ainda não mapeadas' : ''}</p>
     <p class="empty">${viaveis.size ? 'Toque num local vizinho para viajar. ' : ''}Arraste para mover; roda do mouse ou pinça para zoom.</p>`;
 }
 
 /** Zoom (roda/pinça/botões), arrastar e clique para viajar, sem redesenhar o painel. */
-function ligarMapa(svg) {
+function ligarMapa(svg, mem = { get: () => mapaView, set: (x) => (mapaView = x) }) {
   const auto = JSON.parse(svg.dataset.auto);
-  let v = { ...(mapaView || auto) };
-  const aplicar = () => { v.size = Math.max(14, Math.min(auto.max || 140, v.size)); mapaView = { ...v }; svg.setAttribute('viewBox', vbDe(v)); };
+  let v = { ...(mem.get() || auto) };
+  const aplicar = () => { v.size = Math.max(auto.min || 14, Math.min(auto.max || 140, v.size)); mem.set({ ...v }); svg.setAttribute('viewBox', vbDe(v)); };
   const ponto = (cx, cy) => { // tela → coordenadas do mapa
-    const r = svg.getBoundingClientRect();
-    return { x: v.cx - v.size / 2 + ((cx - r.left) / r.width) * v.size, y: v.cy - v.size / 2 + ((cy - r.top) / r.height) * v.size };
+    const r = svg.getBoundingClientRect(), h = v.size * (v.r || 1);
+    return { x: v.cx - v.size / 2 + ((cx - r.left) / r.width) * v.size, y: v.cy - h / 2 + ((cy - r.top) / r.height) * h };
   };
   const zoom = (f, cx, cy) => {
     const p = cx == null ? { x: v.cx, y: v.cy } : ponto(cx, cy);
@@ -544,7 +549,7 @@ function ligarMapa(svg) {
       if (!arrastou && Math.hypot(dx, dy) < 4) return;
       if (!arrastou) svg.setPointerCapture(e.pointerId);
       arrastou = true;
-      v.cx -= (dx / r.width) * v.size; v.cy -= (dy / r.height) * v.size; aplicar();
+      v.cx -= (dx / r.width) * v.size; v.cy -= (dy / r.height) * v.size * (v.r || 1); aplicar();
     }
     ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (ptrs.size === 2) {
@@ -557,12 +562,12 @@ function ligarMapa(svg) {
   svg.addEventListener('pointerup', soltar); svg.addEventListener('pointercancel', soltar);
   svg.querySelectorAll('[data-maptravel]').forEach((g) => (g.onclick = () => {
     if (arrastou) return;
-    act(() => game.choose(+g.dataset.maptravel));
+    act(() => game.agir({ tipo: 'viajar', para: g.dataset.maptravel }));
   }));
   const caixa = svg.closest('.mapa-caixa');
   caixa.querySelector('[data-zoom="in"]').onclick = () => zoom(1 / 1.3);
   caixa.querySelector('[data-zoom="out"]').onclick = () => zoom(1.3);
-  caixa.querySelector('[data-zoom="fit"]').onclick = () => { v = { ...auto }; mapaView = null; svg.setAttribute('viewBox', vbDe(v)); };
+  caixa.querySelector('[data-zoom="fit"]').onclick = () => { v = { ...auto }; mem.set(null); svg.setAttribute('viewBox', vbDe(v)); };
 }
 
 function diarioHtml() {
@@ -588,7 +593,11 @@ function compHtml(it) {
 const ABAS = { f: 'ficha', i: 'mochila', m: 'mapa', j: 'jornada', d: 'diario' };
 function teclado(e) {
   if (e.ctrlKey || e.metaKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
-  if (modal) { if (e.key === 'Escape') fecharModal(); return; }
+  if (modal) {
+    if (e.key === 'Escape') fecharModal();
+    else if (modal === 'rolagem' && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); document.querySelector('.modal [data-rolar]')?.click(); }
+    return;
+  }
   if (!game || !app.querySelector('.jogo')) return;
   const k = e.key.toLowerCase();
   if (/^[1-9]$/.test(k)) {
@@ -597,6 +606,95 @@ function teclado(e) {
   } else if (k === 'l') lerCena();
   else if (ABAS[k]) { if (ehCelular()) folhaAberta = !(folhaAberta && tab === ABAS[k]); tab = ABAS[k]; renderGame(); }
   else if (e.key === 'Escape' && folhaAberta) { folhaAberta = false; renderGame(); }
+}
+
+// ---------- Rolagem pelo jogador ----------
+/** Atributo testado por uma opção (ou null se não há teste). */
+function atributoDaOpcao(o) {
+  const t = o.acao?.tipo;
+  if (t === 'atacar') return game.stats().arma?.atributo || 'forca';
+  if (t === 'fugir') return 'agilidade';
+  if (t === 'negociar') return 'presenca';
+  return o.acao?.tipo === 'opcao' && o.teste ? o.teste : null; // atividades só testam na cena seguinte
+}
+function escolherOpcao(i) {
+  const o = game.s.cena.opcoes[i];
+  if (!o || o.desativada) return;
+  const attr = P.rolar === false ? null : atributoDaOpcao(o);
+  if (!attr) return act(() => game.choose(i));
+  const val = game.stats().attrs[attr] || 0, sinal = val >= 0 ? '+' : '−';
+  const el = abrirModal('rolagem', 'Hora de rolar', `
+    <p class="rol-acao">${esc(o.rotulo)}</p>
+    <div class="rol-mesa">${dadoHtml(1, false)}${dadoHtml(1, false)}</div>
+    <p class="rol-conta">2d6 ${sinal} ${ATTR_NOME[attr]} (${Math.abs(val)})</p>
+    <p class="rol-res"></p>
+    <p class="rol-legenda">10+ sucesso · 7–9 sucesso com custo · 6− falha · dois 6 crítico · dois 1 desastre</p>
+    <div class="rol-botoes"><button class="btn primary" data-rolar>${icone('dado')} Rolar os dados</button>
+      <button class="btn" data-close>Mudar de ideia</button></div>`);
+  el.querySelector('.modal').classList.add('rolar');
+  const mesa = el.querySelector('.rol-mesa'), btn = el.querySelector('[data-rolar]');
+  btn.onclick = () => {
+    btn.disabled = true; el.querySelector('[data-close]').disabled = true;
+    audio.play(['dado']);
+    let n = 0;
+    const giro = setInterval(() => { // só animação: o resultado vem do motor (determinístico)
+      mesa.innerHTML = dadoHtml(1 + Math.floor(Math.random() * 6), false) + dadoHtml(1 + Math.floor(Math.random() * 6), false);
+      mesa.classList.toggle('treme', ++n % 2 === 0);
+    }, P.animar ? 70 : 1);
+    setTimeout(() => {
+      clearInterval(giro);
+      act(() => game.choose(i));
+      const r = game.s.cena.blocos.find((b) => b.tipo !== 'texto' && b.d1 != null);
+      if (!r) return fecharModal();
+      mesa.innerHTML = dadoHtml(r.d1, false) + dadoHtml(r.d2, false);
+      mesa.classList.remove('treme');
+      const mod = r.mod ? ` ${r.mod > 0 ? '+' : '−'} ${Math.abs(r.mod)}` : '';
+      el.querySelector('.rol-conta').innerHTML = `${r.d1} + ${r.d2}${mod} = <b>${r.total}</b>`;
+      el.querySelector('.rol-res').innerHTML = `<span class="res ${r.classe}">${RES_ROTULO[r.classe] || ''}</span>`;
+      btn.disabled = false; btn.innerHTML = 'Ver o que acontece'; btn.removeAttribute('data-rolar');
+      btn.onclick = () => fecharModal();
+      btn.nextElementSibling.remove();
+      btn.focus();
+    }, P.animar ? 750 : 10);
+  };
+  btn.focus();
+}
+
+// ---------- Mapa-múndi ----------
+const CEL = 6; // tamanho da célula do terreno no SVG de fundo (tools/semente/mapa.mjs)
+let mundiView = null;
+function abrirMundi() {
+  const m = content.mundo, s = game.s, visit = new Set(s.visitados);
+  const W = m.mapa?.largura || 180, H = m.mapa?.altura || 110;
+  const lugares = Object.values(content.locations).filter((l) => l.autoral && l.x != null);
+  const P = (l) => [l.x * CEL + 3, l.y * CEL + 3];
+  const pts = lugares.map((l) => {
+    const [x, y] = P(l), v = visit.has(l.id), cap = l.tipoLugar === 'capital';
+    const cls = v ? 'm-vis' : l.jogavel ? 'm-con' : 'm-fech';
+    return `<g class="${cls}"><circle cx="${x}" cy="${y}" r="${v ? 4.2 : cap ? 3.4 : 2.2}"/>
+      ${v || cap ? `<text x="${x}" y="${y - 7}">${esc(l.nome)}</text>` : ''}
+      <title>${esc(l.nome)}${v ? ' · visitado' : l.jogavel ? '' : ' · terras ainda não mapeadas'}</title></g>`;
+  }).join('');
+  const aqui = game.loc(s.local);
+  const [ax, ay] = aqui?.x != null ? P(aqui) : [W * CEL / 2, H * CEL / 2];
+  const atual = `<g class="m-aqui"><circle cx="${ax}" cy="${ay}" r="14" class="onda"/><circle cx="${ax}" cy="${ay}" r="14" class="onda o2"/>
+    <circle cx="${ax}" cy="${ay}" r="5.5" class="ponto"/><title>Você está aqui: ${esc(aqui?.nome || '')}</title></g>`;
+  const auto = { cx: W * CEL / 2, cy: H * CEL / 2, size: W * CEL, r: H / W, max: W * CEL * 1.1, min: 90 };
+  const reinos = new Set(lugares.filter((l) => visit.has(l.id)).map((l) => l.reino)).size;
+  const el = abrirModal('mundi', `Mapa-múndi de ${m.mundo?.nome || 'Vandor'}`, `
+    <p class="mundi-info">${visit.size} de ${lugares.length} lugares visitados · ${reinos} de ${m.reinos.length} reinos pisados · o mundo é vasto.</p>
+    <div class="mapa-caixa">
+      <svg class="map mundi" viewBox="${vbDe(mundiView || auto)}" data-auto='${JSON.stringify(auto)}' role="img" aria-label="Mapa-múndi">
+        <image href="data/mundo/mapa.svg" x="0" y="0" width="${W * CEL}" height="${H * CEL}"/>${pts}${atual}</svg>
+      <div class="mapa-ctl">
+        <button class="ibtn" data-zoom="in" title="Aproximar" aria-label="Aproximar">+</button>
+        <button class="ibtn" data-zoom="out" title="Afastar" aria-label="Afastar">−</button>
+        <button class="ibtn" data-zoom="fit" title="Mundo inteiro" aria-label="Mundo inteiro">${icone('alvo')}</button>
+      </div>
+    </div>
+    <p class="maplegend"><span class="lg-cur"></span>você (piscando) <span class="lg-vis"></span>visitado <span class="lg-con"></span>ainda não visitado <span class="lg-fech"></span>terras ainda não mapeadas</p>`);
+  el.querySelector('.modal').classList.add('largo');
+  ligarMapa(el.querySelector('svg.mundi'), { get: () => mundiView, set: (x) => (mundiView = x) });
 }
 
 // ---------- Janelas: ajustes e tutorial ----------
@@ -674,6 +772,7 @@ function abrirAjustes() {
     <div class="sec">Narração</div>${narracao}
     <div class="sec">Texto</div>
     ${check('animar', 'Animar texto e efeitos na tela', P.animar)}
+    ${check('rolar', 'Eu mesmo rolo os dados nos testes', P.rolar !== false)}
     <div class="row" style="justify-content:space-between;margin:16px 0 0">
       <button class="btn" data-acao="tutorial">Como jogar</button><button class="btn primary" data-close>Pronto</button></div>`);
 
@@ -684,6 +783,7 @@ function abrirAjustes() {
       const val = inp.type === 'checkbox' ? inp.checked : inp.type === 'range' ? +inp.value : inp.value;
       if (inp.type === 'range') inp.nextElementSibling.textContent = val;
       if (grupo === 'audio') { if (val !== audio.on) toggleAudio(); return; }
+      if (grupo === 'rolar') { salvarPrefs({ rolar: val }); return; }
       if (grupo === 'animar') { salvarPrefs({ animar: val }); if (game && app.querySelector('.jogo')) renderGame(); return; }
       if (grupo === 'vol') { const vol = { ...P.vol, [chave]: val / 100 }; salvarPrefs({ vol }); audio.setVolumes(vol); return; }
       if (grupo === 'voz') {

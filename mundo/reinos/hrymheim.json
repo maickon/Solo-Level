@@ -1,0 +1,432 @@
+{
+  "id": "hrymheim",
+  "nome": "Assembleia de Pedra de Hrymheim",
+  "letra": "f",
+  "tipo": "reino",
+  "governo": "Assembleia de Pedra",
+  "cultura": "jotunar",
+  "povo": "gigantes",
+  "capital": "hrim",
+  "descricao": "Assembleia de Pedra do povo Jotunar de gigantes, com fortalezas de gelo e pedra em escala descomunal. Valorizam antiguidade, força, promessas eternas e cultuam Astara, os ancestrais e a memória.",
+  "tensao": "Disputas internas pela sucessão.",
+  "relacoes": {
+    "kaldheim": "neutralidade"
+  },
+  "economia": {
+    "produz": [
+      "peles",
+      "âmbar",
+      "madeira",
+      "caça",
+      "ferro"
+    ],
+    "precisa": [
+      "vinho",
+      "ervas raras",
+      "madeira encantada"
+    ],
+    "parceiros": [
+      "silmare",
+      "ashgra",
+      "cinzar"
+    ]
+  },
+  "territorio": {
+    "celulas": 372,
+    "centro": {
+      "x": 164,
+      "y": 34
+    }
+  },
+  "nivel": 0,
+  "revisado": false,
+  "lugares": [
+    {
+      "nivel": 0,
+      "id": "hrim",
+      "nome": "Hrim",
+      "genero": "f",
+      "tipo": "capital",
+      "categoria": "povoado",
+      "reino": "hrymheim",
+      "x": 161,
+      "y": 23,
+      "bioma": "tundra",
+      "cultura": "jotunar",
+      "porto": false,
+      "conceito": "Capital de Hrymheim: fortalezas de gelo e pedra em escala descomunal.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "jotunard",
+      "nome": "Jotunard",
+      "genero": "f",
+      "tipo": "cidade",
+      "categoria": "povoado",
+      "reino": "hrymheim",
+      "x": 165,
+      "y": 35,
+      "bioma": "planicie",
+      "cultura": "jotunar",
+      "porto": false,
+      "conceito": "Cidade jotunar de comércio e intrigas, conhecida por caça.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "utgar",
+      "nome": "Utgar",
+      "genero": "f",
+      "tipo": "aldeia",
+      "categoria": "povoado",
+      "reino": "hrymheim",
+      "x": 171,
+      "y": 41,
+      "bioma": "floresta",
+      "cultura": "jotunar",
+      "porto": false,
+      "conceito": "Aldeia pequena e desconfiada de estranhos.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "kall",
+      "nome": "Kall",
+      "genero": "f",
+      "tipo": "cidade",
+      "categoria": "povoado",
+      "reino": "hrymheim",
+      "x": 154,
+      "y": 20,
+      "bioma": "tundra",
+      "cultura": "jotunar",
+      "porto": false,
+      "conceito": "Cidade jotunar de comércio e intrigas, conhecida por âmbar.",
+      "perigo": 0,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "arvore_ancestral_da_serpente",
+      "nome": "Árvore Ancestral da Serpente",
+      "genero": "f",
+      "plural": false,
+      "tipo": "arvore",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 169,
+      "y": 32,
+      "bioma": "floresta_antiga",
+      "porto": false,
+      "conceito": "Os locais evitam o lugar depois do anoitecer.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "lago_congelado_das_sombras",
+      "nome": "Lago Congelado das Sombras",
+      "genero": "m",
+      "plural": false,
+      "tipo": "lago",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 170,
+      "y": 28,
+      "bioma": "tundra",
+      "porto": false,
+      "conceito": "Um lugar que parece observar quem chega.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "circulo_de_pedras_do_trovao",
+      "nome": "Círculo de Pedras do Trovão",
+      "genero": "m",
+      "plural": false,
+      "tipo": "circulo",
+      "categoria": "ruina",
+      "reino": "hrymheim",
+      "x": 160,
+      "y": 36,
+      "bioma": "planicie",
+      "porto": false,
+      "conceito": "Restos de algo que já foi grande.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "campos_sombrios",
+      "nome": "Campos Sombrios",
+      "genero": "m",
+      "plural": true,
+      "tipo": "campo",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 162,
+      "y": 32,
+      "bioma": "planicie",
+      "porto": false,
+      "conceito": "Lugar de beleza perigosa.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "pico_partido",
+      "nome": "Pico Partido",
+      "genero": "m",
+      "plural": false,
+      "tipo": "pico",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 164,
+      "y": 48,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Poucos passam por aqui sem um bom motivo.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "planicie_gelada_das_nevoas",
+      "nome": "Planície Gelada das Névoas",
+      "genero": "f",
+      "plural": false,
+      "tipo": "planicie_gelada",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 160,
+      "y": 18,
+      "bioma": "tundra",
+      "porto": false,
+      "conceito": "Os locais evitam o lugar depois do anoitecer.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "fortaleza_caida_dourada",
+      "nome": "Fortaleza Caída Dourada",
+      "genero": "f",
+      "plural": false,
+      "tipo": "fortaleza",
+      "categoria": "ruina",
+      "reino": "hrymheim",
+      "x": 158,
+      "y": 42,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Restos de algo que já foi grande.",
+      "perigo": 3,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "santuario_das_nevoas",
+      "nome": "Santuário das Névoas",
+      "genero": "m",
+      "plural": false,
+      "tipo": "santuario",
+      "categoria": "ruina",
+      "reino": "hrymheim",
+      "x": 167,
+      "y": 43,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Restos de algo que já foi grande.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "monolitos_dos_gigantes",
+      "nome": "Monólitos dos Gigantes",
+      "genero": "m",
+      "plural": true,
+      "tipo": "monolito",
+      "categoria": "ruina",
+      "reino": "hrymheim",
+      "x": 165,
+      "y": 28,
+      "bioma": "tundra",
+      "porto": false,
+      "conceito": "Restos de algo que já foi grande.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "bosque_da_rainha_afogada",
+      "nome": "Bosque da Rainha Afogada",
+      "genero": "m",
+      "plural": false,
+      "tipo": "bosque",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 172,
+      "y": 47,
+      "bioma": "floresta",
+      "porto": false,
+      "conceito": "Os locais evitam o lugar depois do anoitecer.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "circulo_feerico_gelado",
+      "nome": "Círculo Feérico Gelado",
+      "genero": "m",
+      "plural": false,
+      "tipo": "circulo",
+      "categoria": "ruina",
+      "reino": "hrymheim",
+      "x": 166,
+      "y": 39,
+      "bioma": "floresta_antiga",
+      "porto": false,
+      "conceito": "Dizem que algo antigo ainda guarda o lugar.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "passo_das_almas",
+      "nome": "Passo das Almas",
+      "genero": "m",
+      "plural": false,
+      "tipo": "passo",
+      "categoria": "natureza",
+      "reino": "hrymheim",
+      "x": 161,
+      "y": 44,
+      "bioma": "montanha",
+      "porto": false,
+      "conceito": "Um lugar que parece observar quem chega.",
+      "perigo": 2,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "monolitos_do_eco",
+      "nome": "Monólitos do Eco",
+      "genero": "m",
+      "plural": true,
+      "tipo": "monolito",
+      "categoria": "ruina",
+      "reino": "hrymheim",
+      "x": 152,
+      "y": 23,
+      "bioma": "tundra",
+      "porto": false,
+      "conceito": "Saqueadores vêm aqui; nem todos voltam.",
+      "perigo": 2,
+      "revisado": false
+    }
+  ],
+  "rotas": [
+    {
+      "de": "jotunard",
+      "para": "utgar",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "jotunard",
+      "para": "hrim",
+      "tipo": "trilha",
+      "tempo": 3
+    },
+    {
+      "de": "hrim",
+      "para": "kall",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "arvore_ancestral_da_serpente",
+      "para": "jotunard",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "lago_congelado_das_sombras",
+      "para": "arvore_ancestral_da_serpente",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "circulo_de_pedras_do_trovao",
+      "para": "jotunard",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "campos_sombrios",
+      "para": "jotunard",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "pico_partido",
+      "para": "utgar",
+      "tipo": "passo",
+      "tempo": 2
+    },
+    {
+      "de": "planicie_gelada_das_nevoas",
+      "para": "hrim",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "fortaleza_caida_dourada",
+      "para": "circulo_de_pedras_do_trovao",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "santuario_das_nevoas",
+      "para": "utgar",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "monolitos_dos_gigantes",
+      "para": "lago_congelado_das_sombras",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "bosque_da_rainha_afogada",
+      "para": "utgar",
+      "tipo": "trilha",
+      "tempo": 2
+    },
+    {
+      "de": "circulo_feerico_gelado",
+      "para": "jotunard",
+      "tipo": "trilha",
+      "tempo": 1
+    },
+    {
+      "de": "passo_das_almas",
+      "para": "fortaleza_caida_dourada",
+      "tipo": "passo",
+      "tempo": 1
+    },
+    {
+      "de": "monolitos_do_eco",
+      "para": "kall",
+      "tipo": "trilha",
+      "tempo": 1
+    }
+  ]
+}

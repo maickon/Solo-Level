@@ -1,0 +1,192 @@
+{
+  "ald_rua_cornvale": [
+    "Carroças rangem sobre as pedras da praça, e o rio Claro corre baixo e turvo.",
+    "O cheiro de pão e de estrume se mistura ao fumo das torres da fundição.",
+    "Gente de avental passa depressa, de cabeça baixa, sem querer ser vista conversando.",
+    { "t": "A chuva escorre das ardósias e faz do calçamento um espelho sujo.", "tags": ["chuva"], "peso": 2 },
+    { "t": "A névoa do rio Claro sobe pelas vielas e engole os telhados.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "O vento do rio traz um cheiro de peixe que ninguém quer nomear.", "tags": ["vento"], "peso": 2 },
+    { "t": "Padeiros abrem as portas, e o pão quente briga com o fumo da fundição.", "tags": ["manha"] },
+    { "t": "A praça de grãos zumbe de vozes, e ninguém olha por muito tempo para o sul.", "tags": ["tarde"] },
+    { "t": "Lampiões fracos pontuam as vielas, e o sino da guarda marca uma hora sem vida.", "tags": ["noite"] },
+    { "t": "Só os gatos e a guarda ainda andam pelas ruas de ardósia de Cornvale.", "tags": ["madrugada"] }
+  ],
+  "ald_cheiro_forja": [
+    "O ar vibra com cheiro de carvão, suor e metal derretido.",
+    "Faíscas morrem no chão de terra batida, uma atrás da outra.",
+    "O calor bate no rosto como a porta de um forno aberta de repente.",
+    "A prata derretida corre num fio claro, e por um instante a oficina inteira se ilumina.",
+    "Um foles ofega no canto, sem pressa, como um animal grande dormindo.",
+    { "t": "Lá fora a chuva chia ao tocar o telhado quente da fundição.", "tags": ["chuva"] },
+    { "t": "A luz tênue da manhã entra pelas frestas e faz as brasas parecerem mais vivas.", "tags": ["manha"] },
+    { "t": "O dia pesa, e o calor do trabalho se soma ao da tarde.", "tags": ["tarde"] }
+  ],
+  "ald_gesto_taberneiro": [
+    "O taberneiro enxuga uma caneca que já estava limpa.",
+    "O taberneiro apoia os cotovelos no balcão e finge não ouvir ninguém.",
+    "O taberneiro conta moedas com um olho nas mesas.",
+    "O taberneiro pigarreia, e metade da sala baixa a voz.",
+    "O taberneiro deixa um jarro à sua frente sem dizer uma palavra.",
+    "Atrás do balcão, o taberneiro troca um olhar rápido com alguém no fundo da sala.",
+    { "t": "O taberneiro apaga duas velas para poupar, e o salão fica mais fundo.", "tags": ["noite"] }
+  ],
+  "ald_som_taverna": [
+    "Canecas batem, dados rolam, e alguém ri alto demais.",
+    "Um alaúde desafinado tenta animar o canto da sala.",
+    "A lenha estala na lareira, e as sombras dançam nas vigas escuras.",
+    "Passos pesados vão e vêm no assoalho, entre murmúrios cortados.",
+    { "t": "A chuva bate nas janelas, e o salão cheira a lã molhada.", "tags": ["chuva"], "peso": 2 },
+    { "t": "A noite enche a taverna: cada mesa guarda um segredo e uma dívida.", "tags": ["noite"], "peso": 2 },
+    { "t": "Poucos fregueses, muito silêncio, e o cheiro de ontem ainda nas tábuas.", "tags": ["tarde"] }
+  ],
+  "ald_vento_passo": [
+    "O vento corre pela garganta de pedra e assobia em dois tons.",
+    "Pedriscos rolam encosta abaixo, e o eco demora a devolvê-los.",
+    "Lá embaixo, o rio brilha como uma lâmina, longe demais para ser ouvido.",
+    { "t": "Uma rajada gelada empurra você contra a rocha.", "tags": ["vento"], "peso": 2 },
+    { "t": "A chuva escorre pela rocha escura e faz a pedra brilhar como couro molhado.", "tags": ["chuva"], "peso": 2 },
+    { "t": "A névoa se arrasta pelo vão e engole o outro lado do caminho.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "Flocos de neve giram no vão e somem sem tocar o fundo.", "tags": ["neve"], "peso": 2 },
+    { "t": "O sol da manhã tinge o topo das cristas, e o vale ainda dorme na sombra.", "tags": ["manha"] },
+    { "t": "A luz baixa da tarde alonga as sombras das pedras até o abismo.", "tags": ["tarde"] },
+    { "t": "No escuro, o vento parece falar com voz de gente.", "tags": ["noite"], "peso": 2 }
+  ],
+  "ald_eco_mina": [
+    "Gotas caem em algum ponto distante, e o eco as conta devagar.",
+    "Madeira velha geme nos esteios, como se segurasse o peso da colina com esforço.",
+    "O ar parado tem gosto de ferro e de sal, e fica mais frio a cada passo.",
+    "Um trilho enferrujado range sozinho, como se um vagão invisível passasse.",
+    "Sua respiração volta pelas paredes um instante depois, como se outra pessoa a repetisse.",
+    "Algo escorre pela rocha, devagar, e o chão sob as botas está úmido.",
+    "Ao longe, o eco de uma picareta bate duas vezes e para."
+  ],
+  "ald_luz_templo": [
+    "A luz do vitral cai sobre o altar em uma faixa dourada.",
+    "Velas pequenas tremem diante do sol de bronze, uma por cada pedido.",
+    "O incenso sobe em fios lentos e se perde nas vigas.",
+    { "t": "A luz da manhã atravessa o vitral e pinta o piso de âmbar.", "tags": ["manha"], "peso": 2 },
+    { "t": "A luz da tarde se alonga pelas naves, cansada e dourada.", "tags": ["tarde"], "peso": 2 },
+    { "t": "Só as velas iluminam o templo; o sol de bronze brilha como um olho aberto.", "tags": ["noite"], "peso": 2 },
+    { "t": "A chuva tamborila nos vitrais, e a nave inteira cheira a pedra molhada.", "tags": ["chuva"], "peso": 2 }
+  ],
+  "ald_sinal_sal": [
+    "Um gosto de sal, vindo de lugar nenhum, pousa na sua língua.",
+    "Você sente na boca um sabor de maré, a léguas de qualquer mar.",
+    "Há um resíduo branco nas pedras, fino como geada, que não derrete.",
+    "O ar tem um frescor úmido que não combina com a terra firme.",
+    "Uma crosta de sal brilha onde nada deveria brilhar.",
+    "Por um instante, o cheiro do mar passa e se vai, como se alguém tivesse aberto uma porta distante.",
+    { "t": "Na névoa, o cheiro de maré fica tão forte que parece haver ondas por perto.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "A chuva traz um gosto salgado, e você enxuga o rosto com a manga.", "tags": ["chuva"], "peso": 2 }
+  ],
+  "ald_olhar_receoso": [
+    "Olhares nervosos varrem o lugar antes que alguém fale.",
+    "Duas pessoas por perto se calam quando você olha.",
+    "Alguém no canto faz o sinal do sol e desvia o rosto.",
+    "O silêncio ao redor tem o peso de um assunto proibido.",
+    "Uma porta fecha com um estalo seco, perto demais para ser acaso.",
+    "Você sente que cada palavra dita aqui será repetida amanhã em outro lugar."
+  ],
+  "ald_praca_ruido": [
+    "Sacos de grão passam de mão em mão, e as contagens se misturam em vozes cansadas.",
+    "Crianças correm entre as bancas, desviando de cestos e de repreensões.",
+    "Pombos sobem num estalo de asas e voltam a pousar nas pedras da fonte.",
+    "O sino da guilda dá a hora, e metade da praça finge não ter ouvido.",
+    { "t": "Os pregões de manhã abrem o dia com voz rouca e preço alto.", "tags": ["manha"] },
+    { "t": "A praça se esvazia devagar, e as bancas fecham com ruído de tábuas.", "tags": ["tarde"] },
+    { "t": "A chuva espanta os fregueses, e os vendedores se encolhem sob lonas encharcadas.", "tags": ["chuva"], "peso": 2 }
+  ],
+  "ald_forte_cena": [
+    "O sino marca o turno da guarda, uma pancada grave que desce até o pátio.",
+    "Botas de ferro cruzam o pátio em passo medido, sem uma única palavra.",
+    "Um soldado afia a lança sentado num barril, de olho no portão.",
+    "O cheiro de couro e de sopa rala paira sobre o forte.",
+    { "t": "O vento frio das colinas sacode os estandartes remendados da muralha.", "tags": ["vento"], "peso": 2 },
+    { "t": "A neblina cola nas pedras e esconde o vigia no alto da torre.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "As tochas da muralha acendem uma a uma, e as sombras ganham dentes.", "tags": ["noite"], "peso": 2 },
+    { "t": "O dia mal começou, e a guarda já parece cansada.", "tags": ["manha"] }
+  ],
+  "ald_valmont_cena": [
+    "Sinos de bronze respondem uns aos outros pelas muralhas de pedra cinzenta.",
+    "Botas de ferro batem nas lajes, e todo mundo caminha de queixo erguido.",
+    "Estandartes do sol de Demar pendem imóveis nas torres.",
+    "O cheiro de incenso e de cavalos sobe pelas vielas de enxaimel.",
+    { "t": "A névoa da montanha se agarra às torres, e os estandartes somem nela.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "Na luz da tarde, as muralhas em degraus parecem uma escada para um céu fechado.", "tags": ["tarde"] },
+    { "t": "A noite cai sobre Valmont, e as tochas dos cavaleiros desenham linhas no escuro.", "tags": ["noite"], "peso": 2 }
+  ],
+  "ald_colina_vento": [
+    "O vento nos pastos tem um timbre que lembra respiração.",
+    "Os montes se erguem como ombros de gente adormecida, e a grama se curva em ondas lentas.",
+    "Uma pedra do tamanho de uma casa projeta sombra comprida sobre você.",
+    "Ovelhas distantes baliam, e nenhuma delas se aproxima dos montes.",
+    { "t": "A névoa baixa transforma os montes em dorsos de animais enormes, quase vivos.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "A chuva fina encharca o pasto, e o chão fofo cede um pouco a cada passo.", "tags": ["chuva"], "peso": 2 },
+    { "t": "No escuro, os montes parecem se mexer quando você desvia o olhar.", "tags": ["noite"], "peso": 2 },
+    { "t": "O sol baixo alonga as sombras dos montes até que se toquem.", "tags": ["tarde"] }
+  ],
+  "ald_circulo_ar": [
+    "O ar entre as pedras pesa, quente de um jeito que o sol não explica.",
+    "Nenhum inseto zumbe aqui, e nenhuma ave pousa nos monólitos vermelhos.",
+    "A grama vai até a beira do círculo e para, como se tivesse medo.",
+    "Um cheiro de ferro e de sal sobe da terra, fundo e frio.",
+    "Os liquens negros crescem das bases para cima, em dedos finos.",
+    { "t": "No fim do dia, as pedras vermelhas parecem brasas apagadas há pouco.", "tags": ["tarde"] },
+    { "t": "Sob a luz da lua, o vermelho se desfaz, e só resta a pele escura das pedras.", "tags": ["noite"], "peso": 2 }
+  ],
+  "ald_pico_vista": [
+    "O vento corta como faca, e o topo do mundo parece ao alcance da mão.",
+    "Os arcos de pedra emolduram o céu como janelas sem parede.",
+    "Lajes lisas guardam marcas de sol gastas por séculos de olhos atentos.",
+    "Daqui o vale vira um mapa, e as estradas, fios soltos.",
+    { "t": "A manhã clara estica o horizonte até onde a vista dói.", "tags": ["manha", "limpo"], "peso": 2 },
+    { "t": "A névoa cobre o vale, e o pico parece uma ilha em um mar de leite.", "tags": ["nevoa"], "peso": 2 },
+    { "t": "Nuvens escuras se juntam no leste, e o ar tem cheiro de tempestade longínqua.", "tags": ["chuva"], "peso": 2 },
+    { "t": "O sol baixo tinge as ruínas de ouro velho, e o leste fica escuro demais.", "tags": ["tarde"] }
+  ],
+  "ald_caverna_frio": [
+    "Um frio úmido sai da boca da caverna e se agarra às suas roupas.",
+    "O eco devolve passos que não são os seus.",
+    "Uma corrente de ar sussurra pela rocha, e por um segundo parece uma palavra.",
+    "Velas apagadas, ossos limpos e o gotejar lento de algo que escorre.",
+    "A escuridão aqui tem textura, e a sua luz mal consegue arranhá-la.",
+    "O ar tem cheiro de concha e de mar, e o mar está a dias de distância."
+  ],
+  "ald_beco_noite": [
+    "O beco cheira a lixo molhado e a pele de gato.",
+    "Sombras se movem nas janelas altas, e nenhuma delas é sua.",
+    "Uma goteira marca o compasso no escuro, tique, tique, tique.",
+    "Passos se afastam numa viela paralela e se calam de repente.",
+    { "t": "A chuva lava as pedras do beco, e a água escorre para um bueiro que gorgoleja.", "tags": ["chuva"], "peso": 2 },
+    { "t": "A névoa engole os lampiões, e o beco vira um corredor de pano cinza.", "tags": ["nevoa"], "peso": 2 }
+  ],
+  "ald_estado_heroi": [
+    { "m": "inteiro e atento", "f": "inteira e atenta" },
+    { "m": "com os ombros tensos", "f": "com os ombros tensos" },
+    { "m": "mais cauteloso do que antes", "f": "mais cautelosa do que antes" },
+    { "m": "com a mão perto da arma", "f": "com a mão perto da arma" },
+    { "m": "calado e pensativo", "f": "calada e pensativa" },
+    { "m": "com o pulso ainda acelerado", "f": "com o pulso ainda acelerado" }
+  ],
+  "ald_fecho_aldwick": [
+    "Algo no ar de Aldwick pede cuidado.",
+    "O reino parece guardar um segredo que ainda não quis contar.",
+    "Você guarda o que viu; em Aldwick, o que se sabe vale mais que o que se tem.",
+    "Há coisas que um juramento não alcança, e você começa a perceber quais.",
+    "O mar está longe, mas o recado dele já chegou até aqui.",
+    ""
+  ],
+  "ald_estabulo": [
+    "O cheiro de feno e de couro velho deixa o ar espesso e quente.",
+    "Cascos batem na madeira, e o cavalariço assobia uma canção sem letra.",
+    "Um gato dorme em cima de um fardo, indiferente aos cavalos.",
+    "A luz entra em tiras pelas frestas e dourando a poeira."
+  ],
+  "ald_ar_muralha": [
+    "O vento da muralha traz o cheiro de pedra fria e de lenha queimada.",
+    "O parapeito está gelado sob as mãos, e o horizonte é uma linha escura.",
+    { "t": "A noite sem lua faz do vale um poço sem fundo.", "tags": ["noite"], "peso": 2 },
+    { "t": "A madrugada é azulada e imóvel, e o forte inteiro parece prender a respiração.", "tags": ["madrugada"], "peso": 2 },
+    { "t": "A névoa sobe do vale e lambe as pedras da muralha.", "tags": ["nevoa"], "peso": 2 }
+  ]
+}

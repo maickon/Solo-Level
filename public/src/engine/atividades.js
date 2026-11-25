@@ -13,6 +13,12 @@ export function estabelecimentos(g, local = g.c.location(g.s)) {
   const s = g.s;
   if (!local || local.tags?.includes('poi')) return [];
   if (s.estabs[local.id]) return s.estabs[local.id];
+  // Lugar com sub-lugares escritos (nível ≥ 2): eles são os estabelecimentos, com nomes e personagens fixos.
+  if (local.sublugares?.length) {
+    s.estabs[local.id] = local.sublugares.filter((x) => x.estab).map((x) => ({ id: x.estab, sub: x.id, nome: x.nome, rotulo: x.rotulo || x.estab,
+      genero: x.genero || 'm', artigo: x.artigo ?? true }));
+    return s.estabs[local.id];
+  }
   const tags = new Set(local.tags || []);
   const fixos = new Set(local.estabelecimentos || []);
   const cat = g.c.estabelecimentos.filter((e) => fixos.has(e.id) || (e.em || []).some((t) => tags.has(t)));

@@ -78,5 +78,232 @@
   "mods": {
    "energiaMax": 1
   }
+ },
+ {
+  "id": "furia",
+  "nome": "Fúria",
+  "descricao": "+1 em força e +3 de vida máxima; −1 em mente.",
+  "mods": {
+   "forca": 1,
+   "hpMax": 3,
+   "mente": -1
+  }
+ },
+ {
+  "id": "voz_encantadora",
+  "nome": "Voz Encantadora",
+  "descricao": "+1 em presença.",
+  "mods": {
+   "presenca": 1
+  }
+ },
+ {
+  "id": "fe_inabalavel",
+  "nome": "Fé Inabalável",
+  "descricao": "+2 de vida máxima e +1 em presença.",
+  "mods": {
+   "hpMax": 2,
+   "presenca": 1
+  }
+ },
+ {
+  "id": "filho_da_terra",
+  "nome": "Filho da Terra",
+  "descricao": "+1 em mente e +1 de energia máxima.",
+  "mods": {
+   "mente": 1,
+   "energiaMax": 1
+  }
+ },
+ {
+  "id": "corpo_disciplinado",
+  "nome": "Corpo Disciplinado",
+  "descricao": "+1 de defesa e +1 em agilidade.",
+  "mods": {
+   "defesa": 1,
+   "agilidade": 1
+  }
+ },
+ {
+  "id": "aura_de_coragem",
+  "nome": "Aura de Coragem",
+  "descricao": "+1 em presença e +1 de defesa.",
+  "mods": {
+   "presenca": 1,
+   "defesa": 1
+  }
+ },
+ {
+  "id": "maos_leves",
+  "nome": "Mãos Leves",
+  "descricao": "+1 em agilidade.",
+  "mods": {
+   "agilidade": 1
+  }
+ },
+ {
+  "id": "sangue_arcano",
+  "nome": "Sangue Arcano",
+  "descricao": "+2 de energia máxima.",
+  "mods": {
+   "energiaMax": 2
+  }
+ },
+ {
+  "id": "pacto_sombrio",
+  "nome": "Pacto Sombrio",
+  "descricao": "+1 de dano; −1 de vida máxima.",
+  "mods": {
+   "dano": 1,
+   "hpMax": -1
+  }
+ },
+ {
+  "id": "p_flecha_arcana",
+  "nome": "Flecha Arcana",
+  "descricao": "+1 em agilidade e +1 de dano.",
+  "mods": {
+   "agilidade": 1,
+   "dano": 1
+  }
+ },
+ {
+  "id": "p_golpe_furtivo",
+  "nome": "Golpe Furtivo",
+  "descricao": "+2 de dano.",
+  "mods": {
+   "dano": 2
+  }
+ },
+ {
+  "id": "p_lamina_e_feitico",
+  "nome": "Lâmina e Feitiço",
+  "descricao": "+1 em força e +1 em mente.",
+  "mods": {
+   "forca": 1,
+   "mente": 1
+  }
+ },
+ {
+  "id": "p_baluarte",
+  "nome": "Baluarte",
+  "descricao": "+2 de defesa e +4 de vida máxima.",
+  "mods": {
+   "defesa": 2,
+   "hpMax": 4
+  }
+ },
+ {
+  "id": "p_passo_sombrio",
+  "nome": "Passo nas Sombras",
+  "descricao": "+2 em agilidade.",
+  "mods": {
+   "agilidade": 2
+  }
+ },
+ {
+  "id": "p_alta_arcana",
+  "nome": "Alta Arcana",
+  "descricao": "+2 em mente e +2 de energia máxima.",
+  "mods": {
+   "mente": 2,
+   "energiaMax": 2
+  }
+ },
+ {
+  "id": "p_hierofania",
+  "nome": "Hierofania",
+  "descricao": "+1 em mente, +1 em presença e +2 de vida máxima.",
+  "mods": {
+   "mente": 1,
+   "presenca": 1,
+   "hpMax": 2
+  }
+ },
+ {
+  "id": "p_saber_antigo",
+  "nome": "Saber Antigo",
+  "descricao": "+2 em mente.",
+  "mods": {
+   "mente": 2
+  }
+ },
+ {
+  "id": "p_dois_caminhos",
+  "nome": "Dois Caminhos",
+  "descricao": "+1 em mente, +1 em presença, +1 de energia máxima.",
+  "mods": {
+   "mente": 1,
+   "presenca": 1,
+   "energiaMax": 1
+  }
+ },
+ {
+  "id": "p_esgrima",
+  "nome": "Esgrima",
+  "descricao": "+1 em agilidade e +1 de defesa.",
+  "mods": {
+   "agilidade": 1,
+   "defesa": 1
+  }
+ },
+ {
+  "id": "p_frenesi",
+  "nome": "Frenesi",
+  "descricao": "+2 em força e +2 de dano; −1 de defesa.",
+  "mods": {
+   "forca": 2,
+   "dano": 2,
+   "defesa": -1
+  }
+ },
+ {
+  "id": "p_campeao",
+  "nome": "Campeão Sagrado",
+  "descricao": "+1 em força, +1 em presença e +3 de vida máxima.",
+  "mods": {
+   "forca": 1,
+   "presenca": 1,
+   "hpMax": 3
+  }
+ },
+ {
+  "id": "p_horizonte",
+  "nome": "Pés do Horizonte",
+  "descricao": "+1 em agilidade, +1 em mente e +1 de energia máxima.",
+  "mods": {
+   "agilidade": 1,
+   "mente": 1,
+   "energiaMax": 1
+  }
+ },
+ {
+  "id": "p_feras",
+  "nome": "Laço das Feras",
+  "descricao": "+1 em presença, +1 em agilidade e +2 de vida máxima.",
+  "mods": {
+   "presenca": 1,
+   "agilidade": 1,
+   "hpMax": 2
+  }
+ },
+ {
+  "id": "p_patrono",
+  "nome": "Voz do Patrono",
+  "descricao": "+2 em presença e +1 de dano.",
+  "mods": {
+   "presenca": 2,
+   "dano": 1
+  }
+ },
+ {
+  "id": "p_mestre_espada",
+  "nome": "Mestre de Armas",
+  "descricao": "+1 em força, +1 em agilidade e +1 de dano.",
+  "mods": {
+   "forca": 1,
+   "agilidade": 1,
+   "dano": 1
+  }
  }
 ]

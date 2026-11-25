@@ -75,7 +75,8 @@ for (let p = 0; p < PARTIDAS; p++) {
     const ok = cena.opcoes.map((o, i) => (o.desativada ? -1 : i)).filter((i) => i >= 0);
     if (!ok.length) { conta(r.problemas, `beco sem saída no modo ${cena.modo}`, s.evento?.id); break; }
     // Laço: a mesma cena (texto + opções) repetida 6 vezes seguidas.
-    const assinatura = cena.modo + cena.opcoes.map((o) => o.rotulo).join('|');
+    // Laço = mesma cena sem o tempo passar (descansar várias vezes seguidas não é laço).
+    const assinatura = `${s.dia}-${s.periodo}|` + cena.modo + cena.opcoes.map((o) => o.rotulo).join('|');
     ultimas.push(assinatura); if (ultimas.length > 6) ultimas.shift();
     if (ultimas.length === 6 && ultimas.every((x) => x === assinatura) && cena.modo !== 'combate') { r.lacos++; conta(r.avisos, `laco: mesma cena 6× seguidas (${cena.modo})`, assinatura.slice(0, 120)); }
     // Cura quando ferido (como um jogador sensato); senão, escolhe pelo estilo.
@@ -107,12 +108,17 @@ const media = (l) => (l.length ? (l.reduce((a, b) => a + b, 0) / l.length).toFix
 const nuncaEventos = content.events.filter((ev) => !r.eventos.has(ev.id) && ev.tipo !== 'fio').map((ev) => `${ev.id} (${ev.tipo})`);
 const atvs = content.events.filter((ev) => ev.tipo === 'atividade');
 const top = (map, n) => [...map].sort((a, b) => b[1].n - a[1].n).slice(0, n);
+// Conteúdo autoral: eventos ligados a um lugar (requer.local) ou a uma pessoa fixa da bíblia.
+const autorais = new Set(content.events.filter((e) => e.requer?.local && content.locations[[e.requer.local].flat()[0]]).map((e) => e.id));
+for (const l of Object.values(content.locations)) for (const p of l.biblia?.pessoas || []) if (p.evento) autorais.add(p.evento);
+const autoraisNunca = [...autorais].filter((id) => !r.eventos.has(id));
 const linhas = [
   `# Playtest — ${PARTIDAS} partidas × até ${TURNOS} turnos (semente "${SEMENTE}")`, '',
   `- Turnos jogados: ${r.turnos} · mortes: ${r.mortes}/${PARTIDAS} · dia médio da morte: ${media(r.diasMorte)} · nível máx: ${r.nivelMax}`,
   `- Ouro final médio: ${media(r.ouroFinal)} · laços detectados: ${r.lacos}`,
   `- Variedade: ${r.textos.size} textos distintos de ${totalTextos} (${totalTextos ? Math.round((r.textos.size / totalTextos) * 100) : 0}%)`,
   `- Eventos alcançados: ${r.eventos.size}/${content.events.length} · atividades escolhidas: ${[...r.atividades.keys()].length}/${atvs.length}`,
+  `- Autorais alcançados: ${autorais.size - autoraisNunca.length}/${autorais.size}${autoraisNunca.length ? ` · nunca: ${autoraisNunca.join(', ')}` : ''}`,
   `- Mundo: ${media(r.regioesPorPartida)} regiões geradas por partida · modelos vistos ${r.regioes.size}/${(content.regioes || []).length} · masmorras achadas ${r.masmorras} · biomas visitados ${r.biomas.size}/${Object.keys(content.biomes).length}`,
   `- Modelos de região nunca gerados: ${(content.regioes || []).filter((m) => !r.regioes.has(m.id)).map((m) => m.id).join(', ') || 'nenhum'}`, '',
   '## Por estilo de jogador', '| estilo | partidas | mortes | nível médio | dia médio |', '|---|---|---|---|---|',

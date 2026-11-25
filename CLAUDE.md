@@ -9,6 +9,7 @@ servidor: ES modules puros, zero dependências, conteúdo em JSON, hospedado no 
 - `npm run validate`: só conteúdo + simulação (bot joga ~4000 turnos procurando textos quebrados e estados inválidos)
 - `npm run playtest`: 120 partidas com 6 estilos de robô; relatório em `reports/playtest.md` e cenas para revisão em `reports/amostras.md`
 - `npm run qa`: check + playtest. `npm run ui`: teste no navegador real (com `npm run dev` rodando)
+- `npm run mundo:gerar|mapa|validar|relatorio|exportar|painel`: Semente do Mundo em `mundo/`; `exportar` leva ao jogo (ver `docs/SEMENTE.md`; como pedir conteúdo: `docs/GUIA_AUTORIA.md`)
 - `npm run deploy`: Firebase Hosting (requer `firebase login` e `firebase use <projeto>`)
 
 ## Mapa
@@ -22,7 +23,8 @@ servidor: ES modules puros, zero dependências, conteúdo em JSON, hospedado no 
 - `public/src/visual/`: `cenario.js` fundo animado por bioma/período/clima (canvas, semente = id do local),
   `icones.js` ícones SVG e dados. Layout de jogo em `public/css/jogo.css` (HUD, palco, painel, folhas no celular).
 - `public/data/packs/<id>/`: pacotes de conteúdo. **Contrato: `docs/CONTENT_SCHEMA.md`.**
-- `tools/`: validador e simulação (Node). `tests/`: `node:test`.
+- `tools/`: validador e simulação (Node); `tools/semente/` gerador, mapa e validador da Semente do Mundo. `tests/`: `node:test`.
+- `mundo/`: Semente do Mundo (fonte da verdade do mundo autoral; editar à mão depois de curada, nunca regerar por cima).
 - `docs/ARCHITECTURE.md`: decisões e fluxo de cena.
 
 ## Regras do projeto

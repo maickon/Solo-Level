@@ -21,8 +21,29 @@ export function registrarNpc(g, dados) {
 }
 
 /** Vincula um NPC a um evento: reencontro (mesmo local e ofício) ou um novo. */
+/** Registra (uma vez) as pessoas notáveis da bíblia do local como NPCs fixos. */
+export function pessoasFixas(g, local = g.c.location(g.s)) {
+  const s = g.s, out = [];
+  for (const p of local?.biblia?.pessoas || []) {
+    const id = `fixo_${local.id}_${p.id}`;
+    s.npcs[id] ||= { id, nome: p.nome, genero: p.genero || 'm', oficio: p.oficio, temperamento: p.temperamento || null, local: local.id,
+      disposicao: 0, encontros: 0, desde: s.dia, fixo: true, sublugar: p.sublugar || null, rotina: p.rotina || null };
+    out.push(s.npcs[id]);
+  }
+  return out;
+}
+/** A pessoa está no sub-lugar agora? (rotina = lista de períodos; sem rotina, está sempre). */
+export const presente = (npc, periodo) => !npc.rotina || npc.rotina.includes(periodo);
+
 export function vincularNpc(g, spec = {}) {
   const s = g.s;
+  // Pessoa fixa do lugar com o ofício pedido: quase sempre é ela (o mundo autoral tem rostos conhecidos).
+  const fixas = pessoasFixas(g).filter((n) => (!spec.oficios?.length || spec.oficios.includes(n.oficio)) && presente(n, s.periodo));
+  if (fixas.length && g.rng.chance(0.85)) {
+    const npc = g.rng.pick(fixas), novo = npc.encontros === 0;
+    npc.encontros++; npc.visto = s.dia;
+    return { npc, novo };
+  }
   const todos = g.c.npcs.oficios.map((o) => o.id);
   const oficios = spec.oficios?.length ? spec.oficios.filter((o) => todos.includes(o)) : todos;
   const conhecidos = Object.values(s.npcs).filter((n) => n.local === s.local && oficios.includes(n.oficio));

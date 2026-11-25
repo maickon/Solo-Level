@@ -1,0 +1,73 @@
+{
+  "id": "ilhas_perdidas",
+  "nome": "Ilhas Perdidas",
+  "letra": "u",
+  "tipo": "ilhas",
+  "governo": "Terra sem lei",
+  "cultura": null,
+  "povo": null,
+  "capital": null,
+  "descricao": "Ilhas sem rei, refúgio de piratas, exilados e coisas que preferem não ser vistas.",
+  "tensao": "Ninguém manda aqui; todos cobiçam.",
+  "relacoes": {},
+  "economia": {
+    "produz": [
+      "peles",
+      "âmbar"
+    ],
+    "precisa": []
+  },
+  "territorio": {
+    "celulas": 21,
+    "centro": {
+      "x": 46,
+      "y": 21
+    }
+  },
+  "nivel": 0,
+  "revisado": false,
+  "lugares": [
+    {
+      "nivel": 0,
+      "id": "refugio_das_cinzas",
+      "nome": "Refúgio das Cinzas",
+      "genero": "m",
+      "tipo": "refugio",
+      "categoria": "povoado",
+      "reino": "ilhas_perdidas",
+      "x": 43,
+      "y": 20,
+      "bioma": "tundra",
+      "cultura": null,
+      "porto": true,
+      "conceito": "Refúgio de piratas e náufragos, sem lei e sem perguntas.",
+      "perigo": 1,
+      "revisado": false
+    },
+    {
+      "nivel": 0,
+      "id": "lago_congelado_silencioso",
+      "nome": "Lago Congelado Silencioso",
+      "genero": "m",
+      "plural": false,
+      "tipo": "lago",
+      "categoria": "natureza",
+      "reino": "ilhas_perdidas",
+      "x": 47,
+      "y": 22,
+      "bioma": "tundra",
+      "porto": false,
+      "conceito": "Lugar de beleza perigosa.",
+      "perigo": 2,
+      "revisado": false
+    }
+  ],
+  "rotas": [
+    {
+      "de": "lago_congelado_silencioso",
+      "para": "refugio_das_cinzas",
+      "tipo": "trilha",
+      "tempo": 1
+    }
+  ]
+}

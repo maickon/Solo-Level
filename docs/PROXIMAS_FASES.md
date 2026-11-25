@@ -1,5 +1,8 @@
 # Próximas fases (proposta)
 
+> **Atualização:** a direção do mundo passou a ser o **Mundo Autoral** finito, a partir de uma Semente do Mundo.
+> Ver `docs/MUNDO_AUTORAL.md`. A seção A abaixo foi implementada (v0.7) e agora muda de papel.
+
 ## A. Mundo vasto e infinito (crítica direta: poucos tipos de lugar)
 Hoje: 10 locais fixos + pontos de interesse. Proposta: **regiões procedurais sem fim**.
 - **Fronteira**: locais na borda do mapa têm caminhos para "terras desconhecidas". Viajar até lá gera uma

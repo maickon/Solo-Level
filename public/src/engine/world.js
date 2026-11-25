@@ -22,7 +22,8 @@ export function distancias(g, origem) {
   while (fila.length) {
     const atual = fila.shift();
     for (const cx of conexoes(g, atual)) {
-      if (!dist.has(cx.para) && loc(g, cx.para)) { dist.set(cx.para, dist.get(atual) + 1); fila.push(cx.para); }
+      const d = loc(g, cx.para);
+      if (!dist.has(cx.para) && d && !(d.autoral && !d.jogavel)) { dist.set(cx.para, dist.get(atual) + 1); fila.push(cx.para); }
     }
   }
   return dist;
@@ -31,6 +32,7 @@ export function distancias(g, origem) {
 /** Tenta descobrir um POI no local atual. Retorna o novo local ou null. */
 export function descobrirPoi(g) {
   const s = g.s, atual = g.c.location(s);
+  if (g.c.modo === 'autoral') return null; // mundo autoral: os lugares vêm da Semente, não surgem do nada
   if (atual.tags?.includes('poi') || atual.tags?.includes('masmorra') || atual.tags?.includes('seguro') || !g.c.pois.length) return null;
   const filhos = Object.values(s.locais).filter((l) => l.pai === atual.id);
   if (filhos.length >= MAX_POIS_POR_LOCAL || !g.rng.chance(CHANCE_POI)) return null;

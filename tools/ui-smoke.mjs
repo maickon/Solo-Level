@@ -62,12 +62,23 @@ await shot('3-jogo.png');
 const st = await ev(`JSON.stringify({audioOn: document.querySelector('[data-act="audio"]').innerText, prefs: JSON.parse(localStorage.getItem('sololevel.prefs'))})`);
 console.log(st);
 // Joga: prefere explorar/lutar; usa poção quando ferida.
-let combatShot = false, marketShot = false, invShot = false;
+let combatShot = false, marketShot = false, invShot = false, rolShot = false, umaSo = 0;
 for (let t = 0; t < 200; t++) {
+  // Teste pede rolagem ao jogador: rola, vê o resultado e fecha.
+  if (await ev(`!!document.querySelector('.modal.rolar')`)) {
+    if (!rolShot) await shot('13-rolar.png');
+    await ev(`document.querySelector('.modal [data-rolar]')?.click()`); await wait(1000);
+    if (!rolShot) { await shot('13b-rolar-resultado.png'); rolShot = true; }
+    if (!(await ev(`!!document.querySelector('.rol-res .res')`))) errors.push('rolagem sem resultado');
+    await ev(`document.querySelector('.modal-bg [data-close], .modal .btn.primary')?.click()`); await wait(200);
+    await ev(`document.querySelector('.modal-bg')?.remove()`);
+    continue;
+  }
   const info = await ev(`(() => { const b=[...document.querySelectorAll('.cartao.atual [data-opt]:not([disabled])')]; return { n:b.length, labels:b.map(x=>x.innerText), dead: !!document.querySelector('[data-act="again"]'), foe: !!document.querySelector('.inimigo') }; })()`);
   if (info.dead) { await shot('6-morte.png'); break; }
   if (info.foe && !combatShot) { combatShot = true; await shot('4-combate.png'); }
   if (!info.n) { errors.push('sem opções clicáveis'); break; }
+  if (await ev(`document.querySelectorAll('.cartao.atual [data-opt]').length`) === 1) umaSo++;
   const labels = info.labels;
   let idx = labels.findIndex((l) => /^Visitar o mercado/.test(l));
   if (idx >= 0 && !marketShot) { await ev(`document.querySelectorAll('.cartao.atual [data-opt]:not([disabled])')[${idx}].click()`); await wait(150); await shot('5-mercado.png'); marketShot = true; continue; }
@@ -104,6 +115,13 @@ for (let t = 0; t < 200; t++) {
   if (t === 30) { await ev(`document.querySelector('#abas [data-tab="mochila"]').click()`); await wait(100); await shot('7b-comparar.png'); }
 }
 await shot('8-final.png');
+if (umaSo) errors.push(`${umaSo} cena(s) com uma opção só`);
+// Mapa-múndi: abre, captura e fecha.
+await ev(`document.querySelector('#abas [data-tab="mapa"]').click()`); await wait(200);
+await ev(`document.querySelector('[data-act="mundi"]')?.click()`); await wait(900);
+if (!(await ev(`!!document.querySelector('svg.mundi .m-aqui')`))) errors.push('mapa-múndi sem marcador de posição');
+await shot('14-mundi.png');
+await ev(`document.querySelector('.modal [data-close]')?.click()`); await wait(200);
 await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
 await ev(`window.scrollTo(0,0)`); await wait(600);
 await shot('9-mobile.png');
